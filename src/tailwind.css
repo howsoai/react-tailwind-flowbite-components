@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: Inter, system-ui, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+
+    --brand-primary: 226 70% 55%;
+    --brand-purple: 252 56% 57%;
+    --brand-blue: 206 100% 50%;
+    --brand-charcoal: 0 0% 13%;
+  }
+  @supports (font-variation-settings: normal) {
+    :root {
+      font-family: "Inter var", system-ui, sans-serif;
+    }
+  }
+}
+
+@layer components {
+  /* Horizontal divider using gradient */
+  .section-divider {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      theme("colors.gray.200") 20%,
+      theme("colors.gray.200") 80%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  .section-divider-dark {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      theme("colors.gray.700") 20%,
+      theme("colors.gray.700") 80%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  /* Prevent hover bolding from increasing size of container */
+  .bold-hover-fix::after {
+    content: attr(data-text);
+    content: attr(data-text) / "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    user-select: none;
+    pointer-events: none;
+    font-weight: theme("fontWeight.bold");
+
+    @media speech {
+      display: none;
+    }
+  }
+}
