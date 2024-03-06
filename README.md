@@ -65,3 +65,8 @@ you may run this command to publish a new package:
 ```bash
 npm publish
 ```
+
+### Chromatic
+
+[Chromatic](https://www.chromatic.com/builds?appId=65e891231e1f8c382a2b9636) is used to review changes on this project.
+You may [invite yourself](https://www.chromatic.com/start?inviteToken=chpi_9775e3a5c6b04820a9fbca99c35baf86&appId=65e891231e1f8c382a2b9636) to the project.
