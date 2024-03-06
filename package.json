@@ -69,7 +69,6 @@
     "jest-environment-jsdom": "^29.6.1",
     "jest-transform-stub": "^2.0.0",
     "lint-staged": "^11.2.3",
-    "lorem-ipsum": "^2.0.8",
     "prettier": "^2.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

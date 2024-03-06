@@ -60,7 +60,7 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: '21.x'
-        registry-url: ${{ secrets.JFROG_URL }}/artifactory/npm-edge
+        registry-url: ${{ secrets.JFROG_URL }}/artifactory/npm-remote
 
     - name: Set package version
       run: |
@@ -70,6 +70,8 @@ jobs:
       run: |
         npm ci
         npm run build
+        # Use npm-edge for publishing
+        npm config set registry ${{  secrets.JFROG_URL }}/artifactory/npm-edge
         npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.JFROG_ACCESS_TOKEN }}
