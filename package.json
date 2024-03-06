@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc -p ./tsconfig.build.json",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic --auto-accept-changes --project-token chpt_cac2204652baa79",
+    "chromatic": "chromatic  --exit-zero-on-changes",
     "lint": "tsc --noEmit && eslint --ext .js,.jsx,.ts,.tsx src/ --color",
     "prebuild": "rimraf lib/*",
     "pre-commit": "lint-staged",
