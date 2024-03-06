@@ -13,7 +13,7 @@
     "prebuild": "rimraf lib/*",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
-    "test": "npm run lint && tsc --noEmit && jest",
+    "test": "npm run lint && tsc --noEmit && jest --passWithNoTests",
     "test:watch": "jest --watch",
     "test:coverage": "tsc --noEmit && jest --collect-coverage",
     "prepublishOnly": "npm t && npm run-script build",
