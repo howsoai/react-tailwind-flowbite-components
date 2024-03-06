@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Paragraph } from "./Paragraph";
-import { loremIpsum } from "lorem-ipsum";
+import { Paragraph } from ".";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Paragraph> = {
@@ -15,7 +14,7 @@ const meta: Meta<typeof Paragraph> = {
   argTypes: {},
   args: {
     marginBottom: false,
-    children: <>{loremIpsum()}</>,
+    children: <>Lorem ipsum dolor sit amet</>,
   },
 };
 

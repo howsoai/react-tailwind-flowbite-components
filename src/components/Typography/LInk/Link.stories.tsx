@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Link } from "./Link";
-import { loremIpsum } from "lorem-ipsum";
+import { Link } from ".";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Link> = {
@@ -15,7 +14,12 @@ const meta: Meta<typeof Link> = {
   argTypes: {},
   args: {
     href: "https://www.howso.com/",
-    children: <>{loremIpsum()}</>,
+    children: (
+      <>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </>
+    ),
   },
 };
 
