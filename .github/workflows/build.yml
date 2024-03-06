@@ -17,7 +17,6 @@ defaults:
     shell: bash
 
 jobs:
-
   metadata:
     uses: howsoai/.github/.github/workflows/set-metadata.yml@main
     secrets: inherit
@@ -25,7 +24,7 @@ jobs:
       build-type: ${{ inputs.build-type }}
       optional-release-tag: ${{ inputs.optional-release-tag }}
 
-  chromatic:
+  npm-test:
     # Regression testing
     runs-on: ubuntu-latest
     steps:
@@ -37,16 +36,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Publish to Chromatic
-        uses: chromaui/action@latest
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          zip: true
+      - name: Test
+        run: npm run test
 
   release:
     needs:
       - metadata
-      - chromatic
+      - npm-test
     if: inputs.build-type == 'release'
     environment:
       name: Artifactory
@@ -54,34 +50,33 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
 
-    - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "21.x"
+          registry-url: ${{ secrets.JFROG_URL }}/artifactory/npm-remote
 
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '21.x'
-        registry-url: ${{ secrets.JFROG_URL }}/artifactory/npm-remote
+      - name: Set package version
+        run: |
+          sed -i "s|\"version\": \"0.0.0\"|\"version\": \"${{ needs.metadata.outputs.version }}\"|g" ./package.json
 
-    - name: Set package version
-      run: |
-        sed -i "s|\"version\": \"0.0.0\"|\"version\": \"${{ needs.metadata.outputs.version }}\"|g" ./package.json
+      - name: Build and publish Node package
+        run: |
+          npm ci
+          npm run build
+          # Use npm-edge for publishing
+          npm config set registry ${{  secrets.JFROG_URL }}/artifactory/npm-edge
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.JFROG_ACCESS_TOKEN }}
 
-    - name: Build and publish Node package
-      run: |
-        npm ci
-        npm run build
-        # Use npm-edge for publishing
-        npm config set registry ${{  secrets.JFROG_URL }}/artifactory/npm-edge
-        npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.JFROG_ACCESS_TOKEN }}
-
-    - name: Create Release
-      uses: ncipollo/release-action@v1
-      with:
-        tag: ${{ needs.metadata.outputs.version }}
-        commit: ${{ github.sha }}
-        name: "${{ github.event.repository.name }} ${{ needs.metadata.outputs.version }}"
-        artifactErrorsFailBuild: true
-        generateReleaseNotes: true
-        makeLatest: legacy
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ needs.metadata.outputs.version }}
+          commit: ${{ github.sha }}
+          name: "${{ github.event.repository.name }} ${{ needs.metadata.outputs.version }}"
+          artifactErrorsFailBuild: true
+          generateReleaseNotes: true
+          makeLatest: legacy
