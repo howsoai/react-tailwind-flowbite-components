@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc -p ./tsconfig.build.json",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic --auto-accept-changes --project-token {token}",
+    "chromatic": "chromatic --auto-accept-changes --project-token chpt_cac2204652baa79",
     "lint": "tsc --noEmit && eslint --ext .js,.jsx,.ts,.tsx src/ --color",
     "prebuild": "rimraf lib/*",
     "pre-commit": "lint-staged",
@@ -60,7 +60,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.0.2",
     "autoprefixer": "^10.4.18",
-    "chromatic": "^6.1.0",
+    "chromatic": "^6.24.1",
     "eslint": "^8.5.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-storybook": "^0.6.12",
