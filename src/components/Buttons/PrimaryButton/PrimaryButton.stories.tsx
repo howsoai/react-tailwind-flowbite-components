@@ -15,21 +15,31 @@ const meta: Meta<typeof PrimaryButton> = {
   args: {},
   render: (args) => (
     <div className="flex gap-2">
-      <PrimaryButton {...args} size={"xs"}>
-        xs
-      </PrimaryButton>
-      <PrimaryButton {...args} size={"sm"}>
-        sm
-      </PrimaryButton>
-      <PrimaryButton {...args} size={"md"}>
-        md
-      </PrimaryButton>
-      <PrimaryButton {...args} size={"lg"}>
-        lg
-      </PrimaryButton>
-      <PrimaryButton {...args} size={"xl"}>
-        xl
-      </PrimaryButton>
+      <div>
+        <PrimaryButton {...args} size={"xs"}>
+          xs
+        </PrimaryButton>
+      </div>
+      <div>
+        <PrimaryButton {...args} size={"sm"}>
+          sm
+        </PrimaryButton>
+      </div>
+      <div>
+        <PrimaryButton {...args} size={"md"}>
+          md
+        </PrimaryButton>
+      </div>
+      <div>
+        <PrimaryButton {...args} size={"lg"}>
+          lg
+        </PrimaryButton>
+      </div>
+      <div>
+        <PrimaryButton {...args} size={"xl"}>
+          xl
+        </PrimaryButton>
+      </div>
     </div>
   ),
 };
@@ -47,12 +57,16 @@ export const States: Story = {
   args: {},
   render: (args) => (
     <div className="flex gap-2">
-      <PrimaryButton {...args} disabled>
-        Disabled
-      </PrimaryButton>
-      <PrimaryButton {...args} isProcessing>
-        Processing
-      </PrimaryButton>
+      <div>
+        <PrimaryButton {...args} disabled>
+          Disabled
+        </PrimaryButton>
+      </div>
+      <div>
+        <PrimaryButton {...args} isProcessing>
+          Processing
+        </PrimaryButton>
+      </div>
     </div>
   ),
 };
@@ -61,15 +75,21 @@ export const Colors: Story = {
   args: {},
   render: (args) => (
     <div className="flex gap-2">
-      <PrimaryButton {...args} color="failure">
-        Disabled
-      </PrimaryButton>
-      <PrimaryButton {...args} color="warning">
-        Disabled
-      </PrimaryButton>
-      <PrimaryButton {...args} color="success">
-        Processing
-      </PrimaryButton>
+      <div>
+        <PrimaryButton {...args} color="failure">
+          Disabled
+        </PrimaryButton>
+      </div>
+      <div>
+        <PrimaryButton {...args} color="warning">
+          Disabled
+        </PrimaryButton>
+      </div>
+      <div>
+        <PrimaryButton {...args} color="success">
+          Processing
+        </PrimaryButton>
+      </div>
     </div>
   ),
 };
