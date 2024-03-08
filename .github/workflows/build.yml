@@ -63,12 +63,20 @@ jobs:
         run: |
           sed -i "s|\"version\": \"0.0.0\"|\"version\": \"${{ needs.metadata.outputs.version }}\"|g" ./package.json
 
-      - name: Build and publish Node package
+      - name: Build Node package
         run: |
           npm ci
           npm run build
-          # Use npm-edge for publishing
-          npm config set registry ${{  secrets.JFROG_URL }}/artifactory/npm-edge
+          # Remove .npmrc so that we can easily change registries to npm-edge (for publishing)
+          rm -f .npmrc
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "21.x"
+          registry-url: ${{ secrets.JFROG_URL }}/artifactory/npm-edge
+
+      - name: Publish Node package
+        run: |
           npm publish
 
       - name: Create Release
