@@ -63,7 +63,7 @@ jobs:
         run: |
           sed -i "s|\"version\": \"0.0.0\"|\"version\": \"${{ needs.metadata.outputs.version }}\"|g" ./package.json
 
-      - name: Build Node package
+      - name: Build and publish Node package
         run: |
           npm ci
           npm run build
@@ -73,7 +73,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "21.x"
-          registry-url: ${{ secrets.JFROG_URL }}/artifactory/npm-edge
+          registry-url: ${{ secrets.JFROG_URL }}/artifactory/api/npm/npm-edge/
 
       - name: Publish Node package
         run: |

@@ -1,5 +1,5 @@
 {
-  "name": "@howso/react-tailwind-flowbit-components",
+  "name": "@howso/react-tailwind-flowbite-components",
   "version": "0.0.0",
   "description": "Provides display components for React Tailwind Flowbite applications",
   "main": "lib/index.js",
@@ -19,6 +19,9 @@
     "prepublishOnly": "npm t && npm run-script build",
     "storybook": "storybook dev -p 6006",
     "prepack": "npm run build"
+  },
+  "publishConfig": {
+    "registry":"https://dpbuild.jfrog.io/artifactory/api/npm/npm-edge/"
   },
   "repository": {
     "type": "git",
