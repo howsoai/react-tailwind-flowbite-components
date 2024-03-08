@@ -49,6 +49,8 @@ jobs:
     permissions:
       contents: write
     runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.JFROG_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -68,8 +70,6 @@ jobs:
           # Use npm-edge for publishing
           npm config set registry ${{  secrets.JFROG_URL }}/artifactory/npm-edge
           npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.JFROG_ACCESS_TOKEN }}
 
       - name: Create Release
         uses: ncipollo/release-action@v1
