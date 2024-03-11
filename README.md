@@ -20,14 +20,15 @@ Your home directory must contain a `.npmrc` file pointing to the Azure DevOps ar
 Standard package installation makes imports available:
 
 ```bash
-npm i @howso/react-tailwind-flowbit-components
+npm i @howso/react-tailwind-flowbite-components
 ```
 
-Fonts must be installed in your application directly. They are installed here only for Storybook support.
+Import the styles and fonts must be installed in your application directly.
 
 ```ts
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/700.css";
+import "@howso/react-tailwind-flowbite-components/lib/styles.css";
 ```
 
 ## Contributing

@@ -49,6 +49,8 @@ jobs:
     permissions:
       contents: write
     runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.JFROG_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -65,11 +67,17 @@ jobs:
         run: |
           npm ci
           npm run build
-          # Use npm-edge for publishing
-          npm config set registry ${{  secrets.JFROG_URL }}/artifactory/npm-edge
+          # Remove .npmrc so that we can easily change registries to npm-edge (for publishing)
+          rm -f .npmrc
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "21.x"
+          registry-url: ${{ secrets.JFROG_URL }}/artifactory/api/npm/npm-edge/
+
+      - name: Publish Node package
+        run: |
           npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.JFROG_ACCESS_TOKEN }}
 
       - name: Create Release
         uses: ncipollo/release-action@v1
