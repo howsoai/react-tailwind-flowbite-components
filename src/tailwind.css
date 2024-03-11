@@ -27,40 +27,4 @@
 }
 
 @layer components {
-  /* Horizontal divider using gradient */
-  .section-divider {
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      theme("colors.gray.200") 20%,
-      theme("colors.gray.200") 80%,
-      rgba(255, 255, 255, 0) 100%
-    );
-  }
-  .section-divider-dark {
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      theme("colors.gray.700") 20%,
-      theme("colors.gray.700") 80%,
-      rgba(255, 255, 255, 0) 100%
-    );
-  }
-
-  /* Prevent hover bolding from increasing size of container */
-  .bold-hover-fix::after {
-    content: attr(data-text);
-    content: attr(data-text) / "";
-    display: block;
-    height: 0;
-    visibility: hidden;
-    overflow: hidden;
-    user-select: none;
-    pointer-events: none;
-    font-weight: theme("fontWeight.bold");
-
-    @media speech {
-      display: none;
-    }
-  }
 }
