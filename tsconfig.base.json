@@ -3,7 +3,6 @@
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
-    "declarationDir": "./lib",
     "esModuleInterop": false,
     "outDir": "./lib",
     "forceConsistentCasingInFileNames": true,
