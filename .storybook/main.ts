@@ -15,5 +15,12 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   staticDirs: ["../public"], //👈 Configures the static asset folder in Storybook
+  refs: {
+    flowbite: {
+      title: "Flowbite",
+      url: "https://storybook.flowbite-react.com/",
+      expanded: false, // Optional, true by default
+    },
+  },
 };
 export default config;
