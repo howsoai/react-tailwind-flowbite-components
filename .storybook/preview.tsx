@@ -8,7 +8,7 @@ import "@fontsource/inter/500.css";
 import "@fontsource/inter/700.css";
 import "../src/tailwind.css";
 import { standardFlowbiteTheme } from "../src/themes/index";
-import { Flowbite } from "flowbite-react";
+import { Flowbite, ThemeMode } from "flowbite-react";
 
 const light = {
   name: "Light",
@@ -39,19 +39,25 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story: StoryFn, context) => (
-      <Flowbite
-        theme={{
-          theme: standardFlowbiteTheme,
-          mode:
-            context.globals.backgrounds?.value === dark.value
-              ? "dark"
-              : "light",
-        }}
-      >
-        <Story />
-      </Flowbite>
-    ),
+    (Story: StoryFn, context) => {
+      const mode: ThemeMode =
+        context.globals.backgrounds?.value === dark.value ? "dark" : "light";
+      console.info(context.globals.backgrounds?.value, dark.value, mode);
+
+      // Flowbite likes to store your preference in local storage, not what we're doing here.
+      localStorage.removeItem("flowbite-theme-mode");
+      if (mode === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      return (
+        <Flowbite theme={{ theme: standardFlowbiteTheme, mode: "light" }}>
+          <Story />
+        </Flowbite>
+      );
+    },
     (Story: StoryFn) => (
       <MemoryRouter>
         <Story />
