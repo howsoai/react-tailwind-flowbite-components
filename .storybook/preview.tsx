@@ -1,14 +1,13 @@
-// Imported here for storybook. These must be imported in your own project's index file
-import type { Preview, StoryFn } from "@storybook/react";
 import React from "react";
+import type { Preview, StoryFn } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
+import { Flowbite, ThemeMode } from "flowbite-react";
+import { standardFlowbiteTheme } from "../src/themes/index";
 // CSS
 // import "@fontsource/inter";
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/700.css";
 import "../src/tailwind.css";
-import { standardFlowbiteTheme } from "../src/themes/index";
-import { Flowbite, ThemeMode } from "flowbite-react";
 
 const light = {
   name: "Light",
@@ -30,7 +29,6 @@ const preview: Preview = {
       // Ensure a default is set, so you avoid type errors reading from undefined!
       default: light.name,
     },
-    actions: { argTypesRegex: "^on.*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -42,7 +40,6 @@ const preview: Preview = {
     (Story: StoryFn, context) => {
       const mode: ThemeMode =
         context.globals.backgrounds?.value === dark.value ? "dark" : "light";
-      console.info(context.globals.backgrounds?.value, dark.value, mode);
 
       // Flowbite likes to store your preference in local storage, not what we're doing here.
       localStorage.removeItem("flowbite-theme-mode");
