@@ -42,7 +42,6 @@ const preview: Preview = {
     (Story: StoryFn, context) => {
       const mode: ThemeMode =
         context.globals.backgrounds?.value === dark.value ? "dark" : "light";
-      console.info(context.globals.backgrounds?.value, dark.value, mode);
 
       // Flowbite likes to store your preference in local storage, not what we're doing here.
       localStorage.removeItem("flowbite-theme-mode");
