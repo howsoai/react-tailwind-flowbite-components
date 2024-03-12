@@ -17,7 +17,6 @@
     "test": "npm run lint && tsc --noEmit && jest",
     "test:watch": "jest --watch",
     "test:coverage": "tsc --noEmit && jest --collect-coverage",
-    "prepublishOnly": "npm t && npm run-script build",
     "storybook": "storybook dev -p 6006",
     "prepack": "npm run build"
   },
