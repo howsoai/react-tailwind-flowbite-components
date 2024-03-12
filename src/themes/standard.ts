@@ -145,7 +145,7 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
   },
 };
 
-export const chartColors = {
+export const standardChartColors = {
   blue: {
     100: "#1C64F2",
   },
@@ -176,6 +176,6 @@ export const chartColors = {
   },
 };
 
-export const chartPalette: string[] = Object.values(chartColors).map(
-  (v) => v[100]
-);
+export const standardChartPalette: string[] = Object.values(
+  standardChartColors
+).map((v) => v[100]);
