@@ -30,7 +30,6 @@ const preview: Preview = {
       // Ensure a default is set, so you avoid type errors reading from undefined!
       default: light.name,
     },
-    actions: { argTypesRegex: "^on.*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
