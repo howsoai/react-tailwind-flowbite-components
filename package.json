@@ -43,6 +43,9 @@
     "tailwind-merge": "^2.2.1",
     "tslib": "^2.0.3"
   },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.9.6"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
