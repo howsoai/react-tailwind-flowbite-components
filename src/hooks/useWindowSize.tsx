@@ -6,8 +6,11 @@ interface WindowSize {
   ratio: number;
 }
 
-// Hook
-function useWindowSizeHook(): WindowSize {
+/**
+ * Subscribes to changes to the window size as a state object.
+ * Subscribers are responsbile for their own deboucing or deffered value implementations.
+ */
+export const useWindowSize = (): WindowSize => {
   // Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
   const [windowSize, setWindowSize] = useState({
@@ -15,6 +18,7 @@ function useWindowSizeHook(): WindowSize {
     height: 1,
     ratio: 1,
   });
+
   useEffect(() => {
     // Handler to call on window resize
     function handleResize() {
@@ -32,7 +36,6 @@ function useWindowSizeHook(): WindowSize {
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []); // Empty array ensures that effect is only run on mount
-  return windowSize;
-}
 
-export default useWindowSizeHook;
+  return windowSize;
+};
