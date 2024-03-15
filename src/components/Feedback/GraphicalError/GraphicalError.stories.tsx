@@ -12,13 +12,17 @@ const meta: Meta<typeof GraphicalError> = {
     layout: "centered",
   },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {},
+  argTypes: {
+    type: {
+      options: ["unrecoverable", "not-found", "server"],
+    },
+  },
   args: {
     description:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     className: "",
-    level: "critical",
     heading: "Lorem ipsum dolor sit amet",
+    type: "unrecoverable",
   },
 };
 

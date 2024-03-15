@@ -1,20 +1,19 @@
 import { FC, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
-import { CriticalErrorGraphic } from "../CriticalErrorGraphic";
+import { ErrorGraphic, ErrorGraphicType } from "../ErrorGraphic";
 import { ReadabilityConstraint } from "../../Typography";
 
-export type GraphicalErrorLevel = "critical";
 export type GraphicalErrorProps = {
   description?: ReactNode;
   className?: string;
-  level: GraphicalErrorLevel;
   heading: ReactNode;
+  type: ErrorGraphicType;
 };
 
 export const GraphicalError: FC<GraphicalErrorProps> = function ({
   description,
   className,
-  level,
+  type,
   heading,
 }) {
   return (
@@ -24,7 +23,9 @@ export const GraphicalError: FC<GraphicalErrorProps> = function ({
         className
       )}
     >
-      <header>{getGraphic(level)}</header>
+      <header>
+        <ErrorGraphic type={type} className={className} />
+      </header>
       <div className="flex flex-col gap-6 items-center justify-center">
         <h2 className="text-4xl font-bold  text-gray-500 dark:text-gray-400">
           {heading}
@@ -35,12 +36,4 @@ export const GraphicalError: FC<GraphicalErrorProps> = function ({
       </div>
     </section>
   );
-};
-
-const getGraphic = (level: GraphicalErrorLevel) => {
-  const className = "max-h-[33vh]";
-  switch (level) {
-    default:
-      return <CriticalErrorGraphic className={className} />;
-  }
 };
