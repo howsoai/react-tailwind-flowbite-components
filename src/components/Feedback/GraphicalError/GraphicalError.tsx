@@ -27,11 +27,13 @@ export const GraphicalError: FC<GraphicalErrorProps> = function ({
         <ErrorGraphic type={type} className={className} />
       </header>
       <div className="flex flex-col gap-6 items-center justify-center">
-        <h2 className="text-4xl font-bold  text-gray-500 dark:text-gray-400">
+        <h2 className="text-4xl font-bold text-gray-500 dark:text-gray-400">
           {heading}
         </h2>
         {description && (
-          <ReadabilityConstraint>{description}</ReadabilityConstraint>
+          <ReadabilityConstraint className="text-gray-800 dark:text-gray-300">
+            {description}
+          </ReadabilityConstraint>
         )}
       </div>
     </section>
