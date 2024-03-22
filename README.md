@@ -31,13 +31,18 @@ import "@fontsource/inter/700.css";
 import "@howso/react-tailwind-flowbite-components/lib/styles.css";
 ```
 
-Modify your `tailwind.config.js` configuration parse this module's distribution code:
+Modify your `tailwind.config.js` configuration to include:
 
 ```js
-{
+module.exports = {
   content: [
     "node_modules/@howso/react-tailwind-flowbite-components/lib/index.esm.js",
-  ];
+    // ...
+  ]
+  plugins: [
+    require('@tailwindcss/container-queries'),
+    // ...
+  ],
 }
 ```
 
