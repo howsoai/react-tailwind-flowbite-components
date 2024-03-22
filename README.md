@@ -38,12 +38,8 @@ module.exports = {
   content: [
     "node_modules/@howso/react-tailwind-flowbite-components/lib/index.esm.js",
     // ...
-  ]
-  plugins: [
-    require('@tailwindcss/container-queries'),
-    // ...
   ],
-}
+};
 ```
 
 ## Contributing
