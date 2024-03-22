@@ -7,7 +7,7 @@ import { standardFlowbiteTheme } from "../src/themes/index";
 // import "@fontsource/inter";
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/700.css";
-import "../src/tailwind.css";
+import "./tailwind.css";
 
 const light = {
   name: "Light",
@@ -35,6 +35,7 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    viewport: { defaultViewport: "responsive" },
   },
   decorators: [
     (Story: StoryFn, context) => {

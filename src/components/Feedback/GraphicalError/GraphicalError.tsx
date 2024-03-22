@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import { ErrorGraphic, ErrorGraphicType } from "../ErrorGraphic";
-import { ReadabilityConstraint } from "../../Typography";
+import { Paragraph, ReadabilityConstraint } from "../../Typography";
 
 export type GraphicalErrorProps = {
   description?: ReactNode;
@@ -19,23 +19,28 @@ export const GraphicalError: FC<GraphicalErrorProps> = function ({
   return (
     <section
       className={twMerge(
-        "flex flex-col gap-16 items-center justify-center",
+        "flex flex-col items-center justify-center sm:gap-2 md:gap-4 lg:gap-8 xl:gap-16",
         className
       )}
     >
-      <header>
+      <header
+        className={"*:h-full max-h-[50vh] sm:h-12 md:h-[33vh] xl:h-[50vh]"}
+      >
         <ErrorGraphic type={type} className={className} />
       </header>
-      <div className="flex flex-col gap-6 items-center justify-center">
-        <h2 className="text-4xl font-bold text-gray-500 dark:text-gray-400">
-          {heading}
-        </h2>
-        {description && (
-          <ReadabilityConstraint className="text-gray-800 dark:text-gray-300">
-            {description}
-          </ReadabilityConstraint>
+
+      <ReadabilityConstraint
+        className={twMerge(
+          "flex flex-col gap-3 md:gap-6 items-center justify-center"
         )}
-      </div>
+      >
+        <Paragraph className="text-4xl font-bold text-gray-500 dark:text-gray-400">
+          {heading}
+        </Paragraph>
+        {description && (
+          <div className="text-gray-800 dark:text-gray-300">{description}</div>
+        )}
+      </ReadabilityConstraint>
     </section>
   );
 };

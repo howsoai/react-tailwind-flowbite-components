@@ -10,8 +10,17 @@ export const ErrorGraphic: FC<ErrorGraphicProps> = ({
   className,
   ...props
 }) => {
-  const darkClassName = twMerge("hidden dark:block", className);
-  const lightClassName = twMerge("block dark:hidden", className);
+  const defaultClassName = "max-w-full max-h-full";
+  const darkClassName = twMerge(
+    defaultClassName,
+    "hidden dark:block",
+    className
+  );
+  const lightClassName = twMerge(
+    defaultClassName,
+    "block dark:hidden",
+    className
+  );
 
   switch (type) {
     case "unrecoverable":
@@ -47,7 +56,6 @@ const ServerErrorDark: FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={500}
-    height={580}
     fill="none"
     viewBox="0 0 500 580"
     {...props}
@@ -157,7 +165,6 @@ const ServerErrorLight: FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={500}
-    height={580}
     viewBox="0 0 500 580"
     fill="none"
     {...props}
@@ -267,7 +274,6 @@ const UnrecoverableErrorDark: FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={800}
-    height={531}
     viewBox="0 0 800 531"
     fill="none"
     {...props}
@@ -365,7 +371,6 @@ const UnrecoverableErrorLight: FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={800}
-    height={531}
     viewBox="0 0 800 531"
     fill="none"
     {...props}
@@ -463,7 +468,6 @@ const NotFoundErrorDark: FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={800}
-    height={496}
     viewBox="0 0 800 496"
     fill="none"
     {...props}
@@ -625,7 +629,6 @@ const NotFoundErrorLight: FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={800}
-    height={496}
     viewBox="0 0 800 496"
     fill="none"
     {...props}

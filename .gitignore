@@ -7,6 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+
+# NPM
+*.tgz
+
 node_modules
 lib
 *.local
@@ -16,6 +20,7 @@ lib
 !.vscode/extensions.json
 .idea
 .DS_Store
+
 
 # Scratch files
 scratch/*

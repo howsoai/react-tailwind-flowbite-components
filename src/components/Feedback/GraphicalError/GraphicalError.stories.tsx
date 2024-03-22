@@ -18,32 +18,6 @@ const meta: Meta<typeof GraphicalError> = {
     },
   },
   args: {
-    description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    className: "",
-    heading: "Lorem ipsum dolor sit amet",
-    type: "unrecoverable",
-  },
-};
-
-export default meta;
-type Story = StoryObj<typeof GraphicalError>;
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-export const Default: Story = {
-  // More on args: https://storybook.js.org/docs/react/writing-stories/args
-  args: {},
-};
-
-export const TwoSentenceDescription: Story = {
-  args: {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur lorem donec massa sapien faucibus et molestie.",
-  },
-};
-
-export const MultipleParagraphDescription: Story = {
-  args: {
     description: (
       <>
         <Paragraph marginBottom>
@@ -81,5 +55,26 @@ export const MultipleParagraphDescription: Story = {
         </Paragraph>
       </>
     ),
+    className: "",
+    heading: "Lorem ipsum dolor sit amet",
+    type: "unrecoverable",
   },
+};
+
+export default meta;
+type Story = StoryObj<typeof GraphicalError>;
+
+// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+export const Default: Story = {
+  // More on args: https://storybook.js.org/docs/react/writing-stories/args
+  args: {
+    description:
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+};
+
+export const MultipleParagraphs: Story = {};
+
+export const SmallMobile: Story = {
+  parameters: { viewport: { defaultViewport: "mobile1" } },
 };
