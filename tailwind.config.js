@@ -9,7 +9,10 @@ export default {
     "./node_modules/flowbite/**/*.{js,jsx,ts,tsx}",
     "./node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
-  plugins: [flowbite({ charts: true })],
+  plugins: [
+    flowbite({ charts: true }),
+    require("@tailwindcss/container-queries"),
+  ],
   theme: {
     extend: standardTailwindConfigThemeExtend,
   },
