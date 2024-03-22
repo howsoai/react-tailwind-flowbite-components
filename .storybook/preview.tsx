@@ -35,6 +35,7 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    viewport: { defaultViewport: "responsive" },
   },
   decorators: [
     (Story: StoryFn, context) => {
