@@ -16,7 +16,9 @@ const meta: Meta<typeof ErrorGraphic> = {
       options: ["unrecoverable", "not-found", "server"],
     },
   },
-  args: {},
+  args: {
+    type: "unrecoverable",
+  },
 };
 
 export default meta;
@@ -25,19 +27,65 @@ type Story = StoryObj<typeof ErrorGraphic>;
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 export const Unrecoverable: Story = {
   // More on args: https://storybook.js.org/docs/react/writing-stories/args
-  args: {
-    type: "unrecoverable",
-  },
+  args: {},
+};
+
+export const UnrecoverableWidthSM: Story = {
+  render: (args) => (
+    <div className="max-w-sm">
+      <ErrorGraphic {...args} />
+    </div>
+  ),
+};
+
+export const UnrecoverableHeight200: Story = {
+  render: (args) => (
+    <div className="h-[200px]">
+      <ErrorGraphic {...args} />
+    </div>
+  ),
 };
 
 export const NotFound: Story = {
-  args: {
-    type: "not-found",
-  },
+  args: { type: "not-found" },
+};
+
+export const NotFoundWidthSM: Story = {
+  args: { type: "not-found" },
+  render: (args) => (
+    <div className="max-w-sm">
+      <ErrorGraphic {...args} />
+    </div>
+  ),
+};
+
+export const NotFoundHeight200: Story = {
+  args: { type: "not-found" },
+  render: (args) => (
+    <div className="h-[200px]">
+      <ErrorGraphic {...args} />
+    </div>
+  ),
 };
 
 export const Server: Story = {
-  args: {
-    type: "server",
-  },
+  args: { type: "server" },
+};
+
+export const ServerWidthSM: Story = {
+  args: { type: "server" },
+  render: (args) => (
+    <div className="max-w-sm">
+      <ErrorGraphic {...args} />
+    </div>
+  ),
+};
+
+export const ServerHeight200: Story = {
+  args: { type: "server" },
+  render: (args) => (
+    <div className="h-[200px]">
+      <ErrorGraphic {...args} />
+    </div>
+  ),
 };

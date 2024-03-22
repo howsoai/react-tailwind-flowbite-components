@@ -10,8 +10,17 @@ export const ErrorGraphic: FC<ErrorGraphicProps> = ({
   className,
   ...props
 }) => {
-  const darkClassName = twMerge("hidden dark:block", className);
-  const lightClassName = twMerge("block dark:hidden", className);
+  const defaultClassName = "max-w-[100%] max-h-[100%]";
+  const darkClassName = twMerge(
+    defaultClassName,
+    "hidden dark:block",
+    className
+  );
+  const lightClassName = twMerge(
+    defaultClassName,
+    "block dark:hidden",
+    className
+  );
 
   switch (type) {
     case "unrecoverable":
