@@ -30,12 +30,8 @@ export const Unrecoverable: Story = {
   args: {},
 };
 
-export const UnrecoverableWidthSM: Story = {
-  render: (args) => (
-    <div className="max-w-sm">
-      <ErrorGraphic {...args} />
-    </div>
-  ),
+export const UnrecoverableSmallMobile: Story = {
+  parameters: { viewport: { defaultViewport: "mobile1" } },
 };
 
 export const UnrecoverableHeight200: Story = {
@@ -50,13 +46,9 @@ export const NotFound: Story = {
   args: { type: "not-found" },
 };
 
-export const NotFoundWidthSM: Story = {
+export const NotFoundSmallMobile: Story = {
+  parameters: { viewport: { defaultViewport: "mobile1" } },
   args: { type: "not-found" },
-  render: (args) => (
-    <div className="max-w-sm">
-      <ErrorGraphic {...args} />
-    </div>
-  ),
 };
 
 export const NotFoundHeight200: Story = {
@@ -72,13 +64,9 @@ export const Server: Story = {
   args: { type: "server" },
 };
 
-export const ServerWidthSM: Story = {
+export const ServerSmallMobile: Story = {
+  parameters: { viewport: { defaultViewport: "mobile1" } },
   args: { type: "server" },
-  render: (args) => (
-    <div className="max-w-sm">
-      <ErrorGraphic {...args} />
-    </div>
-  ),
 };
 
 export const ServerHeight200: Story = {
