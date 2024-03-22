@@ -31,6 +31,16 @@ import "@fontsource/inter/700.css";
 import "@howso/react-tailwind-flowbite-components/lib/styles.css";
 ```
 
+Modify your `tailwind.config.js` configuration parse this module's distribution code:
+
+```js
+{
+  content: [
+    "node_modules/@howso/react-tailwind-flowbite-components/lib/index.esm.js",
+  ];
+}
+```
+
 ## Contributing
 
 Development is done through [Storybook](https://storybook.js.org/).
