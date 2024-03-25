@@ -5,14 +5,19 @@ export type LinkProps = React.DetailedHTMLProps<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
   HTMLAnchorElement
 >;
-export const Link: FC<LinkProps> = function (props) {
+/**
+ * A link designed for use within copy. It highlights accessibility and clarity.
+ */
+export const Link: FC<LinkProps> = function ({ children, ...props }) {
   return (
     <a
       {...props}
       className={twMerge(
-        "cursor-pointer text-blue-600 hover:underline dark:text-blue-500",
+        "text-primary-600 underline dark:text-primary-500",
         props.className
       )}
-    />
+    >
+      {children}
+    </a>
   );
 };
