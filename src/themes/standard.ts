@@ -99,14 +99,6 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
     },
     content: "",
   },
-  modal: {
-    content: {
-      inner: "relative rounded-lg bg-white shadow dark:bg-gray-800",
-    },
-    header: {
-      base: "flex items-start justify-between rounded-t px-5 pt-5",
-    },
-  },
   pagination: {
     pages: {
       selector: {
