@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Link } from ".";
+import { Paragraph } from "..";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Link> = {
@@ -14,13 +15,14 @@ const meta: Meta<typeof Link> = {
   argTypes: {},
   args: {
     href: "https://www.howso.com/",
-    children: (
-      <>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </>
-    ),
+    children: "adipiscing elit",
   },
+  render: ({ children, ...args }) => (
+    <Paragraph>
+      Lorem ipsum dolor sit amet, consectetur <Link {...args}>{children}</Link>,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </Paragraph>
+  ),
 };
 
 export default meta;
