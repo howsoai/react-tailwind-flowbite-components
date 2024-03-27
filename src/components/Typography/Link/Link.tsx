@@ -33,4 +33,4 @@ export const getLinkProps = (props: LinkProps): LinkProps => ({
 });
 
 const linkClasses =
-  "inline-flex items-center text-blue-600 underline dark:text-blue-500";
+  "inline-flex items-center text-primary-600 underline dark:text-primary-400";
