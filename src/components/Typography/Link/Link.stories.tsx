@@ -32,6 +32,12 @@ export const Default: Story = {
   args: {},
 };
 
+export const External: Story = {
+  args: {
+    external: true,
+  },
+};
+
 export const CustomClasses: Story = {
   args: {
     className: "font-black",
