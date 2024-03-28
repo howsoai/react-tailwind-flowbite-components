@@ -27,7 +27,9 @@ export const getLinkProps = (props: LinkProps): LinkProps => ({
   children: (
     <>
       {props.children}
-      {props.external && <NewWindowIcon className="inline-block ml-[.25ch]" />}
+      {props.external && (
+        <NewWindowIcon className="inline-block ml-[.25ch] print:hidden" />
+      )}
     </>
   ),
 });
