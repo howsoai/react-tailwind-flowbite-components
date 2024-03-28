@@ -50,9 +50,19 @@ export const Truncated: Story = {
   args: { external: true },
   render: ({ children, ...args }) => (
     <>
-      <Paragraph className="w-16 truncate">
+      <Paragraph className="">Paragraph:</Paragraph>
+      <Paragraph marginBottom className="w-16 truncate">
         <Link {...args}>{children}</Link>
       </Paragraph>
+
+      <Paragraph className="">List:</Paragraph>
+      <ul className="w-16 mb-2">
+        <li className="truncate">
+          <Link {...args}>{children}</Link>
+        </li>
+      </ul>
+
+      <Paragraph className="">Line clamp:</Paragraph>
       <LineClamp lines={2}>
         <Link {...args}>
           {children}
