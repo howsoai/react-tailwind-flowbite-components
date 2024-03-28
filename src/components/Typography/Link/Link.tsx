@@ -21,16 +21,17 @@ export const Link: FC<LinkProps> = (props) => {
  * - className
  * - External icon in children
  */
-export const getLinkProps = (props: LinkProps): LinkProps => ({
+export const getLinkProps = ({ external, ...props }: LinkProps): LinkProps => ({
   ...props,
   className: twMerge(linkClasses, props.className),
   children: (
     <>
       {props.children}
-      {props.external && <NewWindowIcon className="inline-block ml-[.25ch]" />}
+      {external && (
+        <NewWindowIcon className="inline-block ml-[.25ch] print:hidden" />
+      )}
     </>
   ),
 });
 
-const linkClasses =
-  "inline-flex items-center text-primary-600 underline dark:text-primary-400";
+const linkClasses = "text-primary-600 underline dark:text-primary-400";

@@ -53,17 +53,6 @@ npm run storybook
 
 ## Publishing
 
-### For design and component library inclusion
-
-This project is hosted on [Chromatic](https://www.chromatic.com/builds?appId={id}).
-Feel free to [invite yourself](https://www.chromatic.com/builds?appId={id}&inviteToken={id}).
-
-```bash
-npm run-script chromatic
-```
-
-### For application consumption
-
 This package is published into a private npm registery.
 
 Documentation changes do not require a version publishing.
@@ -71,12 +60,7 @@ For functional changes, follow [SemVer](https://semver.org/)
 standards updating the `package.json` and `package-lock.json`
 files in your pull request.
 
-Once the changes are merged through PR into `main`
-you may run this command to publish a new package:
-
-```bash
-npm publish
-```
+When you are ready to publish a new verison, use the Github Release action.
 
 ### Chromatic
 
