@@ -34,5 +34,4 @@ export const getLinkProps = ({ external, ...props }: LinkProps): LinkProps => ({
   ),
 });
 
-const linkClasses =
-  "inline-flex items-center text-primary-600 underline dark:text-primary-400";
+const linkClasses = "text-primary-600 underline dark:text-primary-400";
