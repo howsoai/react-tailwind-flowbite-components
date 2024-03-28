@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Link } from ".";
-import { Paragraph } from "..";
+import { LineClamp, Paragraph } from "..";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Link> = {
@@ -44,4 +44,28 @@ export const CustomClasses: Story = {
   args: {
     className: "font-black",
   },
+};
+
+export const Truncated: Story = {
+  args: { external: true },
+  render: ({ children, ...args }) => (
+    <>
+      <Paragraph className="w-16 truncate">
+        <Link {...args}>{children}</Link>
+      </Paragraph>
+      <LineClamp lines={2}>
+        <Link {...args}>
+          {children}
+          <br />
+          {children}
+          <br />
+          {children}
+          <br />
+          {children}
+          <br />
+          {children}
+        </Link>
+      </LineClamp>
+    </>
+  ),
 };
