@@ -57,8 +57,10 @@ export const Truncated: Story = {
 
       <Paragraph className="">List:</Paragraph>
       <ul className="w-16 mb-2">
-        <li className="truncate">
-          <Link {...args}>{children}</Link>
+        <li>
+          <Link className="block truncate" {...args}>
+            {children}
+          </Link>
         </li>
       </ul>
 
