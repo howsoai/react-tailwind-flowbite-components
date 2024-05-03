@@ -70,8 +70,7 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
     },
     color: {
       light:
-        "text-gray-900 bg-gray-100 border border-gray-300 enabled:hover:bg-gray-200 focus:ring-2 focus:ring-gray-200 :bg-gray-600 dark:text-white dark:border-gray-600 dark:enabled:hover:bg-gray-600 dark:enabled:hover:border-gray-600 dark:focus:ring-gray-600",
-      gray: "text-white bg-gray-600 enabled:hover:bg-gray-700 focus:ring-2 focus:ring-gray-400 dark:bg-gray-700 dark:enabled:hover:bg-gray-600 dark:focus:ring-gray-500",
+        "border border-gray-300 bg-white text-gray-900 focus:ring-4 focus:ring-gray-200 enabled:hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-600 dark:text-white dark:focus:ring-gray-700 dark:enabled:hover:border-gray-700 dark:enabled:hover:bg-gray-700",
       blue: "text-white bg-blue-600 enabled:hover:bg-blue-700 focus:ring-2 focus:ring-blue-400 dark:bg-blue-900 dark:enabled:hover:bg-blue-800 dark:focus:ring-blue-700",
       failure:
         "text-white bg-red-600 enabled:hover:bg-red-700 focus:ring-2 focus:ring-red-400 dark:bg-red-900 dark:enabled:hover:bg-red-800 dark:focus:ring-red-700",
