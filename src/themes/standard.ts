@@ -99,6 +99,13 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
     },
     content: "",
   },
+  label: {
+    root: {
+      colors: {
+        warning: "text-orange-500 dark:text-orange-700",
+      },
+    },
+  },
   pagination: {
     pages: {
       selector: {
