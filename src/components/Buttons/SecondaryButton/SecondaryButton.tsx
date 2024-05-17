@@ -7,5 +7,5 @@ export type SecondaryButtonProps = ButtonProps;
  * By default: Blue, filled
  **/
 export const SecondaryButton: FC<SecondaryButtonProps> = (props) => {
-  return <Button color="light" {...props} />;
+  return <Button color="light" outline {...props} />;
 };
