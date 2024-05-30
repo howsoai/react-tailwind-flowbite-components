@@ -7,6 +7,7 @@ interface WindowSize {
   ratio: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type OmitFirst<T extends any[]> = T extends [infer A, ...infer R] ? R : never;
 type DebounceArgs = OmitFirst<Parameters<typeof debounce>>;
 
@@ -53,7 +54,7 @@ export const useWindowSize = (
 
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleResize);
-  }, [handleResize]); // Empty array ensures that effect is only run on mount
+  }, [_handleResize, handleResize]); // Empty array ensures that effect is only run on mount
 
   return windowSize;
 };
