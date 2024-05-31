@@ -25,6 +25,7 @@ export default {
   ],
   external: [
     "react/jsx-runtime",
+    "react-icons/hi",
     ...Object.keys(pkg.dependencies || {}),
     ...Object.keys(pkg.peerDependencies || {}),
     ...Object.keys(pkg.optionalDependencies || {}),
