@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Suspense } from "react";
+import { useTranslation } from "react-i18next";
 import type { Preview, StoryFn } from "@storybook/react";
-import { MemoryRouter } from "react-router-dom";
+import { Await, RouterProvider, createMemoryRouter } from "react-router-dom";
 import { Flowbite, ThemeMode } from "flowbite-react";
 import { standardFlowbiteTheme } from "../src/themes/index";
+import i18n from "./i18next";
 // CSS
-// import "@fontsource/inter";
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/700.css";
 import "./tailwind.css";
@@ -35,6 +36,7 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    i18n,
     viewport: { defaultViewport: "responsive" },
   },
   decorators: [
@@ -56,10 +58,22 @@ const preview: Preview = {
         </Flowbite>
       );
     },
+    // Translations
+    (Story: StoryFn) => {
+      const { ready } = useTranslation();
+      return (
+        <Suspense>
+          <Await resolve={ready}>
+            <Story />
+          </Await>
+        </Suspense>
+      );
+    },
+    // Router
     (Story: StoryFn) => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
+      <RouterProvider
+        router={createMemoryRouter([{ index: true, Component: Story }])}
+      />
     ),
   ],
 };
