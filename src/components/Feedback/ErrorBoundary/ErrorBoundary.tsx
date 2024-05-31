@@ -1,5 +1,5 @@
 import { Component, type PropsWithChildren } from "react";
-import { ErrorAlert } from "./ErrorAlert";
+import { ErrorAlert } from "../ErrorAlert";
 
 interface ErrorBoundaryState {
   hasError: boolean;
