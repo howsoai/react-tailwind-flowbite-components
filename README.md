@@ -51,6 +51,15 @@ You may start the UI for inspection with hot reloading using:
 npm run storybook
 ```
 
+### Translations
+
+This package produces a number of components that expose translations.
+Any usages of translation should use the `useDefaultTranslation` function instead of `useTranslation`.
+This will ensure translations are in the correct namespace for this package to be copied into implementing systems.
+
+Using translations should be done sparingly. Copying the updated translation file is a manual process.
+Translation changes should be considered breaking releases to signal this step and include a note in the [migration](./MIGRATION.md) file.
+
 ## Publishing
 
 This package is published into a private npm registery.
