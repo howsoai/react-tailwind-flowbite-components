@@ -1,5 +1,6 @@
 import { useState, useCallback, useMemo, useLayoutEffect } from "react";
 import { debounce } from "lodash";
+import { OmitFirst } from "../types";
 
 interface WindowSize {
   width: number;
@@ -7,8 +8,6 @@ interface WindowSize {
   ratio: number;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type OmitFirst<T extends any[]> = T extends [infer A, ...infer R] ? R : never;
 type DebounceArgs = OmitFirst<Parameters<typeof debounce>>;
 
 export type UseWindowSizeParams = {
