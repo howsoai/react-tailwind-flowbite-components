@@ -9,6 +9,9 @@
   "Feedback": {
     "ErrorAlert": {
       "Generic": "Something went wrong"
+    },
+    "Skeleton": {
+      "loading": "Loading..."
     }
   }
 }
