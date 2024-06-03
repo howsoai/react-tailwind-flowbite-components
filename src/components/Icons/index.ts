@@ -1,4 +1,5 @@
 export * from "./ConfigurationIcon";
+export * from "./CopyIcon";
 export * from "./DocumentationIcon";
 export * from "./DownloadIcon";
 export * from "./ExpandCollapseIcon";

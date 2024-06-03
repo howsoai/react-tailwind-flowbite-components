@@ -3,6 +3,7 @@ import { FC, ReactNode } from "react";
 import { IconBaseProps } from "react-icons";
 import {
   ConfigurationIcon,
+  CopyIcon,
   DownloadIcon,
   ExpandCollapseIcon,
   NewWindowIcon,
@@ -27,6 +28,7 @@ const meta: Meta<IconBaseProps> = {
   render: (args) => (
     <div className="flex gap-4">
       <IconWithLabel label={"ConfigurationIcon"} Icon={<ConfigurationIcon />} />
+      <IconWithLabel label={"CopyIcon"} Icon={<CopyIcon />} />
       <IconWithLabel
         label="Documentation"
         Icon={<DocumentationIcon {...args} />}
