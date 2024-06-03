@@ -36,7 +36,7 @@ Modify your `tailwind.config.js` configuration to include:
 ```js
 module.exports = {
   content: [
-    "node_modules/@howso/react-tailwind-flowbite-components/lib/index.esm.js",
+    "./node_modules/@howso/react-tailwind-flowbite-components/lib/index.esm.js",
     // ...
   ],
 };
