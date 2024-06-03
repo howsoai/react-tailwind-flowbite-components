@@ -35,11 +35,13 @@
     "lib"
   ],
   "peerDependencies": {
+    "@hookform/error-message": "^2.0.1",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.7.2",
     "lodash": "^4.17.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-hook-form": "^7.51.5",
     "react-i18next": "^14.1.2",
     "react-icons": "^5.2.1",
     "tailwind-merge": "^2.2.1",
@@ -51,6 +53,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^1.5.0",
     "@fontsource/inter": "^5.0.5",
+    "@hookform/error-message": "^2.0.1",
     "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-a11y": "^8.1.5",
     "@storybook/addon-actions": "^8.1.5",
@@ -84,6 +87,7 @@
     "prettier": "^2.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.5",
     "react-i18next": "^14.1.2",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.14.1",
