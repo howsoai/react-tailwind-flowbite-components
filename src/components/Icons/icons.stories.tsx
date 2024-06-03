@@ -3,6 +3,7 @@ import { FC, ReactNode } from "react";
 import { IconBaseProps } from "react-icons";
 import {
   ConfigurationIcon,
+  DownloadIcon,
   ExpandCollapseIcon,
   NewWindowIcon,
   SaveIcon,
@@ -30,6 +31,7 @@ const meta: Meta<IconBaseProps> = {
         label="Documentation"
         Icon={<DocumentationIcon {...args} />}
       />
+      <IconWithLabel label="DownloadIcon" Icon={<DownloadIcon {...args} />} />
       <IconWithLabel
         label={"ExpandCollapseIcon collapsed"}
         Icon={<ExpandCollapseIcon isExpanded={false} />}
