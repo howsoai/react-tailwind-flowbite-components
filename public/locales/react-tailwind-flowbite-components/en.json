@@ -1,5 +1,9 @@
 {
   "DataDisplay": {
+    "BooleanText": {
+      "yes": "Yes",
+      "no": "No"
+    },
     "CodeBlock": {
       "copied": "Copied",
       "copy": "Copy",
