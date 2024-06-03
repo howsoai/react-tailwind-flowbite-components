@@ -8,13 +8,13 @@ import { useDefaultTranslation } from "@/hooks";
 export interface CodeBlockProps extends HTMLAttributes<"div"> {
   children?: string;
   /** The number of milliseconds for which the copied state should be displayed. Default: UX.durations.copied */
-  copiedDuration?: number;
+  inlineNotificationDuration?: number;
   mimeType?: string;
   fileName?: string;
 }
 export function CodeBlock({
   children,
-  copiedDuration = UX.durations.copied,
+  inlineNotificationDuration = UX.durations.inlineNotification,
   className,
   mimeType,
   fileName,
@@ -23,8 +23,8 @@ export function CodeBlock({
   const [isCopied, setIsCopied] = useState(false);
 
   const hideCopied = useMemo(
-    () => debounce(() => setIsCopied(false), copiedDuration),
-    [copiedDuration, setIsCopied],
+    () => debounce(() => setIsCopied(false), inlineNotificationDuration),
+    [inlineNotificationDuration, setIsCopied],
   );
   useEffect(() => () => hideCopied.cancel(), [hideCopied]);
 
