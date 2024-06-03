@@ -1,4 +1,11 @@
 {
+  "DataDisplay": {
+    "CodeBlock": {
+      "copied": "Copied",
+      "copy": "Copy",
+      "download": "Download"
+    }
+  },
   "Feedback": {
     "ErrorAlert": {
       "Generic": "Something went wrong"

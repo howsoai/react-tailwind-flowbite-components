@@ -28,7 +28,8 @@ const meta: Meta<IconBaseProps> = {
   render: (args) => (
     <div className="flex gap-4">
       <IconWithLabel label={"ConfigurationIcon"} Icon={<ConfigurationIcon />} />
-      <IconWithLabel label={"CopyIcon"} Icon={<CopyIcon />} />
+      <IconWithLabel label={"CopyIcon - Default"} Icon={<CopyIcon />} />
+      <IconWithLabel label={"CopyIcon - Copied"} Icon={<CopyIcon copied />} />
       <IconWithLabel
         label="Documentation"
         Icon={<DocumentationIcon {...args} />}

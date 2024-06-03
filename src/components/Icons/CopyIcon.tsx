@@ -1,7 +1,15 @@
 import { FC } from "react";
 import { IconBaseProps } from "react-icons";
-import { HiDocumentDuplicate } from "react-icons/hi";
+import { HiCheckCircle, HiDocumentDuplicate } from "react-icons/hi";
 
-export const CopyIcon: FC<IconBaseProps> = (props) => {
-  return <HiDocumentDuplicate {...props} />;
+export type CopyIconProps = IconBaseProps & {
+  /** Updates the icon to a copied state */
+  copied?: boolean;
+};
+export const CopyIcon: FC<CopyIconProps> = ({ copied, ...props }) => {
+  return copied ? (
+    <HiCheckCircle {...props} />
+  ) : (
+    <HiDocumentDuplicate {...props} />
+  );
 };
