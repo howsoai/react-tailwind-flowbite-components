@@ -7,7 +7,7 @@ import { Controller, ControllerProps } from "react-hook-form";
 import { FieldBaseProps } from "../FieldBase";
 
 export type FieldTextAreaListProps = FieldBaseProps &
-  Pick<FieldTextAreaProps, "helperText" | "placeholder"> &
+  Pick<FieldTextAreaProps, "helperText" | "placeholder" | "rows"> &
   Omit<ControllerProps, "render"> & {
     defaultValue?: Value[];
     onChange?: FieldTextAreaListChangeHandler;
@@ -46,6 +46,7 @@ export const FieldTextAreaList = forwardRef<
       onBlur,
       onChange,
       placeholder,
+      rows,
       separator = "\n",
       spaceAfterSeparator = false,
       value,
@@ -65,6 +66,7 @@ export const FieldTextAreaList = forwardRef<
             label={label}
             labelProps={labelProps}
             helperText={helperText}
+            rows={rows}
             defaultValue={
               defaultValue
                 ? getText({
