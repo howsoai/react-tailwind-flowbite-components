@@ -42,6 +42,17 @@ module.exports = {
 };
 ```
 
+Translation files from this package must be installed into your public directory.
+The suggested integration is trough setting up React I8ln's using `backend`:
+
+```ts
+{
+  backend: {
+    loadPath: "/locales/{{ns}}/{{lng}}.json",
+  }
+}
+```
+
 ## Contributing
 
 Development is done through [Storybook](https://storybook.js.org/).
