@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { FormModal } from "./FormModal";
+import { FormModal, FormModalProps } from "./FormModal";
 import {
   Button,
   Label,
@@ -12,7 +12,7 @@ import { FC } from "react";
 import { useFetcher } from "react-router-dom";
 import { Paragraph } from "@/components";
 
-const Render: FC<FormModal> = (args) => {
+const Render: FC<FormModalProps> = (args) => {
   const { Form } = useFetcher();
   return (
     <FormModal {...args}>

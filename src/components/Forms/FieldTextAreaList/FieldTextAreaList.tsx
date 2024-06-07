@@ -9,14 +9,12 @@ import { FieldBaseProps } from "../FieldBase";
 export type FieldTextAreaListProps = FieldBaseProps &
   Pick<FieldTextAreaProps, "helperText" | "placeholder" | "rows"> &
   Omit<ControllerProps, "render"> & {
-    defaultValue?: Value[];
     onChange?: FieldTextAreaListChangeHandler;
     onBlur?: FieldTextAreaListChangeHandler;
     /** Identifying character. White space will be trimmed. Default: "," */
     separator?: string;
     /** If a space should be added between items in the field for visual purposes */
     spaceAfterSeparator?: boolean;
-    value?: Value[];
     valueAsNumber?: boolean;
   };
 type Value = string | number;
@@ -30,7 +28,8 @@ type FieldTextAreaListChangeHandler = (
 ) => Promise<void | boolean>;
 /**
  * A thin wrapper around FieldText enables arrays to be used as form values.
- * Props are based on a combination of standard Field* and ControllerProps
+ * Props are based on a combination of standard Field* and ControllerProps.
+ * Values are driven through FormProvider's state, not direct props.
  */
 export const FieldTextAreaList = forwardRef<
   HTMLTextAreaElement,
@@ -39,7 +38,6 @@ export const FieldTextAreaList = forwardRef<
   (
     {
       containerProps,
-      defaultValue,
       helperText,
       label,
       labelProps,
@@ -49,7 +47,6 @@ export const FieldTextAreaList = forwardRef<
       rows,
       separator = "\n",
       spaceAfterSeparator = false,
-      value,
       valueAsNumber,
       ...props
     },
@@ -67,15 +64,6 @@ export const FieldTextAreaList = forwardRef<
             labelProps={labelProps}
             helperText={helperText}
             rows={rows}
-            defaultValue={
-              defaultValue
-                ? getText({
-                    separator,
-                    spaceAfterSeparator,
-                    value: defaultValue,
-                  })
-                : undefined
-            }
             onChange={async (event) => {
               const value = event.target.value;
               const values = getValues({ separator, value, valueAsNumber });
@@ -93,8 +81,12 @@ export const FieldTextAreaList = forwardRef<
             }}
             placeholder={placeholder}
             value={
-              value
-                ? getText({ separator, spaceAfterSeparator, value })
+              field.value
+                ? getText({
+                    separator,
+                    spaceAfterSeparator,
+                    value: field.value,
+                  })
                 : undefined
             }
           />
@@ -108,9 +100,10 @@ const getText = ({
   separator,
   spaceAfterSeparator,
   value,
-}: Pick<FieldTextAreaListProps, "value"> & {
+}: {
   separator: string;
   spaceAfterSeparator: boolean;
+  value: Value[];
 }): string => {
   if (!value) {
     return "";

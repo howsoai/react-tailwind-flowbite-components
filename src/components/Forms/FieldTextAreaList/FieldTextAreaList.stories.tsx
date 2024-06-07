@@ -46,9 +46,12 @@ export const Required: Story = {
 };
 
 export const Filled: Story = {
-  args: {
-    defaultValue: ["Ada Lovelace", "Grace Hopper"],
-  },
+  decorators: [
+    getFormProviderDecorator({
+      defaultValues: { [fieldName]: ["Ada Lovelace", "Grace Hopper"] },
+    }),
+  ],
+  args: {},
 };
 
 export const Invalid: Story = {
@@ -65,8 +68,10 @@ export const Invalid: Story = {
 };
 
 export const Numbers: Story = {
+  decorators: [
+    getFormProviderDecorator({ defaultValues: { [fieldName]: [2, 3, 5, 7] } }),
+  ],
   args: {
-    defaultValue: [2, 3, 5, 7],
     valueAsNumber: true,
   },
 };
