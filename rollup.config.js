@@ -1,6 +1,7 @@
 import typescript from "@rollup/plugin-typescript";
 import autoprefixer from 'autoprefixer';
 import postcss from 'rollup-plugin-postcss';
+import copy from 'rollup-plugin-copy'
 import pkg from "./package.json" with { type: "json" };
 
 /**
@@ -21,6 +22,11 @@ export default {
       minimize: true,
       modules: true,
     }),
+    copy({
+      targets: [
+        { src: 'public', dest: 'lib' },
+      ]
+    })
     // terser(), // minifies generated bundles
   ],
   external: [
