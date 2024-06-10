@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import { Button, ButtonProps } from "flowbite-react";
-import { ExpandCollapseIcon } from "@/components";
+import { ExpandCollapseIcon } from "@/components/Icons/ExpandCollapseIcon";
 
 export type ExpandCollapseControlProps = ButtonProps & {
   isExpanded: boolean;

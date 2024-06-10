@@ -1,13 +1,17 @@
 import {
+  type InputHTMLAttributes,
+  type ReactNode,
+  forwardRef,
+  useId,
+} from "react";
+import {
   Select as FlowbiteSelect,
   SelectProps as FlowbiteSelectProps,
   HelperText,
 } from "flowbite-react";
-import { InputHTMLAttributes, ReactNode, useId } from "react";
-import { forwardRef } from "react";
-import { UseFormRegisterReturn, useFormState } from "react-hook-form";
-import { FieldBase, FieldBaseProps } from "../FieldBase";
-import { FieldErrorMessage } from "..";
+import { type UseFormRegisterReturn, useFormState } from "react-hook-form";
+import { FieldBase, type FieldBaseProps } from "../FieldBase";
+import { FieldErrorMessage } from "../FieldErrorMessage";
 
 export type FieldSelectProps = FieldBaseProps &
   FlowbiteSelectProps &

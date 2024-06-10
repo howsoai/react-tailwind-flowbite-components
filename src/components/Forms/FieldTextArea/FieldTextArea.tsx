@@ -1,13 +1,12 @@
+import { type InputHTMLAttributes, forwardRef, useId } from "react";
 import {
   Textarea as FlowbiteFieldTextArea,
-  TextareaProps as FlowbiteFieldTextAreaProps,
+  type TextareaProps as FlowbiteFieldTextAreaProps,
   HelperText,
 } from "flowbite-react";
-import { InputHTMLAttributes, useId } from "react";
-import { forwardRef } from "react";
-import { UseFormRegisterReturn, useFormState } from "react-hook-form";
-import { FieldBase, FieldBaseProps } from "../FieldBase";
-import { FieldErrorMessage } from "..";
+import { type UseFormRegisterReturn, useFormState } from "react-hook-form";
+import { FieldBase, type FieldBaseProps } from "../FieldBase";
+import { FieldErrorMessage } from "../FieldErrorMessage";
 
 export type FieldTextAreaProps = FieldBaseProps &
   FlowbiteFieldTextAreaProps &

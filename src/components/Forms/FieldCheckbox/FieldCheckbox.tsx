@@ -1,10 +1,19 @@
-import { InputHTMLAttributes, ReactNode, useId } from "react";
-import { forwardRef } from "react";
-import { UseFormRegisterReturn, useFormState } from "react-hook-form";
+import {
+  type InputHTMLAttributes,
+  type ReactNode,
+  forwardRef,
+  useId,
+} from "react";
+import { type UseFormRegisterReturn, useFormState } from "react-hook-form";
+import {
+  Checkbox,
+  type CheckboxProps,
+  HelperText,
+  Label,
+} from "flowbite-react";
 import { FieldContainer } from "../FieldContainer";
-import { Checkbox, CheckboxProps, HelperText, Label } from "flowbite-react";
-import { FieldBaseProps } from "../FieldBase";
-import { FieldErrorMessage } from "..";
+import { type FieldBaseProps } from "../FieldBase";
+import { FieldErrorMessage } from "../FieldErrorMessage";
 
 export type FieldToggleProps = FieldBaseProps & {
   helperText?: ReactNode;
