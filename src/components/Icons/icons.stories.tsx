@@ -1,7 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { FC, ReactNode } from "react";
 import { IconBaseProps } from "react-icons";
-import { NewWindowIcon } from ".";
+import {
+  ConfigurationIcon,
+  CopyIcon,
+  DownloadIcon,
+  ExpandCollapseIcon,
+  NewWindowIcon,
+  SaveIcon,
+  UpdateIcon,
+  WarningIcon,
+} from ".";
 import { DocumentationIcon } from "./DocumentationIcon";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -18,11 +27,26 @@ const meta: Meta<IconBaseProps> = {
   args: {},
   render: (args) => (
     <div className="flex gap-4">
+      <IconWithLabel label={"ConfigurationIcon"} Icon={<ConfigurationIcon />} />
+      <IconWithLabel label={"CopyIcon - Default"} Icon={<CopyIcon />} />
+      <IconWithLabel label={"CopyIcon - Copied"} Icon={<CopyIcon copied />} />
       <IconWithLabel
         label="Documentation"
         Icon={<DocumentationIcon {...args} />}
       />
+      <IconWithLabel label="DownloadIcon" Icon={<DownloadIcon {...args} />} />
+      <IconWithLabel
+        label={"ExpandCollapseIcon collapsed"}
+        Icon={<ExpandCollapseIcon isExpanded={false} />}
+      />
+      <IconWithLabel
+        label={"ExpandCollapseIcon expanded"}
+        Icon={<ExpandCollapseIcon isExpanded={false} />}
+      />
       <IconWithLabel label="NewWindowIcon" Icon={<NewWindowIcon {...args} />} />
+      <IconWithLabel label={"SaveIcon"} Icon={<SaveIcon />} />
+      <IconWithLabel label={"UpdateIcon"} Icon={<UpdateIcon />} />
+      <IconWithLabel label={"WarningIcon"} Icon={<WarningIcon />} />
     </div>
   ),
 };

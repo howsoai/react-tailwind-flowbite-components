@@ -1,5 +1,6 @@
 import { useState, useCallback, useMemo, useLayoutEffect } from "react";
 import { debounce } from "lodash";
+import { OmitFirst } from "../types";
 
 interface WindowSize {
   width: number;
@@ -7,7 +8,6 @@ interface WindowSize {
   ratio: number;
 }
 
-type OmitFirst<T extends any[]> = T extends [infer A, ...infer R] ? R : never;
 type DebounceArgs = OmitFirst<Parameters<typeof debounce>>;
 
 export type UseWindowSizeParams = {
@@ -53,7 +53,7 @@ export const useWindowSize = (
 
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleResize);
-  }, [handleResize]); // Empty array ensures that effect is only run on mount
+  }, [_handleResize, handleResize]); // Empty array ensures that effect is only run on mount
 
   return windowSize;
 };
