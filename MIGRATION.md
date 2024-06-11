@@ -13,6 +13,6 @@ future updates and other packages.
 The new `Field*` components rely on `@hookform/error-message` and [`react-hook-form`](https://react-hook-form.com/).
 They are peer dependencies, but require a different style of development particularly calling for [FormProvider](https://react-hook-form.com/docs/formprovider).
 
-This is expected to
+These fields are expected to be part of a later breaking change moving to React 19's form integration hopefully with minimal change.
 
 ## 1.x Initial version
