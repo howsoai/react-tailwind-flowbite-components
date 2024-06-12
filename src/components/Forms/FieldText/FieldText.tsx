@@ -44,6 +44,7 @@ export const FieldText = forwardRef<HTMLInputElement, FieldTextProps>(
       name,
       id,
     };
+    const hasExtras = hasError || !!helperText;
 
     return (
       <FieldBase
@@ -71,10 +72,14 @@ export const FieldText = forwardRef<HTMLInputElement, FieldTextProps>(
           </>
         }
         extras={
-          <>
-            <FieldErrorMessage name={name} />
-            {helperText && <HelperText color={"gray"} children={helperText} />}
-          </>
+          hasExtras && (
+            <>
+              <FieldErrorMessage name={name} />
+              {helperText && (
+                <HelperText color={"gray"} children={helperText} />
+              )}
+            </>
+          )
         }
       />
     );

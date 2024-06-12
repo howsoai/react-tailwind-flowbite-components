@@ -52,14 +52,6 @@ export const Required: Story = {
   },
 };
 
-export const LabelInline: Story = {
-  args: {
-    labelInline: true,
-    labelProps: { className: "w-40" },
-    required: true,
-  },
-};
-
 export const Filled: Story = {
   args: {
     value: "one",
@@ -76,5 +68,14 @@ export const Invalid: Story = {
   ],
   args: {
     value: "one",
+  },
+};
+
+export const LabelInline: Story = {
+  decorators: Invalid.decorators,
+  args: {
+    labelInline: true,
+    labelProps: { className: "w-40" },
+    required: true,
   },
 };

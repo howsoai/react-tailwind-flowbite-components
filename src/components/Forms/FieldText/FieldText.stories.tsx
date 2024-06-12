@@ -45,14 +45,6 @@ export const Required: Story = {
   },
 };
 
-export const LabelInline: Story = {
-  args: {
-    labelInline: true,
-    labelProps: { className: "w-40" },
-    required: true,
-  },
-};
-
 export const NoHelperText: Story = {
   args: {
     helperText: undefined,
@@ -75,5 +67,23 @@ export const Invalid: Story = {
   ],
   args: {
     defaultValue: "Ada Lovelace",
+  },
+};
+
+export const LabelInline: Story = {
+  args: {
+    labelInline: true,
+    labelProps: { className: "w-40" },
+    required: true,
+    helperText: undefined,
+  },
+};
+
+export const LabelInlineExtras: Story = {
+  decorators: Invalid.decorators,
+  args: {
+    labelInline: true,
+    labelProps: { className: "w-40" },
+    required: true,
   },
 };

@@ -45,14 +45,6 @@ export const Required: Story = {
   },
 };
 
-export const LabelInline: Story = {
-  args: {
-    labelInline: true,
-    labelProps: { className: "w-40" },
-    required: true,
-  },
-};
-
 export const Filled: Story = {
   args: {
     value: `Augusta Ada King, Countess of Lovelace (née Byron; 10 December 1815 - 27 November 1852) was an English mathematician and writer, chiefly known for her work on Charles Babbage's proposed mechanical general-purpose computer, the Analytical Engine. She was the first to recognise that the machine had applications beyond pure calculation.
@@ -71,5 +63,14 @@ export const Invalid: Story = {
   ],
   args: {
     value: "Ada Lovelace",
+  },
+};
+
+export const LabelInline: Story = {
+  decorators: Invalid.decorators,
+  args: {
+    labelInline: true,
+    labelProps: { className: "w-40" },
+    required: true,
   },
 };

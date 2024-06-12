@@ -45,6 +45,7 @@ export const FieldSelect = forwardRef<HTMLSelectElement, FieldSelectProps>(
       name,
       id,
     };
+    const hasExtras = hasError || !!helperText;
 
     return (
       <FieldBase
@@ -56,10 +57,14 @@ export const FieldSelect = forwardRef<HTMLSelectElement, FieldSelectProps>(
         required={props.required}
         field={<FlowbiteSelect {...props} {...additions} ref={ref} />}
         extras={
-          <>
-            <FieldErrorMessage name={name} />
-            {helperText && <HelperText color={"gray"} children={helperText} />}
-          </>
+          hasExtras && (
+            <>
+              <FieldErrorMessage name={name} />
+              {helperText && (
+                <HelperText color={"gray"} children={helperText} />
+              )}
+            </>
+          )
         }
       />
     );

@@ -33,7 +33,7 @@ export const FieldBase: FC<
       {...containerProps}
       className={twMerge(
         containerProps?.className,
-        labelInline && twMerge(Styles["label-inline"], "gap-x-4 gap-y-2"),
+        labelInline && twMerge(Styles["label-inline"], "gap-x-2"),
         !labelInline && "space-y-2",
       )}
     >
@@ -48,7 +48,7 @@ export const FieldBase: FC<
         </FieldLabel>
       )}
       <div className="field-container">{field}</div>
-      <div className="extras-container">{extras}</div>
+      {extras && <div className="extras-container">{extras}</div>}
     </FieldContainer>
   );
 };

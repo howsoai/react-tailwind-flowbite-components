@@ -43,6 +43,7 @@ export const FieldTextArea = forwardRef<
       id,
       name,
     };
+    const hasExtras = hasError || !!helperText;
 
     return (
       <FieldBase
@@ -54,10 +55,14 @@ export const FieldTextArea = forwardRef<
         required={props.required}
         field={<FlowbiteFieldTextArea {...props} {...additions} ref={ref} />}
         extras={
-          <>
-            <FieldErrorMessage name={name} />
-            {helperText && <HelperText color={"gray"} children={helperText} />}
-          </>
+          hasExtras && (
+            <>
+              <FieldErrorMessage name={name} />
+              {helperText && (
+                <HelperText color={"gray"} children={helperText} />
+              )}
+            </>
+          )
         }
       />
     );
