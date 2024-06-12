@@ -55,6 +55,7 @@ export const Required: Story = {
 export const LabelInline: Story = {
   args: {
     labelInline: true,
+    labelProps: { className: "w-40" },
     required: true,
   },
 };
