@@ -52,6 +52,13 @@ export const Required: Story = {
   },
 };
 
+export const LabelInline: Story = {
+  args: {
+    labelInline: true,
+    required: true,
+  },
+};
+
 export const Filled: Story = {
   args: {
     value: "one",

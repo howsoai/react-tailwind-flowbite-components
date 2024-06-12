@@ -17,7 +17,15 @@ export const FieldTextArea = forwardRef<
   FieldTextAreaProps
 >(
   (
-    { containerProps, helperText, label, labelProps, name = "", ...props },
+    {
+      containerProps,
+      helperText,
+      label,
+      labelInline,
+      labelProps,
+      name = "",
+      ...props
+    },
     ref,
   ) => {
     const { errors } = useFormState();
@@ -40,14 +48,18 @@ export const FieldTextArea = forwardRef<
       <FieldBase
         containerProps={containerProps}
         label={label}
+        labelInline={labelInline}
         labelProps={labelProps}
         id={id}
         required={props.required}
-      >
-        <FlowbiteFieldTextArea {...props} {...additions} ref={ref} />
-        <FieldErrorMessage name={name} />
-        {helperText && <HelperText color={"gray"} children={helperText} />}
-      </FieldBase>
+        field={<FlowbiteFieldTextArea {...props} {...additions} ref={ref} />}
+        extras={
+          <>
+            <FieldErrorMessage name={name} />
+            {helperText && <HelperText color={"gray"} children={helperText} />}
+          </>
+        }
+      />
     );
   },
 );

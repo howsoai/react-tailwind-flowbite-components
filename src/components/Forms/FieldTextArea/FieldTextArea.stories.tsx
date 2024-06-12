@@ -45,6 +45,13 @@ export const Required: Story = {
   },
 };
 
+export const LabelInline: Story = {
+  args: {
+    labelInline: true,
+    required: true,
+  },
+};
+
 export const Filled: Story = {
   args: {
     value: `Augusta Ada King, Countess of Lovelace (née Byron; 10 December 1815 - 27 November 1852) was an English mathematician and writer, chiefly known for her work on Charles Babbage's proposed mechanical general-purpose computer, the Analytical Engine. She was the first to recognise that the machine had applications beyond pure calculation.

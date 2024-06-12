@@ -7,7 +7,7 @@ import { HelperText, Label } from "flowbite-react";
 import { FieldBaseProps } from "../FieldBase";
 import { FieldErrorMessage } from "..";
 
-export type FieldToggleProps = FieldBaseProps & {
+export type FieldToggleProps = Omit<FieldBaseProps, "labelInline"> & {
   helperText?: ReactNode;
 } & ToggleInputProps &
   Partial<UseFormRegisterReturn>;

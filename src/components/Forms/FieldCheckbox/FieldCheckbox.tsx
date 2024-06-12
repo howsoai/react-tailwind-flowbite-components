@@ -15,7 +15,7 @@ import { FieldContainer } from "../FieldContainer";
 import { type FieldBaseProps } from "../FieldBase";
 import { FieldErrorMessage } from "../FieldErrorMessage";
 
-export type FieldToggleProps = FieldBaseProps & {
+export type FieldToggleProps = Omit<FieldBaseProps, "labelInline"> & {
   helperText?: ReactNode;
 } & CheckboxProps &
   Partial<UseFormRegisterReturn>;

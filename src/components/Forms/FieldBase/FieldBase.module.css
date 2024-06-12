@@ -1,0 +1,23 @@
+.label-inline {
+  display: grid;
+  grid-template-columns: fit-content 1fr;
+  grid-template-rows: fit-content fit-content;
+  grid-template-areas:
+    "label field"
+    "empty extras";
+
+  :global {
+    .label-container {
+      align-items: flex-start;
+      grid-area: label;
+      justify-content: flex-end;
+      margin-top: 0.6rem;
+    }
+    .field-container {
+      grid-area: field;
+    }
+    .extras-container {
+      grid-area: extras;
+    }
+  }
+}
