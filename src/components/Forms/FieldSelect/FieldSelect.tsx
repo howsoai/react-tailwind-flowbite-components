@@ -19,7 +19,15 @@ export type FieldSelectProps = FieldBaseProps &
 
 export const FieldSelect = forwardRef<HTMLSelectElement, FieldSelectProps>(
   (
-    { containerProps, helperText, label, labelProps, name = "", ...props },
+    {
+      containerProps,
+      helperText,
+      label,
+      labelInline,
+      labelProps,
+      name = "",
+      ...props
+    },
     ref,
   ): ReactNode => {
     const { errors } = useFormState();
@@ -37,19 +45,28 @@ export const FieldSelect = forwardRef<HTMLSelectElement, FieldSelectProps>(
       name,
       id,
     };
+    const hasExtras = hasError || !!helperText;
 
     return (
       <FieldBase
         containerProps={containerProps}
         label={label}
+        labelInline={labelInline}
         labelProps={labelProps}
         id={id}
         required={props.required}
-      >
-        <FlowbiteSelect {...props} {...additions} ref={ref} />
-        <FieldErrorMessage name={name} />
-        {helperText && <HelperText color={"gray"} children={helperText} />}
-      </FieldBase>
+        field={<FlowbiteSelect {...props} {...additions} ref={ref} />}
+        extras={
+          hasExtras && (
+            <>
+              <FieldErrorMessage name={name} />
+              {helperText && (
+                <HelperText color={"gray"} children={helperText} />
+              )}
+            </>
+          )
+        }
+      />
     );
   },
 );

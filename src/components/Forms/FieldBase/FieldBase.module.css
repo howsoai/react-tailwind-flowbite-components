@@ -1,0 +1,23 @@
+.label-inline {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "label field"
+    ". extras";
+
+  :global {
+    .label-container {
+      align-items: flex-start;
+      grid-area: label;
+      justify-content: flex-end;
+      margin-top: 0.7rem;
+    }
+    .field-container {
+      grid-area: field;
+    }
+    .extras-container {
+      grid-area: extras;
+    }
+  }
+}

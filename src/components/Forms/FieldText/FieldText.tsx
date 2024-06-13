@@ -19,6 +19,7 @@ export const FieldText = forwardRef<HTMLInputElement, FieldTextProps>(
       containerProps,
       helperText,
       label,
+      labelInline,
       labelProps,
       name = "",
       options,
@@ -43,30 +44,44 @@ export const FieldText = forwardRef<HTMLInputElement, FieldTextProps>(
       name,
       id,
     };
+    const hasExtras = hasError || !!helperText;
 
     return (
       <FieldBase
         containerProps={containerProps}
         label={label}
+        labelInline={labelInline}
         labelProps={labelProps}
         id={id}
         required={props.required}
-      >
-        <FlowbiteFieldText
-          {...props}
-          {...additions}
-          ref={ref}
-          list={hasOptions ? datalistId : undefined}
-        />
-        <FieldErrorMessage name={name} />
-        {helperText && <HelperText color={"gray"} children={helperText} />}
-
-        {(options?.length ?? 0) > 0 && (
-          <datalist id={datalistId}>
-            {options?.map((option) => <option key={option} value={option} />)}
-          </datalist>
-        )}
-      </FieldBase>
+        field={
+          <>
+            <FlowbiteFieldText
+              {...props}
+              {...additions}
+              ref={ref}
+              list={hasOptions ? datalistId : undefined}
+            />
+            {(options?.length ?? 0) > 0 && (
+              <datalist id={datalistId}>
+                {options?.map((option) => (
+                  <option key={option} value={option} />
+                ))}
+              </datalist>
+            )}
+          </>
+        }
+        extras={
+          hasExtras && (
+            <>
+              <FieldErrorMessage name={name} />
+              {helperText && (
+                <HelperText color={"gray"} children={helperText} />
+              )}
+            </>
+          )
+        }
+      />
     );
   },
 );

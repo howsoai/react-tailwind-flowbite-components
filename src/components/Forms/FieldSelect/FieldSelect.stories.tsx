@@ -70,3 +70,12 @@ export const Invalid: Story = {
     value: "one",
   },
 };
+
+export const LabelInline: Story = {
+  decorators: Invalid.decorators,
+  args: {
+    labelInline: true,
+    labelProps: { className: "w-40" },
+    required: true,
+  },
+};

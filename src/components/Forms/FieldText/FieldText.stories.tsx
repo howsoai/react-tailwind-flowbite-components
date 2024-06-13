@@ -69,3 +69,21 @@ export const Invalid: Story = {
     defaultValue: "Ada Lovelace",
   },
 };
+
+export const LabelInline: Story = {
+  args: {
+    labelInline: true,
+    labelProps: { className: "w-40" },
+    required: true,
+    helperText: undefined,
+  },
+};
+
+export const LabelInlineExtras: Story = {
+  decorators: Invalid.decorators,
+  args: {
+    labelInline: true,
+    labelProps: { className: "w-40" },
+    required: true,
+  },
+};
