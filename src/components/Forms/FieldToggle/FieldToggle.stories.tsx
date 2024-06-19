@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { getFormProviderDecorator } from "@/storybook";
 import { FieldToggle } from "./FieldToggle";
 import { UseFormRegister } from "react-hook-form";
+import { fn } from "@storybook/test";
 
 const fieldName = "enable_cookies";
 const registerValues: Partial<
@@ -26,6 +27,8 @@ const meta: Meta<typeof FieldToggle> = {
     ...registerValues,
     label: "Enable cookies",
     helperText: "Lorem ipsum dolor sit amet..",
+    onChange: fn(),
+    onBlur: fn(),
   },
 };
 

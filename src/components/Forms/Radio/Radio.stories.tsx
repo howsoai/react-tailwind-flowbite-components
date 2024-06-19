@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Radio } from "./Radio";
+import { fn } from "@storybook/test";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Radio> = {
@@ -12,7 +13,10 @@ const meta: Meta<typeof Radio> = {
   },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
-  args: {},
+  args: {
+    onChange: fn(),
+    onBlur: fn(),
+  },
   render: (args) => (
     <div className="flex flex-row gap-6">
       <div className="flex items-center gap-2">

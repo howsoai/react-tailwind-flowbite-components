@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { getFormProviderDecorator } from "@/storybook";
 import { FieldText } from "./FieldText";
 import { UseFormRegister } from "react-hook-form";
+import { fn } from "@storybook/test";
 
 const fieldName = "name";
 const registerValues: Partial<
@@ -27,6 +28,8 @@ const meta: Meta<typeof FieldText> = {
     label: "Name",
     placeholder: "Name",
     helperText: "Lorem ipsum dolor sit amet..",
+    onChange: fn(),
+    onBlur: fn(),
   },
   render: (args) => (
     <div className="flex flex-row gap-3">

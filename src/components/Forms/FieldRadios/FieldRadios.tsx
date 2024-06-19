@@ -2,19 +2,30 @@ import { InputHTMLAttributes, ReactNode, forwardRef } from "react";
 import { HelperText, getTheme, Label } from "flowbite-react";
 import { FieldBase, type FieldBaseProps } from "../FieldBase";
 import { twMerge } from "tailwind-merge";
-import { useFormState, type UseFormRegisterReturn } from "react-hook-form";
+import {
+  type RegisterOptions,
+  useFormContext,
+  useFormState,
+  type UseFormRegisterReturn,
+} from "react-hook-form";
 import { FieldTextProps } from "../FieldText";
-import { FieldErrorMessage } from "../FieldErrorMessage";
 import { Radio, RadioProps } from "../Radio";
+import { FieldErrorMessage } from "../FieldErrorMessage";
 
 type FieldRadioOption = { value: string | number; text?: ReactNode };
 export type FieldRadiosProps = FieldBaseProps & {
-  helperText: FieldTextProps["helperText"];
+  helperText?: FieldTextProps["helperText"];
   name: string;
   options: FieldRadioOption[];
+  registerOptions?: RegisterOptions;
 } & Omit<RadioProps, "name"> &
-  Partial<UseFormRegisterReturn>;
+  Omit<Partial<UseFormRegisterReturn>, "defaultValue">;
 
+/**
+ * A thin wrapper around Radio components.
+ * Props are based on a combination of standard Field* and ControllerProps.
+ * Values are driven through FormProvider's state, not direct props.
+ */
 export const FieldRadios = forwardRef<HTMLDivElement, FieldRadiosProps>(
   (
     {
@@ -25,6 +36,7 @@ export const FieldRadios = forwardRef<HTMLDivElement, FieldRadiosProps>(
       labelProps,
       name,
       options,
+      registerOptions,
       required,
       sizing = "md",
       ...props
@@ -32,6 +44,7 @@ export const FieldRadios = forwardRef<HTMLDivElement, FieldRadiosProps>(
     ref,
   ) => {
     const theme = getTheme();
+    const { register } = useFormContext();
     const { errors } = useFormState();
 
     const error = errors[name];
@@ -41,10 +54,8 @@ export const FieldRadios = forwardRef<HTMLDivElement, FieldRadiosProps>(
       | { [key: string]: string | undefined } = {
       "aria-invalid": hasError,
       color: props.color || hasError ? "failure" : undefined,
-      name,
     };
     const hasExtras = hasError || !!helperText;
-    const propsValue = props.value || props.defaultValue;
 
     return (
       <FieldBase
@@ -65,14 +76,16 @@ export const FieldRadios = forwardRef<HTMLDivElement, FieldRadiosProps>(
                 ref={ref}
               >
                 {options.map(({ value, text }) => (
-                  <Label className="flex flex-nowrap gap-1.5 items-center">
+                  <Label
+                    key={value}
+                    className="flex flex-nowrap gap-1.5 items-center"
+                  >
                     <Radio
-                      {...props}
                       {...additions}
+                      {...register(name, registerOptions)}
                       value={value}
-                      checked={propsValue === value}
                     />{" "}
-                    {text}
+                    {text || value}
                   </Label>
                 ))}
               </div>

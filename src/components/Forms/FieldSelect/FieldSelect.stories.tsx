@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { getFormProviderDecorator } from "@/storybook";
 import { FieldSelect } from "./FieldSelect";
 import { UseFormRegister } from "react-hook-form";
+import { fn } from "@storybook/test";
 
 const fieldName = "number";
 const registerValues: Partial<
@@ -26,6 +27,8 @@ const meta: Meta<typeof FieldSelect> = {
     ...registerValues,
     label: "Number",
     helperText: "Lorem ipsum dolor sit amet..",
+    onChange: fn(),
+    onBlur: fn(),
     children: (
       <>
         <option value="">Select</option>

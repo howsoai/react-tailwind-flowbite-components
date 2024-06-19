@@ -77,3 +77,11 @@ export const Numbers: Story = {
     valueAsNumber: true,
   },
 };
+
+export const LabelInline: Story = {
+  args: {
+    labelInline: true,
+    labelProps: { className: "w-40" },
+    required: true,
+  },
+};

@@ -40,6 +40,7 @@ export const FieldTextAreaList = forwardRef<
       containerProps,
       helperText,
       label,
+      labelInline,
       labelProps,
       onBlur,
       onChange,
@@ -61,8 +62,10 @@ export const FieldTextAreaList = forwardRef<
             ref={ref}
             containerProps={containerProps}
             label={label}
+            labelInline={labelInline}
             labelProps={labelProps}
             helperText={helperText}
+            required={props.required}
             rows={rows}
             onChange={async (event) => {
               const value = event.target.value;

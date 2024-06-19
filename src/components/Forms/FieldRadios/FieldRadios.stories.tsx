@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { getFormProviderDecorator } from "@/storybook";
+import { fn } from "@storybook/test";
 import { FieldRadios } from "./FieldRadios";
 import { UseFormRegister } from "react-hook-form";
 
@@ -27,10 +28,14 @@ const meta: Meta<typeof FieldRadios> = {
     helperText: "Lorem ipsum dolor sit amet..",
     label: "Name",
     options: [
-      { value: 1, text: "One" },
-      { value: 2, text: <>Two</> },
-      { value: 3, text: <div className="font-bold">Three</div> },
+      { value: "1", text: "One" },
+      { value: "2" },
+      { value: "3", text: <div className="font-bold">Three</div> },
     ],
+    registerOptions: {
+      onChange: fn(),
+      onBlur: fn(),
+    },
   },
 };
 
@@ -56,9 +61,14 @@ export const NoHelperRadios: Story = {
 };
 
 export const Filled: Story = {
-  args: {
-    defaultValue: 1,
-  },
+  decorators: [
+    getFormProviderDecorator({
+      defaultValues: {
+        [fieldName]: "2",
+      },
+    }),
+  ],
+  args: {},
 };
 
 export const Invalid: Story = {

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ToggleInput } from "./ToggleInput";
+import { fn } from "@storybook/test";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof ToggleInput> = {
@@ -12,7 +13,10 @@ const meta: Meta<typeof ToggleInput> = {
   },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
-  args: {},
+  args: {
+    onChange: fn(),
+    onBlur: fn(),
+  },
 };
 
 export default meta;
