@@ -15,7 +15,7 @@ export const FieldStatic = forwardRef<HTMLDivElement, FieldStaticProps>(
   (
     {
       addon,
-      color = "gray",
+      color,
       containerProps,
       helperText,
       label,
