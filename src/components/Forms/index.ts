@@ -4,6 +4,7 @@ export * from "./FieldContainer";
 export * from "./FieldErrorMessage";
 export * from "./FieldLabel";
 export * from "./FieldSelect";
+export * from "./FieldStatic";
 export * from "./FieldText";
 export * from "./FieldTextArea";
 export * from "./FieldTextAreaList";
