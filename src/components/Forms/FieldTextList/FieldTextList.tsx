@@ -4,7 +4,7 @@ import { Controller, ControllerProps } from "react-hook-form";
 import { FieldBaseProps } from "../FieldBase";
 
 export type FieldTextListProps = FieldBaseProps &
-  Pick<FieldTextProps, "helperText" | "placeholder"> &
+  Pick<FieldTextProps, "helperText" | "placeholder" | "sizing"> &
   Omit<ControllerProps, "render"> & {
     onChange?: FieldTextListChangeHandler;
     onBlur?: FieldTextListChangeHandler;

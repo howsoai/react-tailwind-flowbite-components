@@ -28,6 +28,13 @@ const meta: Meta<typeof FieldText> = {
     placeholder: "Name",
     helperText: "Lorem ipsum dolor sit amet..",
   },
+  render: (args) => (
+    <div className="flex flex-row gap-3">
+      <FieldText {...args} sizing={"sm"} />
+      <FieldText {...args} />
+      <FieldText {...args} sizing={"lg"} />
+    </div>
+  ),
 };
 
 export default meta;
@@ -71,15 +78,6 @@ export const Invalid: Story = {
 };
 
 export const LabelInline: Story = {
-  args: {
-    labelInline: true,
-    labelProps: { className: "w-40" },
-    required: true,
-    helperText: undefined,
-  },
-};
-
-export const LabelInlineExtras: Story = {
   decorators: Invalid.decorators,
   args: {
     labelInline: true,

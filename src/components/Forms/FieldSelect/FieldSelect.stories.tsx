@@ -35,6 +35,13 @@ const meta: Meta<typeof FieldSelect> = {
       </>
     ),
   },
+  render: (args) => (
+    <div className="flex flex-row gap-3">
+      <FieldSelect {...args} sizing={"sm"} />
+      <FieldSelect {...args} />
+      <FieldSelect {...args} sizing={"lg"} />
+    </div>
+  ),
 };
 
 export default meta;

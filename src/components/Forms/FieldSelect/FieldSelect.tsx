@@ -55,6 +55,7 @@ export const FieldSelect = forwardRef<HTMLSelectElement, FieldSelectProps>(
         labelProps={labelProps}
         id={id}
         required={props.required}
+        sizing={props.sizing}
         field={<FlowbiteSelect {...props} {...additions} ref={ref} />}
         extras={
           hasExtras && (
