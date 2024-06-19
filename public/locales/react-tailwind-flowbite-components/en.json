@@ -26,5 +26,10 @@
     "Skeleton": {
       "loading": "Loading..."
     }
+  },
+  "Forms": {
+    "FieldLabel": {
+      "required": "This field is required"
+    }
   }
 }

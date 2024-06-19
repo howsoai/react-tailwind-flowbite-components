@@ -1,5 +1,9 @@
 # Migration guide
 
+## 3.x
+
+Locale file updates
+
 ## 2.x
 
 ### Translations
