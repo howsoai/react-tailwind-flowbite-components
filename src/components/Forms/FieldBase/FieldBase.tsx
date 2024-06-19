@@ -42,6 +42,7 @@ export const FieldBase: FC<
     >
       {label && (
         <FieldLabel
+          sizing={sizing}
           {...labelProps}
           className={twMerge(labelProps?.className, "labelContainer")}
           htmlFor={id}

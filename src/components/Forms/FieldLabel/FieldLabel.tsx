@@ -5,18 +5,27 @@ import { twMerge } from "tailwind-merge";
 
 export type FieldLabelProps = LabelProps & {
   required?: boolean;
+  sizing?: LabelSize;
   suffix?: ReactNode;
 };
 export const FieldLabel: FC<FieldLabelProps> = ({
   required,
   children,
+  sizing,
   suffix,
   ...props
 }) => {
   const { t } = useDefaultTranslation();
 
   return (
-    <Label {...props} className={twMerge("flex items-center", props.className)}>
+    <Label
+      {...props}
+      className={twMerge(
+        "flex items-center",
+        sizing && labelSizing[sizing],
+        props.className,
+      )}
+    >
       <div>
         <span>{children}</span>
         {required && (
@@ -32,4 +41,11 @@ export const FieldLabel: FC<FieldLabelProps> = ({
       {suffix}
     </Label>
   );
+};
+
+type LabelSize = "sm" | "md" | "lg";
+const labelSizing: Record<LabelSize, string> = {
+  sm: "text-xs",
+  md: "text-sm",
+  lg: "text-md",
 };
