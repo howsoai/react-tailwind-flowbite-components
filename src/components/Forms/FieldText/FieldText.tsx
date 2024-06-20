@@ -54,6 +54,7 @@ export const FieldText = forwardRef<HTMLInputElement, FieldTextProps>(
         labelProps={labelProps}
         id={id}
         required={props.required}
+        sizing={props.sizing}
         field={
           <>
             <FlowbiteFieldText

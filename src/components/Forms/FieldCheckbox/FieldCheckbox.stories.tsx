@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { FieldCheckbox } from "./FieldCheckbox";
 import { UseFormRegister } from "react-hook-form";
 import { getFormProviderDecorator } from "@/storybook";
+import { fn } from "@storybook/test";
 
 const fieldName = "enable_cookies";
 const registerValues: Partial<
@@ -26,7 +27,16 @@ const meta: Meta<typeof FieldCheckbox> = {
     ...registerValues,
     label: "Enable cookies",
     helperText: "Lorem ipsum dolor sit amet..",
+    onChange: fn(),
+    onBlur: fn(),
   },
+  render: (args) => (
+    <div className="flex flex-row gap-6">
+      <FieldCheckbox {...args} sizing="sm" />
+      <FieldCheckbox {...args} />
+      <FieldCheckbox {...args} sizing="lg" />
+    </div>
+  ),
 };
 
 export default meta;

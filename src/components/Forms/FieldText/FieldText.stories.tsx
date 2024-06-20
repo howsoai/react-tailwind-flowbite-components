@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { getFormProviderDecorator } from "@/storybook";
 import { FieldText } from "./FieldText";
 import { UseFormRegister } from "react-hook-form";
+import { fn } from "@storybook/test";
 
 const fieldName = "name";
 const registerValues: Partial<
@@ -27,7 +28,16 @@ const meta: Meta<typeof FieldText> = {
     label: "Name",
     placeholder: "Name",
     helperText: "Lorem ipsum dolor sit amet..",
+    onChange: fn(),
+    onBlur: fn(),
   },
+  render: (args) => (
+    <div className="flex flex-row gap-3">
+      <FieldText {...args} sizing={"sm"} />
+      <FieldText {...args} />
+      <FieldText {...args} sizing={"lg"} />
+    </div>
+  ),
 };
 
 export default meta;
@@ -71,15 +81,6 @@ export const Invalid: Story = {
 };
 
 export const LabelInline: Story = {
-  args: {
-    labelInline: true,
-    labelProps: { className: "w-40" },
-    required: true,
-    helperText: undefined,
-  },
-};
-
-export const LabelInlineExtras: Story = {
   decorators: Invalid.decorators,
   args: {
     labelInline: true,

@@ -16,6 +16,13 @@ const meta: Meta<typeof FieldLabel> = {
   args: {
     children: "Name",
   },
+  render: (args) => (
+    <div className="flex flex-row gap-6">
+      <FieldLabel {...args} sizing={"sm"} />
+      <FieldLabel {...args} />
+      <FieldLabel {...args} sizing={"lg"} />
+    </div>
+  ),
 };
 
 export default meta;

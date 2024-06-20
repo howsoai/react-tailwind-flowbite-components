@@ -4,7 +4,7 @@ import { Controller, ControllerProps } from "react-hook-form";
 import { FieldBaseProps } from "../FieldBase";
 
 export type FieldTextListProps = FieldBaseProps &
-  Pick<FieldTextProps, "helperText" | "placeholder"> &
+  Pick<FieldTextProps, "helperText" | "placeholder" | "sizing"> &
   Omit<ControllerProps, "render"> & {
     onChange?: FieldTextListChangeHandler;
     onBlur?: FieldTextListChangeHandler;
@@ -34,6 +34,7 @@ export const FieldTextList = forwardRef<HTMLInputElement, FieldTextListProps>(
       containerProps,
       helperText,
       label,
+      labelInline,
       labelProps,
       onBlur,
       onChange,
@@ -54,6 +55,7 @@ export const FieldTextList = forwardRef<HTMLInputElement, FieldTextListProps>(
             ref={ref}
             containerProps={containerProps}
             label={label}
+            labelInline={labelInline}
             labelProps={labelProps}
             helperText={helperText}
             onChange={async (event) => {
@@ -72,6 +74,7 @@ export const FieldTextList = forwardRef<HTMLInputElement, FieldTextListProps>(
               onBlur(event, values);
             }}
             placeholder={placeholder}
+            required={props.required}
             value={
               field.value
                 ? getText({

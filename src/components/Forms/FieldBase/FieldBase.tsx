@@ -1,6 +1,6 @@
-import { FC, ReactNode } from "react";
-import { FieldContainer, FieldContainerProps } from "../FieldContainer";
-import { FieldLabel, FieldLabelProps } from "../FieldLabel";
+import { type FC, ReactNode } from "react";
+import { FieldContainer, type FieldContainerProps } from "../FieldContainer";
+import { FieldLabel, type FieldLabelProps } from "../FieldLabel";
 import { twMerge } from "tailwind-merge";
 import Styles from "./FieldBase.module.css";
 
@@ -15,6 +15,7 @@ export type FieldBaseProps = {
   labelInline?: boolean;
   labelProps?: Omit<FieldLabelProps, "children">;
   required?: boolean;
+  sizing?: "sm" | "md" | "lg";
 };
 export const FieldBase: FC<
   FieldBaseProps & { field: ReactNode; extras: ReactNode }
@@ -27,28 +28,31 @@ export const FieldBase: FC<
   labelInline,
   labelProps,
   required,
+  sizing = "md",
 }) => {
   return (
     <FieldContainer
       {...containerProps}
       className={twMerge(
         containerProps?.className,
-        labelInline && twMerge(Styles["label-inline"], "gap-x-2"),
+        labelInline && twMerge(Styles.labelInline, "gap-x-2"),
         !labelInline && "space-y-2",
+        `sizing-${sizing}`,
       )}
     >
       {label && (
         <FieldLabel
+          sizing={sizing}
           {...labelProps}
-          className={twMerge(labelProps?.className, "label-container")}
+          className={twMerge(labelProps?.className, "labelContainer")}
           htmlFor={id}
           required={required}
         >
           {label}
         </FieldLabel>
       )}
-      <div className="field-container">{field}</div>
-      {extras && <div className="extras-container">{extras}</div>}
+      <div className="fieldContainer">{field}</div>
+      {extras && <div className="extrasContainer">{extras}</div>}
     </FieldContainer>
   );
 };

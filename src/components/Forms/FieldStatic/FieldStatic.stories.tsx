@@ -1,10 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { getFormProviderDecorator } from "@/storybook";
-import { FieldSelect } from "./FieldSelect";
+import { FieldStatic } from "./FieldStatic";
 import { UseFormRegister } from "react-hook-form";
-import { fn } from "@storybook/test";
 
-const fieldName = "number";
+const fieldName = "name";
 const registerValues: Partial<
   ReturnType<UseFormRegister<{ [fieldName]: string }>>
 > = {
@@ -12,8 +11,8 @@ const registerValues: Partial<
 };
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-const meta: Meta<typeof FieldSelect> = {
-  component: FieldSelect,
+const meta: Meta<typeof FieldStatic> = {
+  component: FieldStatic,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/7.0/react/writing-docs/docs-page
   tags: ["autodocs"],
   parameters: {
@@ -25,30 +24,21 @@ const meta: Meta<typeof FieldSelect> = {
   argTypes: {},
   args: {
     ...registerValues,
-    label: "Number",
+    label: "Name",
     helperText: "Lorem ipsum dolor sit amet..",
-    onChange: fn(),
-    onBlur: fn(),
-    children: (
-      <>
-        <option value="">Select</option>
-        <option value="one">One</option>
-        <option value="two">Two</option>
-        <option value="three">Three</option>
-      </>
-    ),
+    value: "Static content",
   },
   render: (args) => (
     <div className="flex flex-row gap-3">
-      <FieldSelect {...args} sizing={"sm"} />
-      <FieldSelect {...args} />
-      <FieldSelect {...args} sizing={"lg"} />
+      <FieldStatic {...args} sizing={"sm"} />
+      <FieldStatic {...args} />
+      <FieldStatic {...args} sizing={"lg"} />
     </div>
   ),
 };
 
 export default meta;
-type Story = StoryObj<typeof FieldSelect>;
+type Story = StoryObj<typeof FieldStatic>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 export const Default: Story = {
@@ -56,36 +46,9 @@ export const Default: Story = {
   args: {},
 };
 
-export const Required: Story = {
-  args: {
-    required: true,
-  },
-};
-
-export const Filled: Story = {
-  args: {
-    value: "one",
-  },
-};
-
-export const Invalid: Story = {
-  decorators: [
-    getFormProviderDecorator({
-      errors: {
-        [fieldName]: { type: "min", message: "Must greater than 20" },
-      },
-    }),
-  ],
-  args: {
-    value: "one",
-  },
-};
-
 export const LabelInline: Story = {
-  decorators: Invalid.decorators,
   args: {
     labelInline: true,
     labelProps: { className: "w-40" },
-    required: true,
   },
 };

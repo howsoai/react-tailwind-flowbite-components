@@ -8,7 +8,7 @@ import { type UseFormRegisterReturn, useFormState } from "react-hook-form";
 import { FieldBase, type FieldBaseProps } from "../FieldBase";
 import { FieldErrorMessage } from "../FieldErrorMessage";
 
-export type FieldTextAreaProps = FieldBaseProps &
+export type FieldTextAreaProps = Omit<FieldBaseProps, "sizing"> &
   FlowbiteFieldTextAreaProps &
   Partial<UseFormRegisterReturn>;
 

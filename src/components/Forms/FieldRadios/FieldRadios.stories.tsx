@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { getFormProviderDecorator } from "@/storybook";
-import { FieldSelect } from "./FieldSelect";
-import { UseFormRegister } from "react-hook-form";
 import { fn } from "@storybook/test";
+import { FieldRadios } from "./FieldRadios";
+import { UseFormRegister } from "react-hook-form";
 
-const fieldName = "number";
+const fieldName = "name";
 const registerValues: Partial<
   ReturnType<UseFormRegister<{ [fieldName]: string }>>
 > = {
@@ -12,8 +12,8 @@ const registerValues: Partial<
 };
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-const meta: Meta<typeof FieldSelect> = {
-  component: FieldSelect,
+const meta: Meta<typeof FieldRadios> = {
+  component: FieldRadios,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/7.0/react/writing-docs/docs-page
   tags: ["autodocs"],
   parameters: {
@@ -25,30 +25,29 @@ const meta: Meta<typeof FieldSelect> = {
   argTypes: {},
   args: {
     ...registerValues,
-    label: "Number",
     helperText: "Lorem ipsum dolor sit amet..",
-    onChange: fn(),
-    onBlur: fn(),
-    children: (
-      <>
-        <option value="">Select</option>
-        <option value="one">One</option>
-        <option value="two">Two</option>
-        <option value="three">Three</option>
-      </>
-    ),
+    label: "Name",
+    options: [
+      { value: "1", text: "One" },
+      { value: "2" },
+      { value: "3", text: <div className="font-bold">Three</div> },
+    ],
+    registerOptions: {
+      onChange: fn(),
+      onBlur: fn(),
+    },
   },
   render: (args) => (
-    <div className="flex flex-row gap-3">
-      <FieldSelect {...args} sizing={"sm"} />
-      <FieldSelect {...args} />
-      <FieldSelect {...args} sizing={"lg"} />
+    <div className="space-y-10">
+      <FieldRadios {...args} sizing="sm" />
+      <FieldRadios {...args} />
+      <FieldRadios {...args} sizing="lg" />
     </div>
   ),
 };
 
 export default meta;
-type Story = StoryObj<typeof FieldSelect>;
+type Story = StoryObj<typeof FieldRadios>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 export const Default: Story = {
@@ -62,23 +61,32 @@ export const Required: Story = {
   },
 };
 
-export const Filled: Story = {
+export const NoHelperRadios: Story = {
   args: {
-    value: "one",
+    helperText: undefined,
   },
+};
+
+export const Filled: Story = {
+  decorators: [
+    getFormProviderDecorator({
+      defaultValues: {
+        [fieldName]: "2",
+      },
+    }),
+  ],
+  args: {},
 };
 
 export const Invalid: Story = {
   decorators: [
     getFormProviderDecorator({
       errors: {
-        [fieldName]: { type: "min", message: "Must greater than 20" },
+        [fieldName]: { type: "validate", message: "A value must be selected" },
       },
     }),
   ],
-  args: {
-    value: "one",
-  },
+  args: {},
 };
 
 export const LabelInline: Story = {
