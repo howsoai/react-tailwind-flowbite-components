@@ -14,6 +14,8 @@ import {
 import { FieldContainer } from "../FieldContainer";
 import { type FieldBaseProps } from "../FieldBase";
 import { FieldErrorMessage } from "../FieldErrorMessage";
+import { twMerge } from "tailwind-merge";
+import { fieldLabelSizing } from "../FieldLabel";
 
 export type FieldCheckboxProps = Omit<FieldBaseProps, "labelInline"> & {
   helperText?: ReactNode;
@@ -29,6 +31,7 @@ export const FieldCheckbox = forwardRef<HTMLInputElement, FieldCheckboxProps>(
       label,
       labelProps,
       name = "",
+      sizing,
       ...props
     },
     ref,
@@ -56,7 +59,14 @@ export const FieldCheckbox = forwardRef<HTMLInputElement, FieldCheckboxProps>(
             <Checkbox {...props} {...additions} color={color} ref={ref} />
           </div>
           <div className="space-y-1">
-            <Label {...labelProps} htmlFor={id}>
+            <Label
+              {...labelProps}
+              className={twMerge(
+                labelProps?.className,
+                sizing && fieldLabelSizing[sizing],
+              )}
+              htmlFor={id}
+            >
               {label}
             </Label>
             <FieldErrorMessage name={name} />

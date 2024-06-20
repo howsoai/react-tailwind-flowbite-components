@@ -30,6 +30,13 @@ const meta: Meta<typeof FieldCheckbox> = {
     onChange: fn(),
     onBlur: fn(),
   },
+  render: (args) => (
+    <div className="flex flex-row gap-6">
+      <FieldCheckbox {...args} sizing="sm" />
+      <FieldCheckbox {...args} />
+      <FieldCheckbox {...args} sizing="lg" />
+    </div>
+  ),
 };
 
 export default meta;
