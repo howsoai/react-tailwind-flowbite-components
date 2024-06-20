@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, ReactNode, forwardRef } from "react";
-import { HelperText, getTheme, Label } from "flowbite-react";
+import { HelperText, Label, getTheme } from "flowbite-react";
 import { FieldBase, type FieldBaseProps } from "../FieldBase";
 import { twMerge } from "tailwind-merge";
 import {
@@ -11,6 +11,7 @@ import {
 import { FieldTextProps } from "../FieldText";
 import { Radio, RadioProps } from "../Radio";
 import { FieldErrorMessage } from "../FieldErrorMessage";
+import { FieldLabel, fieldLabelSizing } from "../FieldLabel";
 
 type FieldRadioOption = { value: string | number; text?: ReactNode };
 export type FieldRadiosProps = FieldBaseProps & {
@@ -78,14 +79,17 @@ export const FieldRadios = forwardRef<HTMLDivElement, FieldRadiosProps>(
                 {options.map(({ value, text }) => (
                   <Label
                     key={value}
-                    className="flex flex-nowrap gap-1.5 items-center"
+                    className={twMerge(
+                      "flex flex-row flex-nowrap gap-1.5 items-center",
+                      sizing && fieldLabelSizing[sizing],
+                    )}
                   >
                     <Radio
                       {...additions}
                       {...register(name, registerOptions)}
                       value={value}
-                    />{" "}
-                    {text || value}
+                    />
+                    <div>{text || value}</div>
                   </Label>
                 ))}
               </div>

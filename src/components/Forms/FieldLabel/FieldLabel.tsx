@@ -22,7 +22,7 @@ export const FieldLabel: FC<FieldLabelProps> = ({
       {...props}
       className={twMerge(
         "flex items-center",
-        sizing && labelSizing[sizing],
+        sizing && fieldLabelSizing[sizing],
         props.className,
       )}
     >
@@ -44,7 +44,7 @@ export const FieldLabel: FC<FieldLabelProps> = ({
 };
 
 type LabelSize = "sm" | "md" | "lg";
-const labelSizing: Record<LabelSize, string> = {
+export const fieldLabelSizing: Record<LabelSize, string> = {
   sm: "text-xs",
   md: "text-sm",
   lg: "text-md",

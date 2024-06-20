@@ -23,14 +23,14 @@
   &:global(.sizing-sm) {
     :global {
       .labelContainer {
-        margin-top: 0.55rem;
+        margin-top: 0.5rem;
       }
     }
   }
   &:global(.sizing-lg) {
     :global {
       .labelContainer {
-        margin-top: 1.05rem;
+        margin-top: 1rem;
       }
     }
   }

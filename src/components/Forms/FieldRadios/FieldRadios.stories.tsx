@@ -37,6 +37,13 @@ const meta: Meta<typeof FieldRadios> = {
       onBlur: fn(),
     },
   },
+  render: (args) => (
+    <div className="space-y-10">
+      <FieldRadios {...args} sizing="sm" />
+      <FieldRadios {...args} />
+      <FieldRadios {...args} sizing="lg" />
+    </div>
+  ),
 };
 
 export default meta;
