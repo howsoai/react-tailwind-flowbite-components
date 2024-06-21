@@ -41,6 +41,7 @@ export const FieldStatic = forwardRef<HTMLDivElement, FieldStaticProps>(
               <div
                 className={twMerge(
                   theme.textInput.field.input.base,
+                  "text-gray-900 dark:text-white",
                   color && theme.textInput.field.input.colors[color],
                   sizing && theme.textInput.field.input.sizes[sizing],
                   addon
