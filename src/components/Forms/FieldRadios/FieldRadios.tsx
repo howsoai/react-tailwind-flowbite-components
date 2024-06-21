@@ -63,7 +63,10 @@ export const FieldRadios = forwardRef<HTMLDivElement, FieldRadiosProps>(
         containerProps={containerProps}
         label={label}
         labelInline={labelInline}
-        labelProps={labelProps}
+        labelProps={{
+          ...labelProps,
+          className: twMerge(labelProps?.className, labelInline && "!mt-0"),
+        }}
         sizing={sizing}
         required={required}
         field={
@@ -73,6 +76,7 @@ export const FieldRadios = forwardRef<HTMLDivElement, FieldRadiosProps>(
                 className={twMerge(
                   sizing && theme.textInput.field.input.sizes[sizing],
                   "flex flex-row flex-wrap gap-6 pl-0.5",
+                  labelInline && "pt-0",
                 )}
                 ref={ref}
               >
