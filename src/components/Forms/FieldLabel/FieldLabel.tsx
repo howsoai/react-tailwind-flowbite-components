@@ -1,5 +1,5 @@
 import { useDefaultTranslation } from "@/hooks";
-import { Label, type LabelProps } from "flowbite-react";
+import { Label, Tooltip, TooltipProps, type LabelProps } from "flowbite-react";
 import { FC, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -7,16 +7,16 @@ export type FieldLabelProps = LabelProps & {
   required?: boolean;
   sizing?: LabelSize;
   suffix?: ReactNode;
+  tooltipProps?: Omit<TooltipProps, "children">;
 };
 export const FieldLabel: FC<FieldLabelProps> = ({
   required,
   children,
   sizing,
   suffix,
+  tooltipProps,
   ...props
 }) => {
-  const { t } = useDefaultTranslation();
-
   return (
     <Label
       {...props}
@@ -26,20 +26,54 @@ export const FieldLabel: FC<FieldLabelProps> = ({
         props.className,
       )}
     >
-      <div>
-        <span>{children}</span>
+      {tooltipProps ? (
+        <Tooltip {...tooltipProps}>
+          <Contents
+            children={children}
+            required={required}
+            suffix={suffix}
+            tooltipProps={tooltipProps}
+          />
+        </Tooltip>
+      ) : (
+        <Contents children={children} required={required} suffix={suffix} />
+      )}
+    </Label>
+  );
+};
+
+type ContentsProps = Pick<
+  FieldLabelProps,
+  "children" | "required" | "suffix" | "tooltipProps"
+>;
+
+const Contents: FC<ContentsProps> = ({
+  children,
+  required,
+  suffix,
+  tooltipProps,
+}) => {
+  const { t } = useDefaultTranslation();
+  return (
+    <>
+      <div className="flex flex-row">
+        <div
+          className={twMerge(!!tooltipProps && "underline decoration-dotted")}
+        >
+          {children}
+        </div>
         {required && (
-          <span
+          <div
             aria-hidden="true"
             title={t("Forms.FieldLabel.required")}
             className="text-red-600 dark:text-red-400"
           >
             *
-          </span>
+          </div>
         )}
       </div>
       {suffix}
-    </Label>
+    </>
   );
 };
 

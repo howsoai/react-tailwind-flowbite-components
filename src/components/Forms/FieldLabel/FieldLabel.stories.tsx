@@ -49,3 +49,12 @@ export const Suffix: Story = {
     ),
   },
 };
+
+export const Tooltip: Story = {
+  args: {
+    required: true,
+    tooltipProps: {
+      content: "Sample tooltip",
+    },
+  },
+};
