@@ -56,20 +56,20 @@ const Contents: FC<ContentsProps> = ({
   const { t } = useDefaultTranslation();
   return (
     <>
-      <div>
-        <span
+      <div className="flex flex-row">
+        <div
           className={twMerge(!!tooltipProps && "underline decoration-dotted")}
         >
           {children}
-        </span>
+        </div>
         {required && (
-          <span
+          <div
             aria-hidden="true"
             title={t("Forms.FieldLabel.required")}
             className="text-red-600 dark:text-red-400"
           >
             *
-          </span>
+          </div>
         )}
       </div>
       {suffix}
