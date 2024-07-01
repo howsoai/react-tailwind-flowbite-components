@@ -11,7 +11,7 @@ import {
 import { FieldTextProps } from "../FieldText";
 import { Radio, RadioProps } from "../Radio";
 import { FieldErrorMessage } from "../FieldErrorMessage";
-import { FieldLabel, fieldLabelSizing } from "../FieldLabel";
+import { fieldLabelSizing } from "../FieldLabel";
 
 type FieldRadioOption = { value: string | number; text?: ReactNode };
 export type FieldRadiosProps = FieldBaseProps & {
