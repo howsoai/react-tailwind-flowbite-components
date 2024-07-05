@@ -13,11 +13,6 @@ const meta: Meta<typeof Skeleton> = {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
   args: {},
-  render: (args) => (
-    <div className="w-20">
-      <Skeleton {...args} />
-    </div>
-  ),
 };
 
 export default meta;
@@ -26,5 +21,19 @@ type Story = StoryObj<typeof Skeleton>;
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 export const Default: Story = {
   // More on args: https://storybook.js.org/docs/react/writing-stories/args
-  args: {},
+  args: {
+    className: "w-20",
+  },
+};
+
+export const Text: Story = {
+  args: {
+    variant: "text",
+    className: "w-20",
+  },
+  render: (args) => (
+    <p>
+      Lorem ipsum dollar <Skeleton {...args} /> sit amin.
+    </p>
+  ),
 };
