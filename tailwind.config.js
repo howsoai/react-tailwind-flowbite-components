@@ -1,4 +1,4 @@
-import flowbite from "flowbite/plugin";
+import flowbite from "flowbite-react/tailwind";
 import { standardTailwindConfigThemeExtend } from "./src/themes";
 
 /** @type {import('tailwindcss').Config} */
@@ -9,7 +9,7 @@ export default {
     "./storybook/**/*.{jsx,tsx,html}",
     "./node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
-  plugins: [flowbite({ charts: true })],
+  plugins: [flowbite.plugin({ charts: true })],
   theme: {
     extend: standardTailwindConfigThemeExtend,
   },
