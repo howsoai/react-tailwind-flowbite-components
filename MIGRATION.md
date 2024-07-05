@@ -1,5 +1,33 @@
 # Migration guide
 
+## 4.x
+
+Flowbite updates 0.7 - 0.10
+
+`tailwind.config.js` content path:
+
+old: "node\*modules/flowbite-react/lib/esm/\*\*/\_.js"
+
+new: "node\*modules/flowbite-react/dist/esm/\*\*/\_.mjs" - Please use (`flowbite.content()`)
+
+```js
+const flowbite = require("flowbite-react/tailwind");
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    // ...
+    flowbite.content(),
+  ],
+  plugins: [
+    // ...
+    flowbite.plugin(),
+  ],
+};
+```
+
+Renamed the `Tabs` attribute from `style` to `variant` to allow the use of the `style` attribute.
+
 ## 3.x
 
 Locale file updates
