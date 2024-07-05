@@ -7,7 +7,6 @@ export default {
     flowbite.content(),
     "./src/**/*.{js,ts,jsx,tsx}",
     "./storybook/**/*.{jsx,tsx,html}",
-    "./node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   plugins: [flowbite.plugin({ charts: true })],
   theme: {
