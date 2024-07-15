@@ -10,7 +10,7 @@ export interface TextScrambleAnimProps {
   className?: string;
 }
 
-export const TextScramble: FC<TextScrambleAnimProps> = ({
+export const TextScrambleComponent: FC<TextScrambleAnimProps> = ({
   texts,
   characters,
   className,
@@ -50,3 +50,34 @@ export const TextScramble: FC<TextScrambleAnimProps> = ({
 
   return <span role="status" className={className} ref={ref} />;
 };
+
+/** A predefined scramble of text cycling between 'calculating' in multiple languages */
+const TextScrambleCalculating: FC = () => (
+  <TextScrambleComponent
+    loop
+    delay={0}
+    texts={[
+      "calculating",
+      "计算",
+      "गिना जा रहा है",
+      "Calculador",
+      "Calculateur",
+      "حساب",
+      "Расчет",
+    ]}
+  />
+);
+
+/** A predefined scramble of text cycling between percentages */
+const TextScramblePercentages: FC = () => (
+  <TextScrambleComponent
+    loop
+    delay={0}
+    texts={["0%", "25%", "50%", "75%", "100%"]}
+  />
+);
+
+export const TextScramble = Object.assign(TextScrambleComponent, {
+  Calculating: TextScrambleCalculating,
+  Percentages: TextScramblePercentages,
+});

@@ -25,3 +25,13 @@ export const Default: Story = {
   // More on args: https://storybook.js.org/docs/react/writing-stories/args
   args: {},
 };
+
+export const Calculating: Story = {
+  args: {},
+  render: () => <TextScramble.Calculating />,
+};
+
+export const Percentages: Story = {
+  args: {},
+  render: () => <TextScramble.Percentages />,
+};
