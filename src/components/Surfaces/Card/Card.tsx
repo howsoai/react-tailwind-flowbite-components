@@ -2,11 +2,7 @@ import type { FC, PropsWithChildren, ComponentProps } from "react";
 import { twMerge } from "tailwind-merge";
 
 export type CardProps = PropsWithChildren<ComponentProps<"section">>;
-const CardComponent: FC<CardProps> = function ({
-  children,
-  className,
-  ...props
-}) {
+const CardComponent: FC<CardProps> = ({ children, className, ...props }) => {
   return (
     <section
       data-testid="card-component"
@@ -26,11 +22,7 @@ export type CardHeaderProps = PropsWithChildren<ComponentProps<"header">>;
 /**
  * Standardized header element for cards.
  */
-const CardHeader: FC<CardHeaderProps> = function ({
-  children,
-  className,
-  ...props
-}) {
+const CardHeader: FC<CardHeaderProps> = ({ children, className, ...props }) => {
   return (
     <header
       className={twMerge(
@@ -87,11 +79,11 @@ const CardSubtitle: FC<CardSubtitleProps> = ({ level = 4, ...props }) => {
 CardSubtitle.displayName = "Card.Subtitle";
 
 export type CardContentProps = PropsWithChildren<ComponentProps<"div">>;
-const CardContent: FC<CardContentProps> = function ({
+const CardContent: FC<CardContentProps> = ({
   children,
   className,
   ...props
-}) {
+}) => {
   return (
     <div className={twMerge(contentPadding, className)} {...props}>
       {children}
