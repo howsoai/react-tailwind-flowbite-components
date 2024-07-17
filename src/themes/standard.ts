@@ -48,20 +48,34 @@ export const standardTailwindConfigThemeExtend: NonNullable<
 };
 
 export const standardFlowbiteTheme: CustomFlowbiteTheme = {
-  navbar: {
-    root: {
-      base: "z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700",
+  alert: {
+    closeButton: {
+      color: {
+        info: "bg-blue-100 text-blue-500 hover:bg-blue-200 focus:ring-blue-400 dark:bg-blue-200 dark:text-blue-600 dark:hover:bg-blue-300",
+        failure:
+          "bg-red-100 text-red-500 hover:bg-red-200 focus:ring-red-400 dark:bg-red-200 dark:text-red-600 dark:hover:bg-red-300",
+        success:
+          "bg-green-100 text-green-500 hover:bg-green-200 focus:ring-green-400 dark:bg-green-200 dark:text-green-600 dark:hover:bg-green-300",
+        warning:
+          "bg-yellow-100 text-yellow-500 hover:bg-yellow-200 focus:ring-yellow-400 dark:bg-yellow-200 dark:text-yellow-600 dark:hover:bg-yellow-300",
+      },
+    },
+    color: {
+      info: "border-blue-500 bg-blue-100 text-blue-700 dark:bg-blue-200 dark:text-blue-800",
+      failure:
+        "border-red-500 bg-red-100 text-red-700 dark:bg-red-200 dark:text-red-800",
+      success:
+        "border-green-500 bg-green-100 text-green-700 dark:bg-green-200 dark:text-green-800",
+      warning:
+        "border-yellow-500 bg-yellow-100 text-yellow-700 dark:bg-yellow-200 dark:text-yellow-800",
+      red: "border-red-500 bg-red-100 text-red-700 dark:bg-red-200 dark:text-red-800",
     },
   },
-  footer: {
+  badge: {
     root: {
-      base: "w-full bg-white dark:bg-gray-800 md:flex md:items-center md:justify-between",
-    },
-    divider: {
-      base: "w-full my-6 border-gray-200 sm:mx-auto dark:border-gray-700",
-    },
-    copyright: {
-      base: "text-sm",
+      color: {
+        blue: "bg-blue-100 text-blue-800 dark:bg-blue-200 dark:text-blue-900 group-hover:bg-blue-200 dark:group-hover:bg-blue-300",
+      },
     },
   },
   button: {
@@ -83,11 +97,9 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
       on: "transition-all duration-75 ease-in group-hover:bg-opacity-0 group-hover:text-inherit",
     },
   },
-  badge: {
+  checkbox: {
     root: {
-      color: {
-        blue: "bg-blue-100 text-blue-800 dark:bg-blue-200 dark:text-blue-900 group-hover:bg-blue-200 dark:group-hover:bg-blue-300",
-      },
+      base: "h-4 w-4 rounded border border-gray-300 bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 text-blue-600",
     },
   },
   dropdown: {
@@ -98,11 +110,32 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
     },
     content: "",
   },
+  footer: {
+    root: {
+      base: "w-full bg-white dark:bg-gray-800 md:flex md:items-center md:justify-between",
+    },
+    divider: {
+      base: "w-full my-6 border-gray-200 sm:mx-auto dark:border-gray-700",
+    },
+    copyright: {
+      base: "text-sm",
+    },
+  },
+  helperText: {
+    root: {
+      base: "mt-1 text-sm",
+    },
+  },
   label: {
     root: {
       colors: {
         warning: "text-orange-500 dark:text-orange-700",
       },
+    },
+  },
+  navbar: {
+    root: {
+      base: "z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700",
     },
   },
   pagination: {
@@ -129,16 +162,6 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
           gray: "bg-gray-50 border-gray-300 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500",
         },
       },
-    },
-  },
-  checkbox: {
-    root: {
-      base: "h-4 w-4 rounded border border-gray-300 bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 text-blue-600",
-    },
-  },
-  helperText: {
-    root: {
-      base: "mt-1 text-sm",
     },
   },
 };
@@ -175,5 +198,5 @@ export const standardChartColors = {
 };
 
 export const standardChartPalette: string[] = Object.values(
-  standardChartColors
+  standardChartColors,
 ).map((v) => v[100]);
