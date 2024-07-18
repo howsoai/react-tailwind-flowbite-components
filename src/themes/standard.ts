@@ -133,6 +133,16 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
       },
     },
   },
+  modal: {
+    root: {
+      show: {
+        on: "flex bg-gray-900 bg-opacity-50 dark:bg-opacity-80 backdrop-blur-sm starting-fade",
+      },
+    },
+    content: {
+      base: "relative h-full w-full p-4 md:h-auto starting-fade",
+    },
+  },
   navbar: {
     root: {
       base: "z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700",
