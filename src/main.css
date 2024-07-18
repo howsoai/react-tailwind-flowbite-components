@@ -1,0 +1,39 @@
+:global {
+  /** Appearing and exiting animations */
+  /* Swipe */
+  @starting-style {
+    .starting-swipe {
+      opacity: 0;
+      transform: translateX(-25vw);
+    }
+  }
+  .starting-swipe {
+    transition:
+      opacity 0.5s,
+      transform 0.5s,
+      display 0.5s allow-discrete;
+  }
+
+  .ending-swipe {
+    opacity: 0;
+    display: none;
+    transform: translateX(25vw);
+  }
+
+  /* Fade */
+  @starting-style {
+    .starting-fade {
+      opacity: 0;
+    }
+  }
+  .starting-fade {
+    transition:
+      opacity 0.5s,
+      display 0.5s allow-discrete;
+  }
+
+  .ending-fade {
+    opacity: 0;
+    display: none;
+  }
+}

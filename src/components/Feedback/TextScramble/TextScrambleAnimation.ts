@@ -26,7 +26,7 @@ export class TextScrambleAnimation {
   }
 
   public cancel(): void {
-    if (this.frameRequest != undefined) {
+    if (this.frameRequest !== undefined) {
       cancelAnimationFrame(this.frameRequest);
     }
     this.frameRequest = undefined;
@@ -55,7 +55,7 @@ export class TextScrambleAnimation {
   private update(resolve: () => void) {
     const now = Date.now();
     const elapsed = now - this.lastDraw;
-    if (this.lastDraw != 0 && elapsed <= this.fpsInterval) {
+    if (this.lastDraw !== 0 && elapsed <= this.fpsInterval) {
       // Not yet time to draw
       this.frameRequest = requestAnimationFrame(() => this.update(resolve));
       return;
