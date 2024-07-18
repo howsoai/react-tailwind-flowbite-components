@@ -16,7 +16,7 @@ const meta: Meta<typeof Modal> = {
     <>
       <div className="w-full h-full text-3xl flex gap-6 flex-wrap">
         {new Array(100).fill(0).map((_, index) => (
-          <div>{index}</div>
+          <div key={index}>{index}</div>
         ))}
       </div>
       <Modal {...args} show>
