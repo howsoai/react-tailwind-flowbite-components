@@ -4,7 +4,7 @@
   @starting-style {
     .starting-swipe {
       opacity: 0;
-      transform: translateX(-25vw);
+      transform: translateX(-25rem);
     }
   }
   .starting-swipe {
@@ -17,7 +17,7 @@
   .ending-swipe {
     opacity: 0;
     display: none;
-    transform: translateX(25vw);
+    transform: translateX(25rem);
   }
 
   /* Fade */
