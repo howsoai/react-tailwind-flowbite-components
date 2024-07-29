@@ -7,7 +7,7 @@ import { Languages } from "@/constants";
 const namespace = "ErrorAlert";
 
 const en = {
-  generic: "Something went wrong",
+  generic: "Something went wrong.",
 };
 
 type Resource = typeof en;
