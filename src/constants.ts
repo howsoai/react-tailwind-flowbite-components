@@ -1,3 +1,5 @@
+export type Languages = "en";
+
 export type UXConstants = {
   durations: UXDurations;
 };

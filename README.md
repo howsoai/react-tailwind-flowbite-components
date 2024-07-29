@@ -42,15 +42,32 @@ module.exports = {
 };
 ```
 
-Translation files from this package must be installed into your public directory.
-The suggested integration is trough setting up React I8ln's using `backend`:
+Translation files from this package must be included into your `il8n` `resources`:
+To reduce overall bundle size, you are advised to specify components' bundles you use selectively in your `il8n` service:
 
 ```ts
-{
-  backend: {
-    loadPath: "/locales/{{ns}}/{{lng}}.json",
-  }
-}
+import { SkeletonIl8nBundle } from "@howso/react-tailwind-flowbite-components";
+
+i18n
+  // ...
+  .init({
+    resources: addIl8nBundlesToResources(resources, [SkeletonIl8nBundle]),
+    // ...
+  });
+```
+
+A naive export is available from this package that contains all bundles, though
+its use is discouraged:
+
+```ts
+import { Il8nBundles } from "@howso/react-tailwind-flowbite-components";
+
+i18n
+  // ...
+  .init({
+    resources: addIl8nBundlesToResources(resources, [...Il8nBundles]),
+    // ...
+  });
 ```
 
 ## Contributing
@@ -61,15 +78,6 @@ You may start the UI for inspection with hot reloading using:
 ```bash
 npm run storybook
 ```
-
-### Translations
-
-This package produces a number of components that expose translations.
-Any usages of translation should use the `useDefaultTranslation` function instead of `useTranslation`.
-This will ensure translations are in the correct namespace for this package to be copied into implementing systems.
-
-Using translations should be done sparingly. Copying the updated translation file is a manual process.
-Translation changes should be considered breaking releases to signal this step and include a note in the [migration](./MIGRATION.md) file.
 
 ## Publishing
 
