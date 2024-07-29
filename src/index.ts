@@ -9,6 +9,7 @@ import {
 import "./main.css";
 import { Languages } from "./constants";
 
+export * from "./constants";
 export * from "./components";
 export * from "./hooks";
 export * from "./themes";
