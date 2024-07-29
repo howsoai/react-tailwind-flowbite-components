@@ -1,5 +1,36 @@
 # Migration guide
 
+## 5.x
+
+Refactored translation system to use `@howso/ui-internationalization-utils` `Il8nBundle`s.
+
+To reduce overall bundle size, you are advised to specify components' bundles you use selectively in your `il8n` service:
+
+```ts
+import { SkeletonIl8nBundle } from "@howso/react-tailwind-flowbite-components";
+
+i18n
+  // ...
+  .init({
+    resources: addIl8nBundlesToResources(resources, [SkeletonIl8nBundle]),
+    // ...
+  });
+```
+
+A naive export is available from this package that contains all bundles, though
+its use is discouraged:
+
+```ts
+import { Il8nBundles } from "@howso/react-tailwind-flowbite-components";
+
+i18n
+  // ...
+  .init({
+    resources: addIl8nBundlesToResources(resources, [...Il8nBundles]),
+    // ...
+  });
+```
+
 ## 4.x
 
 Flowbite updates 0.7 - 0.10

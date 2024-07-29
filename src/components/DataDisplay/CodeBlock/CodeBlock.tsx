@@ -3,7 +3,8 @@ import { twMerge } from "tailwind-merge";
 import { debounce } from "lodash";
 import { UX } from "@/constants";
 import { CopyIcon, DownloadIcon } from "@/components/Icons";
-import { useDefaultTranslation } from "@/hooks";
+import { CodeBlockIl8nBundle } from "./CodeBlock.il8n";
+import { useTranslation } from "react-i18next";
 
 export interface CodeBlockProps extends HTMLAttributes<"div"> {
   children?: string;
@@ -19,7 +20,7 @@ export function CodeBlock({
   mimeType,
   fileName,
 }: CodeBlockProps) {
-  const { t } = useDefaultTranslation();
+  const { t } = useTranslation(CodeBlockIl8nBundle.namespace);
   const [isCopied, setIsCopied] = useState(false);
 
   const hideCopied = useMemo(
@@ -65,8 +66,8 @@ export function CodeBlock({
           <>
             <CopyIcon copied={isCopied} className="h-5 w-5" />
             {isCopied
-              ? t("DataDisplay.CodeBlock.copied")
-              : t("DataDisplay.CodeBlock.copy")}
+              ? t(CodeBlockIl8nBundle.strings.copied)
+              : t(CodeBlockIl8nBundle.strings.copy)}
           </>
         </button>
 
@@ -78,7 +79,7 @@ export function CodeBlock({
           >
             <>
               <DownloadIcon className="h-5 w-5" />
-              {t("DataDisplay.CodeBlock.download")}
+              {t(CodeBlockIl8nBundle.strings.download)}
             </>
           </button>
         )}

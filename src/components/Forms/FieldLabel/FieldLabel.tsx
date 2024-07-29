@@ -1,7 +1,8 @@
-import { useDefaultTranslation } from "@/hooks";
 import { Label, Tooltip, TooltipProps, type LabelProps } from "flowbite-react";
 import { FC, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
+import { FieldLabelIl8nBundle } from "./FieldLabel.il8n";
+import { useTranslation } from "react-i18next";
 
 export type FieldLabelProps = LabelProps & {
   required?: boolean;
@@ -53,7 +54,7 @@ const Contents: FC<ContentsProps> = ({
   suffix,
   tooltipProps,
 }) => {
-  const { t } = useDefaultTranslation();
+  const { t } = useTranslation(FieldLabelIl8nBundle.namespace);
   return (
     <>
       <div className="flex flex-row">
@@ -65,7 +66,7 @@ const Contents: FC<ContentsProps> = ({
         {required && (
           <div
             aria-hidden="true"
-            title={t("Forms.FieldLabel.required")}
+            title={t(FieldLabelIl8nBundle.strings.required)}
             className="text-red-600 dark:text-red-400"
           >
             *
