@@ -18,6 +18,7 @@ export * from "./utils";
 export const I18nBundles: I18nBundle<Languages, any>[] = [
   BooleanTextI18nBundle,
   CodeBlockI18nBundle,
+  FieldLabelI18nBundle,
   ErrorAlertI18nBundle,
   FieldLabelI18nBundle,
   SkeletonI18nBundle,
