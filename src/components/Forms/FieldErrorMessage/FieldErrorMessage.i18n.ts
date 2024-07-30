@@ -1,6 +1,6 @@
 import {
-  getStringsForIl8nBundleFromResource,
-  Il8nBundle,
+  getStringsForI18nBundleFromResource,
+  I18nBundle,
 } from "@howso/ui-internationalization-utils";
 import { Languages } from "@/constants";
 
@@ -18,8 +18,8 @@ const en = {
 
 type Resource = typeof en;
 
-export const FieldErrorMessageIl8nBundle: Il8nBundle<Languages, Resource> = {
+export const FieldErrorMessageI18nBundle: I18nBundle<Languages, Resource> = {
   namespace,
   resources: { en },
-  strings: getStringsForIl8nBundleFromResource<Resource>(en),
+  strings: getStringsForI18nBundleFromResource<Resource>(en),
 };

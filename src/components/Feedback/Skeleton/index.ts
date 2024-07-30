@@ -1,2 +1,2 @@
 export * from "./Skeleton";
-export * from "./Skeleton.il8n";
+export * from "./Skeleton.i18n";

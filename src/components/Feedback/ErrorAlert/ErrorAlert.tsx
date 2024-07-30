@@ -1,7 +1,7 @@
 import { Alert, AlertProps } from "flowbite-react";
 import { ReactNode } from "react";
 import { WarningIcon } from "../../Icons";
-import { ErrorAlertIl8nBundle } from "./ErrorAlert.il8n";
+import { ErrorAlertI18nBundle } from "./ErrorAlert.i18n";
 import { useTranslation } from "react-i18next";
 
 export type ErrorAlertProps = Omit<AlertProps, "children"> & {
@@ -16,12 +16,12 @@ export const ErrorAlert = ({
   color = "failure",
   ...props
 }: ErrorAlertProps): ReactNode => {
-  const { t } = useTranslation(ErrorAlertIl8nBundle.namespace);
+  const { t } = useTranslation(ErrorAlertI18nBundle.namespace);
 
   return (
     <Alert icon={icon} color={color} {...props}>
       <span>
-        {message || error?.message || t(ErrorAlertIl8nBundle.strings.generic)}
+        {message || error?.message || t(ErrorAlertI18nBundle.strings.generic)}
       </span>
     </Alert>
   );

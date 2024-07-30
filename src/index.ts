@@ -1,10 +1,10 @@
-import { Il8nBundle } from "@howso/ui-internationalization-utils";
+import { I18nBundle } from "@howso/ui-internationalization-utils";
 import {
-  BooleanTextIl8nBundle,
-  CodeBlockIl8nBundle,
-  ErrorAlertIl8nBundle,
-  FieldLabelIl8nBundle,
-  SkeletonIl8nBundle,
+  BooleanTextI18nBundle,
+  CodeBlockI18nBundle,
+  ErrorAlertI18nBundle,
+  FieldLabelI18nBundle,
+  SkeletonI18nBundle,
 } from "./components";
 import "./main.css";
 import { Languages } from "./constants";
@@ -15,10 +15,10 @@ export * from "./hooks";
 export * from "./themes";
 export * from "./utils";
 
-export const Il8nBundles: Il8nBundle<Languages, any>[] = [
-  BooleanTextIl8nBundle,
-  CodeBlockIl8nBundle,
-  ErrorAlertIl8nBundle,
-  FieldLabelIl8nBundle,
-  SkeletonIl8nBundle,
+export const I18nBundles: I18nBundle<Languages, any>[] = [
+  BooleanTextI18nBundle,
+  CodeBlockI18nBundle,
+  ErrorAlertI18nBundle,
+  FieldLabelI18nBundle,
+  SkeletonI18nBundle,
 ];
