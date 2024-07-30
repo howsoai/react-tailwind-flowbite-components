@@ -22,6 +22,8 @@ export const FieldErrorMessage: FC<FieldErrorMessageProps> = ({ name }) => {
   if (!message) {
     const translationKey = `type.${error?.type}`;
     const translation = t(translationKey);
+    console.info(FieldErrorMessageI18nBundle);
+    console.info(translationKey, translation);
     if (translation !== translationKey) {
       message = translation;
     }

@@ -3,6 +3,7 @@ import {
   BooleanTextI18nBundle,
   CodeBlockI18nBundle,
   ErrorAlertI18nBundle,
+  FieldErrorMessageI18nBundle,
   FieldLabelI18nBundle,
   SkeletonI18nBundle,
 } from "./components";
@@ -19,6 +20,7 @@ export const I18nBundles: I18nBundle<Languages, any>[] = [
   BooleanTextI18nBundle,
   CodeBlockI18nBundle,
   ErrorAlertI18nBundle,
+  FieldErrorMessageI18nBundle,
   FieldLabelI18nBundle,
   SkeletonI18nBundle,
 ];
