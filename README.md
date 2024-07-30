@@ -42,16 +42,16 @@ module.exports = {
 };
 ```
 
-Translation files from this package must be included into your `il8n` `resources`:
-To reduce overall bundle size, you are advised to specify components' bundles you use selectively in your `il8n` service:
+Translation files from this package must be included into your `i18n` `resources`:
+To reduce overall bundle size, you are advised to specify components' bundles you use selectively in your `i18n` service:
 
 ```ts
-import { SkeletonIl8nBundle } from "@howso/react-tailwind-flowbite-components";
+import { SkeletonI18nBundle } from "@howso/react-tailwind-flowbite-components";
 
 i18n
   // ...
   .init({
-    resources: addIl8nBundlesToResources(resources, [SkeletonIl8nBundle]),
+    resources: addI18nBundlesToResources(resources, [SkeletonI18nBundle]),
     // ...
   });
 ```
@@ -60,12 +60,12 @@ A naive export is available from this package that contains all bundles, though
 its use is discouraged:
 
 ```ts
-import { Il8nBundles } from "@howso/react-tailwind-flowbite-components";
+import { I18nBundles } from "@howso/react-tailwind-flowbite-components";
 
 i18n
   // ...
   .init({
-    resources: addIl8nBundlesToResources(resources, [...Il8nBundles]),
+    resources: addI18nBundlesToResources(resources, [...I18nBundles]),
     // ...
   });
 ```

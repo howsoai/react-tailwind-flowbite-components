@@ -1,2 +1,2 @@
 export * from "./CodeBlock";
-export * from "./CodeBlock.il8n";
+export * from "./CodeBlock.i18n";

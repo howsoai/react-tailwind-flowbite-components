@@ -1,6 +1,6 @@
 import {
-  getStringsForIl8nBundleFromResource,
-  Il8nBundle,
+  getStringsForI18nBundleFromResource,
+  I18nBundle,
 } from "@howso/ui-internationalization-utils";
 import { Languages } from "@/constants";
 
@@ -12,8 +12,8 @@ const en = {
 
 type Resource = typeof en;
 
-export const SkeletonIl8nBundle: Il8nBundle<Languages, Resource> = {
+export const SkeletonI18nBundle: I18nBundle<Languages, Resource> = {
   namespace,
   resources: { en },
-  strings: getStringsForIl8nBundleFromResource<Resource>(en),
+  strings: getStringsForI18nBundleFromResource<Resource>(en),
 };

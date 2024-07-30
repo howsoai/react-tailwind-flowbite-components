@@ -1,2 +1,2 @@
 export * from "./ErrorAlert";
-export * from "./ErrorAlert.il8n";
+export * from "./ErrorAlert.i18n";

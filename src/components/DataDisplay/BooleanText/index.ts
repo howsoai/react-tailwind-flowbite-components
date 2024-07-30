@@ -1,2 +1,2 @@
 export * from "./BooleanText";
-export * from "./BooleanText.il8n";
+export * from "./BooleanText.i18n";

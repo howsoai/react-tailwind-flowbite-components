@@ -53,7 +53,7 @@
     "@chromatic-com/storybook": "^1.6.1",
     "@fontsource/inter": "^5.0.5",
     "@hookform/error-message": "^2.0.1",
-    "@howso/ui-internationalization-utils": "^1.0.0",
+    "@howso/ui-internationalization-utils": "^1.0.1",
     "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-a11y": "^8.2.4",
     "@storybook/addon-actions": "^8.2.4",

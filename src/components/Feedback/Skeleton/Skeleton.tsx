@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { twMerge } from "tailwind-merge";
-import { SkeletonIl8nBundle } from "./Skeleton.il8n";
+import { SkeletonI18nBundle } from "./Skeleton.i18n";
 import { useTranslation } from "react-i18next";
 
 export type SkeletonProps = {
@@ -24,7 +24,7 @@ export type BlockSkeletonProps = {
   className?: string;
 };
 const BlockSkeleton: FC<BlockSkeletonProps> = ({ className }) => {
-  const { t } = useTranslation(SkeletonIl8nBundle.namespace);
+  const { t } = useTranslation(SkeletonI18nBundle.namespace);
 
   return (
     <span
@@ -34,7 +34,7 @@ const BlockSkeleton: FC<BlockSkeletonProps> = ({ className }) => {
         className,
       )}
     >
-      <span className="sr-only">{t(SkeletonIl8nBundle.strings.loading)}</span>
+      <span className="sr-only">{t(SkeletonI18nBundle.strings.loading)}</span>
     </span>
   );
 };
@@ -43,7 +43,7 @@ export type TextSkeletonProps = {
   className?: string;
 };
 const TextSkeleton: FC<BlockSkeletonProps> = ({ className }) => {
-  const { t } = useTranslation(SkeletonIl8nBundle.namespace);
+  const { t } = useTranslation(SkeletonI18nBundle.namespace);
 
   return (
     <span
@@ -54,7 +54,7 @@ const TextSkeleton: FC<BlockSkeletonProps> = ({ className }) => {
         className,
       )}
     >
-      <span className="sr-only">{t(SkeletonIl8nBundle.strings.loading)}</span>
+      <span className="sr-only">{t(SkeletonI18nBundle.strings.loading)}</span>
     </span>
   );
 };
