@@ -4,6 +4,7 @@ import {
   CodeBlockI18nBundle,
   ErrorAlertI18nBundle,
   FieldLabelI18nBundle,
+  FieldErrorMessageI18nBundle,
   SkeletonI18nBundle,
 } from "./components";
 import "./main.css";
@@ -19,7 +20,7 @@ export const I18nBundles: I18nBundle<Languages, any>[] = [
   BooleanTextI18nBundle,
   CodeBlockI18nBundle,
   FieldLabelI18nBundle,
+  FieldErrorMessageI18nBundle,
   ErrorAlertI18nBundle,
-  FieldLabelI18nBundle,
   SkeletonI18nBundle,
 ];
