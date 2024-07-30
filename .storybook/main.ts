@@ -13,7 +13,7 @@ const config: StorybookConfig = {
     options: {},
   },
   docs: {},
-  staticDirs: ["../public"], //👈 Configures the static asset folder in Storybook
+  // staticDirs: ["../public"], //👈 Configures the static asset folder in Storybook
   refs: {
     flowbite: {
       title: "Flowbite",
