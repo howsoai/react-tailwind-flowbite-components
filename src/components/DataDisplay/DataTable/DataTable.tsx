@@ -20,6 +20,7 @@ export interface DataTableProps
   className?: string;
   loading?: boolean;
   loadingRows?: number;
+  marginBottom?: boolean;
   shadowed?: boolean;
   stickyColumns?: number[];
   tableProps?: Omit<ComponentProps<"table">, "ref" | "children">;
@@ -35,6 +36,7 @@ export const DataTableComponent: FC<DataTableProps> = ({
   columns,
   loading,
   loadingRows = 1,
+  marginBottom = false,
   bordered = true,
   shadowed = true,
   stickyColumns,
@@ -79,6 +81,7 @@ export const DataTableComponent: FC<DataTableProps> = ({
         className={twMerge(
           "relative overflow-auto",
           bordered && "rounded-t-lg",
+          marginBottom && "mb-4",
           className,
         )}
         {...props}
