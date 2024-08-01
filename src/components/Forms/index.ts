@@ -2,6 +2,7 @@ export * from "./constants";
 export * from "./FieldCheckbox";
 export * from "./FieldContainer";
 export * from "./FieldErrorMessage";
+export * from "./FieldFile";
 export * from "./FieldLabel";
 export * from "./FieldRadios";
 export * from "./FieldSelect";
