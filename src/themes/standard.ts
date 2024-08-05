@@ -113,27 +113,32 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
   fileInput: {
     field: {
       input: {
-        /* Copied verbatium, until `file-` properties were added */
+        /* Copied verbatim, until `file-` properties were added */
         colors: {
           gray: [
             "border-gray-300 bg-gray-50 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500",
-            "file:!mr-4 file:!py-2 file:!px-4 file:!rounded-full file:!border-0 file:!text-sm file:!font-semibold file:!bg-violet-50 file:!text-violet-700 hover:file:!bg-violet-100",
+            "file:!mr-4 file:!py-2 file:!ms-0 file:!pr-4 file:!pl-2 file:!rounded-r-full file:!border-0 file:!text-sm file:!font-semibold file:!transition",
+            "file:!bg-gray-200 file:!text-gray-700 file:dark:!bg-gray-900 file:dark:!text-white file:hover:!bg-gray-300 file:hover:!dark:bg-gray-800",
           ].join(" "),
           info: [
             "border-cyan-500 bg-cyan-50 text-cyan-900 placeholder-cyan-700 focus:border-cyan-500 focus:ring-cyan-500 dark:border-cyan-400 dark:bg-cyan-100 dark:focus:border-cyan-500 dark:focus:ring-cyan-500",
-            // "file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100",
+            "file:!mr-4 file:!py-2 file:!ms-0 file:!pr-4 file:!pl-2 file:!rounded-r-full file:!border-0 file:!text-sm file:!font-semibold file:!transition",
+            "file:!bg-cyan-200 file:!text-cyan-700 file:dark:!bg-cyan-900 file:dark:!text-white file:hover:!bg-cyan-300 file:hover:!dark:bg-cyan-800",
           ].join(" "),
           failure: [
             "border-red-500 bg-red-50 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500 dark:border-red-400 dark:bg-red-100 dark:focus:border-red-500 dark:focus:ring-red-500",
-            // "file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100",
+            "file:!mr-4 file:!py-2 file:!ms-0 file:!pr-4 file:!pl-2 file:!rounded-r-full file:!border-0 file:!text-sm file:!font-semibold file:!transition",
+            "file:!bg-red-200 file:!text-red-700 file:dark:!bg-red-900 file:dark:!text-white file:hover:!bg-red-300 file:hover:!dark:bg-red-800",
           ].join(" "),
           warning: [
             "border-yellow-500 bg-yellow-50 text-yellow-900 placeholder-yellow-700 focus:border-yellow-500 focus:ring-yellow-500 dark:border-yellow-400 dark:bg-yellow-100 dark:focus:border-yellow-500 dark:focus:ring-yellow-500",
-            // "file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100",
+            "file:!mr-4 file:!py-2 file:!ms-0 file:!pr-4 file:!pl-2 file:!rounded-r-full file:!border-0 file:!text-sm file:!font-semibold file:!transition",
+            "file:!bg-yellow-200 file:!text-yellow-700 file:dark:!bg-yellow-900 file:dark:!text-white file:hover:!bg-yellow-300 file:hover:!dark:bg-yellow-800",
           ].join(" "),
           success: [
             "border-green-500 bg-green-50 text-green-900 placeholder-green-700 focus:border-green-500 focus:ring-green-500 dark:border-green-400 dark:bg-green-100 dark:focus:border-green-500 dark:focus:ring-green-500",
-            // "file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100",
+            "file:!mr-4 file:!py-2 file:!ms-0 file:!pr-4 file:!pl-2 file:!rounded-r-full file:!border-0 file:!text-sm file:!font-semibold file:!transition",
+            "file:!bg-green-200 file:!text-green-700 file:dark:!bg-green-900 file:dark:!text-white file:hover:!bg-green-300 file:hover:!dark:bg-green-800",
           ].join(" "),
         },
       },
