@@ -6,6 +6,8 @@ import {
   CopyIcon,
   DownloadIcon,
   ExpandCollapseIcon,
+  FileIcon,
+  FilesIcon,
   NewWindowIcon,
   SaveIcon,
   UpdateIcon,
@@ -30,6 +32,8 @@ const meta: Meta<IconBaseProps> = {
       <IconWithLabel label={"ConfigurationIcon"} Icon={<ConfigurationIcon />} />
       <IconWithLabel label={"CopyIcon - Default"} Icon={<CopyIcon />} />
       <IconWithLabel label={"CopyIcon - Copied"} Icon={<CopyIcon copied />} />
+      <IconWithLabel label={"FileIcon"} Icon={<FileIcon />} />
+      <IconWithLabel label={"FilesIcon"} Icon={<FilesIcon />} />
       <IconWithLabel
         label="Documentation"
         Icon={<DocumentationIcon {...args} />}
