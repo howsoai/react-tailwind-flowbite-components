@@ -1,12 +1,11 @@
 import { FileInput, FileInputProps, HelperText } from "flowbite-react";
-import { forwardRef, ReactNode, useId, type InputHTMLAttributes } from "react";
+import { forwardRef, useId, type InputHTMLAttributes } from "react";
 import { UseFormRegisterReturn, useFormState } from "react-hook-form";
 import { FieldBase, type FieldBaseProps } from "../FieldBase";
 import { FieldErrorMessage } from "../FieldErrorMessage";
 
-export type FieldFileProps = Omit<FieldBaseProps, "required"> & {
-  value: ReactNode;
-} & FileInputProps &
+export type FieldFileProps = Omit<FieldBaseProps, "required"> &
+  FileInputProps &
   Partial<UseFormRegisterReturn>;
 
 export const FieldFile = forwardRef<HTMLInputElement, FieldFileProps>(

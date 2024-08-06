@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import { getFormProviderDecorator } from "@/storybook";
-import { FieldFile } from "./FieldFile";
-import { UseFormRegister } from "react-hook-form";
+import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
+import { UseFormRegister } from "react-hook-form";
+import { FieldFile } from "./FieldFile";
 
-const fieldName = "name";
+const fieldName = "file";
 const registerValues: Partial<
   ReturnType<UseFormRegister<{ [fieldName]: string }>>
 > = {
@@ -25,8 +25,7 @@ const meta: Meta<typeof FieldFile> = {
   argTypes: {},
   args: {
     ...registerValues,
-    label: "Name",
-    placeholder: "Name",
+    label: "File",
     helperText: "Lorem ipsum dolor sit amet..",
     onChange: fn(),
     onBlur: fn(),
