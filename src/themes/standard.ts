@@ -8,7 +8,7 @@ export const standardTailwindConfigThemeExtend: NonNullable<
     // all colors taken from Figma Migration pages, except 950
     primary: {
       DEFAULT: "#3F83F8",
-      50: "##EBF5FF",
+      50: "#EBF5FF",
       100: "#E1EFFE",
       200: "#C3DDFD",
       300: "#A4CAFE",
