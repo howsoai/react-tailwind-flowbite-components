@@ -1,7 +1,7 @@
 type FormatBytesOptions = {
   /* Default: 1 */
   maximumFractionDigits?: number;
-  /* Default: false */
+  /* Default: true */
   scientific?: boolean;
   /* Default: " " */
   separator?: string;
@@ -18,6 +18,7 @@ export const formatBytes = (
   options: FormatBytesOptions = {},
 ): string => {
   options.maximumFractionDigits ||= 1;
+  options.scientific ||= true;
   options.separator ||= " ";
 
   const formatter = new Intl.NumberFormat(undefined, {

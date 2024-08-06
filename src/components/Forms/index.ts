@@ -11,6 +11,7 @@ export * from "./FieldText";
 export * from "./FieldTextArea";
 export * from "./FieldTextAreaList";
 export * from "./FieldTextList";
+export * from "./FileDropZone";
 export * from "./FormModal";
-export * from "./ToggleInput";
 export * from "./Radio";
+export * from "./ToggleInput";
