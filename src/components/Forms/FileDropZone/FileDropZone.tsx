@@ -13,7 +13,7 @@ import { FileDropZoneContent } from "./FileDropZoneContent";
 export type FileDropZoneProps = Omit<ComponentProps<"div">, "children"> & {
   /** See <FileDropZone.Content /> */
   children: ReactNode;
-  color: keyof FlowbiteTextInputColors;
+  color?: keyof FlowbiteTextInputColors;
   disabled?: boolean;
   /** A style prop to override the global hook in useLayoutEffect. Mostly for testing. */
   isDragging?: boolean;
@@ -140,7 +140,7 @@ const FileDropZoneComponent: FC<FileDropZoneProps> = ({
 
 // eslint-disable-next-line complexity
 const getClassName = ({
-  color,
+  color = "gray",
   disabled,
   isDragging,
   isHovered,
