@@ -11,7 +11,7 @@ import { FileDropZoneI18nBundle as i18n } from "./FileDropZone.i18n";
 export type FileDropZoneContentProps = ComponentProps<"div"> & {
   /** The maximum size of files, in bytes. */
   maxSize?: number;
-  selectedFiles?: File[];
+  selectedFiles?: Pick<File, "name">[];
 } & Pick<InputHTMLAttributes<File>, "accept" | "multiple">;
 /** Provides instructions, criteria, and selected file output */
 export const FileDropZoneContent: FC<FileDropZoneContentProps> = ({
