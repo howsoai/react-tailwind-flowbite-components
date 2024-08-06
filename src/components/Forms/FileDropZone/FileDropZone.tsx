@@ -10,7 +10,10 @@ import { useCallback, useEffect, useReducer } from "react";
 import { twMerge } from "tailwind-merge";
 import { FileDropZoneContent } from "./FileDropZoneContent";
 
-export type FileDropZoneProps = Omit<ComponentProps<"div">, "children"> & {
+export type FileDropZoneProps = Omit<
+  ComponentProps<"div">,
+  "children" | "onDrop"
+> & {
   /** See <FileDropZone.Content /> */
   children: ReactNode;
   color?: keyof FlowbiteTextInputColors;
@@ -19,6 +22,7 @@ export type FileDropZoneProps = Omit<ComponentProps<"div">, "children"> & {
   isDragging?: boolean;
   /** A style prop to override the global hook in useLayoutEffect. Mostly for testing. */
   isHovered?: boolean;
+  onDrop: NonNullable<ComponentProps<"div">["onDrop"]>;
 };
 
 /**
