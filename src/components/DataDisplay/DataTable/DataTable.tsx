@@ -202,12 +202,12 @@ const DataTableCell = forwardRef<HTMLTableCellElement, DataTableCellProps>(
 );
 DataTableCell.displayName = "DataTable.Cell";
 
-export type DataTableCaption = {
+export type DataTableCaptionProps = {
   className?: string;
   children?: ReactNode;
 };
 
-export const DataTableCaption: FC<DataTableCaption> = function ({
+export const DataTableCaption: FC<DataTableCaptionProps> = function ({
   children,
   className,
 }) {
