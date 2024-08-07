@@ -129,6 +129,7 @@ const FileDropZoneComponent: FC<FileDropZoneProps> = ({
       onDragLeave={onDragLeave}
       onDrop={onDrop}
       className={getClassName({
+        className: props.className,
         color,
         disabled,
         isDragging,
@@ -144,6 +145,7 @@ const FileDropZoneComponent: FC<FileDropZoneProps> = ({
 
 // eslint-disable-next-line complexity
 const getClassName = ({
+  className,
   color = "gray",
   disabled,
   isDragging,
@@ -154,11 +156,13 @@ const getClassName = ({
   FileDropZoneProps,
   "color" | "disabled" | "isDragging" | "isHovered"
 > & {
+  className?: string;
   state: State;
   theme: FlowbiteTheme;
 }): string =>
   twMerge(
     "rounded-lg border-[3px] border-dashed transition",
+    className,
     disabled &&
       "pointer-events-none cursor-not-allowed select-none *:opacity-50",
     color && theme.textInput.field.input.colors[color],

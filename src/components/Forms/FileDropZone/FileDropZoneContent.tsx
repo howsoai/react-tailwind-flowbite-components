@@ -8,7 +8,8 @@ import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 import { FileDropZoneI18nBundle as i18n } from "./FileDropZone.i18n";
 
-export type FileDropZoneContentProps = ComponentProps<"div"> & {
+export type FileDropZoneContentProps = ComponentProps<"label"> & {
+  htmlFor?: string;
   /** The maximum size of files, in bytes. */
   maxSize?: number;
   selectedFiles?: Pick<File, "name">[];
@@ -16,6 +17,7 @@ export type FileDropZoneContentProps = ComponentProps<"div"> & {
 /** Provides instructions, criteria, and selected file output */
 export const FileDropZoneContent: FC<FileDropZoneContentProps> = ({
   accept,
+  htmlFor,
   multiple,
   maxSize,
   selectedFiles,
@@ -24,7 +26,15 @@ export const FileDropZoneContent: FC<FileDropZoneContentProps> = ({
   const { t } = useTranslation(i18n.namespace);
 
   return (
-    <div {...props} className={twMerge("p-4", props.className)}>
+    <label
+      {...props}
+      htmlFor={htmlFor}
+      className={twMerge(
+        "block p-4",
+        !!htmlFor && "cursor-pointer",
+        props.className,
+      )}
+    >
       {selectedFiles?.length ? (
         <Paragraph marginBottom className="max-w-full truncate font-semibold">
           {selectedFiles.length === 1 ? (
@@ -69,6 +79,6 @@ export const FileDropZoneContent: FC<FileDropZoneContentProps> = ({
           })}
         </Paragraph>
       )}
-    </div>
+    </label>
   );
 };
