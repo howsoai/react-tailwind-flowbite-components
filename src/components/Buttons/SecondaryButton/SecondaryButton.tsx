@@ -3,8 +3,8 @@ import { FC } from "react";
 
 export type SecondaryButtonProps = ButtonProps;
 /**
- * A convince wrapper setting defaults for Primary buttons and tracking all usages.
- * By default: Blue, filled
+ * A convince wrapper setting defaults for Secondary buttons and tracking all usages.
+ * By default: "light", outline
  **/
 export const SecondaryButton: FC<SecondaryButtonProps> = (props) => {
   return <Button color="light" outline {...props} />;
