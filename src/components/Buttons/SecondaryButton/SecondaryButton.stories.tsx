@@ -77,17 +77,17 @@ export const Colors: Story = {
     <div className="flex gap-2">
       <div>
         <SecondaryButton {...args} color="failure">
-          Disabled
+          Failure
         </SecondaryButton>
       </div>
       <div>
         <SecondaryButton {...args} color="warning">
-          Disabled
+          Warning
         </SecondaryButton>
       </div>
       <div>
         <SecondaryButton {...args} color="success">
-          Processing
+          Success
         </SecondaryButton>
       </div>
     </div>
