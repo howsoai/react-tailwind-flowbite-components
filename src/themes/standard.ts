@@ -79,27 +79,43 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
     },
   },
   button: {
+    base: "border border-transparent group relative flex items-stretch justify-center p-0.5 text-center font-medium transition-[color,background-color,border-color,text-decoration-color,fill,stroke,box-shadow] focus:z-10 focus:outline-none",
     inner: {
-      base: "flex items-stretch items-center transition-all duration-200",
+      base: "focus:ring-4 flex items-stretch items-center transition-all duration-200",
     },
     color: {
-      light:
-        "border border-gray-300 bg-white text-gray-900 focus:ring-4 focus:ring-gray-200 enabled:hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-600 dark:text-white dark:focus:ring-gray-700 dark:enabled:hover:border-gray-700 dark:enabled:hover:bg-gray-700",
-      blue: "text-white bg-blue-600 enabled:hover:bg-blue-700 focus:ring-2 focus:ring-blue-400 dark:bg-blue-900 dark:enabled:hover:bg-blue-800 dark:focus:ring-blue-700",
       failure:
-        "text-white bg-red-600 enabled:hover:bg-red-700 focus:ring-2 focus:ring-red-400 dark:bg-red-900 dark:enabled:hover:bg-red-800 dark:focus:ring-red-700",
-      yellow:
-        "text-white bg-yellow-400 enabled:hover:bg-yellow-500 focus:ring-2 focus:ring-yellow-300 dark:bg-yellow-700 dark:enabled:hover:bg-yellow-600 dark:focus:ring-yellow-500",
+        "text-white bg-red-600 enabled:hover:bg-red-700 focus:ring-red-400 dark:bg-red-900 dark:enabled:hover:bg-red-800 dark:focus:ring-red-700",
+      info: "text-white bg-blue-600 enabled:hover:bg-blue-700 focus:ring-blue-400 dark:bg-blue-900 dark:enabled:hover:bg-blue-800 dark:focus:ring-blue-700",
       primary:
-        "text-white bg-primary-700 enabled:hover:bg-primary-800 focus:ring-2 focus:ring-primary-300 dark:bg-primary-600 dark:enabled:hover:bg-primary-700 dark:focus:ring-primary-800",
+        "text-white bg-primary-700 enabled:hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:enabled:hover:bg-primary-700 dark:focus:ring-primary-800",
+      secondary:
+        "border-gray-100 bg-gray-100 text-black focus:ring-gray-200 enabled:hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-600 dark:text-white dark:focus:ring-gray-700 dark:enabled:hover:border-gray-700 dark:enabled:hover:bg-gray-700",
+      success:
+        "bg-green-700 text-white focus:ring-green-300 enabled:hover:bg-green-800 dark:bg-green-600 dark:focus:ring-green-800 dark:enabled:hover:bg-green-700",
+      warning:
+        "text-black bg-yellow-400 enabled:hover:bg-yellow-500 focus:ring-yellow-300 dark:bg-yellow-700 dark:enabled:hover:bg-yellow-600 dark:focus:ring-yellow-500",
     },
     outline: {
-      on: "transition-all duration-75 ease-in group-hover:bg-opacity-0 group-hover:text-inherit",
+      on: "group-hover:bg-opacity-0 group-hover:text-inherit",
+      color: {
+        failure:
+          "bg-transparent border-current text-red-600 enabled:hover:bg-red-100 focus:ring-red-400 dark:bg-red-900 dark:enabled:hover:bg-red-800 dark:focus:ring-red-700",
+        primary:
+          "bg-transparent border-current text-primary-700 enabled:hover:bg-primary-100 focus:ring-primary-300 dark:bg-primary-600 dark:enabled:hover:bg-primary-700 dark:focus:ring-primary-800",
+        info: "bg-transparent border-current text-blue-600 enabled:hover:bg-blue-100 focus:ring-blue-400 dark:bg-blue-900 dark:enabled:hover:bg-blue-800 dark:focus:ring-blue-700",
+        secondary:
+          "bg-transparent border-current text-gray-300 text-gray-900 focus:ring-gray-200 enabled:hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-600 dark:text-white dark:focus:ring-gray-700 dark:enabled:hover:border-gray-700 dark:enabled:hover:bg-gray-700",
+        success:
+          "bg-transparent border-current text-green-600 focus:ring-green-300 enabled:hover:bg-green-100 dark:bg-green-600 dark:focus:ring-green-800 dark:enabled:hover:bg-green-700",
+        warning:
+          "bg-transparent border-current text-yellow-600 enabled:hover:bg-yellow-100 focus:ring-yellow-300 dark:bg-yellow-300 dark:enabled:hover:bg-yellow-600 dark:focus:ring-yellow-500",
+      },
     },
   },
   checkbox: {
     root: {
-      base: "h-4 w-4 rounded border border-gray-300 bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 text-blue-600",
+      base: "h-4 w-4 rounded border border-gray-300 bg-gray-100 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 text-blue-600",
     },
   },
   dropdown: {
