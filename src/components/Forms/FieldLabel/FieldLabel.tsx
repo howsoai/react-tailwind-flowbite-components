@@ -1,8 +1,8 @@
 import { Label, Tooltip, TooltipProps, type LabelProps } from "flowbite-react";
 import { FC, ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 import { FieldLabelI18nBundle } from "./FieldLabel.i18n";
-import { useTranslation } from "react-i18next";
 
 export type FieldLabelProps = LabelProps & {
   required?: boolean;
@@ -57,22 +57,22 @@ const Contents: FC<ContentsProps> = ({
   const { t } = useTranslation(FieldLabelI18nBundle.namespace);
   return (
     <>
-      <div className="flex flex-row">
-        <div
+      <span className="flex flex-row">
+        <span
           className={twMerge(!!tooltipProps && "underline decoration-dotted")}
         >
           {children}
-        </div>
+        </span>
         {required && (
-          <div
+          <span
             aria-hidden="true"
             title={t(FieldLabelI18nBundle.strings.required)}
             className="text-red-600 dark:text-red-400"
           >
             *
-          </div>
+          </span>
         )}
-      </div>
+      </span>
       {suffix}
     </>
   );
