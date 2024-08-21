@@ -16,28 +16,11 @@ const meta: Meta<typeof SecondaryButton> = {
   render: (args) => (
     <div className="flex gap-2">
       <div>
-        <SecondaryButton {...args} size={"xs"}>
-          xs
-        </SecondaryButton>
+        <SecondaryButton {...args}>Default</SecondaryButton>
       </div>
       <div>
-        <SecondaryButton {...args} size={"sm"}>
-          sm
-        </SecondaryButton>
-      </div>
-      <div>
-        <SecondaryButton {...args} size={"md"}>
-          md
-        </SecondaryButton>
-      </div>
-      <div>
-        <SecondaryButton {...args} size={"lg"}>
-          lg
-        </SecondaryButton>
-      </div>
-      <div>
-        <SecondaryButton {...args} size={"xl"}>
-          xl
+        <SecondaryButton {...args} outline={false}>
+          Filled
         </SecondaryButton>
       </div>
     </div>
@@ -56,39 +39,30 @@ export const Default: Story = {
 export const States: Story = {
   args: {},
   render: (args) => (
-    <div className="flex gap-2">
-      <div>
-        <SecondaryButton {...args} disabled>
-          Disabled
-        </SecondaryButton>
+    <div className="space-y-2">
+      <div className="flex gap-2">
+        <div>
+          <SecondaryButton {...args} disabled>
+            Disabled
+          </SecondaryButton>
+        </div>
+        <div>
+          <SecondaryButton {...args} isProcessing>
+            Processing
+          </SecondaryButton>
+        </div>
       </div>
-      <div>
-        <SecondaryButton {...args} isProcessing>
-          Processing
-        </SecondaryButton>
-      </div>
-    </div>
-  ),
-};
-
-export const Colors: Story = {
-  args: {},
-  render: (args) => (
-    <div className="flex gap-2">
-      <div>
-        <SecondaryButton {...args} color="failure">
-          Failure
-        </SecondaryButton>
-      </div>
-      <div>
-        <SecondaryButton {...args} color="warning">
-          Warning
-        </SecondaryButton>
-      </div>
-      <div>
-        <SecondaryButton {...args} color="success">
-          Success
-        </SecondaryButton>
+      <div className="flex gap-2">
+        <div>
+          <SecondaryButton {...args} disabled outline={false}>
+            Disabled
+          </SecondaryButton>
+        </div>
+        <div>
+          <SecondaryButton {...args} isProcessing outline={false}>
+            Processing
+          </SecondaryButton>
+        </div>
       </div>
     </div>
   ),

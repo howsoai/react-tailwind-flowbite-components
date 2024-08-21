@@ -1,11 +1,12 @@
-import { Button, ButtonProps } from "flowbite-react";
+import { Button } from "flowbite-react";
 import { FC } from "react";
+import { type ButtonBaseProps } from "../ButtonBase";
 
-export type SecondaryButtonProps = ButtonProps;
+export type SecondaryButtonProps = ButtonBaseProps;
 /**
  * A convince wrapper setting defaults for Secondary buttons and tracking all usages.
- * By default: "light", outline
+ * By default: "secondary", outline
  **/
 export const SecondaryButton: FC<SecondaryButtonProps> = (props) => {
-  return <Button color="light" outline {...props} />;
+  return <Button color="secondary" outline {...props} />;
 };

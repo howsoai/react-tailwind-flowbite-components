@@ -1,7 +1,8 @@
-import { Button, ButtonProps } from "flowbite-react";
+import { Button } from "flowbite-react";
 import { FC } from "react";
+import { type ButtonBaseProps } from "../ButtonBase";
 
-export type PrimaryButtonProps = ButtonProps;
+export type PrimaryButtonProps = ButtonBaseProps;
 /**
  * A convince wrapper setting defaults for Primary buttons and tracking all usages.
  * By default: Blue, filled

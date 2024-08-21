@@ -16,28 +16,11 @@ const meta: Meta<typeof PrimaryButton> = {
   render: (args) => (
     <div className="flex gap-2">
       <div>
-        <PrimaryButton {...args} size={"xs"}>
-          xs
-        </PrimaryButton>
+        <PrimaryButton {...args}>Default</PrimaryButton>
       </div>
       <div>
-        <PrimaryButton {...args} size={"sm"}>
-          sm
-        </PrimaryButton>
-      </div>
-      <div>
-        <PrimaryButton {...args} size={"md"}>
-          md
-        </PrimaryButton>
-      </div>
-      <div>
-        <PrimaryButton {...args} size={"lg"}>
-          lg
-        </PrimaryButton>
-      </div>
-      <div>
-        <PrimaryButton {...args} size={"xl"}>
-          xl
+        <PrimaryButton {...args} outline>
+          Outline
         </PrimaryButton>
       </div>
     </div>
@@ -56,39 +39,30 @@ export const Default: Story = {
 export const States: Story = {
   args: {},
   render: (args) => (
-    <div className="flex gap-2">
-      <div>
-        <PrimaryButton {...args} disabled>
-          Disabled
-        </PrimaryButton>
+    <div className="space-y-2">
+      <div className="flex gap-2">
+        <div>
+          <PrimaryButton {...args} disabled>
+            Disabled
+          </PrimaryButton>
+        </div>
+        <div>
+          <PrimaryButton {...args} isProcessing>
+            Processing
+          </PrimaryButton>
+        </div>
       </div>
-      <div>
-        <PrimaryButton {...args} isProcessing>
-          Processing
-        </PrimaryButton>
-      </div>
-    </div>
-  ),
-};
-
-export const Colors: Story = {
-  args: {},
-  render: (args) => (
-    <div className="flex gap-2">
-      <div>
-        <PrimaryButton {...args} color="failure">
-          Failure
-        </PrimaryButton>
-      </div>
-      <div>
-        <PrimaryButton {...args} color="warning">
-          Warning
-        </PrimaryButton>
-      </div>
-      <div>
-        <PrimaryButton {...args} color="success">
-          Success
-        </PrimaryButton>
+      <div className="flex gap-2">
+        <div>
+          <PrimaryButton {...args} disabled outline>
+            Disabled
+          </PrimaryButton>
+        </div>
+        <div>
+          <PrimaryButton {...args} isProcessing outline>
+            Processing
+          </PrimaryButton>
+        </div>
       </div>
     </div>
   ),
