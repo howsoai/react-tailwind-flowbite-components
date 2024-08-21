@@ -1,8 +1,7 @@
-import { Button } from "flowbite-react";
 import { FC } from "react";
-import { type ButtonBaseProps } from "../ButtonBase";
+import { Button, type ButtonProps } from "../Button";
 
-export type SecondaryButtonProps = ButtonBaseProps;
+export type SecondaryButtonProps = ButtonProps;
 /**
  * A convince wrapper setting defaults for Secondary buttons and tracking all usages.
  * By default: "secondary", outline

@@ -79,9 +79,9 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
     },
   },
   button: {
-    base: "border border-transparent group relative flex items-stretch justify-center p-0.5 text-center font-medium transition-[color,background-color,border-color,text-decoration-color,fill,stroke,box-shadow] focus:z-10 focus:outline-none",
+    base: "border border-transparent group relative flex items-stretch justify-center p-0.5 text-center font-medium transition-[color,background-color,border-color,text-decoration-color,fill,stroke,box-shadow] focus:z-10 focus:outline-none focus:ring-4",
     inner: {
-      base: "focus:ring-4 flex items-stretch items-center transition-all duration-200",
+      base: "flex items-stretch items-center transition-all duration-200",
     },
     color: {
       failure:
