@@ -1,3 +1,4 @@
+export * from "./ArrowCircleIcon";
 export * from "./ConfigurationIcon";
 export * from "./CopyIcon";
 export * from "./DocumentationIcon";

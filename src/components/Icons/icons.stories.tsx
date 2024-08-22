@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { FC, ReactNode } from "react";
 import { IconBaseProps } from "react-icons";
 import {
+  ArrowCircleIcon,
   ConfigurationIcon,
   CopyIcon,
   DownloadIcon,
@@ -19,7 +20,7 @@ import { DocumentationIcon } from "./DocumentationIcon";
 const meta: Meta<IconBaseProps> = {
   title: "Components/Icons",
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/7.0/react/writing-docs/docs-page
-  tags: ["autodocs"],
+  // tags: ["autodocs"],
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
@@ -28,10 +29,38 @@ const meta: Meta<IconBaseProps> = {
   argTypes: {},
   args: {},
   render: (args) => (
-    <div className="flex gap-4">
+    <div className="flex flex-wrap items-start gap-4">
+      <IconWithLabel
+        label={"ArrowCircle"}
+        description="Up"
+        Icon={<ArrowCircleIcon direction="up" />}
+      />
+      <IconWithLabel
+        label={"ArrowCircle"}
+        description="Right"
+        Icon={<ArrowCircleIcon direction="right" />}
+      />
+      <IconWithLabel
+        label={"ArrowCircle"}
+        description="Down"
+        Icon={<ArrowCircleIcon direction="down" />}
+      />
+      <IconWithLabel
+        label={"ArrowCircle"}
+        description="Left"
+        Icon={<ArrowCircleIcon direction="left" />}
+      />
       <IconWithLabel label={"ConfigurationIcon"} Icon={<ConfigurationIcon />} />
-      <IconWithLabel label={"CopyIcon - Default"} Icon={<CopyIcon />} />
-      <IconWithLabel label={"CopyIcon - Copied"} Icon={<CopyIcon copied />} />
+      <IconWithLabel
+        label={"CopyIcon"}
+        description="Default"
+        Icon={<CopyIcon />}
+      />
+      <IconWithLabel
+        label={"CopyIcon"}
+        description="Copied"
+        Icon={<CopyIcon copied />}
+      />
       <IconWithLabel label={"FileIcon"} Icon={<FileIcon />} />
       <IconWithLabel label={"FilesIcon"} Icon={<FilesIcon />} />
       <IconWithLabel
@@ -40,11 +69,13 @@ const meta: Meta<IconBaseProps> = {
       />
       <IconWithLabel label="DownloadIcon" Icon={<DownloadIcon {...args} />} />
       <IconWithLabel
-        label={"ExpandCollapseIcon collapsed"}
+        label={"ExpandCollapseIcon"}
+        description="Collapsed"
         Icon={<ExpandCollapseIcon isExpanded={false} />}
       />
       <IconWithLabel
-        label={"ExpandCollapseIcon expanded"}
+        label={"ExpandCollapseIcon"}
+        description="Expanded"
         Icon={<ExpandCollapseIcon isExpanded={false} />}
       />
       <IconWithLabel label="NewWindowIcon" Icon={<NewWindowIcon {...args} />} />
@@ -64,10 +95,19 @@ export const Default: Story = {
   args: {},
 };
 
-type IconWithLabelProps = { label: string; Icon: ReactNode };
-const IconWithLabel: FC<IconWithLabelProps> = ({ label, Icon }) => (
+type IconWithLabelProps = {
+  description?: string;
+  label: string;
+  Icon: ReactNode;
+};
+const IconWithLabel: FC<IconWithLabelProps> = ({
+  description,
+  label,
+  Icon,
+}) => (
   <div className="flex flex-col items-center justify-center">
     <div>{Icon}</div>
     <div>{label}</div>
+    {description && <div className="text-xs opacity-65">{description}</div>}
   </div>
 );
