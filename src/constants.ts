@@ -1,7 +1,12 @@
 export type Languages = "en";
 
 export type UXConstants = {
+  classes: UXClasses;
   durations: UXDurations;
+};
+
+type UXClasses = {
+  marginBottom: string;
 };
 
 type UXDurations = {
@@ -18,6 +23,9 @@ type UXDurations = {
 };
 
 export const UX: UXConstants = {
+  classes: {
+    marginBottom: "mb-5",
+  },
   durations: {
     input: { activityDecay: 500 },
     scroll: { activityDecay: 250 },
