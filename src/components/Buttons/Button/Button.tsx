@@ -30,7 +30,10 @@ export const Button = forwardRef(
       {...props}
       ref={ref}
       outline={text ? true : props.outline}
-      className={twMerge(text && "border-transparent bg-transparent")}
+      className={twMerge(
+        text && "border-transparent bg-transparent",
+        props.className,
+      )}
     />
   ),
 );
