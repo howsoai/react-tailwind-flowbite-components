@@ -9,6 +9,7 @@ import {
   ExpandCollapseIcon,
   FileIcon,
   FilesIcon,
+  GitHubIcon,
   NewWindowIcon,
   SaveIcon,
   UpdateIcon,
@@ -78,6 +79,7 @@ const meta: Meta<IconBaseProps> = {
         description="Expanded"
         Icon={<ExpandCollapseIcon isExpanded={false} />}
       />
+      <IconWithLabel label="GitHub" Icon={<GitHubIcon {...args} />} />
       <IconWithLabel label="NewWindowIcon" Icon={<NewWindowIcon {...args} />} />
       <IconWithLabel label={"SaveIcon"} Icon={<SaveIcon />} />
       <IconWithLabel label={"UpdateIcon"} Icon={<UpdateIcon />} />
