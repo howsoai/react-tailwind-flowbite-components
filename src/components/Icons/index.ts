@@ -2,6 +2,7 @@ export * from "./ArrowCircleIcon";
 export * from "./ConfigurationIcon";
 export * from "./CopyIcon";
 export * from "./DatabaseIcon";
+export * from "./DatabricksIcon";
 export * from "./DocumentationIcon";
 export * from "./DownloadIcon";
 export * from "./ExpandCollapseIcon";
