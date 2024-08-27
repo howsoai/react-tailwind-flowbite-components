@@ -1,13 +1,22 @@
-import type { FC, PropsWithChildren, ComponentProps } from "react";
+import { UX } from "@/constants";
+import type { ComponentProps, FC, PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 
-export type CardProps = PropsWithChildren<ComponentProps<"section">>;
-const CardComponent: FC<CardProps> = ({ children, className, ...props }) => {
+export type CardProps = PropsWithChildren<ComponentProps<"section">> & {
+  marginBottom?: boolean;
+};
+const CardComponent: FC<CardProps> = ({
+  children,
+  className,
+  marginBottom,
+  ...props
+}) => {
   return (
     <section
       data-testid="card-component"
       className={twMerge(
         "rounded-lg border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800",
+        marginBottom && UX.classes.marginBottom,
         className,
       )}
       {...props}
