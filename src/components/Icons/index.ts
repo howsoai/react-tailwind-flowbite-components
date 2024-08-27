@@ -11,6 +11,7 @@ export * from "./FilesIcon";
 export * from "./GitHubIcon";
 export * from "./Identicon";
 export * from "./NewWindowIcon";
+export * from "./PredictIcon";
 export * from "./SaveIcon";
 export * from "./SnowflakeIcon";
 export * from "./UpdateIcon";

@@ -13,6 +13,7 @@ import {
   FilesIcon,
   GitHubIcon,
   NewWindowIcon,
+  PredictIcon,
   SaveIcon,
   SnowflakeIcon,
   UpdateIcon,
@@ -61,6 +62,7 @@ const meta: Meta<IconBaseProps> = {
           description="Expanded"
           Icon={<ExpandCollapseIcon isExpanded={false} />}
         />
+        <IconWithLabel label={"PredictIcon"} Icon={<PredictIcon />} />
         <IconWithLabel label={"SaveIcon"} Icon={<SaveIcon />} />
         <IconWithLabel label={"UpdateIcon"} Icon={<UpdateIcon />} />
         <IconWithLabel label={"UploadIcon"} Icon={<UploadIcon />} />
