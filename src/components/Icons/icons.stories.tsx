@@ -13,6 +13,7 @@ import {
   NewWindowIcon,
   SaveIcon,
   UpdateIcon,
+  UploadIcon,
   WarningIcon,
 } from ".";
 import { DocumentationIcon } from "./DocumentationIcon";
@@ -83,6 +84,7 @@ const meta: Meta<IconBaseProps> = {
       <IconWithLabel label="NewWindowIcon" Icon={<NewWindowIcon {...args} />} />
       <IconWithLabel label={"SaveIcon"} Icon={<SaveIcon />} />
       <IconWithLabel label={"UpdateIcon"} Icon={<UpdateIcon />} />
+      <IconWithLabel label={"UploadIcon"} Icon={<UploadIcon />} />
       <IconWithLabel label={"WarningIcon"} Icon={<WarningIcon />} />
     </div>
   ),
