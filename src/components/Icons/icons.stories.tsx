@@ -6,6 +6,7 @@ import {
   ConfigurationIcon,
   CopyIcon,
   DatabaseIcon,
+  DatabricksIcon,
   DownloadIcon,
   ExpandCollapseIcon,
   FileIcon,
@@ -32,73 +33,98 @@ const meta: Meta<IconBaseProps> = {
   argTypes: {},
   args: {},
   render: (args) => (
-    <div className="flex flex-wrap items-start gap-4">
-      <IconWithLabel
-        label={"ArrowCircle"}
-        description="Up"
-        Icon={<ArrowCircleIcon direction="up" />}
-      />
-      <IconWithLabel
-        label={"ArrowCircle"}
-        description="Right"
-        Icon={<ArrowCircleIcon direction="right" />}
-      />
-      <IconWithLabel
-        label={"ArrowCircle"}
-        description="Down"
-        Icon={<ArrowCircleIcon direction="down" />}
-      />
-      <IconWithLabel
-        label={"ArrowCircle"}
-        description="Left"
-        Icon={<ArrowCircleIcon direction="left" />}
-      />
-      <IconWithLabel label={"ConfigurationIcon"} Icon={<ConfigurationIcon />} />
-      <IconWithLabel
-        label={"CopyIcon"}
-        description="Default"
-        Icon={<CopyIcon />}
-      />
-      <IconWithLabel
-        label={"CopyIcon"}
-        description="Copied"
-        Icon={<CopyIcon copied />}
-      />
-      <IconWithLabel label={"DatabaseIcon"} Icon={<DatabaseIcon />} />
-      <IconWithLabel label={"FileIcon"} Icon={<FileIcon />} />
-      <IconWithLabel label={"FilesIcon"} Icon={<FilesIcon />} />
-      <IconWithLabel
-        label="Documentation"
-        Icon={<DocumentationIcon {...args} />}
-      />
-      <IconWithLabel label="DownloadIcon" Icon={<DownloadIcon {...args} />} />
-      <IconWithLabel
-        label={"ExpandCollapseIcon"}
-        description="Collapsed"
-        Icon={<ExpandCollapseIcon isExpanded={false} />}
-      />
-      <IconWithLabel
-        label={"ExpandCollapseIcon"}
-        description="Expanded"
-        Icon={<ExpandCollapseIcon isExpanded={false} />}
-      />
-      <IconWithLabel label="GitHub" Icon={<GitHubIcon {...args} />} />
-      <IconWithLabel label="NewWindowIcon" Icon={<NewWindowIcon {...args} />} />
-      <IconWithLabel label={"SaveIcon"} Icon={<SaveIcon />} />
-      <IconWithLabel label={"UpdateIcon"} Icon={<UpdateIcon />} />
-      <IconWithLabel label={"UploadIcon"} Icon={<UploadIcon />} />
-      <IconWithLabel label={"WarningIcon"} Icon={<WarningIcon />} />
-    </div>
+    <>
+      <Section title="Action">
+        <IconWithLabel
+          label={"CopyIcon"}
+          description="Default"
+          Icon={<CopyIcon />}
+        />
+        <IconWithLabel
+          label={"CopyIcon"}
+          description="Copied"
+          Icon={<CopyIcon copied />}
+        />
+        <IconWithLabel
+          label="Documentation"
+          Icon={<DocumentationIcon {...args} />}
+        />
+        <IconWithLabel label="DownloadIcon" Icon={<DownloadIcon {...args} />} />
+        <IconWithLabel
+          label={"ExpandCollapseIcon"}
+          description="Collapsed"
+          Icon={<ExpandCollapseIcon isExpanded={false} />}
+        />
+        <IconWithLabel
+          label={"ExpandCollapseIcon"}
+          description="Expanded"
+          Icon={<ExpandCollapseIcon isExpanded={false} />}
+        />
+        <IconWithLabel label={"SaveIcon"} Icon={<SaveIcon />} />
+        <IconWithLabel label={"UpdateIcon"} Icon={<UpdateIcon />} />
+        <IconWithLabel label={"UploadIcon"} Icon={<UploadIcon />} />
+      </Section>
+
+      <Section title="Semantic">
+        <IconWithLabel
+          label={"ArrowCircle"}
+          description="Up"
+          Icon={<ArrowCircleIcon direction="up" />}
+        />
+        <IconWithLabel
+          label={"ArrowCircle"}
+          description="Right"
+          Icon={<ArrowCircleIcon direction="right" />}
+        />
+        <IconWithLabel
+          label={"ArrowCircle"}
+          description="Down"
+          Icon={<ArrowCircleIcon direction="down" />}
+        />
+        <IconWithLabel
+          label={"ArrowCircle"}
+          description="Left"
+          Icon={<ArrowCircleIcon direction="left" />}
+        />
+        <IconWithLabel
+          label={"ConfigurationIcon"}
+          Icon={<ConfigurationIcon />}
+        />
+        <IconWithLabel label={"DatabaseIcon"} Icon={<DatabaseIcon />} />
+        <IconWithLabel label={"FileIcon"} Icon={<FileIcon />} />
+        <IconWithLabel label={"FilesIcon"} Icon={<FilesIcon />} />
+        <IconWithLabel
+          label="NewWindowIcon"
+          Icon={<NewWindowIcon {...args} />}
+        />
+        <IconWithLabel label={"WarningIcon"} Icon={<WarningIcon />} />
+      </Section>
+
+      <Section title="Brands">
+        <IconWithLabel
+          label={"ArrowCircle"}
+          description="Up"
+          Icon={<DatabricksIcon />}
+        />
+        <IconWithLabel label="GitHub" Icon={<GitHubIcon {...args} />} />
+      </Section>
+    </>
   ),
 };
 
-export default meta;
-type Story = StoryObj<IconBaseProps>;
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-export const Default: Story = {
-  // More on args: https://storybook.js.org/docs/react/writing-stories/args
-  args: {},
+type SectionProps = {
+  title: ReactNode;
+  children: ReactNode;
+};
+const Section: FC<SectionProps> = ({ title, children }) => {
+  return (
+    <section className="my-3">
+      <header>
+        <h2 className="text-lg font-semibold">{title}</h2>
+      </header>
+      <div className="flex flex-wrap items-start gap-4">{children}</div>
+    </section>
+  );
 };
 
 type IconWithLabelProps = {
@@ -117,3 +143,12 @@ const IconWithLabel: FC<IconWithLabelProps> = ({
     {description && <div className="text-xs opacity-65">{description}</div>}
   </div>
 );
+
+export default meta;
+type Story = StoryObj<IconBaseProps>;
+
+// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+export const Default: Story = {
+  // More on args: https://storybook.js.org/docs/react/writing-stories/args
+  args: {},
+};
