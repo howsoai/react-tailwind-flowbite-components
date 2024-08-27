@@ -5,6 +5,7 @@ import {
   ArrowCircleIcon,
   ConfigurationIcon,
   CopyIcon,
+  DatabaseIcon,
   DownloadIcon,
   ExpandCollapseIcon,
   FileIcon,
@@ -63,6 +64,7 @@ const meta: Meta<IconBaseProps> = {
         description="Copied"
         Icon={<CopyIcon copied />}
       />
+      <IconWithLabel label={"DatabaseIcon"} Icon={<DatabaseIcon />} />
       <IconWithLabel label={"FileIcon"} Icon={<FileIcon />} />
       <IconWithLabel label={"FilesIcon"} Icon={<FilesIcon />} />
       <IconWithLabel
