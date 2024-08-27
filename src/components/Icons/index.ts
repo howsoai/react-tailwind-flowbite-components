@@ -9,6 +9,7 @@ export * from "./ExpandCollapseIcon";
 export * from "./FileIcon";
 export * from "./FilesIcon";
 export * from "./GitHubIcon";
+export * from "./Identicon";
 export * from "./NewWindowIcon";
 export * from "./SaveIcon";
 export * from "./SnowflakeIcon";

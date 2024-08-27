@@ -19,6 +19,7 @@ export const ArrowCircleIcon: FC<ArrowCircleIconProps> = ({
         direction === "up" && "-rotate-90",
         direction === "down" && "rotate-90",
         direction === "left" && "rotate-180",
+        props.className,
       )}
     />
   );
