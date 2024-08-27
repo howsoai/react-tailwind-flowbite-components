@@ -1,3 +1,4 @@
+import { Heading } from "@/components";
 import { UX } from "@/constants";
 import type { ComponentProps, FC, PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
@@ -27,16 +28,25 @@ const CardComponent: FC<CardProps> = ({
 };
 CardComponent.displayName = "Card";
 
-export type CardHeaderProps = PropsWithChildren<ComponentProps<"header">>;
+export type CardHeaderProps = PropsWithChildren<ComponentProps<"header">> & {
+  /** Default: true */
+  border?: boolean;
+};
 /**
  * Standardized header element for cards.
  */
-const CardHeader: FC<CardHeaderProps> = ({ children, className, ...props }) => {
+const CardHeader: FC<CardHeaderProps> = ({
+  border = true,
+  children,
+  className,
+  ...props
+}) => {
   return (
     <header
       className={twMerge(
+        "[overflow-wrap:anywhere] dark:border-gray-700 dark:print:border-gray-200",
         contentPadding,
-        "border-b border-gray-200 [overflow-wrap:anywhere] dark:border-gray-700 dark:print:border-gray-200",
+        border && "border-b border-gray-200",
         className,
       )}
       {...props}
@@ -55,12 +65,10 @@ export type CardTitleProps = PropsWithChildren<ComponentProps<"h3">> & {
  * Default: h3, .text-2xl
  */
 const CardTitle: FC<CardTitleProps> = ({ level = 3, ...props }) => {
-  const Heading = `h${level}`;
-
   return (
     <Heading
       {...props}
-      // @ts-expect-error Dynamic typing, it's there.
+      level={level}
       className={twMerge("text-2xl", props.className)}
     />
   );
