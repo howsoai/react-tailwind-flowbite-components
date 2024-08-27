@@ -8,11 +8,14 @@ export type IdenticonProps = ComponentProps<"span"> & {
   /** If not provided the default Identicon will be used */
   id?: string;
   loading?: boolean;
+  /** Default: true */
+  tooltip?: boolean;
 };
 export const Identicon: FC<IdenticonProps> = ({
   className,
   id,
   loading,
+  tooltip = true,
   ...props
 }) => {
   return (
@@ -23,9 +26,13 @@ export const Identicon: FC<IdenticonProps> = ({
       {loading ? (
         <Skeleton className={classes} />
       ) : id ? (
-        <Tooltip content={id}>
+        tooltip ? (
+          <Tooltip content={<span className="truncate">{id}</span>}>
+            <Img id={id} />
+          </Tooltip>
+        ) : (
           <Img id={id} />
-        </Tooltip>
+        )
       ) : (
         <Default />
       )}

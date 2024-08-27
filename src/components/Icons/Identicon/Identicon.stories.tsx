@@ -18,7 +18,7 @@ const meta: Meta<typeof Identicon> = {
   render: (args) => (
     <div className="flex flex-row gap-4">
       <Identicon {...args} />
-      <Identicon {...args} id="Tester Bennington" />
+      <Identicon {...args} id="f8d7b8fb-8125-4f4c-9465-055fa6279172" />
     </div>
   ),
 };
