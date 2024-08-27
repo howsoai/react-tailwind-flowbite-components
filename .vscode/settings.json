@@ -3,5 +3,5 @@
     "source.organizeImports": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["Autodocs"]
+  "cSpell.words": ["Autodocs", "minidenticon", "minidenticons"]
 }
