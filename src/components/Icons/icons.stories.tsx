@@ -14,6 +14,7 @@ import {
   GitHubIcon,
   NewWindowIcon,
   SaveIcon,
+  SnowflakeIcon,
   UpdateIcon,
   UploadIcon,
   WarningIcon,
@@ -101,12 +102,9 @@ const meta: Meta<IconBaseProps> = {
       </Section>
 
       <Section title="Brands">
-        <IconWithLabel
-          label={"ArrowCircle"}
-          description="Up"
-          Icon={<DatabricksIcon />}
-        />
+        <IconWithLabel label={"Databricks"} Icon={<DatabricksIcon />} />
         <IconWithLabel label="GitHub" Icon={<GitHubIcon {...args} />} />
+        <IconWithLabel label="Snowflake" Icon={<SnowflakeIcon {...args} />} />
       </Section>
     </>
   ),
