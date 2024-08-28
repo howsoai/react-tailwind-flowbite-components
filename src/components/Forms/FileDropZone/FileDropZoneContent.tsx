@@ -134,7 +134,7 @@ type FileDropZoneContentInstructionsProps = Pick<
   "multiple"
 > &
   ComponentProps<"span"> & {
-    /** Additional content to include into the instructions <Paragraph />. A space will be provided automatically */
+    /** Additional content to include into the instructions <span />. A space will be provided automatically */
     Additions?: ReactNode;
   };
 const FileDropZoneContentInstructions: FC<
