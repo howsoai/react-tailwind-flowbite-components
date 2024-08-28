@@ -1,7 +1,8 @@
 import { SaveIcon } from "@/components";
 import type { Meta, StoryObj } from "@storybook/react";
-import { FC } from "react";
-import { Button, ButtonProps } from "./Button";
+import type { ElementType, ReactNode } from "react";
+import { Link as RouterLink } from "react-router-dom";
+import { Button, type ButtonProps } from "./Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Button> = {
@@ -98,11 +99,23 @@ export const Colors: Story = {
         <SuccessButton {...args} href="#" />
         <FailureButton {...args} href="#" />
       </section>
+
+      <p>Router link</p>
+      <section className="flex gap-2">
+        <PrimaryButton {...args} as={RouterLink} to="#" />
+        <SecondaryButton {...args} as={RouterLink} to="#" />
+        <InfoButton {...args} as={RouterLink} to="#" />
+        <WarningButton {...args} as={RouterLink} to="#" />
+        <SuccessButton {...args} as={RouterLink} to="#" />
+        <FailureButton {...args} as={RouterLink} to="#" />
+      </section>
     </div>
   ),
 };
 
-const PrimaryButton: FC<ButtonProps> = (args) => (
+const PrimaryButton = <C extends ElementType = "button">(
+  args: ButtonProps<C>,
+): ReactNode => (
   <Button {...args} color="primary">
     <span className="flex flex-row items-center gap-1">
       <SaveIcon />
@@ -111,7 +124,9 @@ const PrimaryButton: FC<ButtonProps> = (args) => (
   </Button>
 );
 
-const SecondaryButton: FC<ButtonProps> = (args) => (
+const SecondaryButton = <C extends ElementType = "button">(
+  args: ButtonProps<C>,
+): ReactNode => (
   <Button {...args} color="secondary">
     <span className="flex flex-row items-center gap-1">
       <SaveIcon />
@@ -120,7 +135,9 @@ const SecondaryButton: FC<ButtonProps> = (args) => (
   </Button>
 );
 
-const InfoButton: FC<ButtonProps> = (args) => (
+const InfoButton = <C extends ElementType = "button">(
+  args: ButtonProps<C>,
+): ReactNode => (
   <Button {...args} color="info">
     <span className="flex flex-row items-center gap-1">
       <SaveIcon />
@@ -129,7 +146,9 @@ const InfoButton: FC<ButtonProps> = (args) => (
   </Button>
 );
 
-const WarningButton: FC<ButtonProps> = (args) => (
+const WarningButton = <C extends ElementType = "button">(
+  args: ButtonProps<C>,
+): ReactNode => (
   <Button {...args} color="warning">
     <span className="flex flex-row items-center gap-1">
       <SaveIcon />
@@ -138,7 +157,9 @@ const WarningButton: FC<ButtonProps> = (args) => (
   </Button>
 );
 
-const SuccessButton: FC<ButtonProps> = (args) => (
+const SuccessButton = <C extends ElementType = "button">(
+  args: ButtonProps<C>,
+): ReactNode => (
   <Button {...args} color="success">
     <span className="flex flex-row items-center gap-1">
       <SaveIcon />
@@ -147,7 +168,9 @@ const SuccessButton: FC<ButtonProps> = (args) => (
   </Button>
 );
 
-const FailureButton: FC<ButtonProps> = (args) => (
+const FailureButton = <C extends ElementType = "button">(
+  args: ButtonProps<C>,
+): ReactNode => (
   <Button {...args} color="failure">
     <span className="flex flex-row items-center gap-1">
       <SaveIcon />
