@@ -70,7 +70,7 @@ const FileDropZoneContentComponent: FC<FileDropZoneContentProps> = ({
           <span
             className={twMerge(
               UX.classes.marginBottom,
-              "block max-w-full truncate font-semibold",
+              "block max-w-full truncate text-center font-semibold",
             )}
           >
             {selectedFiles.length === 1 ? (
