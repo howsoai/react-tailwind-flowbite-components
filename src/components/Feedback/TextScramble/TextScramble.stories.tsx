@@ -9,6 +9,8 @@ const meta: Meta<typeof TextScramble> = {
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
+    // Disables Chromatic's snapshotting on a component level
+    chromatic: { disableSnapshot: true },
   },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
