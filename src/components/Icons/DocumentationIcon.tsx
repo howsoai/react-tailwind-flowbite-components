@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { IconBaseProps } from "react-icons";
+import { type FC } from "react";
+import { type IconBaseProps } from "react-icons";
 import { HiOutlineBookOpen } from "react-icons/hi";
 
 export const DocumentationIcon: FC<IconBaseProps> = (props) => {

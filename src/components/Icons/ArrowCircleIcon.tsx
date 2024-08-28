@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { IconBaseProps } from "react-icons";
+import { type FC } from "react";
+import { type IconBaseProps } from "react-icons";
 import { HiArrowCircleRight } from "react-icons/hi";
 import { twMerge } from "tailwind-merge";
 

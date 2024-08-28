@@ -1,5 +1,5 @@
-import { PolymorphicRef } from "flowbite-react/dist/types/helpers/generic-as-prop";
-import { ElementType, forwardRef } from "react";
+import { type PolymorphicRef } from "flowbite-react/dist/types/helpers/generic-as-prop";
+import { type ElementType, forwardRef } from "react";
 import { Button, type ButtonProps } from "../Button";
 
 export type PrimaryButtonProps<T extends ElementType = "button"> =

@@ -1,6 +1,6 @@
 import {
   Button as FlowbiteButton,
-  ButtonProps as FlowbiteButtonProps,
+  type ButtonProps as FlowbiteButtonProps,
 } from "flowbite-react";
 import type { PolymorphicRef } from "flowbite-react/dist/types/helpers/generic-as-prop";
 import { forwardRef, type ElementType } from "react";
