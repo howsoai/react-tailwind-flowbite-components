@@ -1,3 +1,4 @@
+export * from "./AddFileIcon";
 export * from "./ArrowCircleIcon";
 export * from "./ConfigurationIcon";
 export * from "./CopyIcon";
@@ -13,6 +14,7 @@ export * from "./Identicon";
 export * from "./NewWindowIcon";
 export * from "./PredictIcon";
 export * from "./SaveIcon";
+export * from "./SearchIcon";
 export * from "./SnowflakeIcon";
 export * from "./UpdateIcon";
 export * from "./UploadIcon";
