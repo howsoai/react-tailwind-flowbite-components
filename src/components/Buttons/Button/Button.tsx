@@ -2,28 +2,18 @@ import {
   Button as FlowbiteButton,
   type ButtonProps as FlowbiteButtonProps,
 } from "flowbite-react";
-import type {
-  PolymorphicComponentPropWithRef,
-  PolymorphicRef,
-} from "flowbite-react/dist/types/helpers/generic-as-prop";
+import type { PolymorphicRef } from "flowbite-react/dist/types/helpers/generic-as-prop";
 import { forwardRef, type ElementType } from "react";
 import { twMerge } from "tailwind-merge";
 
-export type ButtonProps<T extends ElementType = "button"> =
-  PolymorphicComponentPropWithRef<
-    T,
-    Omit<FlowbiteButtonProps<T>, "color"> & {
-      color?:
-        | "failure"
-        | "info"
-        | "secondary"
-        | "success"
-        | "warning"
-        | "primary";
-      /** Modifies the border and background elements to be transparent, similar to the outline version */
-      text?: boolean;
-    }
-  >;
+export type ButtonProps<T extends ElementType = "button"> = Omit<
+  FlowbiteButtonProps<T>,
+  "color"
+> & {
+  color?: "failure" | "info" | "secondary" | "success" | "warning" | "primary";
+  /** Modifies the border and background elements to be transparent, similar to the outline version */
+  text?: boolean;
+};
 
 export type ButtonComponentType = (<C extends ElementType = "button">(
   props: ButtonProps<C>,
