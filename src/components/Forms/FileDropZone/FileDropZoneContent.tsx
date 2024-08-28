@@ -2,7 +2,7 @@
 
 import { ButtonProps } from "@/components/Buttons";
 import { FileIcon, FilesIcon, SearchIcon } from "@/components/Icons";
-import { Paragraph } from "@/components/Typography";
+import { ReadabilityConstraint } from "@/components/Typography";
 import { UX } from "@/constants";
 import { formatBytes } from "@/utils";
 import { Button } from "flowbite-react";
@@ -65,33 +65,42 @@ const FileDropZoneContentComponent: FC<FileDropZoneContentProps> = ({
         props.className,
       )}
     >
-      {selectedFiles?.length ? (
-        <Paragraph marginBottom className="max-w-full truncate font-semibold">
-          {selectedFiles.length === 1 ? (
-            <span title={selectedFiles.at(0)?.name}>
-              {selectedFiles.at(0)?.name}
-            </span>
-          ) : (
-            <span title={selectedFiles.map((file) => file.name).join(", ")}>
-              {t(i18n.strings["{{count}}_files"], {
-                count: selectedFiles.length,
-              })}
-            </span>
-          )}
-        </Paragraph>
-      ) : (
-        <div className="text-center">
-          {Icon || <FileDropZoneContent.Icon multiple={multiple} />}
-          {Instructions || (
-            <FileDropZoneContent.Instructions multiple={multiple} />
-          )}
-        </div>
-      )}
-      <div className={twMerge(UX.classes.marginBottom)}>
-        {Accepts || <FileDropZoneContent.Accepts accept={accept} />}
-        {MaxSize || <FileDropZoneContent.MaxSize maxSize={maxSize} />}
-      </div>
-      {Button || <FileDropZoneContent.Button color={color} />}
+      <ReadabilityConstraint as="span" className="mx-auto">
+        {selectedFiles?.length ? (
+          <span
+            className={twMerge(
+              UX.classes.marginBottom,
+              "block max-w-full truncate font-semibold",
+            )}
+          >
+            {selectedFiles.length === 1 ? (
+              <span title={selectedFiles.at(0)?.name}>
+                {selectedFiles.at(0)?.name}
+              </span>
+            ) : (
+              <span title={selectedFiles.map((file) => file.name).join(", ")}>
+                {t(i18n.strings["{{count}}_files"], {
+                  count: selectedFiles.length,
+                })}
+              </span>
+            )}
+          </span>
+        ) : (
+          <span className="block text-center">
+            {Icon || <FileDropZoneContent.Icon multiple={multiple} />}
+            {Instructions || (
+              <FileDropZoneContent.Instructions multiple={multiple} />
+            )}
+          </span>
+        )}
+        {(Accepts || MaxSize || accept || maxSize) && (
+          <span className={twMerge(UX.classes.marginBottom, "block")}>
+            {Accepts || <FileDropZoneContent.Accepts accept={accept} />}
+            {MaxSize || <FileDropZoneContent.MaxSize maxSize={maxSize} />}
+          </span>
+        )}
+        {Button || <FileDropZoneContent.Button color={color} />}
+      </ReadabilityConstraint>
     </label>
   );
 };
@@ -109,30 +118,44 @@ const FileDropZoneContentIcon: FC<FileDropZoneContentIconProps> = ({
   MultipleIcon = <FilesIcon />,
 }) => {
   return (
-    <Paragraph marginBottom className="opacity-65 *:mx-auto *:h-12 *:w-12">
+    <span
+      className={twMerge(
+        UX.classes.marginBottom,
+        "block opacity-65 *:mx-auto *:h-12 *:w-12",
+      )}
+    >
       {multiple ? MultipleIcon : SingleIcon}
-    </Paragraph>
+    </span>
   );
 };
 
 type FileDropZoneContentInstructionsProps = Pick<
   FileDropZoneContentProps,
   "multiple"
-> & {
-  /** Additional content to include into the instructions <Paragraph />. */
-  additions?: ReactNode;
-};
+> &
+  ComponentProps<"span"> & {
+    /** Additional content to include into the instructions <Paragraph />. A space will be provided automatically */
+    Additions?: ReactNode;
+  };
 const FileDropZoneContentInstructions: FC<
   FileDropZoneContentInstructionsProps
-> = ({ multiple }) => {
+> = ({ Additions, multiple, ...props }) => {
   const { t } = useTranslation(i18n.namespace);
 
   return (
-    <Paragraph marginBottom className="font-medium">
+    <span
+      {...props}
+      className={twMerge(
+        UX.classes.marginBottom,
+        props.className,
+        "block font-medium",
+      )}
+    >
       {t(
         multiple ? i18n.strings.instructionsPlural : i18n.strings.instructions,
       )}
-    </Paragraph>
+      {Additions && <> {Additions}</>}
+    </span>
   );
 };
 
@@ -144,11 +167,11 @@ const FileDropZoneContentAccepts: FC<FileDropZoneContentAcceptsProps> = ({
 
   return (
     accept && (
-      <Paragraph className="text-center text-xs">
+      <span className={"block text-center text-xs"}>
         {t(i18n.strings["accepts_{{value}}"], {
           value: accept,
         })}
-      </Paragraph>
+      </span>
     )
   );
 };
@@ -164,11 +187,11 @@ const FileDropZoneContentMaxSize: FC<FileDropZoneContentMaxSizeProps> = ({
 
   return (
     maxSize && (
-      <Paragraph className="text-center text-xs">
+      <span className={"block text-center text-xs"}>
         {t(i18n.strings["maxSize_{{value}}"], {
           value: formatBytes(maxSize),
         })}
-      </Paragraph>
+      </span>
     )
   );
 };
@@ -180,12 +203,12 @@ const FileDropZoneContentButton: FC<FileDropZoneContentButtonProps> = ({
   const { t } = useTranslation(i18n.namespace);
 
   return (
-    <Paragraph className="flex justify-center">
+    <span className="flex justify-center">
       <Button color={color === "secondary" ? "gray" : color}>
         <SearchIcon className={"mr-1"} />
         {t(i18n.strings.browse)}
       </Button>
-    </Paragraph>
+    </span>
   );
 };
 
