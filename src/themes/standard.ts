@@ -95,6 +95,7 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
         "bg-green-700 text-white focus:ring-green-300 enabled:hover:bg-green-800 dark:bg-green-600 dark:focus:ring-green-800 dark:enabled:hover:bg-green-700",
       warning:
         "text-black bg-yellow-400 enabled:hover:bg-yellow-500 focus:ring-yellow-300 dark:bg-yellow-700 dark:enabled:hover:bg-yellow-600 dark:focus:ring-yellow-500",
+      gray: "text-white bg-gray-600 enabled:hover:bg-gray-700 focus:ring-gray-300 dark:bg-gray-400 dark:enabled:hover:bg-gray-500 dark:focus:ring-gray-800",
     },
     outline: {
       on: "group-hover:bg-opacity-0 group-hover:text-inherit",

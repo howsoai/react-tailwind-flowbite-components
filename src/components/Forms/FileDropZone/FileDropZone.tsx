@@ -1,10 +1,7 @@
 "use client";
 
-import {
-  type FlowbiteTextInputColors,
-  type FlowbiteTheme,
-  getTheme,
-} from "flowbite-react";
+import { ButtonProps } from "@/components/Buttons";
+import { type FlowbiteTheme, getTheme } from "flowbite-react";
 import type { ComponentProps, FC, ReactNode, Reducer } from "react";
 import { useCallback, useEffect, useReducer } from "react";
 import { twMerge } from "tailwind-merge";
@@ -16,7 +13,7 @@ export type FileDropZoneProps = Omit<
 > & {
   /** See <FileDropZone.Content /> */
   children: ReactNode;
-  color?: keyof FlowbiteTextInputColors;
+  color?: ButtonProps["color"];
   disabled?: boolean;
   /** A style prop to override the global hook in useLayoutEffect. Mostly for testing. */
   isDragging?: boolean;
@@ -25,13 +22,14 @@ export type FileDropZoneProps = Omit<
   onDrop: NonNullable<ComponentProps<"div">["onDrop"]>;
 };
 
+const defaultColor: FileDropZoneProps["color"] = "secondary";
 /**
  * Provides drag area suggestions and drop integration.
  * You must pair this component with another that handles your specific requirements.
  **/
 const FileDropZoneComponent: FC<FileDropZoneProps> = ({
   children,
-  color = "grey",
+  color = defaultColor,
   disabled,
   isDragging,
   isHovered,
@@ -146,7 +144,7 @@ const FileDropZoneComponent: FC<FileDropZoneProps> = ({
 // eslint-disable-next-line complexity
 const getClassName = ({
   className,
-  color = "gray",
+  color = defaultColor,
   disabled,
   isDragging,
   isHovered,
@@ -165,7 +163,10 @@ const getClassName = ({
     className,
     disabled &&
       "pointer-events-none cursor-not-allowed select-none *:opacity-50",
-    color && theme.textInput.field.input.colors[color],
+    color &&
+      theme.textInput.field.input.colors[
+        color === "secondary" ? "gray" : color
+      ],
     (isDragging || state.isDragging) &&
       "bg-primary-200 text-primary-900 dark:bg-primary-700 dark:text-primary-100",
     (isHovered || state.isHovered) &&

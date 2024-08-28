@@ -2,15 +2,23 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { FC, ReactNode } from "react";
 import { IconBaseProps } from "react-icons";
 import {
+  ArrowCircleIcon,
   ConfigurationIcon,
   CopyIcon,
+  DatabaseIcon,
+  DatabricksIcon,
   DownloadIcon,
   ExpandCollapseIcon,
   FileIcon,
   FilesIcon,
+  GitHubIcon,
   NewWindowIcon,
+  PredictIcon,
   SaveIcon,
+  SearchIcon,
+  SnowflakeIcon,
   UpdateIcon,
+  UploadIcon,
   WarningIcon,
 } from ".";
 import { DocumentationIcon } from "./DocumentationIcon";
@@ -19,7 +27,7 @@ import { DocumentationIcon } from "./DocumentationIcon";
 const meta: Meta<IconBaseProps> = {
   title: "Components/Icons",
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/7.0/react/writing-docs/docs-page
-  tags: ["autodocs"],
+  // tags: ["autodocs"],
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
@@ -28,32 +36,115 @@ const meta: Meta<IconBaseProps> = {
   argTypes: {},
   args: {},
   render: (args) => (
-    <div className="flex gap-4">
-      <IconWithLabel label={"ConfigurationIcon"} Icon={<ConfigurationIcon />} />
-      <IconWithLabel label={"CopyIcon - Default"} Icon={<CopyIcon />} />
-      <IconWithLabel label={"CopyIcon - Copied"} Icon={<CopyIcon copied />} />
-      <IconWithLabel label={"FileIcon"} Icon={<FileIcon />} />
-      <IconWithLabel label={"FilesIcon"} Icon={<FilesIcon />} />
-      <IconWithLabel
-        label="Documentation"
-        Icon={<DocumentationIcon {...args} />}
-      />
-      <IconWithLabel label="DownloadIcon" Icon={<DownloadIcon {...args} />} />
-      <IconWithLabel
-        label={"ExpandCollapseIcon collapsed"}
-        Icon={<ExpandCollapseIcon isExpanded={false} />}
-      />
-      <IconWithLabel
-        label={"ExpandCollapseIcon expanded"}
-        Icon={<ExpandCollapseIcon isExpanded={false} />}
-      />
-      <IconWithLabel label="NewWindowIcon" Icon={<NewWindowIcon {...args} />} />
-      <IconWithLabel label={"SaveIcon"} Icon={<SaveIcon />} />
-      <IconWithLabel label={"UpdateIcon"} Icon={<UpdateIcon />} />
-      <IconWithLabel label={"WarningIcon"} Icon={<WarningIcon />} />
-    </div>
+    <>
+      <Section title="Action">
+        <IconWithLabel
+          label={"CopyIcon"}
+          description="Default"
+          Icon={<CopyIcon />}
+        />
+        <IconWithLabel
+          label={"CopyIcon"}
+          description="Copied"
+          Icon={<CopyIcon copied />}
+        />
+        <IconWithLabel
+          label="Documentation"
+          Icon={<DocumentationIcon {...args} />}
+        />
+        <IconWithLabel label="DownloadIcon" Icon={<DownloadIcon {...args} />} />
+        <IconWithLabel
+          label={"ExpandCollapseIcon"}
+          description="Collapsed"
+          Icon={<ExpandCollapseIcon isExpanded={false} />}
+        />
+        <IconWithLabel
+          label={"ExpandCollapseIcon"}
+          description="Expanded"
+          Icon={<ExpandCollapseIcon isExpanded={false} />}
+        />
+        <IconWithLabel label={"PredictIcon"} Icon={<PredictIcon />} />
+        <IconWithLabel label={"SaveIcon"} Icon={<SaveIcon />} />
+        <IconWithLabel label={"SearchIcon"} Icon={<SearchIcon />} />
+        <IconWithLabel label={"UpdateIcon"} Icon={<UpdateIcon />} />
+        <IconWithLabel label={"UploadIcon"} Icon={<UploadIcon />} />
+      </Section>
+
+      <Section title="Semantic">
+        <IconWithLabel
+          label={"ArrowCircle"}
+          description="Up"
+          Icon={<ArrowCircleIcon direction="up" />}
+        />
+        <IconWithLabel
+          label={"ArrowCircle"}
+          description="Right"
+          Icon={<ArrowCircleIcon direction="right" />}
+        />
+        <IconWithLabel
+          label={"ArrowCircle"}
+          description="Down"
+          Icon={<ArrowCircleIcon direction="down" />}
+        />
+        <IconWithLabel
+          label={"ArrowCircle"}
+          description="Left"
+          Icon={<ArrowCircleIcon direction="left" />}
+        />
+        <IconWithLabel
+          label={"ConfigurationIcon"}
+          Icon={<ConfigurationIcon />}
+        />
+        <IconWithLabel label={"DatabaseIcon"} Icon={<DatabaseIcon />} />
+        <IconWithLabel label={"FileIcon"} Icon={<FileIcon />} />
+        <IconWithLabel label={"FilesIcon"} Icon={<FilesIcon />} />
+        <IconWithLabel
+          label="NewWindowIcon"
+          Icon={<NewWindowIcon {...args} />}
+        />
+        <IconWithLabel label={"WarningIcon"} Icon={<WarningIcon />} />
+      </Section>
+
+      <Section title="Brands">
+        <IconWithLabel label={"Databricks"} Icon={<DatabricksIcon />} />
+        <IconWithLabel label="GitHub" Icon={<GitHubIcon {...args} />} />
+        <IconWithLabel label="Snowflake" Icon={<SnowflakeIcon {...args} />} />
+      </Section>
+    </>
   ),
 };
+
+type SectionProps = {
+  title: ReactNode;
+  children: ReactNode;
+};
+const Section: FC<SectionProps> = ({ title, children }) => {
+  return (
+    <section className="my-3">
+      <header>
+        <h2 className="text-lg font-semibold">{title}</h2>
+      </header>
+      <div className="flex flex-wrap items-start gap-4">{children}</div>
+    </section>
+  );
+};
+
+type IconWithLabelProps = {
+  description?: string;
+  label: string;
+  Icon: ReactNode;
+};
+const IconWithLabel: FC<IconWithLabelProps> = ({
+  description,
+  label,
+  Icon,
+}) => (
+  <div className="flex flex-col items-center justify-center">
+    <div>{Icon}</div>
+    <div>{label}</div>
+    {description && <div className="text-xs opacity-65">{description}</div>}
+  </div>
+);
 
 export default meta;
 type Story = StoryObj<IconBaseProps>;
@@ -63,11 +154,3 @@ export const Default: Story = {
   // More on args: https://storybook.js.org/docs/react/writing-stories/args
   args: {},
 };
-
-type IconWithLabelProps = { label: string; Icon: ReactNode };
-const IconWithLabel: FC<IconWithLabelProps> = ({ label, Icon }) => (
-  <div className="flex flex-col items-center justify-center">
-    <div>{Icon}</div>
-    <div>{label}</div>
-  </div>
-);

@@ -1,3 +1,4 @@
+import { UX } from "@/constants";
 import { FC } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -14,7 +15,10 @@ export const Paragraph: FC<ParagraphProps> = function ({
   return (
     <p
       {...props}
-      className={twMerge(marginBottom ? "mb-5" : undefined, props.className)}
+      className={twMerge(
+        marginBottom && UX.classes.marginBottom,
+        props.className,
+      )}
     />
   );
 };

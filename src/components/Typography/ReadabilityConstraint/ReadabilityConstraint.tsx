@@ -1,14 +1,24 @@
-import { FC } from "react";
+import { type ComponentProps, type FC } from "react";
 import { twMerge } from "tailwind-merge";
 
-export type ReadabilityConstraintProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->;
-export const ReadabilityConstraint: FC<ReadabilityConstraintProps> = function (
-  props
-) {
+export type ReadabilityConstraintProps = ComponentProps<"div"> & {
+  /** Default: 'div'. If span is selected, className="block" will be included. */
+  as?: "div" | "span";
+};
+export const ReadabilityConstraint: FC<ReadabilityConstraintProps> = function ({
+  as = "div",
+  ...props
+}) {
+  const Tag = as === "span" ? "span" : "div";
+
   return (
-    <div {...props} className={twMerge("max-w-[65em]", props.className)} />
+    <Tag
+      {...props}
+      className={twMerge(
+        "max-w-[65em]",
+        as === "span" && "block",
+        props.className,
+      )}
+    />
   );
 };

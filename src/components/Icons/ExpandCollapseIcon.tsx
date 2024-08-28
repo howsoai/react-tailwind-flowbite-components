@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { IconBaseProps } from "react-icons";
+import { type FC } from "react";
+import { type IconBaseProps } from "react-icons";
 import { HiChevronDown } from "react-icons/hi";
 import { twMerge } from "tailwind-merge";
 
@@ -16,7 +16,7 @@ export const ExpandCollapseIcon: FC<ExpandCollapseIconProps> = ({
       className={twMerge(
         "transition-transform duration-200 ease-in-out",
         isExpanded && "rotate-180",
-        props.className
+        props.className,
       )}
     />
   );
