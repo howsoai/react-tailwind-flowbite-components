@@ -1,6 +1,7 @@
+import { Paragraph } from "@/components/Typography";
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { FileDropZone } from "./FileDropZone";
+import { FileDropZone, FileDropZoneProps } from "./FileDropZone";
 
 // A typical usage would look something like:
 //
@@ -44,6 +45,14 @@ import { FileDropZone } from "./FileDropZone";
 
 const accept = "image/*, .pdf";
 
+const colors: FileDropZoneProps["color"][] = [
+  "secondary",
+  "info",
+  "success",
+  "warning",
+  "failure",
+];
+
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof FileDropZone> = {
   component: FileDropZone,
@@ -56,27 +65,22 @@ const meta: Meta<typeof FileDropZone> = {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
   args: {
-    children: (
-      <>
-        <FileDropZone.Content
-          multiple={true}
-          maxSize={5e7}
-          accept={accept}
-          htmlFor={"file"}
-          // selectedFiles={selectedFiles}
-        />
-        <input type="file" id="file" accept={accept} className="hidden" />
-      </>
-    ),
     onDrop: fn(),
   },
   render: (args) => (
     <div className="flex flex-row gap-4 *:max-w-60">
-      <FileDropZone {...args} color="gray" />
-      <FileDropZone {...args} color="info" />
-      <FileDropZone {...args} color="success" />
-      <FileDropZone {...args} color="warning" />
-      <FileDropZone {...args} color="failure" />
+      {colors.map((color) => (
+        <FileDropZone {...args} color={color}>
+          <FileDropZone.Content
+            color={color}
+            multiple={true}
+            maxSize={5e7}
+            accept={accept}
+            htmlFor={color}
+          />
+          <input type="file" id={color} accept={accept} className="hidden" />
+        </FileDropZone>
+      ))}
     </div>
   ),
 };
@@ -110,45 +114,118 @@ export const IsHovered: Story = {
 };
 
 export const SelectedFile: Story = {
-  args: {
-    children: (
-      <FileDropZone.Content
-        multiple={true}
-        maxSize={1050}
-        accept={"image/png"}
-        selectedFiles={
-          [
-            {
-              name: "Lorem ipsum dollar sit amen.png",
-              size: 900,
-            },
-          ] as File[]
-        }
-      />
-    ),
-  },
+  render: (args) => (
+    <div className="flex flex-row gap-4 *:max-w-60">
+      {colors.map((color) => (
+        <FileDropZone {...args} color={color}>
+          <FileDropZone.Content
+            color={color}
+            multiple={true}
+            maxSize={5e7}
+            accept={accept}
+            htmlFor={color}
+            selectedFiles={
+              [
+                {
+                  name: "Lorem ipsum dollar sit amen.png",
+                  size: 900,
+                },
+              ] as File[]
+            }
+          />
+          <input type="file" id={color} accept={accept} className="hidden" />
+        </FileDropZone>
+      ))}
+    </div>
+  ),
 };
 
 export const SelectedFiles: Story = {
-  args: {
-    children: (
-      <FileDropZone.Content
-        multiple={true}
-        maxSize={1050}
-        accept={"image/png"}
-        selectedFiles={
-          [
-            {
-              name: "Lorem ipsum dollar sit amen.png",
-              size: 900,
-            },
-            {
-              name: "Quasi labore corrupti porro molestiae",
-              size: 500,
-            },
-          ] as File[]
-        }
-      />
-    ),
-  },
+  render: (args) => (
+    <div className="flex flex-row gap-4 *:max-w-60">
+      {colors.map((color) => (
+        <FileDropZone {...args} color={color}>
+          <FileDropZone.Content
+            color={color}
+            multiple={true}
+            maxSize={5e7}
+            accept={accept}
+            htmlFor={color}
+            selectedFiles={
+              [
+                {
+                  name: "Lorem ipsum dollar sit amen.png",
+                  size: 900,
+                },
+                {
+                  name: "Quasi labore corrupti porro molestiae",
+                  size: 500,
+                },
+              ] as File[]
+            }
+          />
+          <input type="file" id={color} accept={accept} className="hidden" />
+        </FileDropZone>
+      ))}
+    </div>
+  ),
+};
+
+export const ComponentOverrides: Story = {
+  render: (args) => (
+    <div className="space-y-4">
+      <section>
+        <h2>Defaults</h2>
+        <div className="flex flex-row gap-4 *:max-w-60">
+          {colors.map((color) => (
+            <FileDropZone {...args} color={color}>
+              <FileDropZone.Content
+                color={color}
+                Accepts={<Paragraph marginBottom>Accepts</Paragraph>}
+                Icon={<Paragraph marginBottom>Icon</Paragraph>}
+                Instructions={<Paragraph marginBottom>Instructions</Paragraph>}
+                MaxSize={<Paragraph marginBottom>MaxSize</Paragraph>}
+              />
+              <input
+                type="file"
+                id={color}
+                accept={accept}
+                className="hidden"
+              />
+            </FileDropZone>
+          ))}
+        </div>
+      </section>
+      <section>
+        <h2>With files</h2>
+        <div className="flex flex-row gap-4 *:max-w-60">
+          {colors.map((color) => (
+            <FileDropZone {...args} color={color}>
+              <FileDropZone.Content
+                color={color}
+                Accepts={<Paragraph marginBottom>Accepts</Paragraph>}
+                Icon={<Paragraph marginBottom>Icon</Paragraph>}
+                Instructions={<Paragraph marginBottom>Instructions</Paragraph>}
+                MaxSize={<Paragraph marginBottom>MaxSize</Paragraph>}
+                selectedFiles={
+                  [
+                    {
+                      name: "Lorem ipsum dollar sit amen.png",
+                      size: 900,
+                    },
+                  ] as File[]
+                }
+              />
+              <input
+                type="file"
+                id={color}
+                accept={accept}
+                className="hidden"
+              />
+            </FileDropZone>
+          ))}
+        </div>
+      </section>
+    </div>
+  ),
 };

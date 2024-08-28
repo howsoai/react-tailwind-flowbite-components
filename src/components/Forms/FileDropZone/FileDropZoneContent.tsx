@@ -1,25 +1,55 @@
 "use client";
 
-import { FileIcon, FilesIcon } from "@/components/Icons";
+import { ButtonProps } from "@/components/Buttons";
+import { FileIcon, FilesIcon, SearchIcon } from "@/components/Icons";
 import { Paragraph } from "@/components/Typography";
+import { UX } from "@/constants";
 import { formatBytes } from "@/utils";
-import { ComponentProps, FC, InputHTMLAttributes } from "react";
+import { Button } from "flowbite-react";
+import {
+  type ComponentProps,
+  type FC,
+  type InputHTMLAttributes,
+  type ReactNode,
+} from "react";
 import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
+import { FileDropZoneProps } from "./FileDropZone";
 import { FileDropZoneI18nBundle as i18n } from "./FileDropZone.i18n";
 
-export type FileDropZoneContentProps = ComponentProps<"label"> & {
-  htmlFor?: string;
-  /** The maximum size of files, in bytes. */
-  maxSize?: number;
-  selectedFiles?: Pick<File, "name">[];
-} & Pick<InputHTMLAttributes<File>, "accept" | "multiple">;
+export type FileDropZoneContentProps = ComponentProps<"label"> &
+  Pick<InputHTMLAttributes<File>, "accept" | "multiple"> &
+  Pick<FileDropZoneProps, "color"> & {
+    /** Default: <FileDropZoneContent.Accepts accept={accept} /> */
+    Accepts?: ReactNode;
+    /** Default: <FileDropZoneContent.Button accept={accept} /> */
+    Button?: ReactNode;
+    htmlFor?: string;
+    /** Default: <FileDropZoneContent.Icon multiple={multiple} /> */
+    Icon?: ReactNode;
+    /** Default: <FileDropZoneContent.Instructions multiple={multiple} /> */
+    Instructions?: ReactNode;
+    /** The maximum size of files, in bytes. */
+    maxSize?: number;
+    /** Default: <FileDropZoneContent.MaxSize maxSize={maxSize} /> */
+    MaxSize?: ReactNode;
+    selectedFiles?: Pick<File, "name">[];
+  };
+
+const defaultColor: ButtonProps["color"] = "secondary";
+
 /** Provides instructions, criteria, and selected file output */
-export const FileDropZoneContent: FC<FileDropZoneContentProps> = ({
+const FileDropZoneContentComponent: FC<FileDropZoneContentProps> = ({
+  Accepts,
+  Button,
   accept,
+  color = defaultColor,
   htmlFor,
+  Icon,
+  Instructions,
   multiple,
   maxSize,
+  MaxSize,
   selectedFiles,
   ...props
 }) => {
@@ -50,35 +80,119 @@ export const FileDropZoneContent: FC<FileDropZoneContentProps> = ({
           )}
         </Paragraph>
       ) : (
-        <div className="space-y-2 text-center">
-          {multiple ? (
-            <FileIcon className="mx-auto h-12 w-12" />
-          ) : (
-            <FilesIcon className="mx-auto h-12 w-12" />
+        <div className="text-center">
+          {Icon || <FileDropZoneContent.Icon multiple={multiple} />}
+          {Instructions || (
+            <FileDropZoneContent.Instructions multiple={multiple} />
           )}
-          <Paragraph marginBottom className="font-medium">
-            {t(
-              multiple
-                ? i18n.strings.instructionsPlural
-                : i18n.strings.instructions,
-            )}
-          </Paragraph>
         </div>
       )}
-      {accept && (
-        <Paragraph className="text-center text-xs">
-          {t(i18n.strings["accepts_{{value}}"], {
-            value: accept,
-          })}
-        </Paragraph>
-      )}
-      {maxSize && (
-        <Paragraph className="text-center text-xs">
-          {t(i18n.strings["maxSize_{{value}}"], {
-            value: formatBytes(maxSize),
-          })}
-        </Paragraph>
-      )}
+      <div className={twMerge(UX.classes.marginBottom)}>
+        {Accepts || <FileDropZoneContent.Accepts accept={accept} />}
+        {MaxSize || <FileDropZoneContent.MaxSize maxSize={maxSize} />}
+      </div>
+      {Button || <FileDropZoneContent.Button color={color} />}
     </label>
   );
 };
+
+type FileDropZoneContentIconProps = Pick<
+  FileDropZoneContentProps,
+  "multiple"
+> & {
+  SingleIcon?: ReactNode;
+  MultipleIcon?: ReactNode;
+};
+const FileDropZoneContentIcon: FC<FileDropZoneContentIconProps> = ({
+  multiple,
+  SingleIcon = <FileIcon />,
+  MultipleIcon = <FilesIcon />,
+}) => {
+  return (
+    <Paragraph marginBottom className="opacity-65 *:mx-auto *:h-12 *:w-12">
+      {multiple ? MultipleIcon : SingleIcon}
+    </Paragraph>
+  );
+};
+
+type FileDropZoneContentInstructionsProps = Pick<
+  FileDropZoneContentProps,
+  "multiple"
+> & {
+  /** Additional content to include into the instructions <Paragraph />. */
+  additions?: ReactNode;
+};
+const FileDropZoneContentInstructions: FC<
+  FileDropZoneContentInstructionsProps
+> = ({ multiple }) => {
+  const { t } = useTranslation(i18n.namespace);
+
+  return (
+    <Paragraph marginBottom className="font-medium">
+      {t(
+        multiple ? i18n.strings.instructionsPlural : i18n.strings.instructions,
+      )}
+    </Paragraph>
+  );
+};
+
+type FileDropZoneContentAcceptsProps = Pick<FileDropZoneContentProps, "accept">;
+const FileDropZoneContentAccepts: FC<FileDropZoneContentAcceptsProps> = ({
+  accept,
+}) => {
+  const { t } = useTranslation(i18n.namespace);
+
+  return (
+    accept && (
+      <Paragraph className="text-center text-xs">
+        {t(i18n.strings["accepts_{{value}}"], {
+          value: accept,
+        })}
+      </Paragraph>
+    )
+  );
+};
+
+type FileDropZoneContentMaxSizeProps = Pick<
+  FileDropZoneContentProps,
+  "maxSize"
+>;
+const FileDropZoneContentMaxSize: FC<FileDropZoneContentMaxSizeProps> = ({
+  maxSize,
+}) => {
+  const { t } = useTranslation(i18n.namespace);
+
+  return (
+    maxSize && (
+      <Paragraph className="text-center text-xs">
+        {t(i18n.strings["maxSize_{{value}}"], {
+          value: formatBytes(maxSize),
+        })}
+      </Paragraph>
+    )
+  );
+};
+
+type FileDropZoneContentButtonProps = Pick<FileDropZoneContentProps, "color">;
+const FileDropZoneContentButton: FC<FileDropZoneContentButtonProps> = ({
+  color,
+}) => {
+  const { t } = useTranslation(i18n.namespace);
+
+  return (
+    <Paragraph className="flex justify-center">
+      <Button color={color === "secondary" ? "gray" : color}>
+        <SearchIcon className={"mr-1"} />
+        {t(i18n.strings.browse)}
+      </Button>
+    </Paragraph>
+  );
+};
+
+export const FileDropZoneContent = Object.assign(FileDropZoneContentComponent, {
+  Icon: FileDropZoneContentIcon,
+  Instructions: FileDropZoneContentInstructions,
+  Accepts: FileDropZoneContentAccepts,
+  MaxSize: FileDropZoneContentMaxSize,
+  Button: FileDropZoneContentButton,
+});
