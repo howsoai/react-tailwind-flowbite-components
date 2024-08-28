@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { FC, ReactNode } from "react";
 import { IconBaseProps } from "react-icons";
 import {
-  AddFileIcon,
   ArrowCircleIcon,
   ConfigurationIcon,
   CopyIcon,
@@ -39,7 +38,6 @@ const meta: Meta<IconBaseProps> = {
   render: (args) => (
     <>
       <Section title="Action">
-        <IconWithLabel label={"AddFileIcon"} Icon={<AddFileIcon />} />
         <IconWithLabel
           label={"CopyIcon"}
           description="Default"
