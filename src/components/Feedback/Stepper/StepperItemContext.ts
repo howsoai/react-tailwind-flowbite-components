@@ -1,14 +1,14 @@
 import { createContext, useContext } from "react";
 
-export type StepperItemContext = {
+export type IStepperItemContext = {
   status?: "active" | "done";
 };
 
-export const StepperItemContext = createContext<StepperItemContext | undefined>(
-  undefined,
-);
+export const StepperItemContext = createContext<
+  IStepperItemContext | undefined
+>(undefined);
 
-export function useStepperItemContext(): StepperItemContext {
+export function useStepperItemContext(): IStepperItemContext {
   const context = useContext(StepperItemContext);
 
   if (!context) {

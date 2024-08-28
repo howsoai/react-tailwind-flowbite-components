@@ -1,15 +1,15 @@
 import { createContext, useContext } from "react";
 
-export type StepperContext = {
+export type IStepperContext = {
   vertical?: boolean;
   step: number;
 };
 
-export const StepperContext = createContext<StepperContext | undefined>(
+export const StepperContext = createContext<IStepperContext | undefined>(
   undefined,
 );
 
-export function useStepperContext(): StepperContext {
+export function useStepperContext(): IStepperContext {
   const context = useContext(StepperContext);
 
   if (!context) {
