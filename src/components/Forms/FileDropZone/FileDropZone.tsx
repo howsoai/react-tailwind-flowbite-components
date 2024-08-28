@@ -25,13 +25,14 @@ export type FileDropZoneProps = Omit<
   onDrop: NonNullable<ComponentProps<"div">["onDrop"]>;
 };
 
+const defaultColor: keyof FlowbiteTextInputColors = "gray";
 /**
  * Provides drag area suggestions and drop integration.
  * You must pair this component with another that handles your specific requirements.
  **/
 const FileDropZoneComponent: FC<FileDropZoneProps> = ({
   children,
-  color = "grey",
+  color = defaultColor,
   disabled,
   isDragging,
   isHovered,
@@ -146,7 +147,7 @@ const FileDropZoneComponent: FC<FileDropZoneProps> = ({
 // eslint-disable-next-line complexity
 const getClassName = ({
   className,
-  color = "gray",
+  color = defaultColor,
   disabled,
   isDragging,
   isHovered,
