@@ -204,7 +204,11 @@ const FileDropZoneContentButton: FC<FileDropZoneContentButtonProps> = ({
 
   return (
     <span className="flex justify-center">
-      <Button color={color === "secondary" ? "gray" : color}>
+      <Button
+        color={color === "secondary" ? "gray" : color}
+        // Prevents the button from intercepting clicks and letting the <label /> do it's work
+        className="pointer-events-none"
+      >
         <SearchIcon className={"mr-1"} />
         {t(i18n.strings.browse)}
       </Button>
