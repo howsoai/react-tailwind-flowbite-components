@@ -1,3 +1,4 @@
+import { Heading, HeadingProps } from "@/components/Typography";
 import type { ComponentProps, FC, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import { useStepperItemContext } from "./StepperItemContext";
@@ -6,7 +7,7 @@ export type StepperContentProps = ComponentProps<"div"> & {
   children: ReactNode;
 };
 
-export const StepperContent: FC<StepperContentProps> = function ({
+const StepperContentComponent: FC<StepperContentProps> = function ({
   children,
   className,
   ...props
@@ -27,3 +28,23 @@ export const StepperContent: FC<StepperContentProps> = function ({
     </div>
   );
 };
+
+const StepperContentHeading: FC<Partial<HeadingProps>> = ({
+  className,
+  ...props
+}) => (
+  <Heading
+    level={4}
+    {...props}
+    className={twMerge("truncate text-base", className)}
+  />
+);
+const StepperContentDescription: FC<ComponentProps<"p">> = ({
+  className,
+  ...props
+}) => <p {...props} className={twMerge("truncate text-sm", className)} />;
+
+export const StepperContent = Object.assign(StepperContentComponent, {
+  Heading: StepperContentHeading,
+  Description: StepperContentDescription,
+});

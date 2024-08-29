@@ -25,8 +25,10 @@ const meta: Meta<typeof Stepper> = {
           <GiUnderwearShorts className="text-2xl" />
         </Stepper.Icon>
         <Stepper.Content>
-          <h3>Steal underpants</h3>
-          <p>Don't get caught!</p>
+          <Stepper.Content.Heading>Steal underpants</Stepper.Content.Heading>
+          <Stepper.Content.Description>
+            Don't get caught!
+          </Stepper.Content.Description>
         </Stepper.Content>
       </Stepper.Item>
 
@@ -37,8 +39,10 @@ const meta: Meta<typeof Stepper> = {
           <FaQuestion className="text-2xl" />
         </Stepper.Icon>
         <Stepper.Content>
-          <h3>?</h3>
-          <p>Still working on this.</p>
+          <Stepper.Content.Heading>?</Stepper.Content.Heading>
+          <Stepper.Content.Description>
+            Still working on this.
+          </Stepper.Content.Description>
         </Stepper.Content>
       </Stepper.Item>
 
@@ -49,8 +53,10 @@ const meta: Meta<typeof Stepper> = {
           <GiTakeMyMoney className="text-2xl" />
         </Stepper.Icon>
         <Stepper.Content>
-          <h3>Profit</h3>
-          <p>Then expand operations!</p>
+          <Stepper.Content.Heading>Profit</Stepper.Content.Heading>
+          <Stepper.Content.Description>
+            Then expand operations!
+          </Stepper.Content.Description>
         </Stepper.Content>
       </Stepper.Item>
     </Stepper>
