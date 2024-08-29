@@ -216,6 +216,30 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
       },
     },
   },
+  tabs: {
+    tablist: {
+      tabitem: {
+        base: "flex items-center justify-center rounded-t-lg p-4 text-sm font-medium first:ml-0 focus:outline-none focus:ring-4 focus:ring-primary-300 disabled:cursor-not-allowed disabled:text-gray-400 disabled:dark:text-gray-500",
+        variant: {
+          default: {
+            active: {
+              on: "bg-gray-100 text-primary-600 dark:bg-gray-800 dark:text-primary-500",
+            },
+          },
+          underline: {
+            active: {
+              on: "active rounded-t-lg border-b-2 border-primary-600 text-primary-600 dark:border-primary-500 dark:text-primary-500",
+            },
+          },
+          pills: {
+            active: {
+              on: "rounded-lg bg-primary-600 text-white",
+            },
+          },
+        },
+      },
+    },
+  },
   textInput: {
     field: {
       input: {
