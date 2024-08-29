@@ -3,5 +3,4 @@ export * from "./ErrorBoundary";
 export * from "./ErrorGraphic";
 export * from "./GraphicalError";
 export * from "./Skeleton";
-export * from "./Stepper";
 export * from "./TextScramble";
