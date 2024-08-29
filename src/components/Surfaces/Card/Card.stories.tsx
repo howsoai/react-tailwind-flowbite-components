@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Card } from "./Card";
-import { ReadabilityConstraint } from "@/components/Typography";
+import { ReadabilityConstraint } from "../../Typography";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Card> = {

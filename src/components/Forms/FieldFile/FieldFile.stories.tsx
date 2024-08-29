@@ -1,7 +1,7 @@
-import { getFormProviderDecorator } from "@/storybook";
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { UseFormRegister } from "react-hook-form";
+import { getFormProviderDecorator } from "../../../storybook";
 import { FieldFile } from "./FieldFile";
 
 const fieldName = "file";

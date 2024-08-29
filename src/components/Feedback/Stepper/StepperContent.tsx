@@ -1,6 +1,6 @@
-import { Heading, HeadingProps } from "@/components/Typography";
 import type { ComponentProps, FC, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
+import { Heading, HeadingProps } from "../../Typography";
 import { useStepperItemContext } from "./StepperItemContext";
 
 export type StepperContentProps = ComponentProps<"div"> & {

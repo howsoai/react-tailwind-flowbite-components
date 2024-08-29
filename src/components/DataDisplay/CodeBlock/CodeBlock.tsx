@@ -1,10 +1,10 @@
-import { type HTMLAttributes, useState, useEffect, useMemo } from "react";
-import { twMerge } from "tailwind-merge";
 import { debounce } from "lodash";
-import { UX } from "@/constants";
-import { CopyIcon, DownloadIcon } from "@/components/Icons";
-import { CodeBlockI18nBundle } from "./CodeBlock.i18n";
+import { type HTMLAttributes, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { twMerge } from "tailwind-merge";
+import { UX } from "../../../constants";
+import { CopyIcon, DownloadIcon } from "../../Icons";
+import { CodeBlockI18nBundle } from "./CodeBlock.i18n";
 
 export interface CodeBlockProps extends HTMLAttributes<"div"> {
   children?: string;

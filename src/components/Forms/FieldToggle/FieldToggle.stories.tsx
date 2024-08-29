@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { getFormProviderDecorator } from "@/storybook";
+import { getFormProviderDecorator } from "../../../storybook";
 import { FieldToggle } from "./FieldToggle";
 import { UseFormRegister } from "react-hook-form";
 import { fn } from "@storybook/test";

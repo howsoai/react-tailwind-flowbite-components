@@ -1,4 +1,3 @@
-import { UX } from "@/constants";
 import {
   cloneElement,
   isValidElement,
@@ -7,6 +6,7 @@ import {
   type ReactNode,
 } from "react";
 import { twMerge } from "tailwind-merge";
+import { UX } from "../../../constants";
 import { StepperContent } from "./StepperContent";
 import { StepperContext } from "./StepperContext";
 import { StepperIcon } from "./StepperIcon";

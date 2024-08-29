@@ -1,6 +1,6 @@
-import { UX } from "@/constants";
 import { ComponentProps, FC } from "react";
 import { twMerge } from "tailwind-merge";
+import { UX } from "../../../constants";
 
 export type HeadingProps = ComponentProps<"h1"> & {
   level: 1 | 2 | 3 | 4 | 5 | 6;

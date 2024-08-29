@@ -1,6 +1,6 @@
-import { ChevronIcon, ChevronIconProps } from "@/components";
 import type { ComponentProps, FC, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
+import { ChevronIcon, type ChevronIconProps } from "../../Icons";
 import { useStepperContext } from "./StepperContext";
 
 export type StepperSpacerProps = ComponentProps<"li"> & {

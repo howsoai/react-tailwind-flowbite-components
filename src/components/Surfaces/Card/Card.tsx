@@ -1,7 +1,7 @@
-import { Heading } from "@/components";
-import { UX } from "@/constants";
 import type { ComponentProps, FC, PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
+import { UX } from "../../../constants";
+import { Heading } from "../../Typography";
 
 export type CardProps = PropsWithChildren<ComponentProps<"section">> & {
   marginBottom?: boolean;

@@ -1,6 +1,6 @@
-import { Paragraph } from "@/components/Typography";
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
+import { Paragraph } from "../../Typography";
 import { FileDropZone, type FileDropZoneProps } from "./FileDropZone";
 
 // A typical usage would look something like:

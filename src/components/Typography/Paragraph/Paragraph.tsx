@@ -1,6 +1,6 @@
-import { UX } from "@/constants";
 import { FC } from "react";
 import { twMerge } from "tailwind-merge";
+import { UX } from "../../../constants";
 
 export type ParagraphProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLParagraphElement>,

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { getFormProviderDecorator } from "../../../storybook";
 import { FieldErrorMessage } from "./FieldErrorMessage";
-import { getFormProviderDecorator } from "@/storybook";
 
 const fieldName = "name";
 
