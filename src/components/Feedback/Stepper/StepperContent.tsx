@@ -42,6 +42,7 @@ const StepperContentHeading: FC<Partial<HeadingProps>> = ({
     )}
   />
 );
+
 const StepperContentDescription: FC<ComponentProps<"p">> = ({
   className,
   ...props
