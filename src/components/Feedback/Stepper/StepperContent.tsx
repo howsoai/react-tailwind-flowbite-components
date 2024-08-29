@@ -36,13 +36,21 @@ const StepperContentHeading: FC<Partial<HeadingProps>> = ({
   <Heading
     level={4}
     {...props}
-    className={twMerge("truncate text-base font-medium", className)}
+    className={twMerge(
+      "truncate text-base font-medium leading-snug",
+      className,
+    )}
   />
 );
 const StepperContentDescription: FC<ComponentProps<"p">> = ({
   className,
   ...props
-}) => <p {...props} className={twMerge("truncate text-sm", className)} />;
+}) => (
+  <p
+    {...props}
+    className={twMerge("truncate text-sm leading-tight", className)}
+  />
+);
 
 export const StepperContent = Object.assign(StepperContentComponent, {
   Heading: StepperContentHeading,
