@@ -36,7 +36,7 @@ const StepperContentHeading: FC<Partial<HeadingProps>> = ({
   <Heading
     level={4}
     {...props}
-    className={twMerge("truncate text-base", className)}
+    className={twMerge("truncate text-base font-medium", className)}
   />
 );
 const StepperContentDescription: FC<ComponentProps<"p">> = ({
