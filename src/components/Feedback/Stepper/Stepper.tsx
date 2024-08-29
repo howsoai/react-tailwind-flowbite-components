@@ -46,7 +46,8 @@ const StepperComponent: FC<StepperProps> = ({
   ...props
 }) => {
   const Tag = nav ? "nav" : "section";
-  const progress = !!steps ? (step + 1 / steps) * 100 : undefined;
+
+  const progress = !!steps ? ((step + 1) / steps) * 100 : undefined;
   const RenderedProgress: FC = () =>
     typeof progress === "number" &&
     (isValidElement(Progress) ? (
