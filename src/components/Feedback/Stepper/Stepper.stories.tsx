@@ -22,7 +22,7 @@ const meta: Meta<typeof Stepper> = {
     <Stepper {...args}>
       <Stepper.Item position={0}>
         <Stepper.Icon>
-          <GiUnderwearShorts className="text-2xl" />
+          <GiUnderwearShorts />
         </Stepper.Icon>
         <Stepper.Content>
           <Stepper.Content.Heading>Steal underpants</Stepper.Content.Heading>
@@ -36,7 +36,7 @@ const meta: Meta<typeof Stepper> = {
 
       <Stepper.Item position={1}>
         <Stepper.Icon>
-          <FaQuestion className="text-2xl" />
+          <FaQuestion />
         </Stepper.Icon>
         <Stepper.Content>
           <Stepper.Content.Heading>?</Stepper.Content.Heading>
@@ -50,7 +50,7 @@ const meta: Meta<typeof Stepper> = {
 
       <Stepper.Item position={2}>
         <Stepper.Icon>
-          <GiTakeMyMoney className="text-2xl" />
+          <GiTakeMyMoney />
         </Stepper.Icon>
         <Stepper.Content>
           <Stepper.Content.Heading>Profit</Stepper.Content.Heading>
