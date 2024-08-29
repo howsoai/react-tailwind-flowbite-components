@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { FormModal, FormModalProps } from "./FormModal";
 import {
   Button,
   Label,
@@ -10,7 +9,8 @@ import {
 } from "flowbite-react";
 import { FC } from "react";
 import { useFetcher } from "react-router-dom";
-import { Paragraph } from "@/components";
+import { Paragraph } from "../../Typography";
+import { FormModal, FormModalProps } from "./FormModal";
 
 const Render: FC<FormModalProps> = (args) => {
   const { Form } = useFetcher();

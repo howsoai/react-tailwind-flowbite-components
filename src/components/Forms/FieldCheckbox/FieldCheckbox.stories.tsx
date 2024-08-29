@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { FieldCheckbox } from "./FieldCheckbox";
-import { UseFormRegister } from "react-hook-form";
-import { getFormProviderDecorator } from "@/storybook";
 import { fn } from "@storybook/test";
+import { UseFormRegister } from "react-hook-form";
+import { getFormProviderDecorator } from "../../../storybook";
+import { FieldCheckbox } from "./FieldCheckbox";
 
 const fieldName = "enable_cookies";
 const registerValues: Partial<

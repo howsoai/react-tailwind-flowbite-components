@@ -1,10 +1,5 @@
 "use client";
 
-import { ButtonProps } from "@/components/Buttons";
-import { FileIcon, FilesIcon, SearchIcon } from "@/components/Icons";
-import { ReadabilityConstraint } from "@/components/Typography";
-import { UX } from "@/constants";
-import { formatBytes } from "@/utils";
 import { Button } from "flowbite-react";
 import {
   type ComponentProps,
@@ -14,7 +9,12 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
-import { FileDropZoneProps } from "./FileDropZone";
+import { UX } from "../../../constants";
+import { formatBytes } from "../../../utils";
+import { type ButtonProps } from "../../Buttons";
+import { FileIcon, FilesIcon, SearchIcon } from "../../Icons";
+import { ReadabilityConstraint } from "../../Typography";
+import { type FileDropZoneProps } from "./FileDropZone";
 import { FileDropZoneI18nBundle as i18n } from "./FileDropZone.i18n";
 
 export type FileDropZoneContentProps = ComponentProps<"label"> &

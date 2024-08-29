@@ -1,7 +1,7 @@
-import { SaveIcon } from "@/components";
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ElementType, ReactNode } from "react";
 import { Link as RouterLink } from "react-router-dom";
+import { SaveIcon } from "../../Icons";
 import { Button, type ButtonProps } from "./Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

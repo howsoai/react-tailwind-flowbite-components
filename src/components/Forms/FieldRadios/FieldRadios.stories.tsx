@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { getFormProviderDecorator } from "@/storybook";
 import { fn } from "@storybook/test";
-import { FieldRadios } from "./FieldRadios";
 import { UseFormRegister } from "react-hook-form";
+import { getFormProviderDecorator } from "../../../storybook";
+import { FieldRadios } from "./FieldRadios";
 
 const fieldName = "name";
 const registerValues: Partial<

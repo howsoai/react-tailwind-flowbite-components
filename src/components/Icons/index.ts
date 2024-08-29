@@ -1,4 +1,5 @@
 export * from "./ArrowCircleIcon";
+export * from "./ChevronIcon";
 export * from "./ConfigurationIcon";
 export * from "./CopyIcon";
 export * from "./DatabaseIcon";

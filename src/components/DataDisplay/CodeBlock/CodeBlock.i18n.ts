@@ -2,7 +2,7 @@ import {
   getStringsForI18nBundleFromResource,
   I18nBundle,
 } from "@howso/ui-internationalization-utils";
-import { Languages } from "@/constants";
+import { Languages } from "../../../constants";
 
 const namespace = "CodeBlock";
 

@@ -3,6 +3,7 @@ import { FC, ReactNode } from "react";
 import { IconBaseProps } from "react-icons";
 import {
   ArrowCircleIcon,
+  ChevronIcon,
   ConfigurationIcon,
   CopyIcon,
   DatabaseIcon,
@@ -90,6 +91,26 @@ const meta: Meta<IconBaseProps> = {
           label={"ArrowCircle"}
           description="Left"
           Icon={<ArrowCircleIcon direction="left" />}
+        />
+        <IconWithLabel
+          label={"Chevron"}
+          description="Up"
+          Icon={<ChevronIcon direction="up" />}
+        />
+        <IconWithLabel
+          label={"ArrowCircle"}
+          description="Right"
+          Icon={<ChevronIcon direction="right" />}
+        />
+        <IconWithLabel
+          label={"Chevron"}
+          description="Down"
+          Icon={<ChevronIcon direction="down" />}
+        />
+        <IconWithLabel
+          label={"Chevron"}
+          description="Left"
+          Icon={<ChevronIcon direction="left" />}
         />
         <IconWithLabel
           label={"ConfigurationIcon"}

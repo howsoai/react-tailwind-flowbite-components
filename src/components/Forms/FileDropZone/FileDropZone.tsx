@@ -1,10 +1,10 @@
 "use client";
 
-import { ButtonProps } from "@/components/Buttons";
 import { type FlowbiteTheme, getTheme } from "flowbite-react";
 import type { ComponentProps, FC, ReactNode, Reducer } from "react";
 import { useCallback, useEffect, useReducer } from "react";
 import { twMerge } from "tailwind-merge";
+import { type ButtonProps } from "../../Buttons";
 import { FileDropZoneContent } from "./FileDropZoneContent";
 
 export type FileDropZoneProps = Omit<

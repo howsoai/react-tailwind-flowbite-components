@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { getFormProviderDecorator } from "@/storybook";
-import { FieldTextAreaList } from "./FieldTextAreaList";
 import { UseFormRegister } from "react-hook-form";
+import { getFormProviderDecorator } from "../../../storybook";
+import { FieldTextAreaList } from "./FieldTextAreaList";
 
 const fieldName = "names";
 const registerValues: Partial<

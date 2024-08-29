@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Link } from "../../Typography";
 import { FieldLabel } from "./FieldLabel";
-import { Link } from "@/components";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof FieldLabel> = {
