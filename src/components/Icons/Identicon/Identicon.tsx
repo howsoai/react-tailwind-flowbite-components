@@ -1,8 +1,8 @@
 import { Tooltip } from "flowbite-react";
-import { minidenticon } from "minidenticons";
 import { type ComponentProps, type FC, useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 import { Skeleton } from "../../Feedback";
+import { minidenticon } from "./lib";
 
 export type IdenticonProps = ComponentProps<"span"> & {
   /** If not provided the default Identicon will be used */
