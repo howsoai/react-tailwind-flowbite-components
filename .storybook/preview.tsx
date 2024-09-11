@@ -1,13 +1,14 @@
+import type { Preview, StoryFn } from "@storybook/react";
+import { Flowbite, ThemeMode } from "flowbite-react";
 import React, { Suspense } from "react";
 import { useTranslation } from "react-i18next";
-import type { Preview, StoryFn } from "@storybook/react";
 import { Await, RouterProvider, createMemoryRouter } from "react-router-dom";
-import { Flowbite, ThemeMode } from "flowbite-react";
 import { standardFlowbiteTheme } from "../src/themes/index";
 import i18n from "./i18next";
 // CSS
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/700.css";
+import "../src/main.css";
 import "./tailwind.css";
 
 const light = {
