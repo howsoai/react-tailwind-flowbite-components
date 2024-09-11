@@ -6,6 +6,7 @@ import {
   FieldErrorMessageI18nBundle,
   FieldLabelI18nBundle,
   FileDropZoneI18nBundle,
+  NetPromoterFormI18nBundle,
   SkeletonI18nBundle,
 } from "./components";
 import { Languages } from "./constants";
@@ -24,5 +25,6 @@ export const I18nBundles: I18nBundle<Languages, any>[] = [
   FieldLabelI18nBundle,
   FieldErrorMessageI18nBundle,
   FileDropZoneI18nBundle,
+  NetPromoterFormI18nBundle,
   SkeletonI18nBundle,
 ];
