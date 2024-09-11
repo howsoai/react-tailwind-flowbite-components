@@ -113,15 +113,26 @@ const Scores: FC<ScoresProps> = ({ onClick, ...props }) => {
 
   return (
     <section aria-label="Score" {...props}>
+      <Paragraph className="mb-1 md:hidden">
+        <div>{t(i18n.strings.scores.unlikely)}</div>
+      </Paragraph>
       <div
-        className={twMerge("mb-2 flex flex-row justify-between gap-2 md:gap-4")}
+        className={twMerge(
+          "flex flex-row flex-wrap justify-between gap-2 md:gap-4",
+        )}
       >
         {scores.map((score) => (
-          <Score key={score} number={score} onClick={onClick} />
+          <div className="w-[calc(20%-1rem)] md:w-auto">
+            <Score key={score} number={score} onClick={onClick} />
+          </div>
         ))}
       </div>
-      <div className="flex flex-row justify-between">
-        <div>{t(i18n.strings.scores.unlikely)}</div>
+      <div className="mt-1 flex flex-row justify-between">
+        <div>
+          <span className="hidden md:inline">
+            {t(i18n.strings.scores.unlikely)}
+          </span>
+        </div>
         <div>{t(i18n.strings.scores.likely)}</div>
       </div>
     </section>
