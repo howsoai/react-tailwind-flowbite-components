@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
-import { FieldText, FieldTextProps } from "../FieldText/FieldText";
 import { Controller, ControllerProps } from "react-hook-form";
 import { FieldBaseProps } from "../FieldBase";
+import { FieldText, FieldTextProps } from "../FieldText/FieldText";
 
 export type FieldTextListProps = FieldBaseProps &
   Pick<FieldTextProps, "helperText" | "placeholder" | "sizing"> &
@@ -60,18 +60,29 @@ export const FieldTextList = forwardRef<HTMLInputElement, FieldTextListProps>(
             helperText={helperText}
             onChange={async (event) => {
               const value = event.target.value;
-              const values = getValues({ separator, value, valueAsNumber });
+              const values = getValues({
+                separator,
+                value,
+                valueAsNumber,
+                // Do not alter the user's inputs. The filter would eat new lines.
+                filter: false,
+              });
               field.onChange(values);
               onChange && onChange(event, values);
             }}
             onBlur={async (event) => {
               field.onBlur();
-              if (!onBlur) {
-                return;
-              }
               const value = event.target.value;
-              const values = getValues({ separator, value, valueAsNumber });
-              onBlur(event, values);
+              const values = getValues({
+                separator,
+                value,
+                valueAsNumber,
+                // Do alter the user's inputs. We want clean, trimmed values since they are done.
+                filter: true,
+              });
+
+              field.onChange(values);
+              onBlur && onBlur(event, values);
             }}
             placeholder={placeholder}
             required={props.required}
@@ -112,9 +123,11 @@ const getValues = ({
   separator,
   value,
   valueAsNumber,
+  filter,
 }: Pick<FieldTextListProps, "valueAsNumber"> & {
   separator: string;
   value: string;
+  filter?: boolean;
 }): Value[] => {
   if (!value) {
     return [];
@@ -122,7 +135,7 @@ const getValues = ({
 
   return value
     .split(separator)
-    .map((string) => string.trim())
-    .filter(Boolean)
+    .map((string) => (filter ? string.trim() : string))
+    .filter((string) => (filter ? !!string : true))
     .map((string) => (valueAsNumber ? Number(string) : string));
 };
