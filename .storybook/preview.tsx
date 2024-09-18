@@ -24,7 +24,6 @@ const dark = {
 const preview: Preview = {
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/7.0/react/configure/story-layout
-    // layout: "fullscreen", // TODO not having any effect..
     backgrounds: {
       // Load them by hand, or make a nice loop if you wish
       values: [light, dark],
@@ -38,7 +37,9 @@ const preview: Preview = {
       },
     },
     i18n,
-    viewport: { defaultViewport: "responsive" },
+    initialGlobals: {
+      viewport: { value: undefined },
+    },
   },
   decorators: [
     (Story: StoryFn, context) => {
