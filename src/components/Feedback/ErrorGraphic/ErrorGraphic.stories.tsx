@@ -31,7 +31,9 @@ export const Unrecoverable: Story = {
 };
 
 export const UnrecoverableSmallMobile: Story = {
-  parameters: { viewport: { defaultViewport: "mobile1" } },
+  globals: {
+    viewport: { value: "mobile1", isRotated: false },
+  },
 };
 
 export const UnrecoverableHeight200: Story = {
@@ -47,7 +49,9 @@ export const NotFound: Story = {
 };
 
 export const NotFoundSmallMobile: Story = {
-  parameters: { viewport: { defaultViewport: "mobile1" } },
+  globals: {
+    viewport: { value: "mobile1", isRotated: false },
+  },
   args: { type: "not-found" },
 };
 
@@ -65,7 +69,9 @@ export const Server: Story = {
 };
 
 export const ServerSmallMobile: Story = {
-  parameters: { viewport: { defaultViewport: "mobile1" } },
+  globals: {
+    viewport: { value: "mobile1", isRotated: false },
+  },
   args: { type: "server" },
 };
 

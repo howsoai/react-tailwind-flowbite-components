@@ -76,5 +76,7 @@ export const Default: Story = {
 export const MultipleParagraphs: Story = {};
 
 export const SmallMobile: Story = {
-  parameters: { viewport: { defaultViewport: "mobile1" } },
+  globals: {
+    viewport: { value: "mobile1", isRotated: false },
+  },
 };
