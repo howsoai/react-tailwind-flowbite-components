@@ -1,5 +1,3 @@
-"use client";
-
 import { type FlowbiteTheme, getTheme } from "flowbite-react";
 import type { ComponentProps, FC, ReactNode, Reducer } from "react";
 import { useCallback, useEffect, useReducer } from "react";

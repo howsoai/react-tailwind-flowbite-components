@@ -20,12 +20,9 @@
     "storybook": "storybook dev -p 6006",
     "prepack": "npm run build"
   },
-  "publishConfig": {
-    "registry": "https://dpbuild.jfrog.io/artifactory/api/npm/npm-edge/"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/howsoai/react-tailwind-flowbite-components"
+    "url": "git+https://github.com/howsoai/react-tailwind-flowbite-components.git"
   },
   "contributors": [
     "Lance Gliser <lance.gliser@howso.com>"
@@ -36,6 +33,7 @@
   ],
   "peerDependencies": {
     "@hookform/error-message": "^2.0.1",
+    "@howso/ui-internationalization-utils": "^1.0.5",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.10.1",
     "lodash": "^4.17.0",
@@ -52,7 +50,8 @@
     "@chromatic-com/storybook": "^2.0.2",
     "@fontsource/inter": "^5.0.5",
     "@hookform/error-message": "^2.0.1",
-    "@howso/ui-internationalization-utils": "^1.0.2",
+    "@howso/ui-internationalization-utils": "^1.0.5",
+    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-a11y": "^8.3.1",
     "@storybook/addon-actions": "^8.3.1",
