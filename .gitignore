@@ -15,7 +15,7 @@ lib
 *.local
 
 # Storybook
-/storby-static
+/storybook-static
 
 # Editor directories and files
 # VSCode
