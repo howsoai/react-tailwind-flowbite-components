@@ -15,6 +15,7 @@ const meta: Meta<typeof Stepper> = {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
   args: {
+    className: "w-[90vw]",
     vertical: false,
     steps: 3,
   },

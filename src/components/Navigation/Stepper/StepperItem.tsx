@@ -31,9 +31,10 @@ export const StepperItem: FC<StepperItemProps> = function ({
     <StepperItemContext.Provider value={{ status }}>
       <li
         className={twMerge(
+          "overflow-hidden",
           vertical && "flex items-center space-x-2.5",
           !vertical &&
-            "flex flex-col items-center space-y-2.5 sm:flex-row sm:space-x-2.5 sm:space-y-0",
+            "flex flex-col items-center space-y-2.5 @xl/stepper:flex-grow @xl/stepper:flex-row @xl/stepper:space-x-2.5 @xl/stepper:space-y-0",
           className,
         )}
       >

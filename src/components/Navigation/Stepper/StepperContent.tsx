@@ -17,7 +17,7 @@ const StepperContentComponent: FC<StepperContentProps> = function ({
   return (
     <div
       className={twMerge(
-        "text-gray-600 dark:text-gray-400",
+        "max-w-full overflow-hidden text-gray-600 dark:text-gray-400",
         status === "active" && "text-blue-600 dark:text-blue-400",
         status === "done" && "text-green-700 dark:text-green-400",
         className,
