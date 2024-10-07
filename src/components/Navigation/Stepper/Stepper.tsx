@@ -62,7 +62,11 @@ const StepperComponent: FC<StepperProps> = ({
       <Tag
         data-testid="stepper-component"
         {...props}
-        className={twMerge(className, marginBottom && UX.classes.marginBottom)}
+        className={twMerge(
+          "@container/stepper",
+          className,
+          marginBottom && UX.classes.marginBottom,
+        )}
       >
         {!!vertical && <RenderedProgress />}
         {Items ? (

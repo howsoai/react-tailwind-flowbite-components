@@ -1,3 +1,4 @@
+import twContainerQueries from "@tailwindcss/container-queries";
 import flowbite from "flowbite-react/tailwind";
 import { standardTailwindConfigThemeExtend } from "./src/themes";
 
@@ -8,7 +9,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
     "./storybook/**/*.{jsx,tsx,html}",
   ],
-  plugins: [flowbite.plugin({ charts: true })],
+  plugins: [flowbite.plugin({ charts: true }), twContainerQueries],
   theme: {
     extend: standardTailwindConfigThemeExtend,
   },

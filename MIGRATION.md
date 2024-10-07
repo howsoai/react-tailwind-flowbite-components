@@ -1,5 +1,26 @@
 # Migration guide
 
+## 6.x
+
+### Tailwind configuration
+
+Introduced `@tailwindcss/container-queries`. Update your Tailwind configuration to include the plugin:
+
+```js
+import twContainerQueries from "@tailwindcss/container-queries";
+
+module.exports = {
+  plugins: [
+    twContainerQueries,
+    // ...
+  ],
+};
+```
+
+### Stepper component
+
+The `<Stepper />` has been refactored to use container queries. A size _must_ be declared for it to read dimensions from.
+
 ## 5.x
 
 Refactored translation system to use `@howso/ui-internationalization-utils` `I18nBundle`s.
