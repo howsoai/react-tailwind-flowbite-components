@@ -6,6 +6,7 @@ import {
   ArrowCircleIcon,
   ChevronIcon,
   ConfigurationIcon,
+  ContextMenuIcon,
   CopyIcon,
   DatabaseIcon,
   DatabricksIcon,
@@ -116,6 +117,7 @@ const meta: Meta<IconBaseProps> = {
           Icon={<ChevronIcon direction="left" />}
         />
         <IconWithLabel label={"Configuration"} Icon={<ConfigurationIcon />} />
+        <IconWithLabel label={"ContextMenu"} Icon={<ContextMenuIcon />} />
         <IconWithLabel label={"Database"} Icon={<DatabaseIcon />} />
         <IconWithLabel label={"File"} Icon={<FileIcon />} />
         <IconWithLabel label={"Files"} Icon={<FilesIcon />} />
