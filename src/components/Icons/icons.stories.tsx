@@ -24,6 +24,7 @@ import {
   WarningIcon,
 } from ".";
 import { DocumentationIcon } from "./DocumentationIcon";
+import { UserIcon } from "./UserIcon";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<IconBaseProps> = {
@@ -114,18 +115,16 @@ const meta: Meta<IconBaseProps> = {
           description="Left"
           Icon={<ChevronIcon direction="left" />}
         />
-        <IconWithLabel
-          label={"ConfigurationIcon"}
-          Icon={<ConfigurationIcon />}
-        />
-        <IconWithLabel label={"DatabaseIcon"} Icon={<DatabaseIcon />} />
-        <IconWithLabel label={"FileIcon"} Icon={<FileIcon />} />
-        <IconWithLabel label={"FilesIcon"} Icon={<FilesIcon />} />
+        <IconWithLabel label={"Configuration"} Icon={<ConfigurationIcon />} />
+        <IconWithLabel label={"Database"} Icon={<DatabaseIcon />} />
+        <IconWithLabel label={"File"} Icon={<FileIcon />} />
+        <IconWithLabel label={"Files"} Icon={<FilesIcon />} />
         <IconWithLabel
           label="NewWindowIcon"
           Icon={<NewWindowIcon {...args} />}
         />
-        <IconWithLabel label={"WarningIcon"} Icon={<WarningIcon />} />
+        <IconWithLabel label={"User"} Icon={<UserIcon />} />
+        <IconWithLabel label={"Warning"} Icon={<WarningIcon />} />
       </Section>
 
       <Section title="Brands">

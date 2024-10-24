@@ -19,4 +19,5 @@ export * from "./SearchIcon";
 export * from "./SnowflakeIcon";
 export * from "./UpdateIcon";
 export * from "./UploadIcon";
+export * from "./UserIcon";
 export * from "./WarningIcon";
