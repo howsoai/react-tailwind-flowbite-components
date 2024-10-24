@@ -44,7 +44,7 @@ const meta: Meta<IconBaseProps> = {
   render: (args) => (
     <>
       <Section title="Action">
-        <IconWithLabel label={"CancelIcon"} Icon={<CancelIcon />} />
+        <IconWithLabel label={"Cancel"} Icon={<CancelIcon />} />
         <IconWithLabel
           label={"Copy"}
           description="Default"
