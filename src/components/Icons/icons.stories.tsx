@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { FC, ReactNode } from "react";
 import { IconBaseProps } from "react-icons";
 import {
+  AdministrationIcon,
   ArrowCircleIcon,
   ChevronIcon,
   ConfigurationIcon,
@@ -72,6 +73,7 @@ const meta: Meta<IconBaseProps> = {
       </Section>
 
       <Section title="Semantic">
+        <IconWithLabel label={"Administration"} Icon={<AdministrationIcon />} />
         <IconWithLabel
           label={"ArrowCircle"}
           description="Up"
