@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Skeleton } from "../../Feedback";
-import { DateLongAlertI18nBundle as i18n } from "./DateLong.i18n";
+import { DateLongI18nBundle as i18n } from "./DateLong.i18n";
 
 export type DateLongProps = {
   /** Strings must be provided in ISO format */

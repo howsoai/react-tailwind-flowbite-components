@@ -2,8 +2,9 @@ import { I18nBundle } from "@howso/ui-internationalization-utils";
 import {
   BooleanTextI18nBundle,
   CodeBlockI18nBundle,
-  DateLongAlertI18nBundle,
-  DateShortAlertI18nBundle,
+  DateLongI18nBundle,
+  DateShortI18nBundle,
+  DateTimeShortI18nBundle,
   ErrorAlertI18nBundle,
   FieldErrorMessageI18nBundle,
   FieldLabelI18nBundle,
@@ -24,8 +25,9 @@ export * from "./utils";
 export const I18nBundles: I18nBundle<Languages, any>[] = [
   BooleanTextI18nBundle,
   CodeBlockI18nBundle,
-  DateLongAlertI18nBundle,
-  DateShortAlertI18nBundle,
+  DateLongI18nBundle,
+  DateShortI18nBundle,
+  DateTimeShortI18nBundle,
   ErrorAlertI18nBundle,
   FieldLabelI18nBundle,
   FieldErrorMessageI18nBundle,
