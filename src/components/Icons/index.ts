@@ -18,6 +18,7 @@ export * from "./PredictIcon";
 export * from "./SaveIcon";
 export * from "./SearchIcon";
 export * from "./SnowflakeIcon";
+export * from "./StopIcon";
 export * from "./UpdateIcon";
 export * from "./UploadIcon";
 export * from "./UserIcon";

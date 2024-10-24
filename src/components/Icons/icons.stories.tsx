@@ -20,6 +20,7 @@ import {
   SaveIcon,
   SearchIcon,
   SnowflakeIcon,
+  StopIcon,
   UpdateIcon,
   UploadIcon,
   WarningIcon,
@@ -58,20 +59,21 @@ const meta: Meta<IconBaseProps> = {
         />
         <IconWithLabel label="DownloadIcon" Icon={<DownloadIcon {...args} />} />
         <IconWithLabel
-          label={"ExpandCollapseIcon"}
+          label={"ExpandCollapse"}
           description="Collapsed"
           Icon={<ExpandCollapseIcon isExpanded={false} />}
         />
         <IconWithLabel
-          label={"ExpandCollapseIcon"}
+          label={"ExpandCollapse"}
           description="Expanded"
           Icon={<ExpandCollapseIcon isExpanded={false} />}
         />
-        <IconWithLabel label={"PredictIcon"} Icon={<PredictIcon />} />
-        <IconWithLabel label={"SaveIcon"} Icon={<SaveIcon />} />
-        <IconWithLabel label={"SearchIcon"} Icon={<SearchIcon />} />
-        <IconWithLabel label={"UpdateIcon"} Icon={<UpdateIcon />} />
-        <IconWithLabel label={"UploadIcon"} Icon={<UploadIcon />} />
+        <IconWithLabel label={"Predict"} Icon={<PredictIcon />} />
+        <IconWithLabel label={"Save"} Icon={<SaveIcon />} />
+        <IconWithLabel label={"Search"} Icon={<SearchIcon />} />
+        <IconWithLabel label={"Stop"} Icon={<StopIcon />} />
+        <IconWithLabel label={"Update"} Icon={<UpdateIcon />} />
+        <IconWithLabel label={"Upload"} Icon={<UploadIcon />} />
       </Section>
 
       <Section title="Semantic">
