@@ -1,5 +1,6 @@
 export * from "./AdministrationIcon";
 export * from "./ArrowCircleIcon";
+export * from "./CancelIcon";
 export * from "./ChevronIcon";
 export * from "./ConfigurationIcon";
 export * from "./ContextMenuIcon";

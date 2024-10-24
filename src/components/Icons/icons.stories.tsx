@@ -4,6 +4,7 @@ import { IconBaseProps } from "react-icons";
 import {
   AdministrationIcon,
   ArrowCircleIcon,
+  CancelIcon,
   ChevronIcon,
   ConfigurationIcon,
   ContextMenuIcon,
@@ -43,13 +44,14 @@ const meta: Meta<IconBaseProps> = {
   render: (args) => (
     <>
       <Section title="Action">
+        <IconWithLabel label={"CancelIcon"} Icon={<CancelIcon />} />
         <IconWithLabel
-          label={"CopyIcon"}
+          label={"Copy"}
           description="Default"
           Icon={<CopyIcon />}
         />
         <IconWithLabel
-          label={"CopyIcon"}
+          label={"Copy"}
           description="Copied"
           Icon={<CopyIcon copied />}
         />
