@@ -7,6 +7,7 @@ export * from "./ContextMenuIcon";
 export * from "./CopyIcon";
 export * from "./DatabaseIcon";
 export * from "./DatabricksIcon";
+export * from "./DeleteIcon";
 export * from "./DocumentationIcon";
 export * from "./DownloadIcon";
 export * from "./ExpandCollapseIcon";

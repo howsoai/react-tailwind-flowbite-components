@@ -11,6 +11,7 @@ import {
   CopyIcon,
   DatabaseIcon,
   DatabricksIcon,
+  DeleteIcon,
   DownloadIcon,
   ExpandCollapseIcon,
   FileIcon,
@@ -55,6 +56,7 @@ const meta: Meta<IconBaseProps> = {
           description="Copied"
           Icon={<CopyIcon copied />}
         />
+        <IconWithLabel label="Delete" Icon={<DeleteIcon {...args} />} />
         <IconWithLabel
           label="Documentation"
           Icon={<DocumentationIcon {...args} />}
