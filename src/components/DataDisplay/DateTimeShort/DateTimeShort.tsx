@@ -5,7 +5,7 @@ import { DateTimeShortI18nBundle as i18n } from "./DateTimeShort.i18n";
 
 export type DateTimeShortProps = {
   /** Strings must be provided in ISO format */
-  value?: Date | string;
+  value?: Date | string | null;
   loading?: boolean;
 };
 export const DateTimeShort: FC<DateTimeShortProps> = ({ loading, value }) => {

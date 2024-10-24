@@ -5,7 +5,7 @@ import { DateLongI18nBundle as i18n } from "./DateLong.i18n";
 
 export type DateLongProps = {
   /** Strings must be provided in ISO format */
-  value?: Date | string;
+  value?: Date | string | null;
   loading?: boolean;
 };
 export const DateLong: FC<DateLongProps> = ({ loading, value }) => {
