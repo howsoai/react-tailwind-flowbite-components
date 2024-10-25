@@ -11,6 +11,7 @@ export * from "./DatabricksIcon";
 export * from "./DeleteIcon";
 export * from "./DocumentationIcon";
 export * from "./DownloadIcon";
+export * from "./EditIcon";
 export * from "./ExpandCollapseIcon";
 export * from "./FileIcon";
 export * from "./FilesIcon";

@@ -9,10 +9,13 @@ import {
   ConfigurationIcon,
   ContextMenuIcon,
   CopyIcon,
+  CreateIcon,
   DatabaseIcon,
   DatabricksIcon,
   DeleteIcon,
+  DocumentationIcon,
   DownloadIcon,
+  EditIcon,
   ExpandCollapseIcon,
   FileIcon,
   FilesIcon,
@@ -25,11 +28,9 @@ import {
   StopIcon,
   UpdateIcon,
   UploadIcon,
+  UserIcon,
   WarningIcon,
 } from ".";
-import { CreateIcon } from "./CreateIcon";
-import { DocumentationIcon } from "./DocumentationIcon";
-import { UserIcon } from "./UserIcon";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<IconBaseProps> = {
@@ -63,7 +64,8 @@ const meta: Meta<IconBaseProps> = {
           label="Documentation"
           Icon={<DocumentationIcon {...args} />}
         />
-        <IconWithLabel label="DownloadIcon" Icon={<DownloadIcon {...args} />} />
+        <IconWithLabel label="Download" Icon={<DownloadIcon {...args} />} />
+        <IconWithLabel label="EditIcon" Icon={<EditIcon {...args} />} />
         <IconWithLabel
           label={"ExpandCollapse"}
           description="Collapsed"
