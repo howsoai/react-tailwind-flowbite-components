@@ -19,7 +19,6 @@ export const getRelativeTime = (time?: Date | string | null) => {
   }
 };
 
-/** An array of DateUnitDifference in descending order */
 type DateUnitDifferences = Record<DateUnitDifferenceUnit, number>;
 type DateUnitDifferenceUnit =
   | "year"

@@ -2,6 +2,7 @@ import { I18nBundle } from "@howso/ui-internationalization-utils";
 import {
   BooleanTextI18nBundle,
   CodeBlockI18nBundle,
+  DateDiffI18nBundle,
   DateLongI18nBundle,
   DateShortI18nBundle,
   DateTimeShortI18nBundle,
@@ -25,6 +26,7 @@ export * from "./utils";
 export const I18nBundles: I18nBundle<Languages, any>[] = [
   BooleanTextI18nBundle,
   CodeBlockI18nBundle,
+  DateDiffI18nBundle,
   DateLongI18nBundle,
   DateShortI18nBundle,
   DateTimeShortI18nBundle,
