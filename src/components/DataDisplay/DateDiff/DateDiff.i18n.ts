@@ -22,7 +22,7 @@ const en = {
   month_other: "{{count}} months",
   year: "{{count}} year",
   year_other: "{{count}} years",
-  orderError: "Order error: end ({{end}}) before start ({{start}})",
+  orderError: "Order error: {{end}} before {{start}}",
   invalidError: "Invalid error: end ({{end}}), start ({{start}})",
 };
 

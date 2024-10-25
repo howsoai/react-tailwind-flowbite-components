@@ -53,7 +53,7 @@ export const DateDiff: FC<DateDiffProps> = ({
     });
   }
 
-  if (startDate < endDate) {
+  if (startDate > endDate) {
     return t(i18n.strings.orderError, {
       end: endDate.toISOString(),
       start: startDate.toISOString(),
