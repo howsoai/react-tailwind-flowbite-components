@@ -27,6 +27,7 @@ import {
   UploadIcon,
   WarningIcon,
 } from ".";
+import { CreateIcon } from "./CreateIcon";
 import { DocumentationIcon } from "./DocumentationIcon";
 import { UserIcon } from "./UserIcon";
 
@@ -56,6 +57,7 @@ const meta: Meta<IconBaseProps> = {
           description="Copied"
           Icon={<CopyIcon copied />}
         />
+        <IconWithLabel label={"Create"} Icon={<CreateIcon />} />
         <IconWithLabel label="Delete" Icon={<DeleteIcon {...args} />} />
         <IconWithLabel
           label="Documentation"

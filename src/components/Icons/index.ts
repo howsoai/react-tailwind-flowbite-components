@@ -5,6 +5,7 @@ export * from "./ChevronIcon";
 export * from "./ConfigurationIcon";
 export * from "./ContextMenuIcon";
 export * from "./CopyIcon";
+export * from "./CreateIcon";
 export * from "./DatabaseIcon";
 export * from "./DatabricksIcon";
 export * from "./DeleteIcon";
