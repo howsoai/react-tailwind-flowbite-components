@@ -12,3 +12,4 @@ export * from "./StartedByLabel";
 export * from "./StatusLabel";
 export * from "./UpdatedAtLabel";
 export * from "./UpdatedByLabel";
+export * from "./UptimeLabel";
