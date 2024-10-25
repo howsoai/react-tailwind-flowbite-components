@@ -23,10 +23,13 @@ export type DateDiffProps = {
    **/
   significantUnits?: number;
   loading?: boolean;
+  /** Default: 'short' */
+  format?: "long" | "short";
 };
 export const DateDiff: FC<DateDiffProps> = ({
   end,
   start,
+  format = "short",
   significantUnits = 2,
   loading,
 }) => {
@@ -65,7 +68,7 @@ export const DateDiff: FC<DateDiffProps> = ({
     .filter(([_, value]) => !!value)
     .slice(0, significantUnits);
   const translations = significantValues.map(([unit, value]) =>
-    t(i18n.strings["{{value}}_{{unit}}"], { unit, value }),
+    t(i18n.strings[format]["{{value}}_{{unit}}"], { unit, value }),
   );
 
   return translations.join(", ");

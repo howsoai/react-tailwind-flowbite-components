@@ -153,6 +153,13 @@ export const Default: Story = {
   ),
 };
 
+export const LongFormat: Story = {
+  args: {
+    format: "long",
+  },
+  render: Default.render,
+};
+
 export const Loading: Story = {
   args: {
     loading: true,
