@@ -3,6 +3,7 @@ export * from "./ArrowCircleIcon";
 export * from "./CancelIcon";
 export * from "./ChevronIcon";
 export * from "./ConfigurationIcon";
+export * from "./ConnectionIcon";
 export * from "./ContextMenuIcon";
 export * from "./CopyIcon";
 export * from "./CreateIcon";

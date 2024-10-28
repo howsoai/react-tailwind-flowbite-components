@@ -7,6 +7,7 @@ import {
   CancelIcon,
   ChevronIcon,
   ConfigurationIcon,
+  ConnectionIcon,
   ContextMenuIcon,
   CopyIcon,
   CreateIcon,
@@ -127,6 +128,16 @@ const meta: Meta<IconBaseProps> = {
           Icon={<ChevronIcon direction="left" />}
         />
         <IconWithLabel label={"Configuration"} Icon={<ConfigurationIcon />} />
+        <IconWithLabel
+          label={"Connection"}
+          Icon={<ConnectionIcon status="online" />}
+          description="Online"
+        />
+        <IconWithLabel
+          label={"Connection"}
+          Icon={<ConnectionIcon status="offline" />}
+          description="Offline"
+        />
         <IconWithLabel label={"ContextMenu"} Icon={<ContextMenuIcon />} />
         <IconWithLabel label={"Database"} Icon={<DatabaseIcon />} />
         <IconWithLabel label={"File"} Icon={<FileIcon />} />
