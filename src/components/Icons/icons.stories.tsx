@@ -2,13 +2,21 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { FC, ReactNode } from "react";
 import { IconBaseProps } from "react-icons";
 import {
+  AdministrationIcon,
   ArrowCircleIcon,
+  CancelIcon,
   ChevronIcon,
   ConfigurationIcon,
+  ConnectionIcon,
+  ContextMenuIcon,
   CopyIcon,
+  CreateIcon,
   DatabaseIcon,
   DatabricksIcon,
+  DeleteIcon,
+  DocumentationIcon,
   DownloadIcon,
+  EditIcon,
   ExpandCollapseIcon,
   FileIcon,
   FilesIcon,
@@ -18,11 +26,12 @@ import {
   SaveIcon,
   SearchIcon,
   SnowflakeIcon,
+  StopIcon,
   UpdateIcon,
   UploadIcon,
+  UserIcon,
   WarningIcon,
 } from ".";
-import { DocumentationIcon } from "./DocumentationIcon";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<IconBaseProps> = {
@@ -35,99 +44,128 @@ const meta: Meta<IconBaseProps> = {
   },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
-  args: {},
+  args: {
+    className: "",
+  },
   render: (args) => (
     <>
       <Section title="Action">
+        <IconWithLabel label={"Cancel"} Icon={<CancelIcon {...args} />} />
         <IconWithLabel
-          label={"CopyIcon"}
+          label={"Copy"}
           description="Default"
-          Icon={<CopyIcon />}
+          Icon={<CopyIcon {...args} />}
         />
         <IconWithLabel
-          label={"CopyIcon"}
+          label={"Copy"}
           description="Copied"
-          Icon={<CopyIcon copied />}
+          Icon={<CopyIcon copied {...args} />}
         />
+        <IconWithLabel label={"Create"} Icon={<CreateIcon {...args} />} />
+        <IconWithLabel label="Delete" Icon={<DeleteIcon {...args} />} />
         <IconWithLabel
           label="Documentation"
           Icon={<DocumentationIcon {...args} />}
         />
-        <IconWithLabel label="DownloadIcon" Icon={<DownloadIcon {...args} />} />
+        <IconWithLabel label="Download" Icon={<DownloadIcon {...args} />} />
+        <IconWithLabel label="EditIcon" Icon={<EditIcon {...args} />} />
         <IconWithLabel
-          label={"ExpandCollapseIcon"}
+          label={"ExpandCollapse"}
           description="Collapsed"
-          Icon={<ExpandCollapseIcon isExpanded={false} />}
+          Icon={<ExpandCollapseIcon isExpanded={false} {...args} />}
         />
         <IconWithLabel
-          label={"ExpandCollapseIcon"}
+          label={"ExpandCollapse"}
           description="Expanded"
-          Icon={<ExpandCollapseIcon isExpanded={false} />}
+          Icon={<ExpandCollapseIcon isExpanded={false} {...args} />}
         />
-        <IconWithLabel label={"PredictIcon"} Icon={<PredictIcon />} />
-        <IconWithLabel label={"SaveIcon"} Icon={<SaveIcon />} />
-        <IconWithLabel label={"SearchIcon"} Icon={<SearchIcon />} />
-        <IconWithLabel label={"UpdateIcon"} Icon={<UpdateIcon />} />
-        <IconWithLabel label={"UploadIcon"} Icon={<UploadIcon />} />
+        <IconWithLabel label={"Predict"} Icon={<PredictIcon {...args} />} />
+        <IconWithLabel label={"Save"} Icon={<SaveIcon {...args} />} />
+        <IconWithLabel label={"Search"} Icon={<SearchIcon {...args} />} />
+        <IconWithLabel label={"Stop"} Icon={<StopIcon {...args} />} />
+        <IconWithLabel label={"Update"} Icon={<UpdateIcon {...args} />} />
+        <IconWithLabel label={"Upload"} Icon={<UploadIcon {...args} />} />
       </Section>
 
       <Section title="Semantic">
         <IconWithLabel
+          label={"Administration"}
+          Icon={<AdministrationIcon {...args} />}
+        />
+        <IconWithLabel
           label={"ArrowCircle"}
           description="Up"
-          Icon={<ArrowCircleIcon direction="up" />}
+          Icon={<ArrowCircleIcon {...args} direction="up" />}
         />
         <IconWithLabel
           label={"ArrowCircle"}
           description="Right"
-          Icon={<ArrowCircleIcon direction="right" />}
+          Icon={<ArrowCircleIcon {...args} direction="right" />}
         />
         <IconWithLabel
           label={"ArrowCircle"}
           description="Down"
-          Icon={<ArrowCircleIcon direction="down" />}
+          Icon={<ArrowCircleIcon {...args} direction="down" />}
         />
         <IconWithLabel
           label={"ArrowCircle"}
           description="Left"
-          Icon={<ArrowCircleIcon direction="left" />}
+          Icon={<ArrowCircleIcon {...args} direction="left" />}
         />
         <IconWithLabel
           label={"Chevron"}
           description="Up"
-          Icon={<ChevronIcon direction="up" />}
+          Icon={<ChevronIcon {...args} direction="up" />}
         />
         <IconWithLabel
           label={"ArrowCircle"}
           description="Right"
-          Icon={<ChevronIcon direction="right" />}
+          Icon={<ChevronIcon {...args} direction="right" />}
         />
         <IconWithLabel
           label={"Chevron"}
           description="Down"
-          Icon={<ChevronIcon direction="down" />}
+          Icon={<ChevronIcon {...args} direction="down" />}
         />
         <IconWithLabel
           label={"Chevron"}
           description="Left"
-          Icon={<ChevronIcon direction="left" />}
+          Icon={<ChevronIcon {...args} direction="left" />}
         />
         <IconWithLabel
-          label={"ConfigurationIcon"}
-          Icon={<ConfigurationIcon />}
+          label={"Configuration"}
+          Icon={<ConfigurationIcon {...args} />}
         />
-        <IconWithLabel label={"DatabaseIcon"} Icon={<DatabaseIcon />} />
-        <IconWithLabel label={"FileIcon"} Icon={<FileIcon />} />
-        <IconWithLabel label={"FilesIcon"} Icon={<FilesIcon />} />
+        <IconWithLabel
+          label={"Connection"}
+          Icon={<ConnectionIcon {...args} status="online" />}
+          description="Online"
+        />
+        <IconWithLabel
+          label={"Connection"}
+          Icon={<ConnectionIcon {...args} status="offline" />}
+          description="Offline"
+        />
+        <IconWithLabel
+          label={"ContextMenu"}
+          Icon={<ContextMenuIcon {...args} />}
+        />
+        <IconWithLabel label={"Database"} Icon={<DatabaseIcon {...args} />} />
+        <IconWithLabel label={"File"} Icon={<FileIcon {...args} />} />
+        <IconWithLabel label={"Files"} Icon={<FilesIcon {...args} />} />
         <IconWithLabel
           label="NewWindowIcon"
           Icon={<NewWindowIcon {...args} />}
         />
-        <IconWithLabel label={"WarningIcon"} Icon={<WarningIcon />} />
+        <IconWithLabel label={"User"} Icon={<UserIcon {...args} />} />
+        <IconWithLabel label={"Warning"} Icon={<WarningIcon {...args} />} />
       </Section>
 
       <Section title="Brands">
-        <IconWithLabel label={"Databricks"} Icon={<DatabricksIcon />} />
+        <IconWithLabel
+          label={"Databricks"}
+          Icon={<DatabricksIcon {...args} />}
+        />
         <IconWithLabel label="GitHub" Icon={<GitHubIcon {...args} />} />
         <IconWithLabel label="Snowflake" Icon={<SnowflakeIcon {...args} />} />
       </Section>
