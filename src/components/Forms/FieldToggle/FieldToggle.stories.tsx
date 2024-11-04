@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { getFormProviderDecorator } from "../../../storybook";
-import { FieldToggle } from "./FieldToggle";
-import { UseFormRegister } from "react-hook-form";
 import { fn } from "@storybook/test";
+import { Table } from "flowbite-react";
+import { UseFormRegister } from "react-hook-form";
+import { getFormProviderDecorator } from "../../../storybook";
+import { Card } from "../../Surfaces";
+import { FieldToggle } from "./FieldToggle";
 
 const fieldName = "enable_cookies";
 const registerValues: Partial<
@@ -30,6 +32,37 @@ const meta: Meta<typeof FieldToggle> = {
     onChange: fn(),
     onBlur: fn(),
   },
+  render: (args) => (
+    <div className="space-y-2">
+      <FieldToggle {...args} />
+      <Card>
+        <Card.Content>
+          <FieldToggle {...args} />
+        </Card.Content>
+      </Card>
+      <Table striped>
+        <Table.Head>
+          <Table.Row>
+            <Table.HeadCell>
+              <FieldToggle {...args} />
+            </Table.HeadCell>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>
+              <FieldToggle {...args} />
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>
+              <FieldToggle {...args} />
+            </Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
+    </div>
+  ),
 };
 
 export default meta;
