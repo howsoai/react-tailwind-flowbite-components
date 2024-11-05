@@ -14,9 +14,10 @@ const meta: Meta<typeof Pagination> = {
   argTypes: {},
   args: {
     count: 52,
+    currentPage: 4,
+    loading: false,
     pageSize: 5,
     totalPages: 11,
-    currentPage: 4,
   },
 };
 
@@ -29,20 +30,26 @@ export const Default: Story = {
   args: {},
 };
 
+export const Loading: Story = {
+  args: {
+    loading: true,
+  },
+};
+
 export const OnePage: Story = {
   args: {
     count: 4,
+    currentPage: 1,
     pageSize: 5,
     totalPages: 1,
-    currentPage: 1,
   },
 };
 
 export const NoResults: Story = {
   args: {
     count: 0,
+    currentPage: 1,
     pageSize: 5,
     totalPages: 0,
-    currentPage: 1,
   },
 };
