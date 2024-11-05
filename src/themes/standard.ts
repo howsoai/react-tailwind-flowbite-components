@@ -200,6 +200,7 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
       base: "z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700",
     },
   },
+  // Additional customizations are applied in a local theme in this package's <Pagination />
   pagination: {
     pages: {
       selector: {
