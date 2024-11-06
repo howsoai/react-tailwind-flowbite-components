@@ -191,6 +191,11 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
         on: "flex bg-gray-900 bg-opacity-50 dark:bg-opacity-80 backdrop-blur-sm starting-fade",
       },
     },
+    header: {
+      base: "flex items-start justify-between rounded-t border-b p-5 dark:border-gray-600 overflow-hidden",
+      title:
+        "text-xl font-medium text-gray-900 dark:text-white overflow-hidden",
+    },
     content: {
       base: "relative h-full w-full p-4 md:h-auto starting-fade",
     },
