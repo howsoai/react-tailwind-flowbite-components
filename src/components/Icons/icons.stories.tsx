@@ -30,6 +30,7 @@ import {
   UpdateIcon,
   UploadIcon,
   UserIcon,
+  ViewIcon,
   WarningIcon,
 } from ".";
 
@@ -85,6 +86,7 @@ const meta: Meta<IconBaseProps> = {
         <IconWithLabel label={"Stop"} Icon={<StopIcon {...args} />} />
         <IconWithLabel label={"Update"} Icon={<UpdateIcon {...args} />} />
         <IconWithLabel label={"Upload"} Icon={<UploadIcon {...args} />} />
+        <IconWithLabel label={"View"} Icon={<ViewIcon {...args} />} />
       </Section>
 
       <Section title="Semantic">
