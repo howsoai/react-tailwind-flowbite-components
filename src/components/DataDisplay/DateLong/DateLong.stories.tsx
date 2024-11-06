@@ -32,6 +32,12 @@ export const Loading: Story = {
   },
 };
 
+export const Falsy: Story = {
+  args: {
+    value: undefined,
+  },
+};
+
 export const Invalid: Story = {
   // More on args: https://storybook.js.org/docs/react/writing-stories/args
   args: {
