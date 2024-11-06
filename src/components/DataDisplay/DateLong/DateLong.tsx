@@ -18,7 +18,7 @@ export const DateLong: FC<DateLongProps> = ({ loading, value }) => {
 
   return loading ? (
     <Skeleton variant="text" className="w-32" />
-  ) : (
+  ) : !date ? null : (
     t(i18n.strings.date, { value: date })
   );
 };

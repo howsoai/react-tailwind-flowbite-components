@@ -18,7 +18,7 @@ export const DateTimeShort: FC<DateTimeShortProps> = ({ loading, value }) => {
 
   return loading ? (
     <Skeleton variant="text" className="w-48" />
-  ) : (
+  ) : !date ? null : (
     t(i18n.strings.dateTime, { value: date })
   );
 };
