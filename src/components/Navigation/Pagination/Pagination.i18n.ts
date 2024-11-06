@@ -13,6 +13,7 @@ const en = {
   position:
     "Showing <strong>{{start}}</strong>-<strong>{{end}}</strong> of <strong>{{total}}</strong>",
   previous: "Previous",
+  "viewAll_{{total}}": "View all (<1>{{total}}</1>)",
 };
 
 type Resource = typeof en;
