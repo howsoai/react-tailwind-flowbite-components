@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { twMerge } from "tailwind-merge";
 import { SecondaryButton, type SecondaryButtonProps } from "../../Buttons";
 import { Skeleton } from "../../Feedback";
 import { PaginationBase, type PaginationBaseProps } from "./(components)";
@@ -39,12 +40,14 @@ type ControlsProps = SecondaryButtonProps & {
 /** A specialized <Button /> with content and styling predefined */
 const Controls: FC<ControlsProps> = ({ count, loading, to, ...props }) => {
   const { t } = useTranslation(i18n.namespace);
+  const disabled = !count;
 
   return (
     <SecondaryButton
       as={to ? Link : undefined}
       to={to}
-      disabled={!count}
+      disabled={disabled}
+      className={twMerge(disabled && "pointer-events-none")}
       {...props}
     >
       <Trans
