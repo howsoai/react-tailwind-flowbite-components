@@ -220,7 +220,7 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
   },
   table: {
     root: {
-      base: "w-full text-left text-sm text-gray-500 dark:text-gray-400",
+      base: "w-full text-left text-sm text-gray-600 dark:text-gray-300",
       // shadow:
       //   "absolute left-0 top-0 -z-10 h-full w-full rounded-lg bg-white drop-shadow-md dark:bg-black",
       // wrapper: "relative",
