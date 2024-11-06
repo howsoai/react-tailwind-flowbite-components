@@ -7,6 +7,7 @@ export type UXConstants = {
 
 type UXClasses = {
   marginBottom: string;
+  marginTop: string;
 };
 
 type UXDurations = {
@@ -25,6 +26,7 @@ type UXDurations = {
 export const UX: UXConstants = {
   classes: {
     marginBottom: "mb-5",
+    marginTop: "mt-5",
   },
   durations: {
     input: { activityDecay: 500 },
