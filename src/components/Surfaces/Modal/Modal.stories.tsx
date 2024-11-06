@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Modal } from "flowbite-react";
+import { Paragraph } from "../../Typography";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Modal> = {
@@ -14,14 +15,36 @@ const meta: Meta<typeof Modal> = {
   argTypes: {},
   render: (args) => (
     <>
-      <div className="w-full h-full text-3xl flex gap-6 flex-wrap">
+      <div className="flex h-full w-full flex-wrap gap-6 text-3xl">
         {new Array(100).fill(0).map((_, index) => (
           <div key={index}>{index}</div>
         ))}
       </div>
       <Modal {...args} show>
+        <Modal.Header>
+          <div className="flex flex-row flex-nowrap items-baseline justify-between gap-4">
+            <div className="truncate">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit
+            </div>
+            <div className="block truncate text-sm">
+              Nulla similique impedit natus nesciunt repellendus quaerat
+              exercitationem
+            </div>
+          </div>
+        </Modal.Header>
         <Modal.Body>
-          <p>Sample content</p>
+          <Paragraph marginBottom>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+            similique impedit natus nesciunt repellendus quaerat exercitationem
+            incidunt dolorum neque sit? Mollitia molestias totam nam nostrum
+            magnam veniam ipsam aspernatur quas.
+          </Paragraph>
+          <Paragraph>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+            similique impedit natus nesciunt repellendus quaerat exercitationem
+            incidunt dolorum neque sit? Mollitia molestias totam nam nostrum
+            magnam veniam ipsam aspernatur quas.
+          </Paragraph>
         </Modal.Body>
       </Modal>
     </>
