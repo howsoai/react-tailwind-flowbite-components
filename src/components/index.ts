@@ -4,6 +4,7 @@ import { ComponentsDataDisplayI18nBundles } from "./DataDisplay";
 import { ComponentsFeedbackI18nBundles } from "./Feedback";
 import { ComponentsFormsI18nBundles } from "./Forms";
 import { ComponentsMarketingI18nBundles } from "./Marketing";
+import { ComponentsNavigationI18nBundles } from "./Navigation";
 
 export * from "./Buttons";
 export * from "./DataDisplay";
@@ -20,4 +21,5 @@ export const ComponentsI18nBundles: I18nBundle<Languages, any>[] = [
   ...ComponentsFeedbackI18nBundles,
   ...ComponentsFormsI18nBundles,
   ...ComponentsMarketingI18nBundles,
+  ...ComponentsNavigationI18nBundles,
 ];
