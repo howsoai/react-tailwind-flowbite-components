@@ -67,6 +67,7 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@types/lodash": "^4.17.13",
     "@types/react": "^18.2.14",
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.2.1",
