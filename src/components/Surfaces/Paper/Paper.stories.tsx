@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ReadabilityConstraint } from "../../Typography";
-import { Card } from "./Card";
+import { Paragraph, ReadabilityConstraint } from "../../Typography";
+import { Paper } from "./Paper";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-const meta: Meta<typeof Card> = {
-  component: Card,
+const meta: Meta<typeof Paper> = {
+  component: Paper,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/7.0/react/writing-docs/docs-page
   tags: ["autodocs"],
   parameters: {
@@ -16,7 +16,7 @@ const meta: Meta<typeof Card> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Card>;
+type Story = StoryObj<typeof Paper>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 export const Default: Story = {
@@ -24,24 +24,14 @@ export const Default: Story = {
   args: {},
   render: (args) => (
     <ReadabilityConstraint>
-      <Card {...args}>
-        <Card.Header>
-          <Card.Title>
-            Title ipsum dolor sit, amet consectetur adipisicing elit.
-          </Card.Title>
-          <Card.Subtitle>
-            Title ipsum dolor sit, amet consectetur adipisicing elit.
-          </Card.Subtitle>
-        </Card.Header>
-        <Card.Content>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non
-            aspernatur veritatis magnam tempora aut, deleniti autem. Incidunt,
-            ipsam explicabo illo alias eaque deserunt dicta excepturi deleniti,
-            consequuntur consectetur voluptatum hic.
-          </p>
-        </Card.Content>
-      </Card>
+      <Paper {...args}>
+        <Paragraph>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non
+          aspernatur veritatis magnam tempora aut, deleniti autem. Incidunt,
+          ipsam explicabo illo alias eaque deserunt dicta excepturi deleniti,
+          consequuntur consectetur voluptatum hic.
+        </Paragraph>
+      </Paper>
     </ReadabilityConstraint>
   ),
 };
