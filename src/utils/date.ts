@@ -19,8 +19,8 @@ export const getRelativeTime = (time?: Date | string | null) => {
   }
 };
 
-type DateUnitDifferences = Record<DateUnitDifferenceUnit, number>;
-type DateUnitDifferenceUnit =
+export type DateUnitDifferences = Record<DateUnitDifferenceUnit, number>;
+export type DateUnitDifferenceUnit =
   | "year"
   | "month"
   | "day"

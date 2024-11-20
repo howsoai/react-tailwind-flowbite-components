@@ -89,7 +89,7 @@ const meta: Meta<IconBaseProps> = {
         <IconWithLabel label={"View"} Icon={<ViewIcon {...args} />} />
       </Section>
 
-      <Section title="Semantic">
+      <Section title="Concepts">
         <IconWithLabel
           label={"Administration"}
           Icon={<AdministrationIcon {...args} />}

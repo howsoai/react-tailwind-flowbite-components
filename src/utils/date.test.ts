@@ -1,7 +1,16 @@
-import { getDateUnitDifferences } from "./date";
+import { DateUnitDifferences, getDateUnitDifferences } from "./date";
 
 describe("utils/date", () => {
   describe("getDateUnitDifferences", () => {
+    /** Provides some give based on daylight savings time */
+    const expectHours = (
+      hour: DateUnitDifferences["hour"],
+      expectation: number,
+    ) => {
+      expect(hour).toBeGreaterThanOrEqual(expectation - 1);
+      expect(hour).toBeLessThanOrEqual(expectation + 1);
+    };
+
     it("should return a structure of descending time units between two dates", () => {
       const now = new Date();
 
@@ -66,7 +75,7 @@ describe("utils/date", () => {
       expect(d5.year).toBe(0);
       expect(d5.month).toBe(0);
       expect(d5.day).toBe(days);
-      expect(d5.hour).toBe(hours);
+      expectHours(d5.hour, hours);
       expect(d5.minute).toBe(minutes);
       expect(d5.second).toBe(seconds);
       expect(d5.millisecond).toBe(milliseconds);
@@ -79,7 +88,7 @@ describe("utils/date", () => {
       expect(d6.year).toBe(0);
       expect(d6.month).toBe(months);
       expect(d6.day).toBeGreaterThan(0); // Don't expect days to be equal, some with less, some with more in a year.
-      expect(d6.hour).toBe(hours);
+      expectHours(d6.hour, hours);
       expect(d6.minute).toBe(minutes);
       expect(d6.second).toBe(seconds);
       expect(d6.millisecond).toBe(milliseconds);
@@ -92,7 +101,7 @@ describe("utils/date", () => {
       expect(d7.year).toBe(years);
       expect(d7.month).toBeGreaterThan(0); // Don't months to be equal, it's based on a rolling 30, not perfect time range
       expect(d7.day).toBeGreaterThan(0); // Don't expect days to be equal, some with less, some with more in a year.
-      expect(d7.hour).toBe(hours);
+      expectHours(d7.hour, hours);
       expect(d7.minute).toBe(minutes);
       expect(d7.second).toBe(seconds);
       expect(d7.millisecond).toBe(milliseconds);
