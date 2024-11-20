@@ -4,7 +4,7 @@ import { Link as TailwindLink } from "../../Typography/Link";
 
 export type RouterLinkProps = LinkProps;
 /**A link component that mixes @howso/react-tailwind-flowbite-components with react-router-dom*/
-export const RouterLink = forwardRef(
+export const RouterLink = forwardRef<HTMLAnchorElement, LinkProps>(
   (
     { onClick, replace = false, state, target, to, ...rest }: RouterLinkProps,
     ref,
@@ -26,7 +26,6 @@ export const RouterLink = forwardRef(
             handleClick(event);
           }
         }}
-        // @ts-expect-error Not debugging the code react-router-dom gave me
         ref={ref}
         target={target}
       />
