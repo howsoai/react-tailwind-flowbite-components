@@ -4,6 +4,7 @@ import { PaginationI18nBundle } from "./Pagination/Pagination.i18n";
 
 export * from "./NavTabs";
 export * from "./Pagination";
+export * from "./RouterLink";
 export * from "./Stepper";
 // export * from "./Tabs"; // Just stories
 
