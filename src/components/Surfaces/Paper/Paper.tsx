@@ -6,6 +6,6 @@ export type PaperProps = ComponentProps<"div">;
 export const Paper: FC<PaperProps> = (props) => (
   <div
     {...props}
-    className={twMerge("bg-white shadow-md dark:bg-gray-800", props.className)}
+    className={twMerge("bg-white dark:bg-gray-800", props.className)}
   />
 );
