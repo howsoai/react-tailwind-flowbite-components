@@ -11,11 +11,18 @@ export type PaginationControlsProps = Omit<PaginationBaseProps, "controls"> &
     preview?: false;
     totalPages: number | undefined;
   };
-export const PaginationControls: FC<PaginationControlsProps> = (props) => (
-  <PaginationBase {...props} controls={<Controls {...props} />} />
+export const PaginationControls: FC<PaginationControlsProps> = ({
+  pageSize,
+  ...props
+}) => (
+  <PaginationBase
+    {...props}
+    pageSize={pageSize}
+    controls={<Controls {...props} />}
+  />
 );
 
-const Controls: FC<PaginationControlsProps> = memo(
+const Controls: FC<Omit<PaginationControlsProps, "pageSize">> = memo(
   ({ loading, totalPages, ...props }) => {
     return loading ? (
       <Skeleton className="h-9 w-full md:w-80" />
