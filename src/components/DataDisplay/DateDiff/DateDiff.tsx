@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getDateUnitDifferences } from "../../../utils";
 import { Skeleton } from "../../Feedback";
@@ -8,9 +8,10 @@ export type DateDiffProps = {
   /**
    * If a string is provided, it must be in ISO format.
    * If no value is supplied, nothing will be rendered.
+   * If 'now' is supplied, the time will be recalculated against the current timestamp on an ongoing basis.
    * If it is before start, an error message will be returned.
    */
-  end: Date | string | null | undefined;
+  end: Date | string | null | undefined | "now";
   /**
    * If a string is provided, it must be in ISO format.
    * If no value is supplied, nothing will be rendered.
@@ -35,15 +36,32 @@ export const DateDiff: FC<DateDiffProps> = ({
 }) => {
   const { t } = useTranslation(i18n.namespace);
 
+  const [endDate, setEndDate] = useState<Date>();
+  const updateEndDateToNow = useCallback(
+    () => setEndDate(new Date()),
+    [setEndDate],
+  );
+  useEffect(() => {
+    if (!end) return;
+
+    if (end === "now") {
+      const interval = setInterval(updateEndDateToNow, 1000);
+      return () => {
+        clearInterval(interval);
+      };
+    }
+
+    setEndDate(typeof end === "string" ? new Date(end) : end);
+  }, [end, updateEndDateToNow]);
+
   if (loading) {
     return <Skeleton variant="text" className="w-40" />;
   }
 
-  if (!start || !end) {
+  if (!start || !endDate) {
     return null;
   }
 
-  const endDate = typeof end === "string" ? new Date(end) : end;
   const startDate = typeof start === "string" ? new Date(start) : start;
 
   const isEndInvalid = isNaN(endDate.getTime());

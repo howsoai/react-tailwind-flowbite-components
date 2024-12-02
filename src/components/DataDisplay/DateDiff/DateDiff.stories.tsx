@@ -153,6 +153,21 @@ export const Default: Story = {
   ),
 };
 
+const nowStartTime = new Date();
+nowStartTime.setMinutes(nowStartTime.getMinutes() - 2);
+nowStartTime.setSeconds(nowStartTime.getSeconds() - 59);
+/** A special usage that calculates the difference between the start time, and the current time updating every second(ish). */
+export const NowDiff: Story = {
+  parameters: {
+    // Disables Chromatic's snapshotting on a component level
+    chromatic: { disableSnapshot: true },
+  },
+  args: {
+    end: "now",
+    start: nowStartTime,
+  },
+};
+
 export const LongFormat: Story = {
   args: {
     format: "long",
@@ -167,7 +182,6 @@ export const Loading: Story = {
 };
 
 export const OrderMismatch: Story = {
-  // More on args: https://storybook.js.org/docs/react/writing-stories/args
   args: {
     start: "2024-10-25T21:02:44.850Z",
     end: "2024-10-24T21:02:44.850Z",
@@ -175,7 +189,6 @@ export const OrderMismatch: Story = {
 };
 
 export const Invalid: Story = {
-  // More on args: https://storybook.js.org/docs/react/writing-stories/args
   args: {
     start: "2024-10-cow",
     end: "2024-10-24T21:02:44.850Z",
