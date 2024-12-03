@@ -2,6 +2,7 @@ import { I18nBundle } from "@howso/ui-internationalization-utils";
 import { Languages } from "../../constants";
 import { PaginationI18nBundle } from "./Pagination/Pagination.i18n";
 
+export * from "./DropdownPortal";
 export * from "./NavTabs";
 export * from "./Pagination";
 export * from "./RouterLink";
