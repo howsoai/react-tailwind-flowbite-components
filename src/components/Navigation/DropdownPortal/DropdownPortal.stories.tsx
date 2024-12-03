@@ -25,7 +25,7 @@ const meta: Meta<typeof DropdownPortal> = {
         <Dropdown.Item icon={ViewIcon}>F</Dropdown.Item>
       </>
     ),
-    trigger: <PrimaryButton>Dropdown</PrimaryButton>,
+    label: <PrimaryButton>Dropdown</PrimaryButton>,
   },
 };
 

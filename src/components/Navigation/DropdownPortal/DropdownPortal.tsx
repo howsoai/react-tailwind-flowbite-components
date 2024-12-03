@@ -3,10 +3,11 @@ import { Dropdown, type DropdownProps } from "flowbite-react";
 import { useEffect, useState, type FC, type ReactNode } from "react";
 
 export type DropdownPortalProps = Omit<DropdownProps, "label" | "trigger"> & {
-  trigger: ReactNode;
+  /** Elements to act as trigger. You must supply your own <button>, unlike standard <Dropdown label /> */
+  label: ReactNode;
 };
 export const DropdownPortal: FC<DropdownPortalProps> = ({
-  trigger,
+  label,
   ...props
 }) => {
   const { refs, floatingStyles } = useFloating({
@@ -62,7 +63,7 @@ export const DropdownPortal: FC<DropdownPortalProps> = ({
   return (
     <>
       <div ref={refs.setReference} onClick={isOpen ? handleClose : handleOpen}>
-        {trigger}
+        {label}
       </div>
 
       <FloatingPortal>
