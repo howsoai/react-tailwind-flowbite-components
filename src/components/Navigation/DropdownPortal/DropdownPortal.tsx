@@ -1,6 +1,7 @@
-import { FloatingPortal, useFloating } from "@floating-ui/react";
+import { FloatingPortal } from "@floating-ui/react";
 import { Dropdown, type DropdownProps } from "flowbite-react";
 import { useEffect, useId, useState, type FC, type ReactNode } from "react";
+import { useBaseFloating } from "../../../hooks";
 
 export type DropdownPortalProps = Omit<DropdownProps, "label" | "trigger"> & {
   /** Elements to act as trigger. You must supply your own <button>, unlike standard <Dropdown label /> */
@@ -11,9 +12,8 @@ export const DropdownPortal: FC<DropdownPortalProps> = ({
   label,
   ...props
 }) => {
-  const { refs, floatingStyles } = useFloating({
+  const { refs, floatingStyles } = useBaseFloating({
     placement: "bottom",
-    strategy: "fixed",
   });
   const id = useId();
 
