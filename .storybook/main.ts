@@ -23,15 +23,15 @@ const config: StorybookConfig = {
   },
 
   refs: {
-    flowbite: {
-      title: "Flowbite",
-      url: "https://storybook.flowbite-react.com/",
-      expanded: false, // Optional, true by default
-    },
+    // flowbite: {
+    //   title: "Flowbite",
+    //   url: "https://storybook.flowbite-react.com/",
+    //   expanded: false, // Optional, true by default
+    // },
   },
 
   typescript: {
-    reactDocgen: "react-docgen-typescript"
-  }
+    reactDocgen: "react-docgen-typescript",
+  },
 };
 export default config;
