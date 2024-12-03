@@ -1,10 +1,11 @@
 import { FloatingPortal, useFloating } from "@floating-ui/react";
 import { Dropdown, type DropdownProps } from "flowbite-react";
-import { useEffect, useState, type FC, type ReactNode } from "react";
+import { useEffect, useId, useState, type FC, type ReactNode } from "react";
 
 export type DropdownPortalProps = Omit<DropdownProps, "label" | "trigger"> & {
   /** Elements to act as trigger. You must supply your own <button>, unlike standard <Dropdown label /> */
   label: ReactNode;
+  "data-testid"?: string;
 };
 export const DropdownPortal: FC<DropdownPortalProps> = ({
   label,
@@ -14,6 +15,7 @@ export const DropdownPortal: FC<DropdownPortalProps> = ({
     placement: "bottom",
     strategy: "fixed",
   });
+  const id = useId();
 
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => {
@@ -62,12 +64,24 @@ export const DropdownPortal: FC<DropdownPortalProps> = ({
 
   return (
     <>
-      <div ref={refs.setReference} onClick={isOpen ? handleClose : handleOpen}>
+      <div
+        aria-controls={id}
+        aria-haspopup="menu"
+        aria-expanded={isOpen}
+        ref={refs.setReference}
+        onClick={isOpen ? handleClose : handleOpen}
+        data-testid="flowbite-dropdown-portal"
+      >
         {label}
       </div>
-
       <FloatingPortal>
-        <div ref={refs.setFloating} style={floatingStyles}>
+        <div
+          aria-expanded={isOpen}
+          data-testid="flowbite-dropdown-portal"
+          id={id}
+          ref={refs.setFloating}
+          style={floatingStyles}
+        >
           <Dropdown
             label={null}
             placement="bottom"
