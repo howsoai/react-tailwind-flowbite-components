@@ -104,8 +104,5 @@
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write"
     ]
-  },
-  "dependencies": {
-    "react-portal": "^4.2.2"
   }
 }
