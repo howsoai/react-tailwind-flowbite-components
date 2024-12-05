@@ -23,6 +23,7 @@ import {
   GitHubIcon,
   NewWindowIcon,
   PredictIcon,
+  RunProcessIcon,
   SaveIcon,
   SearchIcon,
   SnowflakeIcon,
@@ -81,6 +82,10 @@ const meta: Meta<IconBaseProps> = {
           Icon={<ExpandCollapseIcon isExpanded={false} {...args} />}
         />
         <IconWithLabel label={"Predict"} Icon={<PredictIcon {...args} />} />
+        <IconWithLabel
+          label={"RunProcess"}
+          Icon={<RunProcessIcon {...args} />}
+        />
         <IconWithLabel label={"Save"} Icon={<SaveIcon {...args} />} />
         <IconWithLabel label={"Search"} Icon={<SearchIcon {...args} />} />
         <IconWithLabel label={"Stop"} Icon={<StopIcon {...args} />} />
