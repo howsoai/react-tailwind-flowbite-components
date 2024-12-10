@@ -10,6 +10,8 @@ const en = {
   createdAt: "Created at",
   createdBy: "Created by",
   duration: "Duration",
+  feature: "Feature",
+  features: "Features",
   updatedAt: "Updated at",
   updatedBy: "Updated by",
   startedAt: "Started at",
@@ -20,7 +22,10 @@ const en = {
   completedBy: "Completed by",
   name: "Name",
   id: "Id",
+  sourceType: "Source type",
+  source: "Source",
   status: "Status",
+  timeSeries: "Time series",
   uptime: "Uptime",
 };
 
