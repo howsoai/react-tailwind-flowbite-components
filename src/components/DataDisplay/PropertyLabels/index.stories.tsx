@@ -13,11 +13,8 @@ import {
   StatusLabel,
   UpdatedAtLabel,
   UpdatedByLabel,
+  UptimeLabel,
 } from ".";
-import { FeaturesLabel } from "./FeaturesLabel";
-import { SourceLabel } from "./SourceLabel";
-import { SourceTypeLabel } from "./SourceTypeLabel";
-import { UptimeLabel } from "./UptimeLabel";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<PropertyLabelProps> = {
@@ -49,7 +46,6 @@ export const Default: Story = {
       <DurationLabel {...args} />
       <EndedAtLabel {...args} />
       <EndedByLabel {...args} />
-      <FeaturesLabel {...args} />
       <IdLabel {...args} />
       <NameLabel {...args} />
       <StartedAtLabel {...args} />
@@ -57,8 +53,6 @@ export const Default: Story = {
       <StatusLabel {...args} />
       <UpdatedAtLabel {...args} />
       <UpdatedByLabel {...args} />
-      <SourceLabel {...args} />
-      <SourceTypeLabel {...args} />
       <UptimeLabel {...args} />
     </div>
   ),

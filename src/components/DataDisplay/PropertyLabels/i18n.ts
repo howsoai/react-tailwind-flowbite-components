@@ -22,8 +22,6 @@ const en = {
   completedBy: "Completed by",
   name: "Name",
   id: "Id",
-  sourceType: "Source type",
-  source: "Source",
   status: "Status",
   timeSeries: "Time series",
   uptime: "Uptime",
