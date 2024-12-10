@@ -104,8 +104,5 @@
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write"
     ]
-  },
-  "dependencies": {
-    "@howso/howso-engine-react-display-components": "file:../howso-engine-react-display-components/howso-howso-engine-react-display-components-0.0.0.tgz"
   }
 }
