@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { IconBaseProps } from "react-icons";
 import {
   CreatedAtLabel,
   CreatedByLabel,
@@ -14,8 +13,8 @@ import {
   StatusLabel,
   UpdatedAtLabel,
   UpdatedByLabel,
+  UptimeLabel,
 } from ".";
-import { UptimeLabel } from "./UptimeLabel";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<PropertyLabelProps> = {
@@ -31,6 +30,15 @@ const meta: Meta<PropertyLabelProps> = {
   args: {
     className: "",
   },
+};
+
+export default meta;
+type Story = StoryObj<PropertyLabelProps>;
+
+// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+export const Default: Story = {
+  // More on args: https://storybook.js.org/docs/react/writing-stories/args
+  args: {},
   render: (args) => (
     <div className="flex flex-col gap-1">
       <CreatedAtLabel {...args} />
@@ -48,13 +56,4 @@ const meta: Meta<PropertyLabelProps> = {
       <UptimeLabel {...args} />
     </div>
   ),
-};
-
-export default meta;
-type Story = StoryObj<IconBaseProps>;
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-export const Default: Story = {
-  // More on args: https://storybook.js.org/docs/react/writing-stories/args
-  args: {},
 };

@@ -15,6 +15,7 @@ export * from "./DateDiff";
 export * from "./DateLong";
 export * from "./DateShort";
 export * from "./DateTimeShort";
+export * from "./LocaleNumber";
 export * from "./PropertyLabels";
 export * from "./TableHeadCell";
 
