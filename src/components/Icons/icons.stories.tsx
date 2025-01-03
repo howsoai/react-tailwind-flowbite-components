@@ -23,6 +23,7 @@ import {
   GitHubIcon,
   NewWindowIcon,
   PredictIcon,
+  QueueIcon,
   RunProcessIcon,
   SaveIcon,
   SearchIcon,
@@ -164,6 +165,7 @@ const meta: Meta<IconBaseProps> = {
           label="NewWindowIcon"
           Icon={<NewWindowIcon {...args} />}
         />
+        <IconWithLabel label={"Queue"} Icon={<QueueIcon {...args} />} />
         <IconWithLabel label={"User"} Icon={<UserIcon {...args} />} />
         <IconWithLabel label={"Warning"} Icon={<WarningIcon {...args} />} />
       </Section>

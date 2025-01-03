@@ -20,6 +20,7 @@ export * from "./GitHubIcon";
 export * from "./Identicon";
 export * from "./NewWindowIcon";
 export * from "./PredictIcon";
+export * from "./QueueIcon";
 export * from "./RunProcessIcon";
 export * from "./SaveIcon";
 export * from "./SearchIcon";
