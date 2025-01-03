@@ -3,6 +3,7 @@ import { FC, ReactNode } from "react";
 import { IconBaseProps } from "react-icons";
 import {
   AdministrationIcon,
+  AnalyzeIcon,
   ArrowCircleIcon,
   CancelIcon,
   ChevronIcon,
@@ -53,6 +54,7 @@ const meta: Meta<IconBaseProps> = {
   render: (args) => (
     <>
       <Section title="Action">
+        <IconWithLabel label={"Analyze"} Icon={<AnalyzeIcon {...args} />} />
         <IconWithLabel label={"Cancel"} Icon={<CancelIcon {...args} />} />
         <IconWithLabel
           label={"Copy"}
