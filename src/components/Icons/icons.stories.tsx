@@ -3,6 +3,7 @@ import { FC, ReactNode } from "react";
 import { IconBaseProps } from "react-icons";
 import {
   AdministrationIcon,
+  AnalyzeIcon,
   ArrowCircleIcon,
   CancelIcon,
   ChevronIcon,
@@ -23,6 +24,7 @@ import {
   GitHubIcon,
   NewWindowIcon,
   PredictIcon,
+  QueueIcon,
   RunProcessIcon,
   SaveIcon,
   SearchIcon,
@@ -52,6 +54,7 @@ const meta: Meta<IconBaseProps> = {
   render: (args) => (
     <>
       <Section title="Action">
+        <IconWithLabel label={"Analyze"} Icon={<AnalyzeIcon {...args} />} />
         <IconWithLabel label={"Cancel"} Icon={<CancelIcon {...args} />} />
         <IconWithLabel
           label={"Copy"}
@@ -164,6 +167,7 @@ const meta: Meta<IconBaseProps> = {
           label="NewWindowIcon"
           Icon={<NewWindowIcon {...args} />}
         />
+        <IconWithLabel label={"Queue"} Icon={<QueueIcon {...args} />} />
         <IconWithLabel label={"User"} Icon={<UserIcon {...args} />} />
         <IconWithLabel label={"Warning"} Icon={<WarningIcon {...args} />} />
       </Section>
