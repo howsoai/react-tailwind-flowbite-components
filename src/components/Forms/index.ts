@@ -2,6 +2,7 @@ import { I18nBundle } from "@howso/ui-internationalization-utils";
 import { Languages } from "../../constants";
 import { FieldErrorMessageI18nBundle } from "./FieldErrorMessage";
 import { FieldLabelI18nBundle } from "./FieldLabel";
+import { FieldPasswordI18nBundle } from "./FieldPassword";
 import { FileDropZoneI18nBundle } from "./FileDropZone";
 
 export * from "./constants";
@@ -10,6 +11,7 @@ export * from "./FieldContainer";
 export * from "./FieldErrorMessage";
 export * from "./FieldFile";
 export * from "./FieldLabel";
+export * from "./FieldPassword";
 export * from "./FieldRadios";
 export * from "./FieldSelect";
 export * from "./FieldStatic";
@@ -25,5 +27,6 @@ export * from "./ToggleInput";
 export const ComponentsFormsI18nBundles: I18nBundle<Languages, any>[] = [
   FieldLabelI18nBundle,
   FieldErrorMessageI18nBundle,
+  FieldPasswordI18nBundle,
   FileDropZoneI18nBundle,
 ];
