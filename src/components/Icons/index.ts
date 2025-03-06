@@ -31,4 +31,5 @@ export * from "./UpdateIcon";
 export * from "./UploadIcon";
 export * from "./UserIcon";
 export * from "./ViewIcon";
+export * from "./VisibilityIcon";
 export * from "./WarningIcon";
