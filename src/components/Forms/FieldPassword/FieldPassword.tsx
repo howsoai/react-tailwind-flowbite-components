@@ -109,7 +109,7 @@ export const FieldPasswordToggleAddon: FC<FieldPasswordToggleProps> = ({
     ? i18n.strings.visibility.hide
     : i18n.strings.visibility.show;
   return (
-    <button onClick={onToggle} className="m-[-12px] p-[12px]">
+    <button type="button" onClick={onToggle} className="m-[-12px] p-[12px]">
       {<VisibilityIcon isVisible={!isVisible} title={t(title)} />}
     </button>
   );
