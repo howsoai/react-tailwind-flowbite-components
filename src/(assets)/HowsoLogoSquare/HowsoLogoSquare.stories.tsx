@@ -19,6 +19,8 @@ export default meta;
 type Story = StoryObj<typeof HowsoLogoSquare>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+export const Default: Story = {};
+
 export const LightBackground: Story = {
   args: {
     background: "light",

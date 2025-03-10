@@ -1,5 +1,5 @@
+import { useThemeMode } from "flowbite-react";
 import { FC, SVGProps, useMemo } from "react";
-import { useColorSchemePreference } from "../../hooks";
 
 export type HowsoLogoSquareProps = SVGProps<SVGSVGElement> & {
   background?: "dark" | "light" | undefined | null;
@@ -8,14 +8,14 @@ export const HowsoLogoSquareComponent: FC<HowsoLogoSquareProps> = ({
   background,
   ...props
 }) => {
-  const colorSchemePreference = useColorSchemePreference();
+  const themeMode = useThemeMode();
   const isBackgroundDark = useMemo(() => {
     if (background) {
       return background === "dark";
     }
 
-    return colorSchemePreference === "dark";
-  }, [background, colorSchemePreference]);
+    return themeMode.computedMode === "dark";
+  }, [background, themeMode.computedMode]);
 
   return isBackgroundDark ? (
     <HowsoLogoSquareLight {...props} />
