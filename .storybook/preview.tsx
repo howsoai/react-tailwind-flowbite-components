@@ -21,6 +21,11 @@ const preview: Preview = {
       values: [lightBackground, darkBackground],
       // Ensure a default is set, so you avoid type errors reading from undefined!
       default: lightBackground.name,
+      // Supports globals usage
+      options: {
+        [lightBackground.name]: lightBackground,
+        [darkBackground.name]: darkBackground,
+      },
     },
     controls: {
       matchers: {
