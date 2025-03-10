@@ -4,6 +4,7 @@ import { AuthenticationI18nBundles } from "./components/Authentication";
 import { Languages } from "./constants";
 import "./main.css";
 
+export * from "./(assets)";
 export * from "./components";
 export * from "./constants";
 export * from "./hooks";
