@@ -11,7 +11,7 @@ const en = {
   form: {
     fields: {
       username: {
-        label: "Email",
+        label: "Username",
         placeholder: "john.smith",
       },
       email: {
