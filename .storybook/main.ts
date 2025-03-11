@@ -20,6 +20,7 @@ const config: StorybookConfig = {
   // staticDirs: ["../public"], //👈 Configures the static asset folder in Storybook
   features: {
     viewportStoryGlobals: true,
+    backgroundsStoryGlobals: true,
   },
 
   refs: {

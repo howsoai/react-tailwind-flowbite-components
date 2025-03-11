@@ -3,6 +3,7 @@ import { ComponentsI18nBundles } from "./components";
 import { Languages } from "./constants";
 import "./main.css";
 
+export * from "./(assets)";
 export * from "./components";
 export * from "./constants";
 export * from "./hooks";

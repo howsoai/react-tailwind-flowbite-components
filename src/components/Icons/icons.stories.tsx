@@ -22,6 +22,8 @@ import {
   FileIcon,
   FilesIcon,
   GitHubIcon,
+  LoginIcon,
+  LogoutIcon,
   NewWindowIcon,
   PredictIcon,
   QueueIcon,
@@ -34,6 +36,7 @@ import {
   UploadIcon,
   UserIcon,
   ViewIcon,
+  VisibilityIcon,
   WarningIcon,
 } from ".";
 
@@ -84,6 +87,8 @@ const meta: Meta<IconBaseProps> = {
           description="Expanded"
           Icon={<ExpandCollapseIcon isExpanded={false} {...args} />}
         />
+        <IconWithLabel label={"Login"} Icon={<LoginIcon {...args} />} />
+        <IconWithLabel label={"Logout"} Icon={<LogoutIcon {...args} />} />
         <IconWithLabel label={"Predict"} Icon={<PredictIcon {...args} />} />
         <IconWithLabel
           label={"RunProcess"}
@@ -169,6 +174,16 @@ const meta: Meta<IconBaseProps> = {
         />
         <IconWithLabel label={"Queue"} Icon={<QueueIcon {...args} />} />
         <IconWithLabel label={"User"} Icon={<UserIcon {...args} />} />
+        <IconWithLabel
+          label={"Visibility"}
+          description="Default - Not visible"
+          Icon={<VisibilityIcon {...args} />}
+        />
+        <IconWithLabel
+          label={"Visibility"}
+          description="Visible"
+          Icon={<VisibilityIcon isVisible {...args} />}
+        />
         <IconWithLabel label={"Warning"} Icon={<WarningIcon {...args} />} />
       </Section>
 

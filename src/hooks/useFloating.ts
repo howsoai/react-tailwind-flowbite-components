@@ -1,5 +1,3 @@
-"use strict";
-
 import * as react from "@floating-ui/react";
 import { Dispatch, SetStateAction } from "react";
 // @ts-expect-error
