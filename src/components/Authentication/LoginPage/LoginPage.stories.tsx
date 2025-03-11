@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions";
 import { Meta, StoryObj } from "@storybook/react";
 import { Card } from "../../Surfaces";
 import { Link } from "../../Typography";
-import { LoginPage, LogInProps } from "./LoginPage";
+import { LoginPage, LoginPageProps } from "./LoginPage";
 
 const onSubmitAction = action("onSubmit");
 
@@ -26,9 +26,9 @@ export default {
   },
 } satisfies Meta<typeof LoginPage>;
 
-export const Default: StoryObj<LogInProps> = {};
+export const Default: StoryObj<LoginPageProps> = {};
 
-export const WithEveryThing: StoryObj<LogInProps> = {
+export const WithEveryThing: StoryObj<LoginPageProps> = {
   args: {
     cardHeader: (
       <Card.Header>
@@ -39,13 +39,13 @@ export const WithEveryThing: StoryObj<LogInProps> = {
   },
 };
 
-export const LogInLoading: StoryObj<LogInProps> = {
+export const LogInLoading: StoryObj<LoginPageProps> = {
   args: {
     isLoading: true,
   },
 };
 
-export const WithError: StoryObj<LogInProps> = {
+export const WithError: StoryObj<LoginPageProps> = {
   args: {
     error: new Error("An example error"),
   },
