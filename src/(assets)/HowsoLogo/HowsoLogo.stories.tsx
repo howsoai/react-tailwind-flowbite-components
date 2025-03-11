@@ -13,6 +13,9 @@ const meta: Meta<typeof HowsoLogo> = {
   },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
+  args: {
+    className: "h-12",
+  },
 };
 
 export default meta;

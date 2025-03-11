@@ -30,8 +30,7 @@ export const HowsoLogoSquareComponent: FC<HowsoLogoSquareProps> = ({
 const HowsoLogoSquareLight: FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={96}
-    height={97}
+    viewBox="0 0 96 97"
     fill="none"
     {...props}
   >
@@ -56,8 +55,7 @@ const HowsoLogoSquareLight: FC<SVGProps<SVGSVGElement>> = (props) => (
 const HowsoLogoSquareDark: FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={96}
-    height={96}
+    viewBox="0 0 96 97"
     fill="none"
     {...props}
   >
