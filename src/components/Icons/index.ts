@@ -21,6 +21,7 @@ export * from "./GitHubIcon";
 export * from "./Identicon";
 export * from "./LoginIcon";
 export * from "./LogoutIcon";
+export * from "./MenuIcon";
 export * from "./NewWindowIcon";
 export * from "./PredictIcon";
 export * from "./QueueIcon";
