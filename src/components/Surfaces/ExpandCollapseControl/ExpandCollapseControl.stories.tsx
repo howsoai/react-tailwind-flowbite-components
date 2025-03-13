@@ -16,6 +16,30 @@ const meta: Meta<typeof ExpandCollapseControl> = {
     isExpanded: false,
     children: "Expand",
   },
+  render: (args) => (
+    <div className="space-y-4">
+      <div className="flex flex-row items-center gap-4">
+        <p>Default</p>
+        <ExpandCollapseControl {...args} />
+      </div>
+      <div className="flex flex-row items-center gap-4">
+        <p>.ExpandUp</p>
+        <ExpandCollapseControl.ExpandUp {...args} />
+      </div>
+      <div className="flex flex-row items-center gap-4">
+        <p>.ExpandRight</p>
+        <ExpandCollapseControl.ExpandRight {...args} />
+      </div>
+      <div className="flex flex-row items-center gap-4">
+        <p>.ExpandDown</p>
+        <ExpandCollapseControl.ExpandDown {...args} />
+      </div>
+      <div className="flex flex-row items-center gap-4">
+        <p>.ExpandLeft</p>
+        <ExpandCollapseControl.ExpandLeft {...args} />
+      </div>
+    </div>
+  ),
 };
 
 export default meta;
