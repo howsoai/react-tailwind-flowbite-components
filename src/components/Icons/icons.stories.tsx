@@ -24,6 +24,7 @@ import {
   GitHubIcon,
   LoginIcon,
   LogoutIcon,
+  MenuIcon,
   NewWindowIcon,
   PredictIcon,
   QueueIcon,
@@ -85,7 +86,7 @@ const meta: Meta<IconBaseProps> = {
         <IconWithLabel
           label={"ExpandCollapse"}
           description="Expanded"
-          Icon={<ExpandCollapseIcon isExpanded={false} {...args} />}
+          Icon={<ExpandCollapseIcon isExpanded={true} {...args} />}
         />
         <IconWithLabel label={"Login"} Icon={<LoginIcon {...args} />} />
         <IconWithLabel label={"Logout"} Icon={<LogoutIcon {...args} />} />
@@ -168,6 +169,7 @@ const meta: Meta<IconBaseProps> = {
         <IconWithLabel label={"Database"} Icon={<DatabaseIcon {...args} />} />
         <IconWithLabel label={"File"} Icon={<FileIcon {...args} />} />
         <IconWithLabel label={"Files"} Icon={<FilesIcon {...args} />} />
+        <IconWithLabel label={"Menu"} Icon={<MenuIcon {...args} />} />
         <IconWithLabel
           label="NewWindowIcon"
           Icon={<NewWindowIcon {...args} />}
