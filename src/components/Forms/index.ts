@@ -6,6 +6,7 @@ import { FieldPasswordI18nBundle } from "./FieldPassword";
 import { FileDropZoneI18nBundle } from "./FileDropZone";
 
 export * from "./constants";
+export * from "./FieldBase";
 export * from "./FieldCheckbox";
 export * from "./FieldContainer";
 export * from "./FieldErrorMessage";
