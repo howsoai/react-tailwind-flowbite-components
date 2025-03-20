@@ -22,11 +22,13 @@ import {
   FileIcon,
   FilesIcon,
   GitHubIcon,
+  InternetIcon,
   LoginIcon,
   LogoutIcon,
   MenuIcon,
   NewWindowIcon,
   PredictIcon,
+  QuestionIcon,
   QueueIcon,
   RunProcessIcon,
   SaveIcon,
@@ -169,11 +171,13 @@ const meta: Meta<IconBaseProps> = {
         <IconWithLabel label={"Database"} Icon={<DatabaseIcon {...args} />} />
         <IconWithLabel label={"File"} Icon={<FileIcon {...args} />} />
         <IconWithLabel label={"Files"} Icon={<FilesIcon {...args} />} />
+        <IconWithLabel label={"Internet"} Icon={<InternetIcon {...args} />} />
         <IconWithLabel label={"Menu"} Icon={<MenuIcon {...args} />} />
         <IconWithLabel
           label="NewWindowIcon"
           Icon={<NewWindowIcon {...args} />}
         />
+        <IconWithLabel label={"Question"} Icon={<QuestionIcon {...args} />} />
         <IconWithLabel label={"Queue"} Icon={<QueueIcon {...args} />} />
         <IconWithLabel label={"User"} Icon={<UserIcon {...args} />} />
         <IconWithLabel
