@@ -3,6 +3,7 @@ export * from "./AnalyzeIcon";
 export * from "./AnthropicClaudeIcon";
 export * from "./AnthropicIcon";
 export * from "./ArrowCircleIcon";
+export * from "./AwsIcon";
 export * from "./CancelIcon";
 export * from "./ChevronIcon";
 export * from "./ConfigurationIcon";

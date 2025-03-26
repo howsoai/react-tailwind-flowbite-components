@@ -7,6 +7,7 @@ import {
   AnthropicClaudeIcon,
   AnthropicIcon,
   ArrowCircleIcon,
+  AwsIcon,
   CancelIcon,
   ChevronIcon,
   ConfigurationIcon,
@@ -206,6 +207,7 @@ const meta: Meta<IconBaseProps> = {
           label={"AnthropicClaude"}
           Icon={<AnthropicClaudeIcon {...args} />}
         />
+        <IconWithLabel label={"AWS"} Icon={<AwsIcon {...args} />} />
         <IconWithLabel
           label={"Databricks"}
           Icon={<DatabricksIcon {...args} />}
