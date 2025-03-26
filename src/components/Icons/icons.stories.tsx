@@ -4,6 +4,7 @@ import { IconBaseProps } from "react-icons";
 import {
   AdministrationIcon,
   AnalyzeIcon,
+  AnthropicClaudeIcon,
   AnthropicIcon,
   ArrowCircleIcon,
   CancelIcon,
@@ -196,6 +197,10 @@ const meta: Meta<IconBaseProps> = {
 
       <Section title="Brands">
         <IconWithLabel label={"Anthropic"} Icon={<AnthropicIcon {...args} />} />
+        <IconWithLabel
+          label={"AnthropicClaude"}
+          Icon={<AnthropicClaudeIcon {...args} />}
+        />
         <IconWithLabel
           label={"Databricks"}
           Icon={<DatabricksIcon {...args} />}
