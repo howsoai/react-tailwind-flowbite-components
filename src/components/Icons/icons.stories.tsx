@@ -4,7 +4,10 @@ import { IconBaseProps } from "react-icons";
 import {
   AdministrationIcon,
   AnalyzeIcon,
+  AnthropicClaudeIcon,
+  AnthropicIcon,
   ArrowCircleIcon,
+  AwsIcon,
   CancelIcon,
   ChevronIcon,
   ConfigurationIcon,
@@ -23,10 +26,14 @@ import {
   FilesIcon,
   GitHubIcon,
   InternetIcon,
+  LlmIcon,
   LoginIcon,
   LogoutIcon,
   MenuIcon,
+  MetaIcon,
+  MetaOllamaIcon,
   NewWindowIcon,
+  OpenAiIcon,
   PredictIcon,
   QuestionIcon,
   QueueIcon,
@@ -172,6 +179,7 @@ const meta: Meta<IconBaseProps> = {
         <IconWithLabel label={"File"} Icon={<FileIcon {...args} />} />
         <IconWithLabel label={"Files"} Icon={<FilesIcon {...args} />} />
         <IconWithLabel label={"Internet"} Icon={<InternetIcon {...args} />} />
+        <IconWithLabel label={"LLM"} Icon={<LlmIcon {...args} />} />
         <IconWithLabel label={"Menu"} Icon={<MenuIcon {...args} />} />
         <IconWithLabel
           label="NewWindowIcon"
@@ -194,11 +202,23 @@ const meta: Meta<IconBaseProps> = {
       </Section>
 
       <Section title="Brands">
+        <IconWithLabel label={"Anthropic"} Icon={<AnthropicIcon {...args} />} />
+        <IconWithLabel
+          label={"AnthropicClaude"}
+          Icon={<AnthropicClaudeIcon {...args} />}
+        />
+        <IconWithLabel label={"AWS"} Icon={<AwsIcon {...args} />} />
         <IconWithLabel
           label={"Databricks"}
           Icon={<DatabricksIcon {...args} />}
         />
         <IconWithLabel label="GitHub" Icon={<GitHubIcon {...args} />} />
+        <IconWithLabel label="Meta" Icon={<MetaIcon {...args} />} />
+        <IconWithLabel
+          label="Meta Ollama"
+          Icon={<MetaOllamaIcon {...args} />}
+        />
+        <IconWithLabel label="OpenAI" Icon={<OpenAiIcon {...args} />} />
         <IconWithLabel label="Snowflake" Icon={<SnowflakeIcon {...args} />} />
       </Section>
     </>
