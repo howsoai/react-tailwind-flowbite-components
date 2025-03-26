@@ -29,6 +29,7 @@ import {
   LoginIcon,
   LogoutIcon,
   MenuIcon,
+  MetaIcon,
   NewWindowIcon,
   OpenAiIcon,
   PredictIcon,
@@ -209,6 +210,7 @@ const meta: Meta<IconBaseProps> = {
           Icon={<DatabricksIcon {...args} />}
         />
         <IconWithLabel label="GitHub" Icon={<GitHubIcon {...args} />} />
+        <IconWithLabel label="Meta" Icon={<MetaIcon {...args} />} />
         <IconWithLabel label="OpenAI" Icon={<OpenAiIcon {...args} />} />
         <IconWithLabel label="Snowflake" Icon={<SnowflakeIcon {...args} />} />
       </Section>
