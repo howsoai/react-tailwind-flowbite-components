@@ -27,6 +27,7 @@ export * from "./LoginIcon";
 export * from "./LogoutIcon";
 export * from "./MenuIcon";
 export * from "./MetaIcon";
+export * from "./MetaLlamaIcon";
 export * from "./NewWindowIcon";
 export * from "./OpenAiIcon";
 export * from "./PredictIcon";

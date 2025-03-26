@@ -30,6 +30,7 @@ import {
   LogoutIcon,
   MenuIcon,
   MetaIcon,
+  MetaLlamaIcon,
   NewWindowIcon,
   OpenAiIcon,
   PredictIcon,
@@ -211,6 +212,7 @@ const meta: Meta<IconBaseProps> = {
         />
         <IconWithLabel label="GitHub" Icon={<GitHubIcon {...args} />} />
         <IconWithLabel label="Meta" Icon={<MetaIcon {...args} />} />
+        <IconWithLabel label="Meta Llama" Icon={<MetaLlamaIcon {...args} />} />
         <IconWithLabel label="OpenAI" Icon={<OpenAiIcon {...args} />} />
         <IconWithLabel label="Snowflake" Icon={<SnowflakeIcon {...args} />} />
       </Section>
