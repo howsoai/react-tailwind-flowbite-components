@@ -25,6 +25,7 @@ import {
   FilesIcon,
   GitHubIcon,
   InternetIcon,
+  LlmIcon,
   LoginIcon,
   LogoutIcon,
   MenuIcon,
@@ -175,6 +176,7 @@ const meta: Meta<IconBaseProps> = {
         <IconWithLabel label={"File"} Icon={<FileIcon {...args} />} />
         <IconWithLabel label={"Files"} Icon={<FilesIcon {...args} />} />
         <IconWithLabel label={"Internet"} Icon={<InternetIcon {...args} />} />
+        <IconWithLabel label={"LLM"} Icon={<LlmIcon {...args} />} />
         <IconWithLabel label={"Menu"} Icon={<MenuIcon {...args} />} />
         <IconWithLabel
           label="NewWindowIcon"

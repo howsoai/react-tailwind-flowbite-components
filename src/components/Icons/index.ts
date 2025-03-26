@@ -22,6 +22,7 @@ export * from "./FilesIcon";
 export * from "./GitHubIcon";
 export * from "./Identicon";
 export * from "./InternetIcon";
+export * from "./LlmIcon";
 export * from "./LoginIcon";
 export * from "./LogoutIcon";
 export * from "./MenuIcon";
