@@ -222,14 +222,14 @@ export const DataTableCaption: FC<DataTableCaptionProps> = function ({
   className,
 }) {
   return (
-    <div
+    <span
       className={twMerge(
         "mt-4 flex justify-center text-sm text-gray-500 dark:text-gray-400",
         className,
       )}
     >
       {children}
-    </div>
+    </span>
   );
 };
 
