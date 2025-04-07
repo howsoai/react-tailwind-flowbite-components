@@ -16,7 +16,7 @@ export interface DataTableProps
   bordered?: boolean;
   caption?: ReactNode;
   centeredIndex?: number;
-  columns: string[];
+  columns?: string[];
   className?: string;
   loading?: boolean;
   loadingRows?: number;
@@ -33,7 +33,7 @@ export const DataTableComponent: FC<DataTableProps> = ({
   centeredIndex,
   children,
   className,
-  columns,
+  columns = [],
   loading,
   loadingRows = 1,
   marginBottom = false,
@@ -95,41 +95,51 @@ export const DataTableComponent: FC<DataTableProps> = ({
             tableProps?.className,
           )}
         >
-          <thead className="group/head sticky top-0 text-xs uppercase text-gray-700 dark:text-gray-400">
-            <tr>
-              {columns.map((name, index) => (
+          {columns.length > 0 && (
+            <thead className="group/head sticky top-0 text-xs uppercase text-gray-700 dark:text-gray-400">
+              <tr>
+                {columns.map((name, index) => (
+                  <th
+                    key={index}
+                    className={twMerge(
+                      dataTableHeaderColorsClassNames,
+                      "whitespace-nowrap px-4 py-3",
+                      stickyColumns?.includes(index) &&
+                        DataTable.classes.stickyClassNames,
+                    )}
+                  >
+                    {name}
+                  </th>
+                ))}
+              </tr>
+              <tr>
+                {/* Bottom border for sticky header */}
                 <th
-                  key={index}
-                  className={twMerge(
-                    dataTableHeaderColorsClassNames,
-                    "whitespace-nowrap px-4 py-3",
-                    stickyColumns?.includes(index) &&
-                      DataTable.classes.stickyClassNames,
-                  )}
-                >
-                  {name}
-                </th>
-              ))}
-            </tr>
-            <tr>
-              {/* Bottom border for sticky header */}
-              <th
-                className="h-px bg-gray-200 p-0 dark:bg-gray-700"
-                colSpan={columns.length}
-              />
-            </tr>
-          </thead>
+                  className="h-px bg-gray-200 p-0 dark:bg-gray-700"
+                  colSpan={columns.length}
+                />
+              </tr>
+            </thead>
+          )}
           <tbody
             className={"group/body divide-y text-gray-500 dark:text-gray-200"}
           >
             {loading
-              ? new Array(loadingRows).fill(0).map((_, index) => (
-                  <DataTable.Row key={index}>
-                    {columns.map((name) => (
-                      <DataTable.Cell key={name}>{<Skeleton />}</DataTable.Cell>
-                    ))}
-                  </DataTable.Row>
-                ))
+              ? new Array(loadingRows)
+                  .fill(0)
+                  .map((_, index) => (
+                    <DataTable.Row key={index}>
+                      {columns.length > 0 ? (
+                        columns.map((name) => (
+                          <DataTable.Cell key={name}>
+                            {<Skeleton />}
+                          </DataTable.Cell>
+                        ))
+                      ) : (
+                        <DataTable.Cell>{<Skeleton />}</DataTable.Cell>
+                      )}
+                    </DataTable.Row>
+                  ))
               : children}
           </tbody>
           {captionChildren && (
@@ -212,14 +222,14 @@ export const DataTableCaption: FC<DataTableCaptionProps> = function ({
   className,
 }) {
   return (
-    <div
+    <span
       className={twMerge(
         "mt-4 flex justify-center text-sm text-gray-500 dark:text-gray-400",
         className,
       )}
     >
       {children}
-    </div>
+    </span>
   );
 };
 
