@@ -14,6 +14,7 @@
     {
       "files": ["**/*.stories.*"],
       "rules": {
+        "no-empty-pattern": "off",
         "import/no-anonymous-default-export": "off"
       }
     }
