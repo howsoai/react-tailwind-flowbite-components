@@ -42,6 +42,15 @@ export const Default: Story = {
   ),
 };
 
+export const Loading: Story = {
+  args: {
+    loading: true,
+    loadingRows: colors.length,
+    columns: colors,
+    caption: "Sample values",
+  },
+};
+
 /** Feature attributes data frame using split orientation */
 const featureAttributes = {
   columns: [
@@ -94,8 +103,4 @@ export const FeatureAttributes: Story = {
       ))}
     </DataTable>
   ),
-};
-
-export const Loading: Story = {
-  args: { loading: true, loadingRows: colors.length },
 };
