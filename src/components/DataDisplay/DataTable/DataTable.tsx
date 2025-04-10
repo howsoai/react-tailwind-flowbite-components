@@ -16,7 +16,22 @@ export interface DataTableProps
   bordered?: boolean;
   caption?: ReactNode;
   centeredIndex?: number;
-  columns?: string[];
+  /**
+   * An array of column headers.
+   * Most tables will use simple single depth headers.
+   *   ['x', 'y', 'z']
+   * More complicated tables may require multiple rows of headers.
+   * This can be accomplished using arrays for each cell.
+   *   [
+   *     ['Monday', 'x']
+   *     ['', 'y']
+   *     ['', 'z']
+   *     ['Tuesday', 'x']
+   *     ['', 'y']
+   *     ['', 'z']
+   *   ]
+   */
+  columns?: ReactNode[] | ReactNode[][];
   className?: string;
   loading?: boolean;
   loadingRows?: number;
@@ -95,51 +110,24 @@ export const DataTableComponent: FC<DataTableProps> = ({
             tableProps?.className,
           )}
         >
-          {columns.length > 0 && (
-            <thead className="group/head sticky top-0 text-xs uppercase text-gray-700 dark:text-gray-400">
-              <tr>
-                {columns.map((name, index) => (
-                  <th
-                    key={index}
-                    className={twMerge(
-                      dataTableHeaderColorsClassNames,
-                      "whitespace-nowrap px-4 py-3",
-                      stickyColumns?.includes(index) &&
-                        DataTable.classes.stickyClassNames,
-                    )}
-                  >
-                    {name}
-                  </th>
-                ))}
-              </tr>
-              <tr>
-                {/* Bottom border for sticky header */}
-                <th
-                  className="h-px bg-gray-200 p-0 dark:bg-gray-700"
-                  colSpan={columns.length}
-                />
-              </tr>
-            </thead>
-          )}
+          <THead columns={columns} />
           <tbody
             className={"group/body divide-y text-gray-500 dark:text-gray-200"}
           >
             {loading
-              ? new Array(loadingRows)
-                  .fill(0)
-                  .map((_, index) => (
-                    <DataTable.Row key={index}>
-                      {columns.length > 0 ? (
-                        columns.map((name) => (
-                          <DataTable.Cell key={name}>
-                            {<Skeleton />}
-                          </DataTable.Cell>
-                        ))
-                      ) : (
-                        <DataTable.Cell>{<Skeleton />}</DataTable.Cell>
-                      )}
-                    </DataTable.Row>
-                  ))
+              ? new Array(loadingRows).fill(0).map((_, y) => (
+                  <DataTable.Row key={["loading", y].join(":")}>
+                    {columns.length > 0 ? (
+                      columns.map((_, x) => (
+                        <DataTable.Cell key={["loading", x].join(":")}>
+                          <Skeleton />
+                        </DataTable.Cell>
+                      ))
+                    ) : (
+                      <DataTable.Cell>{<Skeleton />}</DataTable.Cell>
+                    )}
+                  </DataTable.Row>
+                ))
               : children}
           </tbody>
           {captionChildren && (
@@ -154,6 +142,46 @@ export const DataTableComponent: FC<DataTableProps> = ({
 };
 
 DataTableComponent.displayName = "DataTable";
+
+type THeadProps = Pick<DataTableProps, "columns" | "stickyColumns">;
+const THead: FC<THeadProps> = ({ columns, stickyColumns }) => {
+  if (!columns?.length) return null;
+
+  // Reshape headers into an array array structure if they are the more simple default.
+  const arrayHeaders: ReactNode[][] = columns.map((header) =>
+    Array.isArray(header) ? header : [header],
+  );
+  const rows = arrayHeaders.at(0)?.length || 1;
+
+  return (
+    <thead className="group/head sticky top-0 text-xs uppercase text-gray-700 dark:text-gray-400">
+      {new Array(rows).fill(0).map((_, y) => (
+        <tr key={y}>
+          {columns.map((_, x) => (
+            <th
+              key={x}
+              className={twMerge(
+                dataTableHeaderColorsClassNames,
+                "whitespace-nowrap px-4 py-3",
+                stickyColumns?.includes(x) &&
+                  DataTable.classes.stickyClassNames,
+              )}
+            >
+              {arrayHeaders[x][y]}
+            </th>
+          ))}
+        </tr>
+      ))}
+      {/* Bottom border for sticky header */}
+      <tr>
+        <th
+          className="h-px bg-gray-200 p-0 dark:bg-gray-700"
+          colSpan={columns.length}
+        />
+      </tr>
+    </thead>
+  );
+};
 
 export type DataTableRowProps = PropsWithChildren<ComponentProps<"tr">> & {
   className?: string;
