@@ -8,13 +8,13 @@
       }
     ],
     "import/no-anonymous-default-export": "off",
+    "no-empty-pattern": "off",
     "prefer-const": "error"
   },
   "overrides": [
     {
       "files": ["**/*.stories.*"],
       "rules": {
-        "no-empty-pattern": "off",
         "import/no-anonymous-default-export": "off"
       }
     }
