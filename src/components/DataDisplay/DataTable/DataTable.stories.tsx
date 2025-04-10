@@ -70,19 +70,25 @@ const featureAttributes = {
     ["continuous", 1.0, 7.9, 4.3, 10.2, true, 2.0, "number", 8.0, "numeric"],
     ["continuous", 1.0, 2.5, 0.1, 4.1, true, 0.0, "number", 8.0, "numeric"],
   ],
+  stickyColumns: [0],
 };
-
 export const FeatureAttributes: Story = {
   args: {
     columns: featureAttributes.columns,
     caption: "Feature attributes",
+    stickyColumns: featureAttributes.stickyColumns,
   },
   render: (args) => (
     <DataTable {...args}>
       {featureAttributes.data.map((row, x) => (
         <DataTable.Row key={x}>
           {row.map((value, y) => (
-            <DataTable.Cell key={y}>{value}</DataTable.Cell>
+            <DataTable.Cell
+              key={y}
+              sticky={featureAttributes.stickyColumns.includes(y)}
+            >
+              {value}
+            </DataTable.Cell>
           ))}
         </DataTable.Row>
       ))}

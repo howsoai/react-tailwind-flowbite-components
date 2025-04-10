@@ -110,7 +110,7 @@ export const DataTableComponent: FC<DataTableProps> = ({
             tableProps?.className,
           )}
         >
-          <THead columns={columns} />
+          <THead columns={columns} stickyColumns={stickyColumns} />
           <tbody
             className={"group/body divide-y text-gray-500 dark:text-gray-200"}
           >
@@ -215,10 +215,11 @@ export type DataTableCellProps = PropsWithChildren<ComponentProps<"td">> & {
   color?: "primary" | "success" | "error" | "info";
   /** Applies a selected (primary) state */
   selected?: boolean;
+  sticky?: boolean;
 };
 
 const DataTableCell = forwardRef<HTMLTableCellElement, DataTableCellProps>(
-  ({ children, color, className, selected, ...props }, ref) => {
+  ({ children, color, className, selected, sticky, ...props }, ref) => {
     return (
       <td
         ref={ref}
@@ -229,6 +230,7 @@ const DataTableCell = forwardRef<HTMLTableCellElement, DataTableCellProps>(
           color === "success" && "text-green-600 dark:text-green-400",
           color === "error" && "text-red-600 dark:text-red-400",
           color === "info" && "text-blue-600 dark:text-blue-400",
+          sticky && DataTable.classes.stickyClassNames,
           className,
         )}
         {...props}
