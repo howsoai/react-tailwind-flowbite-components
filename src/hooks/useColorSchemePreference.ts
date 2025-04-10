@@ -12,14 +12,15 @@ export const useColorSchemePreference = (): ColorScheme => {
   );
 
   useEffect(() => {
+    const currentMatch = match.current;
     const onColorSchemeChange = () => {
-      const scheme = match.current.matches ? "light" : "dark";
+      const scheme = currentMatch.matches ? "light" : "dark";
       setColorScheme(scheme);
     };
 
-    match.current.addEventListener("change", onColorSchemeChange);
+    currentMatch.addEventListener("change", onColorSchemeChange);
     return () =>
-      match.current.removeEventListener("change", onColorSchemeChange);
+      currentMatch.removeEventListener("change", onColorSchemeChange);
   }, [match]);
 
   return colorScheme;
