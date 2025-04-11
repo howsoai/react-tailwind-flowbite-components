@@ -17,8 +17,8 @@ npm i @howso/react-tailwind-flowbite-components
 Import the styles and fonts must be installed in your application directly.
 
 ```ts
-import "@fontsource/inter/500.css";
-import "@fontsource/inter/700.css";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/inter/wght-italic.css";
 import "@howso/react-tailwind-flowbite-components/lib/styles.css";
 ```
 

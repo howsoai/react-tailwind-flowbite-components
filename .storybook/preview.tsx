@@ -6,8 +6,8 @@ import { Await, RouterProvider, createMemoryRouter } from "react-router-dom";
 import { standardFlowbiteTheme } from "../src/themes/index";
 import i18n from "./i18next";
 // CSS
-import "@fontsource/inter/500.css";
-import "@fontsource/inter/700.css";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/inter/wght-italic.css";
 import "../src/main.css";
 import { darkBackground, lightBackground } from "./constants";
 import "./tailwind.css";
