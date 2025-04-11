@@ -62,14 +62,14 @@ const getSpinnerProps = (size: ButtonProps["size"]): SpinnerProps => {
 const getIconProps = (size: ButtonProps["size"]): IconBaseProps => {
   switch (size) {
     case "xs":
-      return { size: "18px" };
+      return { size: "16px" };
     case "sm":
-      return { size: "20px" };
+      return { size: "18px" };
     case "lg":
-      return { size: "24px" };
-    case "xl":
-      return { size: "26px" };
-    default:
       return { size: "22px" };
+    case "xl":
+      return { size: "24px" };
+    default:
+      return { size: "20px" };
   }
 };
