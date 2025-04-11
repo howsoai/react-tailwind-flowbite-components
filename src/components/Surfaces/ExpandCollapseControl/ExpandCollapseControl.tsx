@@ -1,5 +1,6 @@
-import { Button, ButtonProps } from "flowbite-react";
+import { Button } from "flowbite-react";
 import { FC, ReactNode } from "react";
+import { ButtonProps, IconButton } from "../../Buttons";
 import { ExpandCollapseIcon, ExpandCollapseIconProps } from "../../Icons";
 
 export type ExpandCollapseControlProps = ButtonProps &
@@ -7,7 +8,7 @@ export type ExpandCollapseControlProps = ButtonProps &
     ExpandCollapseIconProps,
     "isExpanded" | "rotateClassName" | "expandedRotateClassName"
   > & {
-    children: ReactNode;
+    children?: ReactNode;
   };
 const ExpandCollapseControlComponent: FC<ExpandCollapseControlProps> = ({
   children,
@@ -16,8 +17,16 @@ const ExpandCollapseControlComponent: FC<ExpandCollapseControlProps> = ({
   expandedRotateClassName,
   ...props
 }) => {
-  return (
-    <Button color={"light"} type="button" {...props}>
+  return !children ? (
+    <IconButton {...props}>
+      <ExpandCollapseIcon
+        isExpanded={isExpanded}
+        rotateClassName={rotateClassName}
+        expandedRotateClassName={expandedRotateClassName}
+      />
+    </IconButton>
+  ) : (
+    <Button color={"secondary"} type="button" {...props}>
       <span className="mr-1">{children}</span>
       <ExpandCollapseIcon
         isExpanded={isExpanded}

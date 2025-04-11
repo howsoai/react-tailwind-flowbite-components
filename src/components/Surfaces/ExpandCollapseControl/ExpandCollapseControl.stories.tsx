@@ -21,22 +21,27 @@ const meta: Meta<typeof ExpandCollapseControl> = {
       <div className="flex flex-row items-center gap-4">
         <p>Default</p>
         <ExpandCollapseControl {...args} />
+        <ExpandCollapseControl {...args} children={null} />
       </div>
       <div className="flex flex-row items-center gap-4">
         <p>.ExpandUp</p>
         <ExpandCollapseControl.ExpandUp {...args} />
+        <ExpandCollapseControl.ExpandUp {...args} children={null} />
       </div>
       <div className="flex flex-row items-center gap-4">
         <p>.ExpandRight</p>
         <ExpandCollapseControl.ExpandRight {...args} />
+        <ExpandCollapseControl.ExpandRight {...args} children={null} />
       </div>
       <div className="flex flex-row items-center gap-4">
         <p>.ExpandDown</p>
         <ExpandCollapseControl.ExpandDown {...args} />
+        <ExpandCollapseControl.ExpandDown {...args} children={null} />
       </div>
       <div className="flex flex-row items-center gap-4">
         <p>.ExpandLeft</p>
         <ExpandCollapseControl.ExpandLeft {...args} />
+        <ExpandCollapseControl.ExpandLeft {...args} children={null} />
       </div>
     </div>
   ),
