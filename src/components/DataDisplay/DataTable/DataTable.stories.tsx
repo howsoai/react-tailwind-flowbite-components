@@ -24,8 +24,8 @@ const colors = ["Red", "Green", "Blue"];
 export const Default: Story = {
   // More on args: https://storybook.js.org/docs/react/writing-stories/args
   args: {
-    columns: colors,
     caption: "Sample values",
+    columns: colors,
   },
   render: (args) => (
     <DataTable {...args}>
@@ -44,10 +44,10 @@ export const Default: Story = {
 
 export const Loading: Story = {
   args: {
+    caption: "Sample values",
+    columns: colors,
     loading: true,
     loadingRows: colors.length,
-    columns: colors,
-    caption: "Sample values",
   },
 };
 
@@ -97,6 +97,37 @@ export const FeatureAttributes: Story = {
               sticky={featureAttributes.stickyColumns.includes(y)}
             >
               {value}
+            </DataTable.Cell>
+          ))}
+        </DataTable.Row>
+      ))}
+    </DataTable>
+  ),
+};
+
+const range = new Array(30).fill(0);
+const value = 27;
+
+export const HighlightedDatum: Story = {
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    caption: `${value} out of ${range.length}`,
+    className: "h-full",
+    columns: range.map((_, index) => index),
+    centeredColumnIndex: value,
+    centeredRowIndex: value,
+    // Avoiding animation that could cause Chromatic issues
+    centeringBehavior: "instant",
+  },
+  render: (args) => (
+    <DataTable {...args}>
+      {range.map((_, x) => (
+        <DataTable.Row key={x} selected={x === value}>
+          {range.map((_, y) => (
+            <DataTable.Cell key={y} selected={x === value && y === value}>
+              {x}, {y}
             </DataTable.Cell>
           ))}
         </DataTable.Row>

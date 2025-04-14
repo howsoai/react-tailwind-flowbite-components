@@ -15,7 +15,14 @@ export interface DataTableProps
     Omit<ComponentProps<"div">, "ref"> {
   bordered?: boolean;
   caption?: ReactNode;
+  /** The <th /> index from 0 to scroll to within <thead />'s first row */
+  centeredColumnIndex?: number;
+  /** @deprecated See centeredColumnIndex */
   centeredIndex?: number;
+  /** The <tr /> index from 0 to scroll to within <tbody /> */
+  centeredRowIndex?: number;
+  /** Optional method for controlling scroll behavior. Default: "smooth" */
+  centeringBehavior?: ScrollBehavior;
   /**
    * An array of column headers.
    * Most tables will use simple single depth headers.
@@ -45,7 +52,10 @@ export interface DataTableProps
 
 export const DataTableComponent: FC<DataTableProps> = ({
   caption: captionChildren,
-  centeredIndex,
+  centeredColumnIndex,
+  centeredIndex: deprecatedCenteredColumnIndex,
+  centeredRowIndex,
+  centeringBehavior = "smooth",
   children,
   className,
   columns = [],
@@ -60,34 +70,62 @@ export const DataTableComponent: FC<DataTableProps> = ({
   ...props
 }) => {
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
+  const _centeredColumnIndex =
+    centeredColumnIndex || deprecatedCenteredColumnIndex;
 
   // Scroll the centeredIndex into view if provided
   useLayoutEffect(() => {
-    if (!container || !centeredIndex) {
+    if (loading || !container || (!_centeredColumnIndex && !centeredRowIndex)) {
       return;
     }
 
     try {
-      const th = container.querySelector(
-        `thead > tr > th:nth-child(${centeredIndex + 1})`,
-      ) as HTMLTableCellElement;
-      if (!th) {
-        throw new Error(`th is undefined`);
-      }
+      const options: ScrollToOptions = {
+        behavior: centeringBehavior,
+      };
 
       // ?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-      // scrollIntoView() would be nice to use, but this component could appear on the same twice in the same moment.
+      // scrollIntoView() would be nice to use, but this component could appear on the same DOM twice in the same moment.
       // Chrome doesn't support simultaneous smooth scroll into view, though other browsers do.
-      const centerPosition =
-        th.offsetLeft -
-        (container.getBoundingClientRect().width -
-          th.getBoundingClientRect().width) /
+
+      // Determine left position by column index
+      if (_centeredColumnIndex) {
+        const th = container.querySelector(
+          `thead > tr:first-child > th:nth-child(${_centeredColumnIndex + 1})`,
+        ) as HTMLTableCellElement;
+        if (!th) throw new Error(`th is undefined`);
+
+        options.left =
+          th.offsetLeft -
+          (container.getBoundingClientRect().width -
+            th.getBoundingClientRect().width) /
+            2;
+      }
+
+      // Determine top position by row index
+      if (centeredRowIndex) {
+        const tr = container.querySelector(
+          `tbody > tr:nth-child(${centeredRowIndex + 1})`,
+        ) as HTMLTableCellElement;
+        if (!tr) throw new Error(`th is undefined`);
+
+        options.top =
+          (container.getBoundingClientRect().height -
+            tr.getBoundingClientRect().height) /
           2;
-      container.scrollTo({ left: centerPosition, behavior: "smooth" });
+      }
+
+      container.scrollTo(options);
     } catch (reason) {
       console.warn(reason);
     }
-  }, [container, centeredIndex]);
+  }, [
+    container,
+    _centeredColumnIndex,
+    centeredRowIndex,
+    centeringBehavior,
+    loading,
+  ]);
 
   return (
     <>
@@ -226,7 +264,7 @@ const DataTableCell = forwardRef<HTMLTableCellElement, DataTableCellProps>(
         className={twMerge(
           "whitespace-nowrap p-4",
           (selected || color === "primary") &&
-            "text-primary-600 dark:text-primary-400",
+            "font-bold text-primary-600 dark:text-primary-400",
           color === "success" && "text-green-600 dark:text-green-400",
           color === "error" && "text-red-600 dark:text-red-400",
           color === "info" && "text-blue-600 dark:text-blue-400",
