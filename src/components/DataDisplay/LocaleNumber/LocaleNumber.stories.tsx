@@ -27,6 +27,19 @@ export const Default: Story = {
   args: {
     value: 300_452,
   },
+  render: () => (
+    <div className="space-y-2">
+      <div>
+        <LocaleNumber value={300_452} />
+      </div>
+      <div>
+        <LocaleNumber value={0.00000000000123} />
+      </div>
+      <div>
+        <LocaleNumber value={300_452.00000000000123} />
+      </div>
+    </div>
+  ),
 };
 
 export const Loading: Story = {
