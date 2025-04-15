@@ -40,13 +40,10 @@ const preview: Preview = {
   },
   decorators: [
     (Story: StoryFn, context) => {
-      const mode: ThemeMode =
-        context.globals.backgrounds?.value === isDarkBackground(context)
-          ? "dark"
-          : "light";
-
       // Flowbite likes to store your preference in local storage, not what we're doing here.
       localStorage.removeItem("flowbite-theme-mode");
+
+      const mode: ThemeMode = isDarkBackground(context) ? "dark" : "light";
       if (mode === "dark") {
         document.documentElement.classList.add("dark");
       } else {
@@ -54,7 +51,7 @@ const preview: Preview = {
       }
 
       return (
-        <Flowbite theme={{ theme: standardFlowbiteTheme, mode: "light" }}>
+        <Flowbite theme={{ theme: standardFlowbiteTheme, mode }}>
           <Story />
         </Flowbite>
       );

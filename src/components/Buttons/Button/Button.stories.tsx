@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ElementType, ReactNode } from "react";
 import { Link as RouterLink } from "react-router-dom";
+import { twMerge } from "tailwind-merge";
 import { SaveIcon } from "../../Icons";
 import { Button, type ButtonProps } from "./Button";
 
@@ -59,57 +60,63 @@ export const Default: Story = {
 export const Colors: Story = {
   args: {},
   render: (args) => (
-    <div className="space-y-2">
-      <p>Default</p>
-      <section className="flex gap-2">
-        <PrimaryButton {...args} />
-        <SecondaryButton {...args} />
-        <InfoButton {...args} />
-        <WarningButton {...args} />
-        <SuccessButton {...args} />
-        <FailureButton {...args} />
-      </section>
+    <>
+      {["light bg-white text-black", "dark bg-black text-white"].map(
+        (className) => (
+          <div className={twMerge("space-y-2 border p-2", className)}>
+            <p>Default</p>
+            <section className="flex gap-2">
+              <PrimaryButton {...args} />
+              <SecondaryButton {...args} />
+              <InfoButton {...args} />
+              <WarningButton {...args} />
+              <SuccessButton {...args} />
+              <FailureButton {...args} />
+            </section>
 
-      <p>Outlined</p>
-      <section className="flex gap-2">
-        <PrimaryButton {...args} outline />
-        <SecondaryButton {...args} outline />
-        <InfoButton {...args} outline />
-        <WarningButton {...args} outline />
-        <SuccessButton {...args} outline />
-        <FailureButton {...args} outline />
-      </section>
+            <p>Outlined</p>
+            <section className="flex gap-2">
+              <PrimaryButton {...args} outline />
+              <SecondaryButton {...args} outline />
+              <InfoButton {...args} outline />
+              <WarningButton {...args} outline />
+              <SuccessButton {...args} outline />
+              <FailureButton {...args} outline />
+            </section>
 
-      <p>Text</p>
-      <section className="flex gap-2">
-        <PrimaryButton {...args} text />
-        <SecondaryButton {...args} text />
-        <InfoButton {...args} text />
-        <WarningButton {...args} text />
-        <SuccessButton {...args} text />
-        <FailureButton {...args} text />
-      </section>
+            <p>Text</p>
+            <section className="flex gap-2">
+              <PrimaryButton {...args} text />
+              <SecondaryButton {...args} text />
+              <InfoButton {...args} text />
+              <WarningButton {...args} text />
+              <SuccessButton {...args} text />
+              <FailureButton {...args} text />
+            </section>
 
-      <p>Link</p>
-      <section className="flex gap-2">
-        <PrimaryButton {...args} href="#" />
-        <SecondaryButton {...args} href="#" />
-        <InfoButton {...args} href="#" />
-        <WarningButton {...args} href="#" />
-        <SuccessButton {...args} href="#" />
-        <FailureButton {...args} href="#" />
-      </section>
+            <p>Link</p>
+            <section className="flex gap-2">
+              <PrimaryButton {...args} href="#" />
+              <SecondaryButton {...args} href="#" />
+              <InfoButton {...args} href="#" />
+              <WarningButton {...args} href="#" />
+              <SuccessButton {...args} href="#" />
+              <FailureButton {...args} href="#" />
+            </section>
 
-      <p>Router link</p>
-      <section className="flex gap-2">
-        <PrimaryButton {...args} as={RouterLink} to="#" />
-        <SecondaryButton {...args} as={RouterLink} to="#" />
-        <InfoButton {...args} as={RouterLink} to="#" />
-        <WarningButton {...args} as={RouterLink} to="#" />
-        <SuccessButton {...args} as={RouterLink} to="#" />
-        <FailureButton {...args} as={RouterLink} to="#" />
-      </section>
-    </div>
+            <p>Router link</p>
+            <section className="flex gap-2">
+              <PrimaryButton {...args} as={RouterLink} to="#" />
+              <SecondaryButton {...args} as={RouterLink} to="#" />
+              <InfoButton {...args} as={RouterLink} to="#" />
+              <WarningButton {...args} as={RouterLink} to="#" />
+              <SuccessButton {...args} as={RouterLink} to="#" />
+              <FailureButton {...args} as={RouterLink} to="#" />
+            </section>
+          </div>
+        ),
+      )}
+    </>
   ),
 };
 
