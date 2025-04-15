@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { twMerge } from "tailwind-merge";
 import { IconButton } from ".";
 import { CopyIcon } from "../../Icons";
 import { PrimaryButton } from "../PrimaryButton";
@@ -16,72 +17,78 @@ const meta: Meta<typeof IconButton> = {
   argTypes: {},
   args: {},
   render: (args) => (
-    <div className="space-y-4">
-      <div className="flex gap-2">
-        <PrimaryButton size="xs">XS</PrimaryButton>
-        <IconButton {...args} size="xs">
-          <CopyIcon />
-        </IconButton>
-        <IconButton {...args} disabled title="Disabled" size="xs">
-          <CopyIcon />
-        </IconButton>
-        <IconButton {...args} isProcessing title="Processing" size="xs">
-          <CopyIcon />
-        </IconButton>
-      </div>
+    <>
+      {["light bg-white text-black", "dark bg-black text-white"].map(
+        (className) => (
+          <div className={twMerge("space-y-2 border p-2", className)}>
+            <div className="flex gap-2">
+              <PrimaryButton size="xs">XS</PrimaryButton>
+              <IconButton {...args} size="xs">
+                <CopyIcon />
+              </IconButton>
+              <IconButton {...args} disabled title="Disabled" size="xs">
+                <CopyIcon />
+              </IconButton>
+              <IconButton {...args} isProcessing title="Processing" size="xs">
+                <CopyIcon />
+              </IconButton>
+            </div>
 
-      <div className="flex gap-2">
-        <PrimaryButton size="sm">SM</PrimaryButton>
-        <IconButton {...args} size="sm">
-          <CopyIcon />
-        </IconButton>
-        <IconButton {...args} disabled title="Disabled" size="sm">
-          <CopyIcon />
-        </IconButton>
-        <IconButton {...args} isProcessing title="Processing" size="sm">
-          <CopyIcon />
-        </IconButton>
-      </div>
+            <div className="flex gap-2">
+              <PrimaryButton size="sm">SM</PrimaryButton>
+              <IconButton {...args} size="sm">
+                <CopyIcon />
+              </IconButton>
+              <IconButton {...args} disabled title="Disabled" size="sm">
+                <CopyIcon />
+              </IconButton>
+              <IconButton {...args} isProcessing title="Processing" size="sm">
+                <CopyIcon />
+              </IconButton>
+            </div>
 
-      <div className="flex gap-2">
-        <PrimaryButton>MD</PrimaryButton>
-        <IconButton {...args}>
-          <CopyIcon size={"16px"} />
-        </IconButton>
-        <IconButton {...args} disabled title="Disabled">
-          <CopyIcon />
-        </IconButton>
-        <IconButton {...args} isProcessing title="Processing">
-          <CopyIcon />
-        </IconButton>
-      </div>
+            <div className="flex gap-2">
+              <PrimaryButton>MD</PrimaryButton>
+              <IconButton {...args}>
+                <CopyIcon size={"16px"} />
+              </IconButton>
+              <IconButton {...args} disabled title="Disabled">
+                <CopyIcon />
+              </IconButton>
+              <IconButton {...args} isProcessing title="Processing">
+                <CopyIcon />
+              </IconButton>
+            </div>
 
-      <div className="flex gap-2">
-        <PrimaryButton size="lg">LG</PrimaryButton>
-        <IconButton {...args} size="lg">
-          <CopyIcon />
-        </IconButton>
-        <IconButton {...args} disabled title="Disabled" size="lg">
-          <CopyIcon />
-        </IconButton>
-        <IconButton {...args} isProcessing title="Processing" size="lg">
-          <CopyIcon />
-        </IconButton>
-      </div>
+            <div className="flex gap-2">
+              <PrimaryButton size="lg">LG</PrimaryButton>
+              <IconButton {...args} size="lg">
+                <CopyIcon />
+              </IconButton>
+              <IconButton {...args} disabled title="Disabled" size="lg">
+                <CopyIcon />
+              </IconButton>
+              <IconButton {...args} isProcessing title="Processing" size="lg">
+                <CopyIcon />
+              </IconButton>
+            </div>
 
-      <div className="flex gap-2">
-        <PrimaryButton size="xl">XL</PrimaryButton>
-        <IconButton {...args} size="xl">
-          <CopyIcon />
-        </IconButton>
-        <IconButton {...args} disabled title="Disabled" size="xl">
-          <CopyIcon />
-        </IconButton>
-        <IconButton {...args} isProcessing title="Processing" size="xl">
-          <CopyIcon />
-        </IconButton>
-      </div>
-    </div>
+            <div className="flex gap-2">
+              <PrimaryButton size="xl">XL</PrimaryButton>
+              <IconButton {...args} size="xl">
+                <CopyIcon />
+              </IconButton>
+              <IconButton {...args} disabled title="Disabled" size="xl">
+                <CopyIcon />
+              </IconButton>
+              <IconButton {...args} isProcessing title="Processing" size="xl">
+                <CopyIcon />
+              </IconButton>
+            </div>
+          </div>
+        ),
+      )}
+    </>
   ),
 };
 

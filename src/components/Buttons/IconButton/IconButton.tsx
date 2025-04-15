@@ -1,11 +1,16 @@
 import { Spinner, SpinnerProps } from "flowbite-react";
+import type { FlowbiteButtonTheme } from "flowbite-react/dist/types/components/Button/Button";
 import type { PolymorphicRef } from "flowbite-react/dist/types/helpers/generic-as-prop";
+import type { DeepPartial } from "flowbite-react/dist/types/types";
 import { cloneElement, type ElementType, forwardRef } from "react";
 import type { IconBaseProps } from "react-icons";
 import { twMerge } from "tailwind-merge";
 import { Button, type ButtonComponentType, type ButtonProps } from "../Button";
 
-export type IconButtonProps<T extends ElementType = "button"> = ButtonProps<T>;
+export type IconButtonProps<T extends ElementType = "button"> =
+  ButtonProps<T> & {
+    theme?: DeepPartial<FlowbiteButtonTheme>;
+  };
 
 /**
  * A convince wrapper setting defaults for icon buttons and tracking all usages.
