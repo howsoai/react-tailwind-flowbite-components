@@ -21,7 +21,20 @@ export const standardTailwindConfigThemeExtend: NonNullable<
       900: "#233876",
       950: "#000A11",
     },
-    secondary: "hsl(var(--color-secondary) / <alpha-value>)",
+    secondary: {
+      DEFAULT: "#64748b",
+      50: "#f8fafc",
+      100: "#f1f5f9",
+      200: "#e2e8f0",
+      300: "#cbd5e1",
+      400: "#94a3b8",
+      500: "#64748b",
+      600: "#475569",
+      700: "#334155",
+      800: "#1e293b",
+      900: "#0f172a",
+      950: "#020617",
+    },
   },
   animation: {
     heartbeat: "heartbeat 1.5s infinite",
@@ -82,36 +95,62 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
   button: {
     base: "border border-transparent group relative flex items-stretch justify-center p-0.5 text-center font-medium transition-[color,background-color,border-color,text-decoration-color,fill,stroke,box-shadow] focus:z-10 focus:outline-none focus:ring-4",
     inner: {
-      base: "flex items-stretch items-center transition-all duration-200",
+      base: "flex items-stretch items-center",
     },
     color: {
-      failure:
-        "text-white bg-red-600 enabled:hover:bg-red-700 focus:ring-red-400 dark:bg-red-900 dark:enabled:hover:bg-red-800 dark:focus:ring-red-700",
-      info: "text-white bg-blue-600 enabled:hover:bg-blue-700 focus:ring-blue-400 dark:bg-blue-900 dark:enabled:hover:bg-blue-800 dark:focus:ring-blue-700",
-      primary:
-        "text-white bg-primary-700 enabled:hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:enabled:hover:bg-primary-700 dark:focus:ring-primary-800",
-      secondary:
-        "border-gray-100 bg-gray-100 text-black focus:ring-gray-200 enabled:hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-600 dark:text-white dark:focus:ring-gray-700 dark:enabled:hover:border-gray-700 dark:enabled:hover:bg-gray-700",
-      success:
-        "bg-green-700 text-white focus:ring-green-300 enabled:hover:bg-green-800 dark:bg-green-600 dark:focus:ring-green-800 dark:enabled:hover:bg-green-700",
-      warning:
-        "text-black bg-yellow-400 enabled:hover:bg-yellow-500 focus:ring-yellow-300 dark:bg-yellow-700 dark:enabled:hover:bg-yellow-600 dark:focus:ring-yellow-500",
+      failure: [
+        "text-white bg-red-600 enabled:hover:bg-red-700 focus:ring-red-400",
+        "dark:bg-red-900 dark:enabled:hover:bg-red-800 dark:focus:ring-red-700",
+      ].join(" "),
+      info: [
+        "text-white bg-blue-600 enabled:hover:bg-blue-700 focus:ring-blue-400",
+        "dark:bg-blue-900 dark:enabled:hover:bg-blue-800 dark:focus:ring-blue-700",
+      ].join(" "),
+      primary: [
+        "text-white bg-primary-700 enabled:hover:bg-primary-800 focus:ring-primary-300",
+        "dark:bg-primary-600 dark:enabled:hover:bg-primary-700 dark:focus:ring-primary-800",
+      ].join(" "),
+      secondary: [
+        "text-white bg-secondary-700 enabled:hover:bg-secondary-800 focus:ring-secondary-300",
+        "dark:bg-secondary-600 dark:enabled:hover:bg-secondary-700 dark:focus:ring-secondary-800",
+      ].join(" "),
+      success: [
+        "bg-green-700 text-white focus:ring-green-300 enabled:hover:bg-green-800",
+        "dark:bg-green-600 dark:focus:ring-green-800 dark:enabled:hover:bg-green-700",
+      ].join(" "),
+      warning: [
+        "text-black bg-yellow-400 enabled:hover:bg-yellow-500 focus:ring-yellow-300",
+        "text-white dark:bg-yellow-700 dark:enabled:hover:bg-yellow-600 dark:focus:ring-yellow-500",
+      ].join(" "),
       gray: "text-white bg-gray-600 enabled:hover:bg-gray-700 focus:ring-gray-300 dark:bg-gray-400 dark:enabled:hover:bg-gray-500 dark:focus:ring-gray-800",
     },
     outline: {
       on: "group-hover:bg-opacity-0 group-hover:text-inherit",
       color: {
-        failure:
-          "bg-transparent border-current text-red-600 enabled:hover:bg-red-100 focus:ring-red-400 dark:bg-red-900 dark:enabled:hover:bg-red-800 dark:focus:ring-red-700",
-        primary:
-          "bg-transparent border-current text-primary-700 enabled:hover:bg-primary-100 focus:ring-primary-300 dark:bg-primary-600 dark:enabled:hover:bg-primary-700 dark:focus:ring-primary-800",
-        info: "bg-transparent border-current text-blue-600 enabled:hover:bg-blue-100 focus:ring-blue-400 dark:bg-blue-900 dark:enabled:hover:bg-blue-800 dark:focus:ring-blue-700",
-        secondary:
-          "bg-transparent border-current text-gray-300 text-gray-900 focus:ring-gray-200 enabled:hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-600 dark:text-white dark:focus:ring-gray-700 dark:enabled:hover:border-gray-700 dark:enabled:hover:bg-gray-700",
-        success:
-          "bg-transparent border-current text-green-600 focus:ring-green-300 enabled:hover:bg-green-100 dark:bg-green-600 dark:focus:ring-green-800 dark:enabled:hover:bg-green-700",
-        warning:
-          "bg-transparent border-current text-yellow-600 enabled:hover:bg-yellow-100 focus:ring-yellow-300 dark:bg-yellow-300 dark:enabled:hover:bg-yellow-600 dark:focus:ring-yellow-500",
+        failure: [
+          "text-red-600 bg-transparent border-current enabled:hover:bg-red-100 focus:ring-red-400",
+          "dark:text-red-400 dark:bg-transparent dark:enabled:hover:text-white dark:enabled:hover:bg-red-800 dark:focus:ring-red-700",
+        ].join(" "),
+        primary: [
+          "text-primary-700 bg-transparent border-current enabled:hover:bg-primary-100 focus:ring-primary-300",
+          "dark:text-primary-400 dark:bg-transparent dark:enabled:hover:text-white dark:enabled:hover:bg-primary-700 dark:focus:ring-primary-800",
+        ].join(" "),
+        info: [
+          "text-blue-600 bg-transparent border-current enabled:hover:bg-blue-100 focus:ring-blue-400",
+          "dark:text-blue-400 dark:bg-transparent dark:enabled:hover:text-white dark:enabled:hover:bg-blue-800 dark:focus:ring-blue-700",
+        ].join(" "),
+        secondary: [
+          "text-secondary-700 bg-transparent border-current enabled:hover:bg-secondary-100 focus:ring-secondary-300",
+          "dark:text-secondary-300 dark:bg-transparent dark:enabled:hover:text-white dark:enabled:hover:bg-secondary-700 dark:focus:ring-secondary-800",
+        ].join(" "),
+        success: [
+          "text-green-600 bg-transparent border-current focus:ring-green-300 enabled:hover:bg-green-100",
+          "dark:text-green-400 dark:bg-transparent dark:enabled:hover:text-white dark:focus:ring-green-800 dark:enabled:hover:bg-green-700",
+        ].join(" "),
+        warning: [
+          "text-yellow-600 bg-transparent border-current enabled:hover:bg-yellow-100 focus:ring-yellow-300",
+          "text-yellow-400 dark:bg-transparent dark:enabled:hover:text-white dark:enabled:hover:bg-yellow-600 dark:focus:ring-yellow-500",
+        ].join(" "),
       },
     },
   },
