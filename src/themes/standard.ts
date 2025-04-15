@@ -120,7 +120,7 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
       ].join(" "),
       warning: [
         "text-black bg-yellow-400 enabled:hover:bg-yellow-500 focus:ring-yellow-300",
-        "text-white dark:bg-yellow-700 dark:enabled:hover:bg-yellow-600 dark:focus:ring-yellow-500",
+        "dark:text-white dark:bg-yellow-700 dark:enabled:hover:bg-yellow-600 dark:focus:ring-yellow-500",
       ].join(" "),
       gray: "text-white bg-gray-600 enabled:hover:bg-gray-700 focus:ring-gray-300 dark:bg-gray-400 dark:enabled:hover:bg-gray-500 dark:focus:ring-gray-800",
     },
@@ -148,7 +148,7 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
           "dark:text-green-400 dark:bg-transparent dark:enabled:hover:text-white dark:focus:ring-green-800 dark:enabled:hover:bg-green-700",
         ].join(" "),
         warning: [
-          "text-yellow-600 bg-transparent border-current enabled:hover:bg-yellow-100 focus:ring-yellow-300",
+          "text-yellow-700 bg-transparent border-current enabled:hover:bg-yellow-100 focus:ring-yellow-300",
           "dark:text-yellow-400 dark:bg-transparent dark:enabled:hover:text-white dark:enabled:hover:bg-yellow-600 dark:focus:ring-yellow-500",
         ].join(" "),
       },
