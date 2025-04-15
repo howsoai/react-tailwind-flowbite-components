@@ -68,7 +68,6 @@ export const Colors: Story = {
             <section className="flex gap-2">
               <PrimaryButton {...args} />
               <SecondaryButton {...args} />
-              <TertiaryButton {...args} />
               <InfoButton {...args} />
               <WarningButton {...args} />
               <SuccessButton {...args} />
@@ -79,7 +78,6 @@ export const Colors: Story = {
             <section className="flex gap-2">
               <PrimaryButton {...args} outline />
               <SecondaryButton {...args} outline />
-              <TertiaryButton {...args} outline />
               <InfoButton {...args} outline />
               <WarningButton {...args} outline />
               <SuccessButton {...args} outline />
@@ -90,7 +88,6 @@ export const Colors: Story = {
             <section className="flex gap-2">
               <PrimaryButton {...args} text />
               <SecondaryButton {...args} text />
-              <TertiaryButton {...args} text />
               <InfoButton {...args} text />
               <WarningButton {...args} text />
               <SuccessButton {...args} text />
@@ -101,7 +98,6 @@ export const Colors: Story = {
             <section className="flex gap-2">
               <PrimaryButton {...args} href="#" />
               <SecondaryButton {...args} href="#" />
-              <TertiaryButton {...args} href="#" />
               <InfoButton {...args} href="#" />
               <WarningButton {...args} href="#" />
               <SuccessButton {...args} href="#" />
@@ -112,7 +108,6 @@ export const Colors: Story = {
             <section className="flex gap-2">
               <PrimaryButton {...args} as={RouterLink} to="#" />
               <SecondaryButton {...args} as={RouterLink} to="#" />
-              <TertiaryButton {...args} as={RouterLink} to="#" />
               <InfoButton {...args} as={RouterLink} to="#" />
               <WarningButton {...args} as={RouterLink} to="#" />
               <SuccessButton {...args} as={RouterLink} to="#" />
@@ -143,17 +138,6 @@ const SecondaryButton = <C extends ElementType = "button">(
     <span className="flex flex-row items-center gap-1">
       <SaveIcon />
       <span>Secondary</span>
-    </span>
-  </Button>
-);
-
-const TertiaryButton = <C extends ElementType = "button">(
-  args: ButtonProps<C>,
-): ReactNode => (
-  <Button {...args} color="tertiary">
-    <span className="flex flex-row items-center gap-1">
-      <SaveIcon />
-      <span>Tertiary</span>
     </span>
   </Button>
 );
