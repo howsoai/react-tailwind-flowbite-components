@@ -106,7 +106,16 @@ const meta: Meta<IconBaseProps> = {
         />
         <IconWithLabel label={"Save"} Icon={<SaveIcon {...args} />} />
         <IconWithLabel label={"Search"} Icon={<SearchIcon {...args} />} />
-        <IconWithLabel label={"Stop"} Icon={<StopIcon {...args} />} />
+        <IconWithLabel
+          label={"Stop"}
+          description="Default"
+          Icon={<StopIcon {...args} />}
+        />
+        <IconWithLabel
+          label={"Stop"}
+          description="Square"
+          Icon={<StopIcon {...args} square />}
+        />
         <IconWithLabel label={"Update"} Icon={<UpdateIcon {...args} />} />
         <IconWithLabel label={"Upload"} Icon={<UploadIcon {...args} />} />
         <IconWithLabel label={"View"} Icon={<ViewIcon {...args} />} />
