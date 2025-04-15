@@ -21,7 +21,7 @@ export const IconButton = forwardRef(
       ref={ref}
       color="secondary"
       pill
-      outline
+      text
       {...props}
       // Overrides based on https://github.com/themesberg/flowbite-react/blob/main/packages/ui/src/components/Button/theme.ts
       className={twMerge(

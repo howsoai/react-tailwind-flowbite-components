@@ -10,7 +10,14 @@ export type ButtonProps<T extends ElementType = "button"> = Omit<
   FlowbiteButtonProps<T>,
   "color"
 > & {
-  color?: "failure" | "info" | "secondary" | "success" | "warning" | "primary";
+  color?:
+    | "failure"
+    | "info"
+    | "secondary"
+    | "success"
+    | "tertiary"
+    | "warning"
+    | "primary";
   /** Modifies the border and background elements to be transparent, similar to the outline version */
   text?: boolean;
 };
