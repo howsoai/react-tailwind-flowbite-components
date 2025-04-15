@@ -149,7 +149,7 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
         ].join(" "),
         warning: [
           "text-yellow-600 bg-transparent border-current enabled:hover:bg-yellow-100 focus:ring-yellow-300",
-          "text-yellow-400 dark:bg-transparent dark:enabled:hover:text-white dark:enabled:hover:bg-yellow-600 dark:focus:ring-yellow-500",
+          "dark:text-yellow-400 dark:bg-transparent dark:enabled:hover:text-white dark:enabled:hover:bg-yellow-600 dark:focus:ring-yellow-500",
         ].join(" "),
       },
     },
