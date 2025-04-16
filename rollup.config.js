@@ -32,6 +32,7 @@ export default {
     "react-icons/hi",
     "react-icons/hi2",
     "react-icons/gi",
+    "react-icons/ri",
     "react-icons/si",
     "react-icons/tb",
     "@floating-ui/react",
