@@ -37,3 +37,12 @@
     display: none;
   }
 }
+
+/** Components */
+
+:is(.dark [role="alert"]),
+[role="alert"] {
+  a {
+    color: inherit;
+  }
+}

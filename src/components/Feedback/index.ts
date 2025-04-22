@@ -9,6 +9,7 @@ export * from "./ErrorBoundary";
 export * from "./ErrorGraphic";
 export * from "./GraphicalError";
 export * from "./NoResultsAlert";
+export * from "./Progress";
 export * from "./Skeleton";
 export * from "./TextScramble";
 
