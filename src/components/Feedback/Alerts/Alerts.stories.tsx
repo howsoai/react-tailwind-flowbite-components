@@ -1,5 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Alert } from "flowbite-react";
+import { Alert, AlertProps } from "flowbite-react";
+import { FC } from "react";
+import { Link } from "../../Typography";
+
+type ContentProps = { color: AlertProps["color"] };
+const Content: FC<ContentProps> = ({ color }) => {
+  return (
+    <>
+      {color}: Lorem ipsum dolor,{" "}
+      <Link href="#">sit amet consectetur adipisicing elit.</Link>
+    </>
+  );
+};
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Alert> = {
@@ -15,10 +27,22 @@ const meta: Meta<typeof Alert> = {
   args: {},
   render: ({ children, ...args }) => (
     <div className="space-y-2">
-      <Alert {...args} color={"info"} children={"Info: " + children} />
-      <Alert {...args} color={"warning"} children={"Warning: " + children} />
-      <Alert {...args} color={"failure"} children={"Failure: " + children} />
-      <Alert {...args} color={"success"} children={"Success: " + children} />
+      <Alert {...args} color={"info"} children={<Content color={"info"} />} />
+      <Alert
+        {...args}
+        color={"warning"}
+        children={<Content color={"warning"} />}
+      />
+      <Alert
+        {...args}
+        color={"failure"}
+        children={<Content color={"failure"} />}
+      />
+      <Alert
+        {...args}
+        color={"success"}
+        children={<Content color={"success"} />}
+      />
     </div>
   ),
 };
@@ -29,7 +53,5 @@ type Story = StoryObj<typeof Alert>;
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 export const Message: Story = {
   // More on args: https://storybook.js.org/docs/react/writing-stories/args
-  args: {
-    children: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-  },
+  args: {},
 };
