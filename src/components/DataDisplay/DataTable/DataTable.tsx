@@ -150,7 +150,7 @@ export const DataTableComponent: FC<DataTableProps> = ({
         >
           <THead columns={columns} stickyColumns={stickyColumns} />
           <tbody
-            className={"group/body divide-y text-gray-500 dark:text-gray-200"}
+            className={"group/body divide-y text-gray-800 dark:text-gray-200"}
           >
             {loading
               ? new Array(loadingRows).fill(0).map((_, y) => (
