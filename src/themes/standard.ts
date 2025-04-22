@@ -253,6 +253,12 @@ export const standardFlowbiteTheme: CustomFlowbiteTheme = {
       },
     },
   },
+  progress: {
+    color: {
+      default: "bg-primary-600",
+      primary: "bg-primary-600",
+    },
+  },
   select: {
     field: {
       select: {
