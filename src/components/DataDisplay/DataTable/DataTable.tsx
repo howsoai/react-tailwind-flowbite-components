@@ -14,7 +14,10 @@ export interface DataTableProps
   extends PropsWithChildren,
     Omit<ComponentProps<"div">, "ref"> {
   bordered?: boolean;
+  /** Children to send to DataTableCaption */
   caption?: ReactNode;
+  /** Props to send to DataTableCaption. Ensure this object is memoized. */
+  captionProps?: Omit<DataTableCaptionProps, "children">;
   /** The <th /> index from 0 to scroll to within <thead />'s first row */
   centeredColumnIndex?: number;
   /** @deprecated See centeredColumnIndex */
@@ -52,6 +55,7 @@ export interface DataTableProps
 
 export const DataTableComponent: FC<DataTableProps> = ({
   caption: captionChildren,
+  captionProps,
   centeredColumnIndex,
   centeredIndex: deprecatedCenteredColumnIndex,
   centeredRowIndex,
@@ -169,7 +173,13 @@ export const DataTableComponent: FC<DataTableProps> = ({
               : children}
           </tbody>
           {captionChildren && (
-            <caption className="sticky left-4 w-fit *:justify-start">
+            <caption
+              {...captionProps}
+              className={twMerge(
+                "sticky left-4 w-fit *:justify-start",
+                captionProps?.className,
+              )}
+            >
               <DataTable.Caption>{captionChildren}</DataTable.Caption>
             </caption>
           )}
@@ -280,26 +290,17 @@ const DataTableCell = forwardRef<HTMLTableCellElement, DataTableCellProps>(
 );
 DataTableCell.displayName = "DataTable.Cell";
 
-export type DataTableCaptionProps = {
-  className?: string;
-  children?: ReactNode;
-};
-
-export const DataTableCaption: FC<DataTableCaptionProps> = function ({
-  children,
-  className,
-}) {
-  return (
-    <span
-      className={twMerge(
-        "mt-4 flex justify-center text-sm text-gray-500 dark:text-gray-400",
-        className,
-      )}
-    >
-      {children}
-    </span>
-  );
-};
+export type DataTableCaptionProps = ComponentProps<"span">;
+/** An inline component styled to look like a <caption />. Through DataTable it is embedded inside <caption /> */
+export const DataTableCaption: FC<DataTableCaptionProps> = (props) => (
+  <span
+    {...props}
+    className={twMerge(
+      "mt-2 flex justify-center text-sm text-gray-600 dark:text-gray-400",
+      props.className,
+    )}
+  />
+);
 
 const dataTableHeaderColorsClassNames = "bg-gray-100 dark:bg-gray-700";
 
