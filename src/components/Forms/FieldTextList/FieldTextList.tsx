@@ -24,6 +24,9 @@ type FieldTextListChangeHandler = (
   values: Value[],
 ) => Promise<void | boolean>;
 /**
+ * @deprecated This component has caused a number of problems.
+ * Use <FieldText /> directly and perform any split and conversion logic in the submit handler.
+ *
  * A thin wrapper around FieldText enables arrays to be used as form values.
  * Props are based on a combination of standard Field* and ControllerProps.
  * Values are driven through FormProvider's state, not direct props.
@@ -116,7 +119,10 @@ const getText = ({
   }
 
   const glue = spaceAfterSeparator ? [separator, " "].join("") : separator;
-  return value.join(glue);
+  const newValue = value
+    .map((value) => (typeof value === "string" ? value.trim() : value))
+    .join(glue);
+  return newValue;
 };
 
 const getValues = ({
