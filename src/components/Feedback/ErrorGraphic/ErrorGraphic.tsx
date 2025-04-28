@@ -14,12 +14,12 @@ export const ErrorGraphic: FC<ErrorGraphicProps> = ({
   const darkClassName = twMerge(
     defaultClassName,
     "hidden dark:block",
-    className
+    className,
   );
   const lightClassName = twMerge(
     defaultClassName,
     "block dark:hidden",
-    className
+    className,
   );
 
   switch (type) {
@@ -60,7 +60,7 @@ const ServerErrorDark: FC<React.SVGProps<SVGSVGElement>> = (props) => (
     viewBox="0 0 500 580"
     {...props}
   >
-    <g clipPath="url(#a)">
+    <g>
       <mask
         id="b"
         width={500}
@@ -74,6 +74,8 @@ const ServerErrorDark: FC<React.SVGProps<SVGSVGElement>> = (props) => (
       >
         <path fill="#fff" d="M500 0H0v580h500V0Z" />
       </mask>
+    </g>
+    <defs>
       <g mask="url(#b)">
         <path
           fill="#9CA3AF"
@@ -152,11 +154,6 @@ const ServerErrorDark: FC<React.SVGProps<SVGSVGElement>> = (props) => (
           d="M423.952 266.832c0-1.597-2.277-2.512-4.782-3.88-.455-.457-1.138-.915-1.365-1.142 0 .227-.455.227-.455.457-.227.228-.228.228-.455.228-.228 0-.227 0-.227.227-.228 0 0-.227.682.458.228.227.455.227.682.457l.228.228h.228c.227-.228.682-.228 1.139-.458.91-.227 2.048-.455 3.188-.455h2.732c1.138 0 2.276.228 3.188.455.455.23.91.23 1.138.458h.227l.227-.228c.228-.23.456-.457.683-.457.913-.458 1.14-.228.685-.458-.228 0-.227 0-.227-.227-.23 0-.23-.228-.458-.228-.227-.23-.455-.23-.455-.457 0 .227-.683.685-1.365 1.142-2.96 1.598-5.238 2.283-5.238 3.88 0 .685.683 1.37 1.823 1.825 1.137.458 2.96.685 5.235.23 1.14-.23 2.505-.457 4.1-1.827.683-.685 1.592-1.598 2.275-3.195.457-1.598.23-3.653-.682-5.023-1.593-2.51-3.415-3.195-5.235-3.88-1.823-.685-3.418-1.14-5.238-1.14h-4.1c-1.82.228-3.415.455-5.235 1.14-1.595.685-3.415 1.598-5.238 3.88-.91 1.143-1.137 3.195-.682 5.023.455 1.597 1.365 2.51 2.277 3.195 1.593 1.142 2.961 1.37 4.098 1.827 2.278.455 4.098.228 5.238-.23.682-.455 1.364-1.14 1.364-1.825ZM172.359 194.017c0-1.597-2.277-2.51-4.781-3.88-.456-.456-1.139-.913-1.366-1.141 0 .228-.456.228-.456.456-.228.229-.228.229-.455.229-.228 0-.228 0-.228.228-.228 0 0-.228.683.456.228.229.456.229.683.457l.228.228h.228c.227-.228.683-.228 1.138-.456.911-.229 2.049-.457 3.188-.457h2.732c1.138 0 2.277.228 3.188.457.455.228.91.228 1.138.456h.228l.227-.228c.228-.228.456-.457.683-.457.911-.456 1.139-.228.683-.456-.227 0-.227 0-.227-.228-.228 0-.228-.229-.456-.229-.227-.228-.455-.228-.455-.456 0 .228-.683.685-1.366 1.141-2.96 1.598-5.237 2.511-5.237 3.88 0 .685.683 1.37 1.822 1.826 1.138.457 2.96.685 5.236.229 1.139-.229 2.505-.457 4.099-1.826.683-.685 1.594-1.598 2.277-3.196.455-1.598.227-3.652-.683-5.022-1.594-2.51-3.416-3.195-5.237-3.88-1.822-.685-3.416-1.141-5.237-1.141h-4.098c-1.822.228-3.416.456-5.237 1.141-1.594.685-3.415 1.598-5.237 3.88-.911 1.142-1.138 3.196-.683 5.022.455 1.598 1.366 2.511 2.277 3.196 1.594 1.141 2.96 1.369 4.098 1.826 2.277.456 4.099.228 5.237-.229.683-.456 1.366-1.141 1.366-1.826ZM385.473 34.237c1.14-.913-2.73-6.163-5.235-13.923-.228-.457-.228-.913-.455-1.37-.228-.456-.458-1.141-1.14-1.826-.683-.685-1.593-1.141-2.048-1.141-.457-.228-1.14-.228-1.595-.457l-2.732-.684c-1.82-.457-3.415-.685-4.78-.914-2.733-.228-4.555 0-4.555.685-.228.685 1.367 1.37 3.87 2.511 1.367.457 2.732.913 4.327 1.598.91.228 1.82.685 2.733.913.455.228.91.228 1.365.456l.455.229.227.228c.228.456.228.685.455 1.141 1.368 4.337 3.645 7.761 5.465 9.815 1.595 2.283 3.188 2.967 3.643 2.74Z"
         />
       </g>
-    </g>
-    <defs>
-      <clipPath id="a">
-        <path fill="#fff" d="M0 0h500v580H0z" />
-      </clipPath>
     </defs>
   </svg>
 );
@@ -169,20 +166,7 @@ const ServerErrorLight: FC<React.SVGProps<SVGSVGElement>> = (props) => (
     fill="none"
     {...props}
   >
-    <g clipPath="url(#a)">
-      <mask
-        id="b"
-        width={500}
-        height={580}
-        x={0}
-        y={0}
-        maskUnits="userSpaceOnUse"
-        style={{
-          maskType: "luminance",
-        }}
-      >
-        <path fill="#fff" d="M500 0H0v580h500V0Z" />
-      </mask>
+    <g>
       <g mask="url(#b)">
         <path
           fill="#6B7280"
@@ -263,9 +247,19 @@ const ServerErrorLight: FC<React.SVGProps<SVGSVGElement>> = (props) => (
       </g>
     </g>
     <defs>
-      <clipPath id="a">
-        <path fill="#fff" d="M0 0h500v580H0z" />
-      </clipPath>
+      <mask
+        id="b"
+        width={500}
+        height={580}
+        x={0}
+        y={0}
+        maskUnits="userSpaceOnUse"
+        style={{
+          maskType: "luminance",
+        }}
+      >
+        <path fill="#fff" d="M500 0H0v580h500V0Z" />
+      </mask>
     </defs>
   </svg>
 );
@@ -278,20 +272,7 @@ const UnrecoverableErrorDark: FC<React.SVGProps<SVGSVGElement>> = (props) => (
     fill="none"
     {...props}
   >
-    <g clipPath="url(#a)">
-      <mask
-        id="b"
-        width={800}
-        height={531}
-        x={0}
-        y={0}
-        maskUnits="userSpaceOnUse"
-        style={{
-          maskType: "luminance",
-        }}
-      >
-        <path fill="#fff" d="M800 0H0v530.942h800V0Z" />
-      </mask>
+    <g>
       <g mask="url(#b)">
         <path
           fill="#9CA3AF"
@@ -360,9 +341,19 @@ const UnrecoverableErrorDark: FC<React.SVGProps<SVGSVGElement>> = (props) => (
       </g>
     </g>
     <defs>
-      <clipPath id="a">
-        <path fill="#fff" d="M0 0h800v530.942H0z" />
-      </clipPath>
+      <mask
+        id="b"
+        width={800}
+        height={531}
+        x={0}
+        y={0}
+        maskUnits="userSpaceOnUse"
+        style={{
+          maskType: "luminance",
+        }}
+      >
+        <path fill="#fff" d="M800 0H0v530.942h800V0Z" />
+      </mask>
     </defs>
   </svg>
 );
@@ -375,20 +366,7 @@ const UnrecoverableErrorLight: FC<React.SVGProps<SVGSVGElement>> = (props) => (
     fill="none"
     {...props}
   >
-    <g clipPath="url(#a)">
-      <mask
-        id="b"
-        width={800}
-        height={531}
-        x={0}
-        y={0}
-        maskUnits="userSpaceOnUse"
-        style={{
-          maskType: "luminance",
-        }}
-      >
-        <path fill="#fff" d="M800 .059H0V531h800V.059Z" />
-      </mask>
+    <g>
       <g mask="url(#b)">
         <path
           fill="#6B7280"
@@ -457,9 +435,19 @@ const UnrecoverableErrorLight: FC<React.SVGProps<SVGSVGElement>> = (props) => (
       </g>
     </g>
     <defs>
-      <clipPath id="a">
-        <path fill="#fff" d="M0 .059h800V531H0z" />
-      </clipPath>
+      <mask
+        id="b"
+        width={800}
+        height={531}
+        x={0}
+        y={0}
+        maskUnits="userSpaceOnUse"
+        style={{
+          maskType: "luminance",
+        }}
+      >
+        <path fill="#fff" d="M800 .059H0V531h800V.059Z" />
+      </mask>
     </defs>
   </svg>
 );
@@ -472,20 +460,7 @@ const NotFoundErrorDark: FC<React.SVGProps<SVGSVGElement>> = (props) => (
     fill="none"
     {...props}
   >
-    <g clipPath="url(#a)">
-      <mask
-        id="b"
-        width={800}
-        height={496}
-        x={0}
-        y={0}
-        maskUnits="userSpaceOnUse"
-        style={{
-          maskType: "luminance",
-        }}
-      >
-        <path fill="#fff" d="M800 0H0v495.847h800V0Z" />
-      </mask>
+    <g>
       <g mask="url(#b)">
         <path
           fill="#9CA3AF"
@@ -618,9 +593,19 @@ const NotFoundErrorDark: FC<React.SVGProps<SVGSVGElement>> = (props) => (
       </g>
     </g>
     <defs>
-      <clipPath id="a">
-        <path fill="#fff" d="M0 0h800v495.847H0z" />
-      </clipPath>
+      <mask
+        id="b"
+        width={800}
+        height={496}
+        x={0}
+        y={0}
+        maskUnits="userSpaceOnUse"
+        style={{
+          maskType: "luminance",
+        }}
+      >
+        <path fill="#fff" d="M800 0H0v495.847h800V0Z" />
+      </mask>
     </defs>
   </svg>
 );
@@ -633,20 +618,7 @@ const NotFoundErrorLight: FC<React.SVGProps<SVGSVGElement>> = (props) => (
     fill="none"
     {...props}
   >
-    <g clipPath="url(#a)">
-      <mask
-        id="b"
-        width={800}
-        height={496}
-        x={0}
-        y={0}
-        maskUnits="userSpaceOnUse"
-        style={{
-          maskType: "luminance",
-        }}
-      >
-        <path fill="#fff" d="M800 .153H0V496h800V.153Z" />
-      </mask>
+    <g>
       <g mask="url(#b)">
         <path
           fill="#6B7280"
@@ -784,9 +756,19 @@ const NotFoundErrorLight: FC<React.SVGProps<SVGSVGElement>> = (props) => (
       </g>
     </g>
     <defs>
-      <clipPath id="a">
-        <path fill="#fff" d="M0 .153h800V496H0z" />
-      </clipPath>
+      <mask
+        id="b"
+        width={800}
+        height={496}
+        x={0}
+        y={0}
+        maskUnits="userSpaceOnUse"
+        style={{
+          maskType: "luminance",
+        }}
+      >
+        <path fill="#fff" d="M800 .153H0V496h800V.153Z" />
+      </mask>
     </defs>
   </svg>
 );
