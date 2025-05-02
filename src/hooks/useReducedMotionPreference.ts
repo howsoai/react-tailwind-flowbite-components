@@ -8,7 +8,6 @@ export const useReducedMotionPreference = (): boolean => {
   const [isReducedPreferred, setIsReducedPreferred] = useState(
     !!match.current.matches,
   );
-  console.info("useReducedMotionPreference match", match.current);
 
   useEffect(() => {
     const currentMatch = match.current;
