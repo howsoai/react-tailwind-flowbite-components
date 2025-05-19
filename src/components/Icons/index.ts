@@ -37,6 +37,7 @@ export * from "./QueueIcon";
 export * from "./RunProcessIcon";
 export * from "./SaveIcon";
 export * from "./SearchIcon";
+export * from "./ShowWorkIcon";
 export * from "./SnowflakeIcon";
 export * from "./StopIcon";
 export * from "./UpdateIcon";

@@ -40,6 +40,7 @@ import {
   RunProcessIcon,
   SaveIcon,
   SearchIcon,
+  ShowWorkIcon,
   SnowflakeIcon,
   StopIcon,
   UpdateIcon,
@@ -105,6 +106,7 @@ const meta: Meta<IconBaseProps> = {
           Icon={<RunProcessIcon {...args} />}
         />
         <IconWithLabel label={"Save"} Icon={<SaveIcon {...args} />} />
+        <IconWithLabel label={"Show work"} Icon={<ShowWorkIcon {...args} />} />
         <IconWithLabel label={"Search"} Icon={<SearchIcon {...args} />} />
         <IconWithLabel
           label={"Stop"}
